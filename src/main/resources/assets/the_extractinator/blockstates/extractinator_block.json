@@ -1,0 +1,19 @@
+{
+  "variants": {
+    "facing=east": {
+      "model": "the_extractinator:block/extractinator_block",
+      "y": 90
+    },
+    "facing=north": {
+      "model": "the_extractinator:block/extractinator_block"
+    },
+    "facing=south": {
+      "model": "the_extractinator:block/extractinator_block",
+      "y": 180
+    },
+    "facing=west": {
+      "model": "the_extractinator:block/extractinator_block",
+      "y": 270
+    }
+  }
+}

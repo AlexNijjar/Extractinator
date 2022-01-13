@@ -1,0 +1,47 @@
+{
+  "schemaVersion": 1,
+  "id": "the_extractinator",
+  "version": "1.0.0",
+
+  "name": "The Extractinator",
+  "description": "Introduces an alternative method of acquiring resources. Inspired by Terraria.",
+  "authors": [
+    "Alex Nijjar"
+  ],
+  "contact": {
+    "homepage": "https://modrinth.com/mod/the-extractinator",
+    "sources": "https://github.com/AlexNijjar/The-Extractinator"
+  },
+
+  "license": "MIT",
+  "icon": "assets/the_extractinator/icon.png",
+
+  "environment": "*",
+  "entrypoints": {
+    "main": [
+      "com.github.alexnijjar.the_extractinator.TheExtractinator"
+    ],
+    "client": [
+      "com.github.alexnijjar.the_extractinator.client.TheExtractinatorClient"
+    ],
+    "modmenu": [
+      "com.github.alexnijjar.the_extractinator.config.ModMenuConfig"
+    ],
+    "rei_plugins": [
+      "com.github.alexnijjar.the_extractinator.compat.rei.TEClientPlugin"
+    ]
+  },
+  "mixins": [
+    "the_extractinator.mixins.json"
+  ],
+
+  "depends": {
+    "fabricloader": ">=0.11.3",
+    "fabric": "*",
+    "minecraft": "1.18.x",
+    "java": ">=17"
+  },
+  "suggests": {
+    "another-mod": "*"
+  }
+}

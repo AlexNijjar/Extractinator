@@ -1,0 +1,118 @@
+{
+  "block.the_extractinator.extractinator_block": "Extractinator",
+  "block.the_extractinator.silt": "Silt",
+
+  "item.the_extractinator.silt.tooltip": "Can be placed in an extractinator to turn it into something more useful.",
+
+  "stat.the_extractinator.blocks_extractinated": "Blocks Extractinated",
+
+
+  "text.autoconfig.the_extractinator.title": "The Extractinator Config",
+  "text.autoconfig.the_extractinator.category.Extractinator": "Extractinator",
+  "text.autoconfig.the_extractinator.category.World": "World",
+
+  "text.autoconfig.the_extractinator.option.extractinatorConfig.commonItemChance":  "Common Item Chance",
+  "text.autoconfig.the_extractinator.option.extractinatorConfig.uncommonItemChance":  "Uncommon Item Chance",
+  "text.autoconfig.the_extractinator.option.extractinatorConfig.rareItemChance":  "Rare Item Chance",
+  "text.autoconfig.the_extractinator.option.extractinatorConfig.veryRareItemChance":  "Very Rare Item Chance",
+  "text.autoconfig.the_extractinator.option.extractinatorConfig.extremelyRareItemChance":  "Extremely Rare Item Chance",
+  "text.autoconfig.the_extractinator.option.extractinatorConfig.inputCooldown":  "Input Cooldown",
+  "text.autoconfig.the_extractinator.option.extractinatorConfig.extractinatorRecipe":  "Extractinator Recipe",
+  "text.autoconfig.the_extractinator.option.extractinatorConfig.supportedBlocks":  "Supported Blocks",
+  "text.autoconfig.the_extractinator.option.extractinatorConfig.supportedMods":  "Supported Mods",
+
+  "text.autoconfig.the_extractinator.option.SupportedBlocksConfig":  "Block Support",
+  "text.autoconfig.the_extractinator.option.SupportedBlocksConfig.name":  "Block Name",
+  "text.autoconfig.the_extractinator.option.SupportedBlocksConfig.tier":  "Tier",
+  "text.autoconfig.the_extractinator.option.SupportedBlocksConfig.yield":  "Yield %",
+  "text.autoconfig.the_extractinator.option.SupportedBlocksConfig.additionalDrops":  "Additional Drops",
+  "text.autoconfig.the_extractinator.option.SupportedBlocksConfig.disabledDrops":  "Disabled Drops",
+
+  "text.autoconfig.the_extractinator.option.AdditionalDropsConfig":  "Additional Drop",
+  "text.autoconfig.the_extractinator.option.AdditionalDropsConfig.name":  "Drop",
+  "text.autoconfig.the_extractinator.option.AdditionalDropsConfig.min":  "Min",
+  "text.autoconfig.the_extractinator.option.AdditionalDropsConfig.max":  "Max",
+  "text.autoconfig.the_extractinator.option.AdditionalDropsConfig.rarity":  "Rarity",
+
+  "text.autoconfig.the_extractinator.option.extractinatorConfig.supportedMods.minecraft_support":  "Minecraft",
+  "text.autoconfig.the_extractinator.option.extractinatorConfig.supportedMods.modern_industrialization_support":  "Modern Industrialization",
+  "text.autoconfig.the_extractinator.option.extractinatorConfig.supportedMods.techreborn_support":  "Tech Reborn",
+  "text.autoconfig.the_extractinator.option.extractinatorConfig.supportedMods.indrev_support":  "Industrial Revolution",
+  "text.autoconfig.the_extractinator.option.extractinatorConfig.supportedMods.ae2_support":  "Applied Energistics 2",
+
+  "text.autoconfig.the_extractinator.option.worldConfig.generateSiltOre":  "Generate Silt Ore",
+  "text.autoconfig.the_extractinator.option.worldConfig.siltVeinSize":  "Silt Vein Size",
+  "text.autoconfig.the_extractinator.option.worldConfig.siltVeinsPerChunk":  "Silt Veins Per Chunk",
+  "text.autoconfig.the_extractinator.option.worldConfig.siltMaxSpawnHeight":  "Silt Max Spawn Height",
+
+  "text.autoconfig.the_extractinator.option.worldConfig.generateCabins":  "Generate Cabins",
+  "text.autoconfig.the_extractinator.option.worldConfig.cabinSpacing":  "Cabin Spacing",
+  "text.autoconfig.the_extractinator.option.worldConfig.cabinSeparation":  "Cabin Separation",
+  "text.autoconfig.the_extractinator.option.worldConfig.reduceCabinSpawning":  "Reduce Cabin Spawning",
+  "text.autoconfig.the_extractinator.option.worldConfig.moddedLootInChests":  "Spawn Modded Loot in Chests",
+  "text.autoconfig.the_extractinator.option.worldConfig.cabinMinHeight":  "Cabin Min Height",
+  "text.autoconfig.the_extractinator.option.worldConfig.cabinMaxHeight":  "Cabin Max Height",
+  "text.autoconfig.the_extractinator.option.worldConfig.deepslateCabinMinHeight":  "Deepslate Cabin Min Height",
+  "text.autoconfig.the_extractinator.option.worldConfig.deepslateCabinMaxHeight":  "Deepslate Cabin Max Height",
+  "text.autoconfig.the_extractinator.option.worldConfig.intactCabinWeight":  "Intact Cabin Weight",
+  "text.autoconfig.the_extractinator.option.worldConfig.brokenCabinWeight":  "Broken Cabin Weight",
+
+  "text.autoconfig.the_extractinator.tier.none": "None",
+  "text.autoconfig.the_extractinator.tier.tier_1": "Tier 1",
+  "text.autoconfig.the_extractinator.tier.tier_2": "Tier 2",
+  "text.autoconfig.the_extractinator.tier.tier_3": "Tier 3",
+  "text.autoconfig.the_extractinator.tier.tier_4": "Tier 4",
+  "text.autoconfig.the_extractinator.tier.tier_5": "Tier 5",
+
+  "text.autoconfig.the_extractinator.rarity.common": "Common",
+  "text.autoconfig.the_extractinator.rarity.uncommon": "Uncommon",
+  "text.autoconfig.the_extractinator.rarity.rare": "Rare",
+  "text.autoconfig.the_extractinator.rarity.very_rare": "Very Rare",
+  "text.autoconfig.the_extractinator.rarity.extremely_rare": "Extremely Rare",
+  "text.autoconfig.the_extractinator.rarity.invalid": "Invalid",
+
+  "text.autoconfig.the_extractinator.extractinator_recipe.none": "None",
+  "text.autoconfig.the_extractinator.extractinator_recipe.minecraft": "Minecraft",
+  "text.autoconfig.the_extractinator.extractinator_recipe.modern_industrialization": "MI",
+  "text.autoconfig.the_extractinator.extractinator_recipe.tech_reborn": "Tech Reborn",
+
+  "text.autoconfig.the_extractinator.option.extractinatorConfig.inputCooldown.@Tooltip[0]": "How long should the tick delay be when a block is placed in an extractinator via a hopper or",
+  "text.autoconfig.the_extractinator.option.extractinatorConfig.inputCooldown.@Tooltip[1]": "item pipe? The default is eight, meaning that the extractinator will consume one block every",
+  "text.autoconfig.the_extractinator.option.extractinatorConfig.inputCooldown.@Tooltip[2]": "eight ticks (same as a hopper). Set this to one if you want the extractinator to extract its",
+  "text.autoconfig.the_extractinator.option.extractinatorConfig.inputCooldown.@Tooltip[3]": "input instantly.",
+
+  "text.autoconfig.the_extractinator.option.extractinatorConfig.extractinatorRecipe.@Tooltip[0]": "Defines what recipe to use when crafting the extractinator. By default, the extractinator is",
+  "text.autoconfig.the_extractinator.option.extractinatorConfig.extractinatorRecipe.@Tooltip[1]": "uncraftable. You can change it; however, I have set this to no recipe by default in order to",
+  "text.autoconfig.the_extractinator.option.extractinatorConfig.extractinatorRecipe.@Tooltip[2]": "encourage player exploration, i.e. searching for the extractinator in an underground cabin.",
+  "text.autoconfig.the_extractinator.option.extractinatorConfig.extractinatorRecipe.@Tooltip[3]": "If you don't care about exploration, I'd recommend setting this to a modded recipe.",
+  "text.autoconfig.the_extractinator.option.extractinatorConfig.extractinatorRecipe.@Tooltip[4]": "modded recipe.",
+
+  "text.autoconfig.the_extractinator.option.extractinatorConfig.supportedMods.@Tooltip": "What mods should The Extractinator support?",
+
+  "text.autoconfig.the_extractinator.option.extractinatorConfig.supportedBlocks.@Tooltip[0]": "A highly-configurable list of blocks that the extractinator will accept as an input. You",
+  "text.autoconfig.the_extractinator.option.extractinatorConfig.supportedBlocks.@Tooltip[1]": "can add or remove blocks, including modded ones, set the loot table, add custom items",
+  "text.autoconfig.the_extractinator.option.extractinatorConfig.supportedBlocks.@Tooltip[2]": "for each block with custom rarity and remove certain items from block loot tables.",
+  "text.autoconfig.the_extractinator.option.extractinatorConfig.supportedBlocks.@Tooltip[3]": "Look at the default blocks on this list for reference if you plan on adding any more",
+  "text.autoconfig.the_extractinator.option.extractinatorConfig.supportedBlocks.@Tooltip[4]": "blocks. I do not recommend modifying or adding things to this list if you are not",
+  "text.autoconfig.the_extractinator.option.extractinatorConfig.supportedBlocks.@Tooltip[5]": "a modpack developer.",
+
+  "text.autoconfig.the_extractinator.option.worldConfig.cabinSpacing.@Tooltip": "This value should never be equal to or lower than the cabin separation value.",
+  "text.autoconfig.the_extractinator.option.worldConfig.cabinSeparation.@Tooltip": "This value should never be equal to or greater than the cabin spacing value.",
+
+  "text.autoconfig.the_extractinator.option.worldConfig.intactCabinWeight.@Tooltip[0]": "The chance of an intact cabin spawning over other cabin variants.",
+  "text.autoconfig.the_extractinator.option.worldConfig.intactCabinWeight.@Tooltip[1]": "There are currently 2 intact cabin variations.",
+
+  "text.autoconfig.the_extractinator.option.worldConfig.brokenCabinWeight.@Tooltip[0]": "The chance of a broken cabin spawning over other cabin variants.",
+  "text.autoconfig.the_extractinator.option.worldConfig.brokenCabinWeight.@Tooltip[1]": "There are currently 6 intact cabin variations.",
+
+  "text.autoconfig.the_extractinator.option.worldConfig.moddedLootInChests.@Tooltip[0]": "Should loot from other mods, such as tin ingots, be included in cabin chests?",
+  "text.autoconfig.the_extractinator.option.worldConfig.moddedLootInChests.@Tooltip[1]": "(Does not affect cabins that have already been generated in your world).",
+
+
+  "the_extractinator.rei.extractinator.title": "Extractinator",
+  "the_extractinator.rei.extractinator.info.title": "Location",
+  "the_extractinator.rei.extractinator.info.body": "Extractinators are found in underground cabins. Look for large, wooden structures in caves.",
+
+  "the_extractinator.rei.extractinator.drop_range": "Drops: %s-%d",
+  "the_extractinator.rei.extractinator.yield_chance": "%s %% Chance"
+}
