@@ -1,0 +1,68 @@
+{
+  "type": "minecraft:generic",
+  "pools": [
+    {
+      "rolls": 1,
+      "bonus_rolls": 0.0,
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "techreborn:raw_tin"
+        },
+        {
+          "type": "minecraft:item",
+          "name": "techreborn:galena_dust"
+        }
+      ],
+      "conditions": [
+        {
+          "condition": "the_extractinator:rarity_chance",
+          "rarity": "common"
+        }
+      ]
+    },
+    {
+      "rolls": 1,
+      "bonus_rolls": 0.0,
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "techreborn:bauxite_dust"
+        }
+      ],
+      "conditions": [
+        {
+          "condition": "the_extractinator:rarity_chance",
+          "rarity": "uncommon"
+        }
+      ]
+    },
+    {
+      "rolls": 1,
+      "bonus_rolls": 0.0,
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "functions": [
+            {
+              "function": "minecraft:set_count",
+              "count": {
+                "type": "minecraft:uniform",
+                "min": 1.0,
+                "max": 2.0
+              },
+              "add": false
+            }
+          ],
+          "name": "techreborn:tungsten_small_dust"
+        }
+      ],
+      "conditions": [
+        {
+          "condition": "the_extractinator:rarity_chance",
+          "rarity": "very_rare"
+        }
+      ]
+    }
+  ]
+}
