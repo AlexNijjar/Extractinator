@@ -39,7 +39,6 @@ public class ExtractinatorConfig implements ConfigData {
 
     @ConfigEntry.Gui.CollapsibleObject
     @ConfigEntry.Gui.Tooltip
-    @ConfigEntry.Gui.RequiresRestart
     public SupportedModsConfig supportedMods = new SupportedModsConfig();
 
     // This breaks the Jankson Serializer for some reason. Solution is to use Toml serializer.

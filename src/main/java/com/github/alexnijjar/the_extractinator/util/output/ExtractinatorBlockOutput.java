@@ -39,6 +39,11 @@ public final class ExtractinatorBlockOutput {
             }
         }
 
+        if (tables == null) {
+            TheExtractinator.LOGGER.error("REI Loot tables for The Extractinator not found.");
+            return loot;
+        }
+
         if (blockConfig != null) {
 
             for (LootTable table : tables) {
@@ -62,7 +67,10 @@ public final class ExtractinatorBlockOutput {
             }
         }
 
-        // Sort by rarity.
+        // Sort alphabetically.
+        loot.sort(Comparator.comparing(o -> o.item.getPath()));
+
+        // Then sort by rarity.
         loot.sort(Comparator.comparing(o -> o.rarity.ordinal()));
 
         return loot;

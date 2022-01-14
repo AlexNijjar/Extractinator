@@ -21,4 +21,16 @@ public class ConfiguredStructures {
         Registry.register(BuiltinRegistries.CONFIGURED_STRUCTURE_FEATURE, new TEIdentifier("configured_cabin"), DEFAULT_CONFIGURED_CABIN);
         Registry.register(BuiltinRegistries.CONFIGURED_STRUCTURE_FEATURE, new TEIdentifier("configured_deepslate_cabin"), DEEPSLATE_CONFIGURED_CABIN);
     }
+
+    /*
+setblock ~ ~ ~ minecraft:chest{LootTable:"the_extractinator:chests/cabin_bedroom"}
+setblock ~ ~ ~ minecraft:chest{LootTable:"the_extractinator:chests/cabin_blocks"}
+setblock ~ ~ ~ minecraft:chest{LootTable:"the_extractinator:chests/cabin_enchanting"}
+setblock ~ ~ ~ minecraft:chest{LootTable:"the_extractinator:chests/cabin_enhanced_enchanting"}
+setblock ~ ~ ~ minecraft:chest{LootTable:"the_extractinator:chests/cabin_enhanced_metalworks"}
+setblock ~ ~ ~ minecraft:chest{LootTable:"the_extractinator:chests/cabin_kitchen"}
+setblock ~ ~ ~ minecraft:chest{LootTable:"the_extractinator:chests/cabin_metalworks"}
+setblock ~ ~ ~ minecraft:chest{LootTable:"the_extractinator:chests/cabin_music"}
+setblock ~ ~ ~ minecraft:chest{LootTable:"the_extractinator:chests/cabin_potion"}
+     */
 }

@@ -56,7 +56,7 @@ public final class SupportedBlocks {
 
             new SupportedBlocksConfig("minecraft:granite", Tier.TIER_2, 20,
                     Arrays.asList(
-                            new AdditionalDropsConfig("techreborn:granite_dust", 1, 2, Rarity.UNCOMMON),
+                            new AdditionalDropsConfig("techreborn:granite_dust", 1, 2, Rarity.COMMON),
                             new AdditionalDropsConfig("minecraft:quartz", Rarity.RARE),
                             new AdditionalDropsConfig("modern_industrialization:uranium_dust", 2, 4, Rarity.RARE)
                     ),
@@ -67,7 +67,7 @@ public final class SupportedBlocks {
 
             new SupportedBlocksConfig("minecraft:andesite", Tier.TIER_2, 20,
                     Arrays.asList(
-                            new AdditionalDropsConfig("techreborn:andesite_dust", 1, 2, Rarity.UNCOMMON),
+                            new AdditionalDropsConfig("techreborn:andesite_dust", 1, 2, Rarity.COMMON),
                             new AdditionalDropsConfig("modern_industrialization:sodium_tiny_dust", 3, 9, Rarity.RARE),
                             new AdditionalDropsConfig("techreborn:basalt_dust", Rarity.VERY_RARE)
                     )
@@ -75,7 +75,7 @@ public final class SupportedBlocks {
 
             new SupportedBlocksConfig("minecraft:diorite", Tier.TIER_2, 20,
                     Arrays.asList(
-                            new AdditionalDropsConfig("techreborn:diorite_dust", 1, 2, Rarity.UNCOMMON),
+                            new AdditionalDropsConfig("techreborn:diorite_dust", 1, 2, Rarity.COMMON),
                             new AdditionalDropsConfig("minecraft:quartz", Rarity.RARE)
                     )),
 
@@ -83,7 +83,7 @@ public final class SupportedBlocks {
 
             new SupportedBlocksConfig("minecraft:calcite", Tier.TIER_2, 20,
                     Arrays.asList(
-                            new AdditionalDropsConfig("techreborn:calcite_dust", 1, 2, Rarity.UNCOMMON),
+                            new AdditionalDropsConfig("techreborn:calcite_dust", 1, 2, Rarity.COMMON),
                             new AdditionalDropsConfig("minecraft:quartz", 1, 3, Rarity.UNCOMMON),
                             new AdditionalDropsConfig("minecraft:amethyst_shard", Rarity.RARE),
                             new AdditionalDropsConfig("modern_industrialization:carbon_dust", Rarity.RARE)
@@ -95,7 +95,7 @@ public final class SupportedBlocks {
 
             new SupportedBlocksConfig("minecraft:smooth_basalt", Tier.TIER_3, 25,
                     Arrays.asList(
-                            new AdditionalDropsConfig("techreborn:basalt_dust", 1, 2, Rarity.UNCOMMON),
+                            new AdditionalDropsConfig("techreborn:basalt_dust", 1, 2, Rarity.COMMON),
                             new AdditionalDropsConfig("modern_industrialization:iron_dust", 1, 2, Rarity.UNCOMMON),
                             new AdditionalDropsConfig("techreborn:olivine_dust", Rarity.UNCOMMON),
                             new AdditionalDropsConfig("minecraft:amethyst_shard", Rarity.RARE)
