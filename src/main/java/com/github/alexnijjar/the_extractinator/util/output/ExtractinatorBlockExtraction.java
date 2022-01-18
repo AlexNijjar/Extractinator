@@ -2,6 +2,7 @@ package com.github.alexnijjar.the_extractinator.util.output;
 
 import com.github.alexnijjar.the_extractinator.TheExtractinator;
 import com.github.alexnijjar.the_extractinator.config.AdditionalDropsConfig;
+import com.github.alexnijjar.the_extractinator.config.ExtractinatorConfig;
 import com.github.alexnijjar.the_extractinator.config.SupportedBlocksConfig;
 import com.github.alexnijjar.the_extractinator.config.SupportedModsConfig;
 import com.github.alexnijjar.the_extractinator.registry.TEStats;
@@ -25,16 +26,15 @@ import net.minecraft.util.Identifier;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.registry.Registry;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Random;
+import java.util.*;
 
 public final class ExtractinatorBlockExtraction {
 
     // Obtains loot from a loot table for the extractinator to spit out.
     public static void extractMaterials(BlockState block, ServerWorld world, BlockPos pos) {
 
-        for (SupportedBlocksConfig supportedBlocks : TheExtractinator.CONFIG.extractinatorConfig.supportedBlocks) {
+        ExtractinatorConfig extractinatorConfig = TheExtractinator.CONFIG.extractinatorConfig;
+        for (SupportedBlocksConfig supportedBlocks : extractinatorConfig.supportedBlocks) {
 
             if (supportedBlocks.tier == Tier.NONE) return;
 
@@ -54,13 +54,26 @@ public final class ExtractinatorBlockExtraction {
                 if (Math.random() > yield) return;
 
                 // Adds loot based on which mods are installed.
-                List<Identifier> paths = getLoot(tier);
+                Map<Identifier, Integer> paths = getLoot(tier);
                 if (paths.isEmpty()) return;
+
+                List<Integer> values = new ArrayList<>(paths.values());
+                List<Identifier> keys = new ArrayList<>(paths.keySet());
+                List<Identifier> chance = new ArrayList<>();
+
+                // Apply weight.
+                for (int x = 0; x < values.size(); x++) {
+                    int val = values.get(x);
+
+                    for (int y = 0; y < val; y++) {
+                        chance.add(keys.get(x));
+                    }
+                }
 
                 // Obtain a random loot table from the list.
                 Random random = world.random;
-                int result = random.nextInt(paths.size());
-                Identifier lootID = paths.get(result);
+                int result = random.nextInt(chance.size());
+                Identifier lootID = chance.get(result);
 
                 // Create the loot table.
                 MinecraftServer server = world.getServer();
@@ -105,6 +118,9 @@ public final class ExtractinatorBlockExtraction {
                 // Spawn loot above the extractinator.
                 for (ItemStack itemStack : generatedLoot) {
 
+                    int size = itemStack.getCount();
+                    itemStack.setCount((int) Math.ceil(size * extractinatorConfig.outputLootMultiplier));
+
                     ItemEntity itemEntity = new ItemEntity(world, pos.getX() + 0.5f, pos.getY() + 0.5f, pos.getZ() + 0.5f, itemStack);
                     itemEntity.setVelocity(itemEntity.getVelocity().multiply(1.5f));
                     itemEntity.setToDefaultPickupDelay();
@@ -114,43 +130,44 @@ public final class ExtractinatorBlockExtraction {
         }
     }
 
-    private static List<Identifier> getLoot(String tier) {
+    // Gets the paths and weight for each supported mod.
+    private static Map<Identifier, Integer> getLoot(String tier) {
 
-        List<Identifier> paths = new ArrayList<>();
+        Map<Identifier, Integer> paths = new HashMap<>();
 
         SupportedModsConfig support = TheExtractinator.CONFIG.extractinatorConfig.supportedMods;
 
         if (TEUtils.modIsLoaded(SupportedMods.MI) && support.modern_industrialization_support) {
 
             // Just Modern Industrialization.
-            paths.add(new TEIdentifier("gameplay/extractinator/modern_industrialization/" + tier));
+            paths.put(new TEIdentifier("gameplay/extractinator/modern_industrialization/" + tier), 3);
 
             // Modern Industrialization and Tech Reborn.
             if (TEUtils.modIsLoaded(SupportedMods.TR) && support.techreborn_support)
-                paths.add(new TEIdentifier("gameplay/extractinator/techreborn/addon/" + tier));
+                paths.put(new TEIdentifier("gameplay/extractinator/techreborn/addon/" + tier), 2);
 
             if (support.minecraft_support)
-                paths.add(new TEIdentifier("gameplay/extractinator/minecraft/addon/" + tier));
+                paths.put(new TEIdentifier("gameplay/extractinator/minecraft/addon/" + tier), 4);
         }
 
         // Just Tech Reborn.
         else if (TEUtils.modIsLoaded(SupportedMods.TR) && support.techreborn_support) {
-            paths.add(new TEIdentifier("gameplay/extractinator/techreborn/" + tier));
+            paths.put(new TEIdentifier("gameplay/extractinator/techreborn/addon/" + tier), 3);
             if (support.minecraft_support)
-                paths.add(new TEIdentifier("gameplay/extractinator/minecraft/addon/" + tier));
+                paths.put(new TEIdentifier("gameplay/extractinator/minecraft/addon/" + tier), 4);
         }
 
         // If MI and TR are not installed, add the default Minecraft loot table.
         else if (support.minecraft_support)
-            paths.add(new TEIdentifier("gameplay/extractinator/minecraft/" + tier));
+            paths.put(new TEIdentifier("gameplay/extractinator/minecraft/" + tier), 1);
 
         // Indrev.
         if (TEUtils.modIsLoaded(SupportedMods.INDREV) && support.indrev_support)
-            paths.add(new TEIdentifier("gameplay/extractinator/indrev/" + tier));
+            paths.put(new TEIdentifier("gameplay/extractinator/indrev/" + tier), 1);
 
         // AE2.
         if (TEUtils.modIsLoaded(SupportedMods.AE2) && support.ae2_support)
-            paths.add(new TEIdentifier("gameplay/extractinator/ae2/" + tier));
+            paths.put(new TEIdentifier("gameplay/extractinator/ae2/" + tier), 1);
 
         return paths;
     }

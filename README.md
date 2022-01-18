@@ -1,2 +1,45 @@
-# The-Extractinator
-Adds the Extractinator from Terraria.
+<p align="center">
+    <img src="https://i.imgur.com/XBXqiRF.gif" alt="Main"/> 
+</p>
+
+<br/><br/>
+
+<a href="https://modrinth.com/mod/fabric-api">
+    <p align="center">
+        <img src="https://i.imgur.com/Ol1Tcf8.png" alt="Fabric API" width="250"/> 
+    </p>
+</a>
+
+# The Extractinator
+
+This mod adds a new machine, the Extractinator, which converts your throwaway blocks, such as gravel and cobblestone,
+into valuable resources. It's heavily inspired by Terraria's
+[silt extractinator](https://terraria.fandom.com/wiki/Extractinator), adding silt ore and underground cabins, where
+extractinators are located. It also has extensive support for other mods, specifically tech mods, allowing you to
+convert blocks into modded materials and resources necessary for those mods.
+
+## Features
+
+- Extractinator: Turns blocks into valuable items.
+- Silt: A new ore that spawns deep underground. Placing silt in an extractinator yields valuable resources.
+- Underground Cabins: These structures are the only way (by default) to find extractinators.
+
+<p align="center">
+    <img src="https://i.imgur.com/vuv5zi9.gif" alt="Demo" width="600"/> 
+</p>
+
+## Integrations
+
+- [Roughly Enough Items:](https://www.curseforge.com/minecraft/mc-mods/roughly-enough-items) Displays the output for
+  each block that can be extractinated, including the rarity and quantity of items.
+- [Modern Industrialization:](https://modrinth.com/mod/modern-industrialization) Support for much of Modern
+  Industrialization's early to mid-game resources. It also supports item pipes, allowing for better automation.
+- [Tech Reborn:](https://www.curseforge.com/minecraft/mc-mods/techreborn) Support for Tech Reborn's ores and dusts.
+- [Industrial Revolution:](https://www.curseforge.com/minecraft/mc-mods/industrial-revolution) Support for Nikolite.
+- [Applied Energistics 2:](https://modrinth.com/mod/ae2) Support for Certus Quartz Crystals.
+- [Blockus:](https://www.curseforge.com/minecraft/mc-mods/blockus) Marble, bluestone and limestone can be extractinated.
+- [Promenade:](https://modrinth.com/mod/promenade) Carbonite and blunite can be extractinated.
+
+<p align="center">
+    <img src="https://i.imgur.com/ZfKwHEF.png" alt="REI" width="400"/> 
+</p>

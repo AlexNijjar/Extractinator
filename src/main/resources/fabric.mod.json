@@ -4,7 +4,7 @@
   "version": "1.0.0",
 
   "name": "The Extractinator",
-  "description": "Introduces an alternative method of acquiring resources. Inspired by Terraria.",
+  "description": "Convert blocks into resources.",
   "authors": [
     "Alex Nijjar"
   ],

@@ -16,7 +16,7 @@ import java.util.List;
 
 /*
     Loot spreadsheet:
-    https://docs.google.com/spreadsheets/d/1fMDkW5NF3i8aUo75QgbrrI62U_VafD-4HfM1QJkx2ZI/edit?usp=sharing
+    https://docs.google.com/sp3,9readsheets/d/1fMDkW5NF3i8aUo75QgbrrI62U_VafD-4HfM1QJkx2ZI/edit?usp=sharing
 */
 public final class ExtractinatorBlockOutput {
 
