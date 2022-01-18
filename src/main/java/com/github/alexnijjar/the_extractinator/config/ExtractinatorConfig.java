@@ -27,10 +27,13 @@ public class ExtractinatorConfig implements ConfigData {
     @ConfigEntry.Gui.RequiresRestart
     public float extremelyRareItemChance = 2;
 
-    @ConfigEntry.Gui.Tooltip(count = 4)
+    @ConfigEntry.Gui.Tooltip(count = 5)
     public int inputCooldown = 8;
 
-    @ConfigEntry.Gui.Tooltip(count = 4)
+    @ConfigEntry.Gui.Tooltip(count = 2)
+    public float outputLootMultiplier = 1.0f;
+
+    @ConfigEntry.Gui.Tooltip(count = 5)
     @ConfigEntry.Gui.EnumHandler(
             option = ConfigEntry.Gui.EnumHandler.EnumDisplayOption.BUTTON
     )

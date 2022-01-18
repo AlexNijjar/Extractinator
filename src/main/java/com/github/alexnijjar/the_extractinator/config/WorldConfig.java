@@ -13,15 +13,15 @@ public class WorldConfig implements ConfigData {
     public int siltMaxSpawnHeight = 24;
 
     public boolean generateCabins = true;
-    @ConfigEntry.Gui.Tooltip
-    public int cabinSpacing = 7;
-    @ConfigEntry.Gui.Tooltip
-    public int cabinSeparation = 4;
+    @ConfigEntry.Gui.Tooltip(count = 2)
+    public int cabinSpacing = 9;
+    @ConfigEntry.Gui.Tooltip(count = 2)
+    public int cabinSeparation = 5;
 
     @ConfigEntry.BoundedDiscrete(min = -64, max = 256)
     public int cabinMinHeight = 0;
     @ConfigEntry.BoundedDiscrete(min = -32, max = 288)
-    public int cabinMaxHeight = 48;
+    public int cabinMaxHeight = 30;
 
     @ConfigEntry.BoundedDiscrete(min = -64, max = 256)
     public int deepslateCabinMinHeight = -48;
@@ -32,7 +32,7 @@ public class WorldConfig implements ConfigData {
     public int intactCabinWeight = 1;
     @ConfigEntry.Gui.Tooltip(count = 2)
     public int brokenCabinWeight = 2;
-    @ConfigEntry.Gui.Tooltip(count = 2)
+    @ConfigEntry.Gui.Tooltip(count = 3)
     @ConfigEntry.Gui.RequiresRestart
     public boolean moddedLootInChests = true;
 

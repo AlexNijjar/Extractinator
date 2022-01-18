@@ -12,7 +12,7 @@ public final class SupportedBlocks {
 
     public static final List<SupportedBlocksConfig> supportedBlocks = Arrays.asList(
 
-            new SupportedBlocksConfig("the_extractinator:silt", Tier.TIER_4, 50),
+            new SupportedBlocksConfig("the_extractinator:silt", Tier.TIER_4, 75),
 
             new SupportedBlocksConfig("minecraft:gravel", Tier.TIER_3, 20,
                     List.of(

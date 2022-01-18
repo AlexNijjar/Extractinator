@@ -44,6 +44,8 @@ public class CabinStructure extends StructureFeature<StructurePoolFeatureConfig>
         int randomY = random.nextInt(configMax - bottom) + bottom;
         BlockPos pos = context.chunkPos().getCenterAtY(randomY);
 
+        // TODO: prevent cabins from spawning on ocean floor.
+
         return StructurePoolBasedGenerator.generate(context, PoolStructurePiece::new, pos, false, false);
     }
 }

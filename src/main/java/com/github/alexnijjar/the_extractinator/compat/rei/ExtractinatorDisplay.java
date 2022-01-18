@@ -1,5 +1,6 @@
 package com.github.alexnijjar.the_extractinator.compat.rei;
 
+import com.github.alexnijjar.the_extractinator.TheExtractinator;
 import com.github.alexnijjar.the_extractinator.util.TEUtils;
 import com.github.alexnijjar.the_extractinator.util.output.ExtractinatorBlockOutput;
 import me.shedaniel.rei.api.common.category.CategoryIdentifier;
@@ -43,7 +44,7 @@ public class ExtractinatorDisplay implements Display {
 
         ExtractinatorBlockOutput.getOutput(id, tables).forEach((slot) -> {
 
-            EntryStack<ItemStack> entry = EntryStacks.of(new ItemStack(TEUtils.getItem(slot.item), slot.range.getMaximum()))
+            EntryStack<ItemStack> entry = EntryStacks.of(new ItemStack(TEUtils.getItem(slot.item), (int) Math.ceil(slot.range.getMaximum() * TheExtractinator.CONFIG.extractinatorConfig.outputLootMultiplier)))
                     .setting(EntryStack.Settings.TOOLTIP_APPEND_EXTRA, REIUtils.getSettings(slot.rarity, slot.range));
             EntryIngredient ingredient = EntryIngredient.of(entry);
 
