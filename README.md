@@ -41,5 +41,5 @@ convert blocks into modded materials and resources necessary for those mods.
 - [Promenade:](https://modrinth.com/mod/promenade) Carbonite and blunite can be extractinated.
 
 <p align="center">
-    <img src="https://i.imgur.com/ZfKwHEF.png" alt="REI" width="400"/> 
+    <img src="https://i.imgur.com/SW58j0D.png" alt="REI" width="500"/> 
 </p>
