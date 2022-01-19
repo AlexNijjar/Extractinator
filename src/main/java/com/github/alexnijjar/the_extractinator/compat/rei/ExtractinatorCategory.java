@@ -21,8 +21,7 @@ import java.util.List;
 public class ExtractinatorCategory implements DisplayCategory<ExtractinatorDisplay> {
 
     final int slotSize = 18;
-    final int rowSize = 8;
-
+    final int rowSize = 9;
 
     @Override
     public Renderer getIcon() {
@@ -41,54 +40,66 @@ public class ExtractinatorCategory implements DisplayCategory<ExtractinatorDispl
 
     @Override
     public int getDisplayWidth(ExtractinatorDisplay display) {
-        return (int) (slotSize * 9.5);
+        return DisplayCategory.super.getDisplayWidth(display) + 25;
     }
 
     @Override
     public int getDisplayHeight() {
-        return (int) (slotSize * 13.5);
+        return DisplayCategory.super.getDisplayHeight() + 90;
+    }
+
+    @Override
+    public int getMaximumDisplaysPerPage() {
+        return 1;
     }
 
     @Override
     public List<Widget> setupDisplay(ExtractinatorDisplay display, Rectangle bounds) {
-        Point startPoint = new Point(bounds.getCenterX() - slotSize / 2, bounds.getCenterY() - slotSize * 4);
+        Point startPoint = new Point((bounds.getCenterX() - slotSize / 2) + 1.5, bounds.getCenterY() - slotSize * 4);
         List<Widget> widgets = new ArrayList<>();
 
         widgets.add(Widgets.createRecipeBase(bounds));
 
         // Input block item.
-        widgets.add(Widgets.createSlot(new Point(startPoint.x, startPoint.y - slotSize))
+        widgets.add(Widgets.createSlot(new Point(startPoint.x - slotSize * 1.5, startPoint.y))
                 .entries(display.getInputEntries().get(0))
                 .markInput());
+
+        // Arrow
+        widgets.add(Widgets.createArrow(new Point(startPoint.x - 4, startPoint.y)));
+
         // Extractinator item.
-        widgets.add(Widgets.createSlot(new Point(startPoint.x, startPoint.y))
+        widgets.add(Widgets.createSlot(new Point(startPoint.x + slotSize * 1.5, startPoint.y))
                 .entries(EntryIngredients.of(TEBlocks.EXTRACTINATOR_BLOCK))
                 .markInput());
 
         // Yield text.
         int yield = TheExtractinator.CONFIG.extractinatorConfig.supportedBlocks.get(display.index).yield;
         TranslatableText yieldText = new TranslatableText("the_extractinator.rei.extractinator.yield_chance", yield);
-        widgets.add(Widgets.createLabel(new Point(startPoint.x - 5, startPoint.y + slotSize + 5), yieldText)
+        widgets.add(Widgets.createLabel(new Point(startPoint.x - 8, startPoint.y + slotSize + 5), yieldText)
                 .rightAligned()
                 .noShadow()
                 .color(0xFF404040, 0xFFBBBBBB));
 
         List<EntryIngredient> outputEntries = display.getOutputEntries();
-        int size = outputEntries.size();
-        int rows = (int) Math.ceil((double) size / rowSize);
 
         // List of items.
         for (int x = 0; x < rowSize; x++) {
-            for (int y = 0; y < rows; y++) {
-                if (rowSize * y + x >= size) {
-                    break;
-                }
+            for (int y = 0; y < 6; y++) {
+
                 int index = rowSize * y + x;
-                widgets.add(
-                        Widgets.createSlot(new Point(startPoint.x - slotSize * 3 - slotSize / 2 + slotSize * x, startPoint.y + slotSize * 2 + slotSize * y))
-                                .markOutput()
-                                .entries(outputEntries.get(index))
-                );
+
+                if (outputEntries.size() > index)
+                    widgets.add(
+                            Widgets.createSlot(new Point(startPoint.x - slotSize * 3.5f - slotSize / 2 + slotSize * x, startPoint.y + slotSize * 2 + slotSize * y))
+                                    .markOutput()
+                                    .entries(outputEntries.get(index))
+                    );
+                else
+                    // Remaining slots
+                    widgets.add(
+                            Widgets.createSlot(new Point(startPoint.x - slotSize * 3.5f - slotSize / 2 + slotSize * x, startPoint.y + slotSize * 2 + slotSize * y))
+                    );
             }
         }
         return widgets;

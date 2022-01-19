@@ -1,5 +1,6 @@
 package com.github.alexnijjar.the_extractinator.structure;
 
+import com.github.alexnijjar.the_extractinator.TheExtractinator;
 import com.github.alexnijjar.the_extractinator.registry.TEStructures;
 import com.github.alexnijjar.the_extractinator.structure.generator.BasicCabinGenerator;
 import com.github.alexnijjar.the_extractinator.structure.generator.DeepslateCabinGenerator;
@@ -18,8 +19,11 @@ public class ConfiguredStructures {
             .configure(new StructurePoolFeatureConfig(() -> DeepslateCabinGenerator.STARTING_POOL, 1));
 
     public static void register() {
-        Registry.register(BuiltinRegistries.CONFIGURED_STRUCTURE_FEATURE, new TEIdentifier("configured_cabin"), DEFAULT_CONFIGURED_CABIN);
-        Registry.register(BuiltinRegistries.CONFIGURED_STRUCTURE_FEATURE, new TEIdentifier("configured_deepslate_cabin"), DEEPSLATE_CONFIGURED_CABIN);
+
+        if (TheExtractinator.CONFIG.worldConfig.generateCabins) {
+            Registry.register(BuiltinRegistries.CONFIGURED_STRUCTURE_FEATURE, new TEIdentifier("configured_cabin"), DEFAULT_CONFIGURED_CABIN);
+            Registry.register(BuiltinRegistries.CONFIGURED_STRUCTURE_FEATURE, new TEIdentifier("configured_deepslate_cabin"), DEEPSLATE_CONFIGURED_CABIN);
+        }
     }
 
     /*

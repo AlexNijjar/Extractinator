@@ -26,7 +26,7 @@ public class WorldConfig implements ConfigData {
     @ConfigEntry.BoundedDiscrete(min = -64, max = 256)
     public int deepslateCabinMinHeight = -48;
     @ConfigEntry.BoundedDiscrete(min = -32, max = 288)
-    public int deepslateCabinMaxHeight = -1;
+    public int deepslateCabinMaxHeight = -8;
 
     @ConfigEntry.Gui.Tooltip(count = 2)
     public int intactCabinWeight = 1;

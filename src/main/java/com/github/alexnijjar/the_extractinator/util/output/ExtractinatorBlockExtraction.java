@@ -152,7 +152,7 @@ public final class ExtractinatorBlockExtraction {
 
         // Just Tech Reborn.
         else if (TEUtils.modIsLoaded(SupportedMods.TR) && support.techreborn_support) {
-            paths.put(new TEIdentifier("gameplay/extractinator/techreborn/addon/" + tier), 3);
+            paths.put(new TEIdentifier("gameplay/extractinator/techreborn/" + tier), 3);
             if (support.minecraft_support)
                 paths.put(new TEIdentifier("gameplay/extractinator/minecraft/addon/" + tier), 4);
         }

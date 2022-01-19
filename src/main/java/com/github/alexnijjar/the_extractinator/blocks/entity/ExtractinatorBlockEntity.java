@@ -16,6 +16,7 @@ import net.minecraft.inventory.Inventories;
 import net.minecraft.inventory.SidedInventory;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
+import net.minecraft.item.Items;
 import net.minecraft.nbt.NbtCompound;
 import net.minecraft.server.world.ServerWorld;
 import net.minecraft.util.Identifier;
@@ -61,7 +62,7 @@ public class ExtractinatorBlockEntity extends BlockEntity implements Extractinat
             }
         } else if (ExtractinatorBlockEntity.isSupported(aboveBlock.getBlock().asItem())) {
             world.breakBlock(pos.up(), false);
-            ExtractinatorBlockExtraction.extractMaterials(aboveBlock, (ServerWorld)world, pos);
+            ExtractinatorBlockExtraction.extractMaterials(aboveBlock, (ServerWorld) world, pos);
         }
     }
 
@@ -74,12 +75,13 @@ public class ExtractinatorBlockEntity extends BlockEntity implements Extractinat
 
     public static boolean isSupported(Item item) {
 
-        for (SupportedBlocksConfig supportedBlocks : TheExtractinator.CONFIG.extractinatorConfig.supportedBlocks) {
+        if (item != Items.AIR)
+            for (SupportedBlocksConfig supportedBlocks : TheExtractinator.CONFIG.extractinatorConfig.supportedBlocks) {
 
-            Block supportedBlock = Registry.BLOCK.get(new Identifier(supportedBlocks.name));
+                Block supportedBlock = Registry.BLOCK.get(new Identifier(supportedBlocks.name));
 
-            if (item == supportedBlock.asItem()) return true;
-        }
+                if (item == supportedBlock.asItem()) return true;
+            }
 
         return false;
     }

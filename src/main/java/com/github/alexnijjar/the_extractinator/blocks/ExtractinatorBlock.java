@@ -97,7 +97,6 @@ public class ExtractinatorBlock extends BlockWithEntity implements Waterloggable
             Block block = ((FallingBlockEntity) entity).getBlockState().getBlock();
 
             if (ExtractinatorBlockEntity.isSupported(block.asItem())) {
-                TheExtractinator.LOGGER.info(block);
                 ((FallingBlockEntity) entity).dropItem = false;
                 ExtractinatorBlockEntity.placeBlockSilently((World) world, entity.getBlockPos().up(), block);
             }
