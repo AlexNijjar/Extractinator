@@ -18,8 +18,7 @@ import java.util.Random;
 public class CabinStructure extends StructureFeature<StructurePoolFeatureConfig> {
 
     public CabinStructure(Codec<StructurePoolFeatureConfig> codec, String type) {
-        super(codec, (context) -> CabinStructure.generate(context, type),
-                PostPlacementProcessor.EMPTY);
+        super(codec, (context) -> CabinStructure.generate(context, type), PostPlacementProcessor.EMPTY);
     }
 
     public static Optional<StructurePiecesGenerator<StructurePoolFeatureConfig>> generate(StructureGeneratorFactory.Context<StructurePoolFeatureConfig> context, String type) {

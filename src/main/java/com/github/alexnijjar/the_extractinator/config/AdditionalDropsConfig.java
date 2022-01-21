@@ -1,6 +1,6 @@
 package com.github.alexnijjar.the_extractinator.config;
 
-import com.github.alexnijjar.the_extractinator.util.Rarity;
+import com.github.alexnijjar.the_extractinator.compat.rei.Rarity;
 import me.shedaniel.autoconfig.annotation.Config;
 import me.shedaniel.autoconfig.annotation.ConfigEntry;
 
@@ -10,9 +10,7 @@ public class AdditionalDropsConfig {
     public String name;
     public int min;
     public int max;
-    @ConfigEntry.Gui.EnumHandler(
-            option = ConfigEntry.Gui.EnumHandler.EnumDisplayOption.BUTTON
-    )
+    @ConfigEntry.Gui.EnumHandler(option = ConfigEntry.Gui.EnumHandler.EnumDisplayOption.BUTTON)
     public Rarity rarity;
 
     // Don't delete, will crash the config.

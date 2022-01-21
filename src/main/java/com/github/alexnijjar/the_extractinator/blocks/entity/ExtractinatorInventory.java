@@ -8,16 +8,16 @@ import net.minecraft.util.collection.DefaultedList;
 
 /**
  * A simple {@code Inventory} implementation with only default methods + an item list getter.
- *
+ * <p>
  * Originally by Juuz
  */
 public interface ExtractinatorInventory extends Inventory {
 
-    DefaultedList<ItemStack> getItems();
-
     static ExtractinatorInventory of(DefaultedList<ItemStack> items) {
         return () -> items;
     }
+
+    DefaultedList<ItemStack> getItems();
 
     @Override
     default int size() {
@@ -68,7 +68,8 @@ public interface ExtractinatorInventory extends Inventory {
     }
 
     @Override
-    default void markDirty() {}
+    default void markDirty() {
+    }
 
     @Override
     default boolean canPlayerUse(PlayerEntity player) {

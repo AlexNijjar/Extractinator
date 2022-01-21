@@ -27,31 +27,31 @@ public class LootTableModifier {
 
                 if (TheExtractinator.CONFIG.worldConfig.moddedLootInChests) {
                     if (id.equals(metalWorks1) || id.equals(metalWorks2)) {
-                        if (TEUtils.modIsLoaded(SupportedMods.MI)) {
+                        if (TEUtils.modLoaded(SupportedMods.MODERN_INDUSTRIALIZATION)) {
 
                             FabricLootPoolBuilder poolBuilder1 = FabricLootPoolBuilder.builder()
                                     .rolls(UniformLootNumberProvider.create(1, 3))
-                                    .with(ItemEntry.builder(Registry.ITEM.get(TEIdentifier.getMiID("tin_ingot"))))
+                                    .with(ItemEntry.builder(Registry.ITEM.get(TEIdentifier.getMiId("tin_ingot"))))
                                     .withFunction(SetCountLootFunction.builder(UniformLootNumberProvider.create(3, 7)).build())
                                     .withCondition(RandomChanceLootCondition.builder(0.5f).build());
                             FabricLootPoolBuilder poolBuilder2 = FabricLootPoolBuilder.builder()
                                     .rolls(UniformLootNumberProvider.create(1, 2))
-                                    .with(ItemEntry.builder(Registry.ITEM.get(TEIdentifier.getMiID("lead_ingot"))))
+                                    .with(ItemEntry.builder(Registry.ITEM.get(TEIdentifier.getMiId("lead_ingot"))))
                                     .withFunction(SetCountLootFunction.builder(UniformLootNumberProvider.create(3, 7)).build())
                                     .withCondition(RandomChanceLootCondition.builder(0.35f).build());
                             FabricLootPoolBuilder poolBuilder3 = FabricLootPoolBuilder.builder()
                                     .rolls(UniformLootNumberProvider.create(1, 2))
-                                    .with(ItemEntry.builder(Registry.ITEM.get(TEIdentifier.getMiID("silver_ingot"))))
+                                    .with(ItemEntry.builder(Registry.ITEM.get(TEIdentifier.getMiId("silver_ingot"))))
                                     .withFunction(SetCountLootFunction.builder(UniformLootNumberProvider.create(3, 7)).build())
                                     .withCondition(RandomChanceLootCondition.builder(0.35f).build());
                             FabricLootPoolBuilder poolBuilder4 = FabricLootPoolBuilder.builder()
                                     .rolls(UniformLootNumberProvider.create(1, 3))
-                                    .with(ItemEntry.builder(Registry.ITEM.get(TEIdentifier.getMiID("bronze_ingot"))))
+                                    .with(ItemEntry.builder(Registry.ITEM.get(TEIdentifier.getMiId("bronze_ingot"))))
                                     .withFunction(SetCountLootFunction.builder(UniformLootNumberProvider.create(9, 18)).build())
                                     .withCondition(RandomChanceLootCondition.builder(0.35f).build());
                             FabricLootPoolBuilder poolBuilder5 = FabricLootPoolBuilder.builder()
                                     .rolls(UniformLootNumberProvider.create(1, 3))
-                                    .with(ItemEntry.builder(Registry.ITEM.get(TEIdentifier.getMiID("steel_ingot"))))
+                                    .with(ItemEntry.builder(Registry.ITEM.get(TEIdentifier.getMiId("steel_ingot"))))
                                     .withFunction(SetCountLootFunction.builder(UniformLootNumberProvider.create(6, 12)).build())
                                     .withCondition(RandomChanceLootCondition.builder(0.35f).build());
 
@@ -64,32 +64,32 @@ public class LootTableModifier {
                             if (id.equals(metalWorks2)) {
                                 FabricLootPoolBuilder poolBuilder6 = FabricLootPoolBuilder.builder()
                                         .rolls(ConstantLootNumberProvider.create(1))
-                                        .with(ItemEntry.builder(Registry.ITEM.get(TEIdentifier.getMiID("tungsten_ingot"))))
+                                        .with(ItemEntry.builder(Registry.ITEM.get(TEIdentifier.getMiId("tungsten_ingot"))))
                                         .withFunction(SetCountLootFunction.builder(UniformLootNumberProvider.create(1, 4)).build())
                                         .withCondition(RandomChanceLootCondition.builder(0.2f).build());
                                 FabricLootPoolBuilder poolBuilder7 = FabricLootPoolBuilder.builder()
                                         .rolls(ConstantLootNumberProvider.create(1))
-                                        .with(ItemEntry.builder(Registry.ITEM.get(TEIdentifier.getMiID("titanium_ingot"))))
+                                        .with(ItemEntry.builder(Registry.ITEM.get(TEIdentifier.getMiId("titanium_ingot"))))
                                         .withFunction(SetCountLootFunction.builder(UniformLootNumberProvider.create(1, 2)).build())
                                         .withCondition(RandomChanceLootCondition.builder(0.2f).build());
                                 FabricLootPoolBuilder poolBuilder8 = FabricLootPoolBuilder.builder()
                                         .rolls(ConstantLootNumberProvider.create(1))
-                                        .with(ItemEntry.builder(Registry.ITEM.get(TEIdentifier.getMiID("platinum_ingot"))))
+                                        .with(ItemEntry.builder(Registry.ITEM.get(TEIdentifier.getMiId("platinum_ingot"))))
                                         .withFunction(SetCountLootFunction.builder(UniformLootNumberProvider.create(1, 2)).build())
                                         .withCondition(RandomChanceLootCondition.builder(0.2f).build());
                                 FabricLootPoolBuilder poolBuilder9 = FabricLootPoolBuilder.builder()
                                         .rolls(ConstantLootNumberProvider.create(1))
-                                        .with(ItemEntry.builder(Registry.ITEM.get(TEIdentifier.getMiID("chromium_ingot"))))
+                                        .with(ItemEntry.builder(Registry.ITEM.get(TEIdentifier.getMiId("chromium_ingot"))))
                                         .withFunction(SetCountLootFunction.builder(UniformLootNumberProvider.create(1, 2)).build())
                                         .withCondition(RandomChanceLootCondition.builder(0.2f).build());
                                 FabricLootPoolBuilder poolBuilder10 = FabricLootPoolBuilder.builder()
                                         .rolls(ConstantLootNumberProvider.create(1))
-                                        .with(ItemEntry.builder(Registry.ITEM.get(TEIdentifier.getMiID("uranium_ingot"))))
+                                        .with(ItemEntry.builder(Registry.ITEM.get(TEIdentifier.getMiId("uranium_ingot"))))
                                         .withFunction(SetCountLootFunction.builder(UniformLootNumberProvider.create(3, 8)).build())
                                         .withCondition(RandomChanceLootCondition.builder(0.2f).build());
                                 FabricLootPoolBuilder poolBuilder11 = FabricLootPoolBuilder.builder()
                                         .rolls(ConstantLootNumberProvider.create(1))
-                                        .with(ItemEntry.builder(Registry.ITEM.get(TEIdentifier.getMiID("iridium_ingot"))))
+                                        .with(ItemEntry.builder(Registry.ITEM.get(TEIdentifier.getMiId("iridium_ingot"))))
                                         .withFunction(SetCountLootFunction.builder(UniformLootNumberProvider.create(1, 2)).build())
                                         .withCondition(RandomChanceLootCondition.builder(0.2f).build());
 
@@ -101,31 +101,31 @@ public class LootTableModifier {
                                 table.pool(poolBuilder11);
                             }
 
-                        } else if (TEUtils.modIsLoaded(SupportedMods.TR)) {
+                        } else if (TEUtils.modLoaded(SupportedMods.TECHREBORN)) {
 
                             FabricLootPoolBuilder poolBuilder1 = FabricLootPoolBuilder.builder()
                                     .rolls(UniformLootNumberProvider.create(1, 3))
-                                    .with(ItemEntry.builder(Registry.ITEM.get(TEIdentifier.getTrID("tin_ingot"))))
+                                    .with(ItemEntry.builder(Registry.ITEM.get(TEIdentifier.getTrId("tin_ingot"))))
                                     .withFunction(SetCountLootFunction.builder(UniformLootNumberProvider.create(3, 7)).build())
                                     .withCondition(RandomChanceLootCondition.builder(0.5f).build());
                             FabricLootPoolBuilder poolBuilder2 = FabricLootPoolBuilder.builder()
                                     .rolls(UniformLootNumberProvider.create(1, 3))
-                                    .with(ItemEntry.builder(Registry.ITEM.get(TEIdentifier.getTrID("lead_ingot"))))
+                                    .with(ItemEntry.builder(Registry.ITEM.get(TEIdentifier.getTrId("lead_ingot"))))
                                     .withFunction(SetCountLootFunction.builder(UniformLootNumberProvider.create(3, 7)).build())
                                     .withCondition(RandomChanceLootCondition.builder(0.5f).build());
                             FabricLootPoolBuilder poolBuilder3 = FabricLootPoolBuilder.builder()
                                     .rolls(UniformLootNumberProvider.create(1, 3))
-                                    .with(ItemEntry.builder(Registry.ITEM.get(TEIdentifier.getTrID("silver_ingot"))))
+                                    .with(ItemEntry.builder(Registry.ITEM.get(TEIdentifier.getTrId("silver_ingot"))))
                                     .withFunction(SetCountLootFunction.builder(UniformLootNumberProvider.create(3, 7)).build())
                                     .withCondition(RandomChanceLootCondition.builder(0.5f).build());
                             FabricLootPoolBuilder poolBuilder4 = FabricLootPoolBuilder.builder()
                                     .rolls(UniformLootNumberProvider.create(1, 3))
-                                    .with(ItemEntry.builder(Registry.ITEM.get(TEIdentifier.getTrID("bronze_ingot"))))
+                                    .with(ItemEntry.builder(Registry.ITEM.get(TEIdentifier.getTrId("bronze_ingot"))))
                                     .withFunction(SetCountLootFunction.builder(UniformLootNumberProvider.create(3, 7)).build())
                                     .withCondition(RandomChanceLootCondition.builder(0.5f).build());
                             FabricLootPoolBuilder poolBuilder5 = FabricLootPoolBuilder.builder()
                                     .rolls(UniformLootNumberProvider.create(1, 3))
-                                    .with(ItemEntry.builder(Registry.ITEM.get(TEIdentifier.getTrID("steel_ingot"))))
+                                    .with(ItemEntry.builder(Registry.ITEM.get(TEIdentifier.getTrId("steel_ingot"))))
                                     .withFunction(SetCountLootFunction.builder(UniformLootNumberProvider.create(3, 7)).build())
                                     .withCondition(RandomChanceLootCondition.builder(0.5f).build());
 
@@ -138,32 +138,32 @@ public class LootTableModifier {
                             if (id.equals(metalWorks2)) {
                                 FabricLootPoolBuilder poolBuilder6 = FabricLootPoolBuilder.builder()
                                         .rolls(ConstantLootNumberProvider.create(1))
-                                        .with(ItemEntry.builder(Registry.ITEM.get(TEIdentifier.getTrID("tungsten_ingot"))))
+                                        .with(ItemEntry.builder(Registry.ITEM.get(TEIdentifier.getTrId("tungsten_ingot"))))
                                         .withFunction(SetCountLootFunction.builder(UniformLootNumberProvider.create(1, 4)).build())
                                         .withCondition(RandomChanceLootCondition.builder(0.2f).build());
                                 FabricLootPoolBuilder poolBuilder7 = FabricLootPoolBuilder.builder()
                                         .rolls(ConstantLootNumberProvider.create(1))
-                                        .with(ItemEntry.builder(Registry.ITEM.get(TEIdentifier.getTrID("titanium_ingot"))))
+                                        .with(ItemEntry.builder(Registry.ITEM.get(TEIdentifier.getTrId("titanium_ingot"))))
                                         .withFunction(SetCountLootFunction.builder(UniformLootNumberProvider.create(1, 2)).build())
                                         .withCondition(RandomChanceLootCondition.builder(0.2f).build());
                                 FabricLootPoolBuilder poolBuilder8 = FabricLootPoolBuilder.builder()
                                         .rolls(ConstantLootNumberProvider.create(1))
-                                        .with(ItemEntry.builder(Registry.ITEM.get(TEIdentifier.getTrID("platinum_ingot"))))
+                                        .with(ItemEntry.builder(Registry.ITEM.get(TEIdentifier.getTrId("platinum_ingot"))))
                                         .withFunction(SetCountLootFunction.builder(UniformLootNumberProvider.create(1, 2)).build())
                                         .withCondition(RandomChanceLootCondition.builder(0.2f).build());
                                 FabricLootPoolBuilder poolBuilder9 = FabricLootPoolBuilder.builder()
                                         .rolls(ConstantLootNumberProvider.create(1))
-                                        .with(ItemEntry.builder(Registry.ITEM.get(TEIdentifier.getTrID("chrome_ingot"))))
+                                        .with(ItemEntry.builder(Registry.ITEM.get(TEIdentifier.getTrId("chrome_ingot"))))
                                         .withFunction(SetCountLootFunction.builder(UniformLootNumberProvider.create(1, 2)).build())
                                         .withCondition(RandomChanceLootCondition.builder(0.2f).build());
                                 FabricLootPoolBuilder poolBuilder10 = FabricLootPoolBuilder.builder()
                                         .rolls(ConstantLootNumberProvider.create(1))
-                                        .with(ItemEntry.builder(Registry.ITEM.get(TEIdentifier.getTrID("advanced_alloy_ingot"))))
+                                        .with(ItemEntry.builder(Registry.ITEM.get(TEIdentifier.getTrId("advanced_alloy_ingot"))))
                                         .withFunction(SetCountLootFunction.builder(UniformLootNumberProvider.create(3, 8)).build())
                                         .withCondition(RandomChanceLootCondition.builder(0.2f).build());
                                 FabricLootPoolBuilder poolBuilder11 = FabricLootPoolBuilder.builder()
                                         .rolls(ConstantLootNumberProvider.create(1))
-                                        .with(ItemEntry.builder(Registry.ITEM.get(TEIdentifier.getTrID("iridium_ingot"))))
+                                        .with(ItemEntry.builder(Registry.ITEM.get(TEIdentifier.getTrId("iridium_ingot"))))
                                         .withFunction(SetCountLootFunction.builder(UniformLootNumberProvider.create(1, 2)).build())
                                         .withCondition(RandomChanceLootCondition.builder(0.2f).build());
 

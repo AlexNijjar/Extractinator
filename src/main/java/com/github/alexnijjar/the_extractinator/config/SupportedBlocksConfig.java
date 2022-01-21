@@ -1,6 +1,6 @@
 package com.github.alexnijjar.the_extractinator.config;
 
-import com.github.alexnijjar.the_extractinator.util.Tier;
+import com.github.alexnijjar.the_extractinator.compat.rei.Tier;
 import me.shedaniel.autoconfig.annotation.Config;
 import me.shedaniel.autoconfig.annotation.ConfigEntry;
 
@@ -11,9 +11,7 @@ import java.util.List;
 public class SupportedBlocksConfig {
 
     public String name;
-    @ConfigEntry.Gui.EnumHandler(
-            option = ConfigEntry.Gui.EnumHandler.EnumDisplayOption.BUTTON
-    )
+    @ConfigEntry.Gui.EnumHandler(option = ConfigEntry.Gui.EnumHandler.EnumDisplayOption.BUTTON)
     public Tier tier;
     public int yield;
     public List<AdditionalDropsConfig> additionalDrops;
@@ -21,7 +19,7 @@ public class SupportedBlocksConfig {
 
     // Don't delete, will crash the config.
     public SupportedBlocksConfig() {
-        this("minecraft:empty", Tier.TIER_5, 100, new ArrayList<>(),  new ArrayList<>());
+        this("minecraft:empty", Tier.TIER_5, 100, new ArrayList<>(), new ArrayList<>());
     }
 
     public SupportedBlocksConfig(String name, Tier tier, int yield, List<AdditionalDropsConfig> additionalDrops, List<String> disabledDrops) {

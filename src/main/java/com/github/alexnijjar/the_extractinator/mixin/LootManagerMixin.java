@@ -1,7 +1,6 @@
 package com.github.alexnijjar.the_extractinator.mixin;
 
 import com.github.alexnijjar.the_extractinator.TheExtractinator;
-import com.github.alexnijjar.the_extractinator.util.SupportedMods;
 import com.github.alexnijjar.the_extractinator.util.TEUtils;
 import com.google.gson.JsonElement;
 import net.minecraft.loot.LootManager;
@@ -24,45 +23,22 @@ public class LootManagerMixin {
     @Inject(method = "apply", at = @At("HEAD"))
     public void apply(Map<Identifier, JsonElement> map, ResourceManager resourceManager, Profiler profiler, CallbackInfo info) {
 
-
         List<Identifier> itemsToRemove = new ArrayList<>();
 
         // Gets the path for every loot table.
         map.forEach((id, json) -> {
 
-            if (id.getNamespace().equals(TheExtractinator.MOD_ID)) {
+            if (id.getNamespace().equals(TheExtractinator.MOD_ID) && id.getPath().contains("gameplay")) {
 
-                String path = id.getPath();
+                String mod = TEUtils.modIdFromPath(id.getPath());
+                mod = mod.replace("/addon", "");
 
-                if (path.contains("gameplay")) {
-
-                    String modID = TEUtils.getModIDFromPath(path);
-
-                    boolean modInstalled = false;
-
-                    // Removes the path from the map if its corresponding mod is not loaded.
-                    if (modID.equals("modern_industrialization") && TEUtils.modIsLoaded(SupportedMods.MI)) {
-                        modInstalled = true;
-                    } else if ((modID.equals("techreborn") || modID.equals("techreborn/addon")) && TEUtils.modIsLoaded(SupportedMods.TR)) {
-                        modInstalled = true;
-                    } else if ((modID.equals("minecraft/addon")) && (TEUtils.modIsLoaded(SupportedMods.TR) || TEUtils.modIsLoaded(SupportedMods.MI))) {
-                        modInstalled = true;
-                    } else if (modID.equals("minecraft")) {
-                        modInstalled = true;
-                    } else if (modID.equals("indrev") && TEUtils.modIsLoaded(SupportedMods.INDREV)) {
-                        modInstalled = true;
-                    } else if (modID.equals("ae2") && TEUtils.modIsLoaded(SupportedMods.AE2)) {
-                        modInstalled = true;
-                    }
-
-                    if (!modInstalled) {
-                        itemsToRemove.add(id);
-                    }
+                if (!TEUtils.checkMod(mod)) {
+                    itemsToRemove.add(id);
                 }
             }
         });
 
         itemsToRemove.forEach(map.keySet()::remove);
-
     }
 }

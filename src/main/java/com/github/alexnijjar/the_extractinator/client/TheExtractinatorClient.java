@@ -4,9 +4,9 @@ import com.github.alexnijjar.the_extractinator.TheExtractinator;
 import com.github.alexnijjar.the_extractinator.client.renderer.ExtractinatorBlockEntityRenderer;
 import com.github.alexnijjar.the_extractinator.compat.rei.LootSlot;
 import com.github.alexnijjar.the_extractinator.compat.rei.LootTable;
+import com.github.alexnijjar.the_extractinator.compat.rei.Rarity;
+import com.github.alexnijjar.the_extractinator.compat.rei.Tier;
 import com.github.alexnijjar.the_extractinator.registry.TEBlockEntities;
-import com.github.alexnijjar.the_extractinator.util.Rarity;
-import com.github.alexnijjar.the_extractinator.util.Tier;
 import net.fabricmc.api.ClientModInitializer;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
@@ -30,12 +30,9 @@ public class TheExtractinatorClient implements ClientModInitializer {
         Identifier path = new Identifier(TheExtractinator.MOD_ID, "block/extractinator_grinder");
         ModelLoadingRegistry.INSTANCE.registerModelProvider((manager, out) -> out.accept(path));
 
-        /*
-        REI
-        Called when the player enters the server. It gets the loot from the server and displays it in REI.
-         */
-        ClientPlayNetworking.registerGlobalReceiver(TheExtractinator.REI_DISPLAY_LOOT_PACKET_ID, (client, handler, buf, responseSender) ->
-                lootTables = buf.readList(b -> {
+        // REI
+        // Called when the player enters the server. It gets the loot from the server and displays it in REI.
+        ClientPlayNetworking.registerGlobalReceiver(TheExtractinator.REI_DISPLAY_LOOT_PACKET_ID, (client, handler, buf, responseSender) -> lootTables = buf.readList(b -> {
 
             Tier tier = b.readEnumConstant(Tier.class);
 

@@ -1,9 +1,7 @@
-package com.github.alexnijjar.the_extractinator.util.output;
+package com.github.alexnijjar.the_extractinator.config;
 
-import com.github.alexnijjar.the_extractinator.config.AdditionalDropsConfig;
-import com.github.alexnijjar.the_extractinator.config.SupportedBlocksConfig;
-import com.github.alexnijjar.the_extractinator.util.Rarity;
-import com.github.alexnijjar.the_extractinator.util.Tier;
+import com.github.alexnijjar.the_extractinator.compat.rei.Rarity;
+import com.github.alexnijjar.the_extractinator.compat.rei.Tier;
 
 import java.util.Arrays;
 import java.util.List;
@@ -16,7 +14,7 @@ public final class SupportedBlocks {
 
             new SupportedBlocksConfig("minecraft:gravel", Tier.TIER_3, 20,
                     List.of(
-                            new AdditionalDropsConfig("minecraft:flint", 1, 2, Rarity.COMMON)
+                            new AdditionalDropsConfig("minecraft:flint", 3, 6, Rarity.COMMON)
                     )),
 
             new SupportedBlocksConfig("minecraft:sand", Tier.TIER_2, 25,
@@ -56,7 +54,7 @@ public final class SupportedBlocks {
 
             new SupportedBlocksConfig("minecraft:granite", Tier.TIER_2, 20,
                     Arrays.asList(
-                            new AdditionalDropsConfig("techreborn:granite_dust", 1, 2, Rarity.COMMON),
+                            new AdditionalDropsConfig("techreborn:granite_dust", 3, 6, Rarity.COMMON),
                             new AdditionalDropsConfig("minecraft:quartz", Rarity.RARE),
                             new AdditionalDropsConfig("modern_industrialization:uranium_dust", 2, 4, Rarity.RARE)
                     ),
@@ -67,7 +65,7 @@ public final class SupportedBlocks {
 
             new SupportedBlocksConfig("minecraft:andesite", Tier.TIER_2, 20,
                     Arrays.asList(
-                            new AdditionalDropsConfig("techreborn:andesite_dust", 1, 2, Rarity.COMMON),
+                            new AdditionalDropsConfig("techreborn:andesite_dust", 3, 6, Rarity.COMMON),
                             new AdditionalDropsConfig("modern_industrialization:sodium_tiny_dust", 3, 9, Rarity.RARE),
                             new AdditionalDropsConfig("techreborn:basalt_dust", Rarity.VERY_RARE)
                     )
@@ -75,7 +73,7 @@ public final class SupportedBlocks {
 
             new SupportedBlocksConfig("minecraft:diorite", Tier.TIER_2, 20,
                     Arrays.asList(
-                            new AdditionalDropsConfig("techreborn:diorite_dust", 1, 2, Rarity.COMMON),
+                            new AdditionalDropsConfig("techreborn:diorite_dust", 3, 6, Rarity.COMMON),
                             new AdditionalDropsConfig("minecraft:quartz", Rarity.RARE)
                     )),
 
@@ -95,7 +93,7 @@ public final class SupportedBlocks {
 
             new SupportedBlocksConfig("minecraft:smooth_basalt", Tier.TIER_3, 25,
                     Arrays.asList(
-                            new AdditionalDropsConfig("techreborn:basalt_dust", 1, 2, Rarity.COMMON),
+                            new AdditionalDropsConfig("techreborn:basalt_dust", 3, 6, Rarity.COMMON),
                             new AdditionalDropsConfig("modern_industrialization:iron_dust", 1, 2, Rarity.UNCOMMON),
                             new AdditionalDropsConfig("techreborn:olivine_dust", Rarity.UNCOMMON),
                             new AdditionalDropsConfig("minecraft:amethyst_shard", Rarity.RARE)
@@ -108,7 +106,7 @@ public final class SupportedBlocks {
 
             new SupportedBlocksConfig("minecraft:netherrack", Tier.TIER_1, 5,
                     Arrays.asList(
-                            new AdditionalDropsConfig("techreborn:netherrack_dust", 2, 4, Rarity.COMMON),
+                            new AdditionalDropsConfig("techreborn:netherrack_dust", 10, 20, Rarity.COMMON),
                             new AdditionalDropsConfig("modern_industrialization:coal_dust", Rarity.UNCOMMON),
                             new AdditionalDropsConfig("modern_industrialization:sulfur_dust", 1, 2, Rarity.UNCOMMON),
                             new AdditionalDropsConfig("techreborn:saltpeter_dust", Rarity.UNCOMMON)
@@ -146,9 +144,9 @@ public final class SupportedBlocks {
                     )
             ),
 
-            new SupportedBlocksConfig("minecraft:end_stone", Tier.TIER_2, 10,
+            new SupportedBlocksConfig("minecraft:end_stone", Tier.TIER_2, 20,
                     Arrays.asList(
-                            new AdditionalDropsConfig("techreborn:endstone_dust", 2, 4, Rarity.COMMON),
+                            new AdditionalDropsConfig("techreborn:endstone_dust", 3, 6, Rarity.COMMON),
                             new AdditionalDropsConfig("modern_industrialization:tungsten_tiny_dust", 1, 2, Rarity.UNCOMMON),
                             new AdditionalDropsConfig("modern_industrialization:platinum_tiny_dust", Rarity.UNCOMMON),
                             new AdditionalDropsConfig("techreborn:ender_pearl_dust", Rarity.RARE),
@@ -164,7 +162,7 @@ public final class SupportedBlocks {
 
             new SupportedBlocksConfig("blockus:marble", Tier.TIER_2, 20,
                     Arrays.asList(
-                            new AdditionalDropsConfig("techreborn:marble_dust", 1, 2, Rarity.COMMON),
+                            new AdditionalDropsConfig("techreborn:marble_dust", 3, 6, Rarity.COMMON),
                             new AdditionalDropsConfig("techreborn:calcite_dust", Rarity.UNCOMMON),
                             new AdditionalDropsConfig("techreborn:obsidian_dust", Rarity.RARE),
                             new AdditionalDropsConfig("modern_industrialization:carbon_dust", Rarity.RARE)

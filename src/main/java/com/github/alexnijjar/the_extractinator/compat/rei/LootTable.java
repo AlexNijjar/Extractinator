@@ -1,7 +1,5 @@
 package com.github.alexnijjar.the_extractinator.compat.rei;
 
-import com.github.alexnijjar.the_extractinator.util.Tier;
-
 import java.util.List;
 
 public final class LootTable {

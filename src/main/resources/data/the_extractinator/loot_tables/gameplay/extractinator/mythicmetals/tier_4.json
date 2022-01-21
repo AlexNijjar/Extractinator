@@ -18,22 +18,7 @@
               "add": false
             }
           ],
-          "name": "techreborn:raw_tin"
-        },
-        {
-          "type": "minecraft:item",
-          "functions": [
-            {
-              "function": "minecraft:set_count",
-              "count": {
-                "type": "minecraft:uniform",
-                "min": 3.0,
-                "max": 6.0
-              },
-              "add": false
-            }
-          ],
-          "name": "techreborn:galena_dust"
+          "name": "mythicmetals:raw_tin"
         }
       ],
       "conditions": [
@@ -54,28 +39,13 @@
               "function": "minecraft:set_count",
               "count": {
                 "type": "minecraft:uniform",
-                "min": 4.0,
-                "max": 8.0
+                "min": 3.0,
+                "max": 6.0
               },
               "add": false
             }
           ],
-          "name": "techreborn:raw_lead"
-        },
-        {
-          "type": "minecraft:item",
-          "functions": [
-            {
-              "function": "minecraft:set_count",
-              "count": {
-                "type": "minecraft:uniform",
-                "min": 7.0,
-                "max": 21.0
-              },
-              "add": false
-            }
-          ],
-          "name": "techreborn:bauxite_dust"
+          "name": "mythicmetals:raw_manganese"
         }
       ],
       "conditions": [
@@ -96,103 +66,13 @@
               "function": "minecraft:set_count",
               "count": {
                 "type": "minecraft:uniform",
-                "min": 4.0,
-                "max": 8.0
+                "min": 3.0,
+                "max": 6.0
               },
               "add": false
             }
           ],
-          "name": "techreborn:raw_silver"
-        },
-        {
-          "type": "minecraft:item",
-          "functions": [
-            {
-              "function": "minecraft:set_count",
-              "count": {
-                "type": "minecraft:uniform",
-                "min": 4.0,
-                "max": 8.0
-              },
-              "add": false
-            }
-          ],
-          "name": "techreborn:nickel_dust"
-        },
-        {
-          "type": "minecraft:item",
-          "functions": [
-            {
-              "function": "minecraft:set_count",
-              "count": {
-                "type": "minecraft:uniform",
-                "min": 2.0,
-                "max": 4.0
-              },
-              "add": false
-            }
-          ],
-          "name": "techreborn:aluminum_dust"
-        },
-        {
-          "type": "minecraft:item",
-          "functions": [
-            {
-              "function": "minecraft:set_count",
-              "count": {
-                "type": "minecraft:uniform",
-                "min": 7.0,
-                "max": 14.0
-              },
-              "add": false
-            }
-          ],
-          "name": "techreborn:ruby_gem"
-        },
-        {
-          "type": "minecraft:item",
-          "functions": [
-            {
-              "function": "minecraft:set_count",
-              "count": {
-                "type": "minecraft:uniform",
-                "min": 4.0,
-                "max": 8.0
-              },
-              "add": false
-            }
-          ],
-          "name": "techreborn:sapphire_gem"
-        },
-        {
-          "type": "minecraft:item",
-          "functions": [
-            {
-              "function": "minecraft:set_count",
-              "count": {
-                "type": "minecraft:uniform",
-                "min": 2.0,
-                "max": 4.0
-              },
-              "add": false
-            }
-          ],
-          "name": "techreborn:cinnabar_dust"
-        },
-        {
-          "type": "minecraft:item",
-          "functions": [
-            {
-              "function": "minecraft:set_count",
-              "count": {
-                "type": "minecraft:uniform",
-                "min": 2.0,
-                "max": 4.0
-              },
-              "add": false
-            }
-          ],
-          "name": "techreborn:sphalerite_dust"
+          "name": "mythicmetals:raw_silver"
         },
         {
           "type": "minecraft:item",
@@ -207,7 +87,7 @@
               "add": false
             }
           ],
-          "name": "techreborn:pyrite_dust"
+          "name": "mythicmetals:raw_banglum"
         },
         {
           "type": "minecraft:item",
@@ -216,13 +96,28 @@
               "function": "minecraft:set_count",
               "count": {
                 "type": "minecraft:uniform",
-                "min": 1.0,
-                "max": 3.0
+                "min": 3.0,
+                "max": 9.0
               },
               "add": false
             }
           ],
-          "name": "techreborn:sodalite_dust"
+          "name": "mythicmetals:raw_platinum"
+        },
+        {
+          "type": "minecraft:item",
+          "functions": [
+            {
+              "function": "minecraft:set_count",
+              "count": {
+                "type": "minecraft:uniform",
+                "min": 2.0,
+                "max": 6.0
+              },
+              "add": false
+            }
+          ],
+          "name": "mythicmetals:raw_quadrillum"
         },
         {
           "type": "minecraft:item",
@@ -237,7 +132,7 @@
               "add": false
             }
           ],
-          "name": "techreborn:zinc_dust"
+          "name": "mythicmetals:raw_carmot"
         }
       ],
       "conditions": [
@@ -264,52 +159,7 @@
               "add": false
             }
           ],
-          "name": "techreborn:raw_tungsten"
-        },
-        {
-          "type": "minecraft:item",
-          "functions": [
-            {
-              "function": "minecraft:set_count",
-              "count": {
-                "type": "minecraft:uniform",
-                "min": 2.0,
-                "max": 4.0
-              },
-              "add": false
-            }
-          ],
-          "name": "techreborn:platinum_dust"
-        },
-        {
-          "type": "minecraft:item",
-          "functions": [
-            {
-              "function": "minecraft:set_count",
-              "count": {
-                "type": "minecraft:uniform",
-                "min": 2.0,
-                "max": 4.0
-              },
-              "add": false
-            }
-          ],
-          "name": "techreborn:titanium_dust"
-        },
-        {
-          "type": "minecraft:item",
-          "functions": [
-            {
-              "function": "minecraft:set_count",
-              "count": {
-                "type": "minecraft:uniform",
-                "min": 2.0,
-                "max": 4.0
-              },
-              "add": false
-            }
-          ],
-          "name": "techreborn:chrome_dust"
+          "name": "mythicmetals:raw_kyber"
         },
         {
           "type": "minecraft:item",
@@ -324,7 +174,52 @@
               "add": false
             }
           ],
-          "name": "techreborn:peridot_gem"
+          "name": "mythicmetals:raw_runite"
+        },
+        {
+          "type": "minecraft:item",
+          "functions": [
+            {
+              "function": "minecraft:set_count",
+              "count": {
+                "type": "minecraft:uniform",
+                "min": 2.0,
+                "max": 4.0
+              },
+              "add": false
+            }
+          ],
+          "name": "mythicmetals:raw_adamantite"
+        },
+        {
+          "type": "minecraft:item",
+          "functions": [
+            {
+              "function": "minecraft:set_count",
+              "count": {
+                "type": "minecraft:uniform",
+                "min": 2.0,
+                "max": 4.0
+              },
+              "add": false
+            }
+          ],
+          "name": "mythicmetals:raw_mythril"
+        },
+        {
+          "type": "minecraft:item",
+          "functions": [
+            {
+              "function": "minecraft:set_count",
+              "count": {
+                "type": "minecraft:uniform",
+                "min": 2.0,
+                "max": 4.0
+              },
+              "add": false
+            }
+          ],
+          "name": "mythicmetals:raw_orichalcum"
         }
       ],
       "conditions": [
@@ -340,7 +235,22 @@
       "entries": [
         {
           "type": "minecraft:item",
-          "name": "techreborn:raw_iridium"
+          "functions": [
+            {
+              "function": "minecraft:set_count",
+              "count": {
+                "type": "minecraft:uniform",
+                "min": 3.0,
+                "max": 6.0
+              },
+              "add": false
+            }
+          ],
+          "name": "mythicmetals:starrite"
+        },
+        {
+          "type": "minecraft:item",
+          "name": "mythicmetals:unobtainium"
         }
       ],
       "conditions": [

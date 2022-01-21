@@ -27,6 +27,11 @@ public class ConfiguredStructures {
     }
 
     /*
+
+tp ~1000 ~ ~1000
+effect give @p night_vision 1000000
+fill ~ ~ ~ ~10 ~10 ~10 air
+
 setblock ~ ~ ~ minecraft:chest{LootTable:"the_extractinator:chests/cabin_bedroom"}
 setblock ~ ~ ~ minecraft:chest{LootTable:"the_extractinator:chests/cabin_blocks"}
 setblock ~ ~ ~ minecraft:chest{LootTable:"the_extractinator:chests/cabin_enchanting"}

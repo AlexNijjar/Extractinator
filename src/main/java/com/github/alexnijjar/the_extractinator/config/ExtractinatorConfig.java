@@ -1,7 +1,7 @@
 package com.github.alexnijjar.the_extractinator.config;
 
-import com.github.alexnijjar.the_extractinator.util.ExtractinatorRecipe;
-import com.github.alexnijjar.the_extractinator.util.output.SupportedBlocks;
+import com.github.alexnijjar.the_extractinator.recipe.ExtractinatorRecipe;
+import com.github.alexnijjar.the_extractinator.util.TEUtils;
 import me.shedaniel.autoconfig.ConfigData;
 import me.shedaniel.autoconfig.annotation.Config;
 import me.shedaniel.autoconfig.annotation.ConfigEntry;
@@ -34,15 +34,13 @@ public class ExtractinatorConfig implements ConfigData {
     public float outputLootMultiplier = 1.0f;
 
     @ConfigEntry.Gui.Tooltip(count = 5)
-    @ConfigEntry.Gui.EnumHandler(
-            option = ConfigEntry.Gui.EnumHandler.EnumDisplayOption.BUTTON
-    )
+    @ConfigEntry.Gui.EnumHandler(option = ConfigEntry.Gui.EnumHandler.EnumDisplayOption.BUTTON)
     @ConfigEntry.Gui.RequiresRestart
     public ExtractinatorRecipe extractinatorRecipe = ExtractinatorRecipe.NONE;
 
-    @ConfigEntry.Gui.CollapsibleObject
     @ConfigEntry.Gui.Tooltip
-    public SupportedModsConfig supportedMods = new SupportedModsConfig();
+
+    public List<String> modsSupported = TEUtils.modsToList();
 
     // This breaks the Jankson Serializer for some reason. Solution is to use Toml serializer.
     @ConfigEntry.Gui.Tooltip(count = 6)
@@ -57,6 +55,8 @@ public class ExtractinatorConfig implements ConfigData {
         rareItemChance = MathHelper.clamp(commonItemChance, 0, 100);
         veryRareItemChance = MathHelper.clamp(commonItemChance, 0, 100);
         extremelyRareItemChance = MathHelper.clamp(commonItemChance, 0, 100);
-        if(inputCooldown < 1) { inputCooldown = 1; }
+        if (inputCooldown < 1) {
+            inputCooldown = 1;
+        }
     }
 }
