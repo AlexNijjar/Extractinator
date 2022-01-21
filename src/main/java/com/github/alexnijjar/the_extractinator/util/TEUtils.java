@@ -1,33 +1,38 @@
 package com.github.alexnijjar.the_extractinator.util;
 
 import com.github.alexnijjar.the_extractinator.TheExtractinator;
-import com.github.alexnijjar.the_extractinator.compat.rei.LootTable;
+import com.github.alexnijjar.the_extractinator.compat.rei.Rarity;
+import com.github.alexnijjar.the_extractinator.compat.rei.Tier;
 import com.github.alexnijjar.the_extractinator.config.ExtractinatorConfig;
-import com.github.alexnijjar.the_extractinator.config.SupportedModsConfig;
 import net.fabricmc.loader.api.FabricLoader;
 import net.minecraft.item.Item;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.registry.Registry;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public final class TEUtils {
 
-    // Converts a Tier to a string tier.
-    public static String tierPath(Tier tier) {
-        String string = "";
-        switch (tier) {
-            case TIER_1 -> string = "tier_1";
-            case TIER_2 -> string = "tier_2";
-            case TIER_3 -> string = "tier_3";
-            case TIER_4 -> string = "tier_4";
-            case TIER_5 -> string = "tier_5";
-        }
-        return string;
+    public static String tierToString(Tier tier) {
+        return tier.name().toLowerCase();
     }
 
-    // Converts a Rarity to a float percent.
-    public static float rarityValue(Rarity rarity) {
+    public static Tier stringToTier(String string) {
+
+        for (Tier tier : Tier.values()) {
+            String tierId = tier.name().toLowerCase();
+            if (string.contains(tierId)) return tier;
+        }
+
+        TheExtractinator.LOGGER.error("Invalid tier: " + string);
+        return Tier.NONE;
+    }
+
+    public static float rarityToPercent(Rarity rarity) {
         float percent = 0.0f;
         ExtractinatorConfig config = TheExtractinator.CONFIG.extractinatorConfig;
+
         switch (rarity) {
             case COMMON -> percent = config.commonItemChance;
             case UNCOMMON -> percent = config.uncommonItemChance;
@@ -35,96 +40,128 @@ public final class TEUtils {
             case VERY_RARE -> percent = config.veryRareItemChance;
             case EXTREMELY_RARE -> percent = config.extremelyRareItemChance;
         }
+
         return percent / 100;
     }
 
-    public static boolean modIsLoaded(SupportedMods supportedMod) {
-        String id = "";
-        switch (supportedMod) {
-            case MI -> id = "modern_industrialization";
-            case TR -> id = "techreborn";
-            case INDREV -> id = "indrev";
-            case AE2 -> id = "ae2";
-        }
-        return FabricLoader.getInstance().isModLoaded(id);
+    public static Rarity stringToRarity(String string) {
+        return Rarity.valueOf(string.toUpperCase());
+    }
+
+    public static float stringToPercent(String string) {
+        return rarityToPercent((stringToRarity(string)));
+    }
+
+    public static SupportedMods stringToSupportedMods(String string) {
+        return SupportedMods.valueOf(string.toUpperCase());
+    }
+
+    public static boolean modLoaded(SupportedMods supportedMod) {
+        return modLoaded(supportedMod.name().toLowerCase());
+    }
+
+    public static boolean modLoaded(String string) {
+        return FabricLoader.getInstance().isModLoaded(string);
     }
 
     public static Item getItem(Identifier id) {
         return Registry.ITEM.get(id);
     }
 
-    public static String getModIDFromPath(String path) {
-        String modID = "";
+    public static String modIdFromPath(String path) {
 
-        if (path.contains("modern_industrialization")) {
-            modID = "modern_industrialization";
-        } else if (path.contains("techreborn/addon")) {
-            modID = "techreborn/addon";
-        } else if (path.contains("techreborn")) {
-            modID = "techreborn";
-        } else if (path.contains("indrev")) {
-            modID = "indrev";
-        } else if (path.contains("ae2")) {
-            modID = "ae2";
-        } else if (path.contains("minecraft/addon")) {
-            modID = "minecraft/addon";
-        } else if (path.contains("minecraft")) {
-            modID = "minecraft";
+        for (SupportedMods mod : SupportedMods.values()) {
+            String modId = mod.name().toLowerCase();
+            String modIdAddon = mod.name().toLowerCase() + "/addon";
+
+            if (path.contains(modIdAddon)) return modIdAddon;
+            if (path.contains(modId)) return modId;
         }
-        return  modID;
+
+        TheExtractinator.LOGGER.error("Invalid mod ID: " + path);
+        return path;
     }
 
-    public static Tier getTierFromPath(String path) {
-
-        Tier tier = Tier.NONE;
-
-        if (path.contains("tier_1")) {
-            tier = Tier.TIER_1;
-        } else if (path.contains("tier_2")) {
-            tier = Tier.TIER_2;
-        } else if (path.contains("tier_3")) {
-            tier = Tier.TIER_3;
-        } else if (path.contains("tier_4")) {
-            tier = Tier.TIER_4;
-        } else if (path.contains("tier_5")) {
-            tier = Tier.TIER_5;
-        }
-
-        return tier;
+    public static boolean modEnabled(Identifier identifier) {
+        return modEnabled(identifier.getNamespace());
     }
 
-    public static boolean validLootTableMod(LootTable table) {
+    public static boolean modEnabled(String string) {
 
-        String namespace = table.namespace;
-        SupportedModsConfig support = TheExtractinator.CONFIG.extractinatorConfig.supportedMods;
-        
-        if (support.modern_industrialization_support && TEUtils.modIsLoaded(SupportedMods.MI)) {
+        List<String> supportedMods = TheExtractinator.CONFIG.extractinatorConfig.modsSupported;
 
-            if (namespace.equals("modern_industrialization")) {
-                return true;
-            } else if (support.techreborn_support && TEUtils.modIsLoaded(SupportedMods.TR) && namespace.equals("techreborn/addon")) {
-                return true;
-            } else if (support.minecraft_support && TEUtils.modIsLoaded(SupportedMods.TR) && namespace.equals("minecraft/addon")) {
-                return true;
+        for (SupportedMods mod : SupportedMods.values()) {
+            String modId = mod.name().toLowerCase();
+            if (string.equals(modId)) for (String supported : supportedMods) {
+                if (supported.equals(modId)) return true;
             }
-        } else if (support.techreborn_support && TEUtils.modIsLoaded(SupportedMods.TR)) {
-
-            if (namespace.equals("techreborn")) {
-                return true;
-            } else if (support.minecraft_support && TEUtils.modIsLoaded(SupportedMods.TR) && namespace.equals("minecraft/addon")) {
-                return true;
-            }
-        } else if (support.minecraft_support && namespace.equals("minecraft")) {
-            return true;
         }
 
-        if (support.indrev_support && TEUtils.modIsLoaded(SupportedMods.INDREV) && namespace.equals("indrev")) {
-            return true;
-        }
-
-        if (support.ae2_support && TEUtils.modIsLoaded(SupportedMods.AE2) && namespace.equals("ae2")) {
-            return true;
-        }
         return false;
+    }
+
+    public static List<String> modsToList() {
+        List<String> values = new ArrayList<>();
+
+        for (SupportedMods mod : SupportedMods.values()) {
+            values.add(mod.toString().toLowerCase());
+        }
+
+        return values;
+    }
+
+    public static String modToString(SupportedMods mod) {
+        return mod.toString().toLowerCase();
+    }
+
+    public static boolean majorTechModInstalled() {
+        return checkMod(SupportedMods.MODERN_INDUSTRIALIZATION) || checkMod(SupportedMods.TECHREBORN);
+    }
+
+    public static boolean checkMod(SupportedMods mod) {
+        return checkMod(mod.name().toLowerCase());
+    }
+
+    // Checks if the mod is loaded and enabled in the config.
+    public static boolean checkMod(String mod) {
+        boolean loaded = modLoaded(stringToSupportedMods(mod));
+        boolean supported = modEnabled(mod);
+
+        return loaded && supported;
+    }
+
+    // Checks if the mod's loot table should be included, based, on the current mods installed.
+    // For example, it prevents Mythic Metals from loading if a tech mod like Modern
+    // Industrialization is installed.
+    public static boolean validMod(String mod) {
+
+        String modId = mod.replace("/addon", "");
+        boolean valid = checkMod(modId);
+        boolean isAddon = mod.contains("/addon");
+
+        SupportedMods support = stringToSupportedMods(modId);
+
+        // Enable Tech Reborn drops if Modern Industrialization is not installed.
+        if (!checkMod(SupportedMods.MODERN_INDUSTRIALIZATION)) {
+            if (support.equals(SupportedMods.TECHREBORN) && isAddon) return false;
+            if (support.equals(SupportedMods.TECHREBORN)) return valid;
+        } else {
+            if (support.equals(SupportedMods.TECHREBORN) && isAddon) return valid;
+            else if (support.equals(SupportedMods.TECHREBORN)) return false;
+        }
+
+        // Loot tables to use if a major tech mod is not installed.
+        if (!majorTechModInstalled()) {
+            if (support.equals(SupportedMods.MINECRAFT) && isAddon) return false;
+            else if (support.equals(SupportedMods.MYTHICMETALS) || support.equals(SupportedMods.MINECRAFT))
+                return valid;
+        } else {
+            if (support.equals(SupportedMods.MINECRAFT) && isAddon) return valid;
+            else if (support.equals(SupportedMods.MINECRAFT) || support.equals(SupportedMods.MYTHICMETALS)) {
+                return false;
+            }
+        }
+
+        return valid;
     }
 }

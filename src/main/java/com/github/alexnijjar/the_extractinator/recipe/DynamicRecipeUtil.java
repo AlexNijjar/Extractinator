@@ -1,4 +1,4 @@
-package com.github.alexnijjar.the_extractinator.util;
+package com.github.alexnijjar.the_extractinator.recipe;
 
 import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;

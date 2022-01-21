@@ -7,10 +7,10 @@ import net.minecraft.util.shape.VoxelShapes;
 
 import java.util.stream.Stream;
 
-public interface ExtractinatorBlockVoxel {
+public class ExtractinatorBlockVoxel {
 
     // Made with the Mod Utils Blockbench plugin.
-    VoxelShape NORTH = Stream.of(
+    public static final VoxelShape NORTH = Stream.of(
             Block.createCuboidShape(0, 0, 0, 16, 1, 16),
             Block.createCuboidShape(1, 1, 1, 6, 7, 13),
             Block.createCuboidShape(1, 7, 2, 7, 11, 14),
@@ -51,7 +51,7 @@ public interface ExtractinatorBlockVoxel {
             Block.createCuboidShape(8, 6, 5, 13, 15, 11)
     ).reduce((v1, v2) -> VoxelShapes.combineAndSimplify(v1, v2, BooleanBiFunction.OR)).get();
 
-    VoxelShape EAST = Stream.of(
+    public static final VoxelShape EAST = Stream.of(
             Block.createCuboidShape(0, 0, 0, 16, 1, 16),
             Block.createCuboidShape(3, 1, 1, 15, 7, 6),
             Block.createCuboidShape(2, 7, 1, 14, 11, 7),
@@ -92,7 +92,7 @@ public interface ExtractinatorBlockVoxel {
             Block.createCuboidShape(5, 6, 8, 11, 15, 13)
     ).reduce((v1, v2) -> VoxelShapes.combineAndSimplify(v1, v2, BooleanBiFunction.OR)).get();
 
-    VoxelShape SOUTH = Stream.of(
+    public static final VoxelShape SOUTH = Stream.of(
             Block.createCuboidShape(0, 0, 0, 16, 1, 16),
             Block.createCuboidShape(10, 1, 3, 15, 7, 15),
             Block.createCuboidShape(9, 7, 2, 15, 11, 14),
@@ -133,7 +133,7 @@ public interface ExtractinatorBlockVoxel {
             Block.createCuboidShape(3, 6, 5, 8, 15, 11)
     ).reduce((v1, v2) -> VoxelShapes.combineAndSimplify(v1, v2, BooleanBiFunction.OR)).get();
 
-    VoxelShape WEST = Stream.of(
+    public static final VoxelShape WEST = Stream.of(
             Block.createCuboidShape(0, 0, 0, 16, 1, 16),
             Block.createCuboidShape(1, 1, 10, 13, 7, 15),
             Block.createCuboidShape(2, 7, 9, 14, 11, 15),

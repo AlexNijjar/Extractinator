@@ -12,58 +12,13 @@
               "function": "minecraft:set_count",
               "count": {
                 "type": "minecraft:uniform",
-                "min": 5.0,
-                "max": 10.0
+                "min": 1.0,
+                "max": 2.0
               },
               "add": false
             }
           ],
-          "name": "minecraft:raw_iron"
-        },
-        {
-          "type": "minecraft:item",
-          "functions": [
-            {
-              "function": "minecraft:set_count",
-              "count": {
-                "type": "minecraft:uniform",
-                "min": 5.0,
-                "max": 15.0
-              },
-              "add": false
-            }
-          ],
-          "name": "minecraft:raw_copper"
-        },
-        {
-          "type": "minecraft:item",
-          "functions": [
-            {
-              "function": "minecraft:set_count",
-              "count": {
-                "type": "minecraft:uniform",
-                "min": 5.0,
-                "max": 10.0
-              },
-              "add": false
-            }
-          ],
-          "name": "minecraft:raw_gold"
-        },
-        {
-          "type": "minecraft:item",
-          "functions": [
-            {
-              "function": "minecraft:set_count",
-              "count": {
-                "type": "minecraft:uniform",
-                "min": 6.0,
-                "max": 12.0
-              },
-              "add": false
-            }
-          ],
-          "name": "minecraft:coal"
+          "name": "mythicmetals:raw_tin"
         }
       ],
       "conditions": [
@@ -84,13 +39,13 @@
               "function": "minecraft:set_count",
               "count": {
                 "type": "minecraft:uniform",
-                "min": 5.0,
-                "max": 15.0
+                "min": 1.0,
+                "max": 2.0
               },
               "add": false
             }
           ],
-          "name": "minecraft:redstone"
+          "name": "mythicmetals:raw_manganese"
         }
       ],
       "conditions": [
@@ -106,38 +61,23 @@
       "entries": [
         {
           "type": "minecraft:item",
-          "functions": [
-            {
-              "function": "minecraft:set_count",
-              "count": {
-                "type": "minecraft:uniform",
-                "min": 6.0,
-                "max": 12.0
-              },
-              "add": false
-            }
-          ],
-          "name": "minecraft:lapis_lazuli"
-        },
-        {
-          "type": "minecraft:item",
-          "functions": [
-            {
-              "function": "minecraft:set_count",
-              "count": {
-                "type": "minecraft:uniform",
-                "min": 3.0,
-                "max": 9.0
-              },
-              "add": false
-            }
-          ],
-          "name": "minecraft:gunpowder"
+          "name": "mythicmetals:raw_silver"
         }
       ],
       "conditions": [
         {
           "condition": "the_extractinator:rarity_chance",
+          "functions": [
+            {
+              "function": "minecraft:set_count",
+              "count": {
+                "type": "minecraft:uniform",
+                "min": 1.0,
+                "max": 2.0
+              },
+              "add": false
+            }
+          ],
           "rarity": "rare"
         }
       ]
@@ -154,12 +94,12 @@
               "count": {
                 "type": "minecraft:uniform",
                 "min": 1.0,
-                "max": 2.0
+                "max": 3.0
               },
               "add": false
             }
           ],
-          "name": "minecraft:diamond"
+          "name": "mythicmetals:kyber_nugget"
         },
         {
           "type": "minecraft:item",
@@ -168,13 +108,58 @@
               "function": "minecraft:set_count",
               "count": {
                 "type": "minecraft:uniform",
-                "min": 3.0,
-                "max": 9.0
+                "min": 1.0,
+                "max": 3.0
               },
               "add": false
             }
           ],
-          "name": "minecraft:emerald"
+          "name": "mythicmetals:runite_nugget"
+        },
+        {
+          "type": "minecraft:item",
+          "functions": [
+            {
+              "function": "minecraft:set_count",
+              "count": {
+                "type": "minecraft:uniform",
+                "min": 1.0,
+                "max": 3.0
+              },
+              "add": false
+            }
+          ],
+          "name": "mythicmetals:adamantite_nugget"
+        },
+        {
+          "type": "minecraft:item",
+          "functions": [
+            {
+              "function": "minecraft:set_count",
+              "count": {
+                "type": "minecraft:uniform",
+                "min": 1.0,
+                "max": 3.0
+              },
+              "add": false
+            }
+          ],
+          "name": "mythicmetals:mythril_nugget"
+        },
+        {
+          "type": "minecraft:item",
+          "functions": [
+            {
+              "function": "minecraft:set_count",
+              "count": {
+                "type": "minecraft:uniform",
+                "min": 1.0,
+                "max": 3.0
+              },
+              "add": false
+            }
+          ],
+          "name": "mythicmetals:orichalcum_nugget"
         }
       ],
       "conditions": [

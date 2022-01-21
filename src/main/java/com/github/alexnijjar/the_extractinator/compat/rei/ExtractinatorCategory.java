@@ -62,16 +62,14 @@ public class ExtractinatorCategory implements DisplayCategory<ExtractinatorDispl
 
         // Input block item.
         widgets.add(Widgets.createSlot(new Point(startPoint.x - slotSize * 1.5, startPoint.y))
-                .entries(display.getInputEntries().get(0))
-                .markInput());
+                .entries(display.getInputEntries().get(0)).markInput());
 
         // Arrow
         widgets.add(Widgets.createArrow(new Point(startPoint.x - 4, startPoint.y)));
 
         // Extractinator item.
         widgets.add(Widgets.createSlot(new Point(startPoint.x + slotSize * 1.5, startPoint.y))
-                .entries(EntryIngredients.of(TEBlocks.EXTRACTINATOR_BLOCK))
-                .markInput());
+                .entries(EntryIngredients.of(TEBlocks.EXTRACTINATOR_BLOCK)).markInput());
 
         // Yield text.
         int yield = TheExtractinator.CONFIG.extractinatorConfig.supportedBlocks.get(display.index).yield;
@@ -90,16 +88,11 @@ public class ExtractinatorCategory implements DisplayCategory<ExtractinatorDispl
                 int index = rowSize * y + x;
 
                 if (outputEntries.size() > index)
-                    widgets.add(
-                            Widgets.createSlot(new Point(startPoint.x - slotSize * 3.5f - slotSize / 2 + slotSize * x, startPoint.y + slotSize * 2 + slotSize * y))
-                                    .markOutput()
-                                    .entries(outputEntries.get(index))
-                    );
+                    widgets.add(Widgets.createSlot(new Point(startPoint.x - slotSize * 3.5f - slotSize / 2 + slotSize * x, startPoint.y + slotSize * 2 + slotSize * y))
+                            .markOutput().entries(outputEntries.get(index)));
                 else
                     // Remaining slots
-                    widgets.add(
-                            Widgets.createSlot(new Point(startPoint.x - slotSize * 3.5f - slotSize / 2 + slotSize * x, startPoint.y + slotSize * 2 + slotSize * y))
-                    );
+                    widgets.add(Widgets.createSlot(new Point(startPoint.x - slotSize * 3.5f - slotSize / 2 + slotSize * x, startPoint.y + slotSize * 2 + slotSize * y)));
             }
         }
         return widgets;

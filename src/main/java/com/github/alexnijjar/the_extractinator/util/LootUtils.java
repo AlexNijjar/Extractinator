@@ -1,15 +1,12 @@
-package com.github.alexnijjar.the_extractinator.util.output;
+package com.github.alexnijjar.the_extractinator.util;
 
 import com.github.alexnijjar.the_extractinator.TheExtractinator;
+import com.github.alexnijjar.the_extractinator.compat.rei.Tier;
 import com.github.alexnijjar.the_extractinator.config.AdditionalDropsConfig;
 import com.github.alexnijjar.the_extractinator.config.ExtractinatorConfig;
 import com.github.alexnijjar.the_extractinator.config.SupportedBlocksConfig;
-import com.github.alexnijjar.the_extractinator.config.SupportedModsConfig;
 import com.github.alexnijjar.the_extractinator.registry.TEStats;
-import com.github.alexnijjar.the_extractinator.util.SupportedMods;
-import com.github.alexnijjar.the_extractinator.util.TEIdentifier;
-import com.github.alexnijjar.the_extractinator.util.TEUtils;
-import com.github.alexnijjar.the_extractinator.util.Tier;
+import com.google.common.collect.ImmutableMap;
 import net.fabricmc.fabric.api.networking.v1.PlayerLookup;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
@@ -28,12 +25,24 @@ import net.minecraft.util.registry.Registry;
 
 import java.util.*;
 
-public final class ExtractinatorBlockExtraction {
+public final class LootUtils {
+
+    public static final Map<String, Integer> lootWeights = ImmutableMap.of(
+            TEUtils.modToString(SupportedMods.MODERN_INDUSTRIALIZATION), 3,
+            TEUtils.modToString(SupportedMods.TECHREBORN), 2,
+            TEUtils.modToString(SupportedMods.TECHREBORN) + "/addon", 2,
+            TEUtils.modToString(SupportedMods.MINECRAFT), 2,
+            TEUtils.modToString(SupportedMods.MINECRAFT) + "/addon", 4,
+            TEUtils.modToString(SupportedMods.INDREV), 1,
+            TEUtils.modToString(SupportedMods.AE2), 1,
+            TEUtils.modToString(SupportedMods.MYTHICMETALS), 1
+    );
 
     // Obtains loot from a loot table for the extractinator to spit out.
     public static void extractMaterials(BlockState block, ServerWorld world, BlockPos pos) {
 
         ExtractinatorConfig extractinatorConfig = TheExtractinator.CONFIG.extractinatorConfig;
+
         for (SupportedBlocksConfig supportedBlocks : extractinatorConfig.supportedBlocks) {
 
             if (supportedBlocks.tier == Tier.NONE) return;
@@ -47,21 +56,22 @@ public final class ExtractinatorBlockExtraction {
                     player.increaseStat(TEStats.BLOCKS_EXTRACTINATED, 1);
                 }
 
-                String tier = TEUtils.tierPath(supportedBlocks.tier);
-
                 // Adds a random chance not to drop anything based on the block's yield in the config.
                 float yield = (float) supportedBlocks.yield / 100;
                 if (Math.random() > yield) return;
 
                 // Adds loot based on which mods are installed.
-                Map<Identifier, Integer> paths = getLoot(tier);
+                Map<Identifier, Integer> paths = getLoot(supportedBlocks.tier);
                 if (paths.isEmpty()) return;
 
+
+                // Apply weight. This is only for modded scenarios where multiple supported mods are installed.
+                // It balances the loot extracted, by reducing the loot gained by mods with limited, support,
+                // such as Indrev and AE2, and increases the loot for larger mods.
                 List<Integer> values = new ArrayList<>(paths.values());
                 List<Identifier> keys = new ArrayList<>(paths.keySet());
                 List<Identifier> chance = new ArrayList<>();
 
-                // Apply weight.
                 for (int x = 0; x < values.size(); x++) {
                     int val = values.get(x);
 
@@ -73,15 +83,17 @@ public final class ExtractinatorBlockExtraction {
                 // Obtain a random loot table from the list.
                 Random random = world.random;
                 int result = random.nextInt(chance.size());
-                Identifier lootID = chance.get(result);
+                Identifier lootId = chance.get(result);
+
 
                 // Create the loot table.
                 MinecraftServer server = world.getServer();
 
-                LootTable loot = server.getLootManager().getTable(lootID);
+                LootTable loot = server.getLootManager().getTable(lootId);
                 LootContext.Builder builder = (new LootContext.Builder(world))
                         .random(world.random);
                 List<ItemStack> generatedLoot = loot.generateLoot(builder.build(LootContextTypes.EMPTY));
+
 
                 // Items to remove from loot tables, defined in the config.
                 List<String> disabledDrops = supportedBlocks.disabledDrops;
@@ -100,20 +112,24 @@ public final class ExtractinatorBlockExtraction {
                 }
                 generatedLoot.removeAll(itemToRemove);
 
+
                 // Additional items to drop, defined in the config.
                 List<AdditionalDropsConfig> additionalDrops = supportedBlocks.additionalDrops;
 
                 if (!additionalDrops.isEmpty()) {
                     for (AdditionalDropsConfig drop : additionalDrops) {
+                        Identifier dropId = new Identifier(drop.name);
 
-                        if (random.nextFloat() < TEUtils.rarityValue(drop.rarity)) {
-                            Identifier dropID = new Identifier(drop.name);
-                            int range = random.nextInt(drop.min, drop.max + 1);
-                            generatedLoot.add(new ItemStack(Registry.ITEM.get(dropID), range));
-                            break;
+                        if (TEUtils.modEnabled(dropId)) {
+                            if (random.nextFloat() < TEUtils.rarityToPercent(drop.rarity)) {
+                                int range = random.nextInt(drop.min, drop.max + 1);
+                                generatedLoot.add(new ItemStack(Registry.ITEM.get(dropId), range));
+                                break;
+                            }
                         }
                     }
                 }
+
 
                 // Spawn loot above the extractinator.
                 for (ItemStack itemStack : generatedLoot) {
@@ -131,43 +147,16 @@ public final class ExtractinatorBlockExtraction {
     }
 
     // Gets the paths and weight for each supported mod.
-    private static Map<Identifier, Integer> getLoot(String tier) {
+    private static Map<Identifier, Integer> getLoot(Tier tier) {
 
         Map<Identifier, Integer> paths = new HashMap<>();
 
-        SupportedModsConfig support = TheExtractinator.CONFIG.extractinatorConfig.supportedMods;
-
-        if (TEUtils.modIsLoaded(SupportedMods.MI) && support.modern_industrialization_support) {
-
-            // Just Modern Industrialization.
-            paths.put(new TEIdentifier("gameplay/extractinator/modern_industrialization/" + tier), 3);
-
-            // Modern Industrialization and Tech Reborn.
-            if (TEUtils.modIsLoaded(SupportedMods.TR) && support.techreborn_support)
-                paths.put(new TEIdentifier("gameplay/extractinator/techreborn/addon/" + tier), 2);
-
-            if (support.minecraft_support)
-                paths.put(new TEIdentifier("gameplay/extractinator/minecraft/addon/" + tier), 4);
+        for (String mod : lootWeights.keySet()) {
+            boolean valid = TEUtils.validMod(mod);
+            if (valid) {
+                paths.put(new TEIdentifier("gameplay/extractinator/" + mod + "/" + TEUtils.tierToString(tier)), lootWeights.get(mod));
+            }
         }
-
-        // Just Tech Reborn.
-        else if (TEUtils.modIsLoaded(SupportedMods.TR) && support.techreborn_support) {
-            paths.put(new TEIdentifier("gameplay/extractinator/techreborn/" + tier), 3);
-            if (support.minecraft_support)
-                paths.put(new TEIdentifier("gameplay/extractinator/minecraft/addon/" + tier), 4);
-        }
-
-        // If MI and TR are not installed, add the default Minecraft loot table.
-        else if (support.minecraft_support)
-            paths.put(new TEIdentifier("gameplay/extractinator/minecraft/" + tier), 1);
-
-        // Indrev.
-        if (TEUtils.modIsLoaded(SupportedMods.INDREV) && support.indrev_support)
-            paths.put(new TEIdentifier("gameplay/extractinator/indrev/" + tier), 1);
-
-        // AE2.
-        if (TEUtils.modIsLoaded(SupportedMods.AE2) && support.ae2_support)
-            paths.put(new TEIdentifier("gameplay/extractinator/ae2/" + tier), 1);
 
         return paths;
     }

@@ -1,9 +1,9 @@
 package com.github.alexnijjar.the_extractinator.blocks;
 
-import com.github.alexnijjar.the_extractinator.TheExtractinator;
 import com.github.alexnijjar.the_extractinator.blocks.entity.ExtractinatorBlockEntity;
 import com.github.alexnijjar.the_extractinator.blocks.voxel.ExtractinatorBlockVoxel;
 import com.github.alexnijjar.the_extractinator.registry.TEBlockEntities;
+import com.github.alexnijjar.the_extractinator.util.BlocksUtils;
 import net.minecraft.block.*;
 import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.block.entity.BlockEntityTicker;
@@ -72,7 +72,7 @@ public class ExtractinatorBlock extends BlockWithEntity implements Waterloggable
             Item mainHandItem = player.getMainHandStack().getItem();
 
             // Only place the block if it is one of the supported blocks from the config.
-            if (ExtractinatorBlockEntity.isSupported(mainHandItem)) {
+            if (BlocksUtils.inputSupported(mainHandItem)) {
 
                 BlockState aboveBlock = world.getBlockState(pos.up());
 
@@ -81,7 +81,7 @@ public class ExtractinatorBlock extends BlockWithEntity implements Waterloggable
                     player.getStackInHand(hand).decrement(1);
 
                     Block mainHandBlock = Block.getBlockFromItem(mainHandItem);
-                    ExtractinatorBlockEntity.placeBlockSilently(world, pos.up(), mainHandBlock);
+                    BlocksUtils.placeBlockSilently(world, pos.up(), mainHandBlock);
                 }
             }
         }
@@ -96,9 +96,9 @@ public class ExtractinatorBlock extends BlockWithEntity implements Waterloggable
 
             Block block = ((FallingBlockEntity) entity).getBlockState().getBlock();
 
-            if (ExtractinatorBlockEntity.isSupported(block.asItem())) {
+            if (BlocksUtils.inputSupported(block.asItem())) {
                 ((FallingBlockEntity) entity).dropItem = false;
-                ExtractinatorBlockEntity.placeBlockSilently((World) world, entity.getBlockPos().up(), block);
+                BlocksUtils.placeBlockSilently((World) world, entity.getBlockPos().up(), block);
             }
         }
     }
@@ -153,6 +153,6 @@ public class ExtractinatorBlock extends BlockWithEntity implements Waterloggable
     @Override
     public BlockState getPlacementState(ItemPlacementContext ctx) {
         FluidState fluidState = ctx.getWorld().getFluidState(ctx.getBlockPos());
-        return this.getDefaultState().with(FACING, ctx.getPlayerFacing().getOpposite()).with(WATERLOGGED, fluidState.getFluid() == Fluids.WATER);
+        return this.getDefaultState().with(FACING, ctx.getPlayerFacing().getOpposite()).with(WATERLOGGED, fluidState.getFluid().equals(Fluids.WATER));
     }
 }

@@ -33,12 +33,12 @@ public class TEOres {
 
         WorldConfig config = TheExtractinator.CONFIG.worldConfig;
         if (config.generateSiltOre) {
-            Identifier siltID = new TEIdentifier("ore_silt");
-            Registry.register(BuiltinRegistries.CONFIGURED_FEATURE, siltID, ORE_SILT_CONFIGURED);
-            Registry.register(BuiltinRegistries.PLACED_FEATURE, siltID, ORE_SILT_FEATURE);
+            Identifier siltId = new TEIdentifier("ore_silt");
+            Registry.register(BuiltinRegistries.CONFIGURED_FEATURE, siltId, ORE_SILT_CONFIGURED);
+            Registry.register(BuiltinRegistries.PLACED_FEATURE, siltId, ORE_SILT_FEATURE);
             BiomeModifications.addFeature(BiomeSelectors.foundInOverworld(),
                     GenerationStep.Feature.UNDERGROUND_ORES,
-                    RegistryKey.of(Registry.PLACED_FEATURE_KEY, siltID));
+                    RegistryKey.of(Registry.PLACED_FEATURE_KEY, siltId));
         }
     }
 }

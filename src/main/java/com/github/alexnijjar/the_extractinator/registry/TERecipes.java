@@ -1,7 +1,7 @@
 package com.github.alexnijjar.the_extractinator.registry;
 
 import com.github.alexnijjar.the_extractinator.TheExtractinator;
-import com.github.alexnijjar.the_extractinator.util.DynamicRecipeUtil;
+import com.github.alexnijjar.the_extractinator.recipe.DynamicRecipeUtil;
 import com.github.alexnijjar.the_extractinator.util.TEIdentifier;
 import com.google.common.collect.Lists;
 import com.google.gson.JsonObject;

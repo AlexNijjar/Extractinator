@@ -1,7 +1,7 @@
 package com.github.alexnijjar.the_extractinator.loot.condition;
 
-import com.github.alexnijjar.the_extractinator.TheExtractinator;
 import com.github.alexnijjar.the_extractinator.registry.TELootTables;
+import com.github.alexnijjar.the_extractinator.util.TEUtils;
 import com.google.gson.JsonDeserializationContext;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonSerializationContext;
@@ -29,7 +29,8 @@ public class RarityChanceLootCondition implements LootCondition {
 
     public static class Serializer implements JsonSerializer<RarityChanceLootCondition> {
 
-        public Serializer() {}
+        public Serializer() {
+        }
 
         public void toJson(JsonObject jsonObject, RarityChanceLootCondition rarityChanceLootCondition, JsonSerializationContext jsonSerializationContext) {
             jsonObject.addProperty("rarity", rarityChanceLootCondition.rarity);
@@ -38,18 +39,8 @@ public class RarityChanceLootCondition implements LootCondition {
         public RarityChanceLootCondition fromJson(JsonObject jsonObject, JsonDeserializationContext jsonDeserializationContext) {
 
             String value = JsonHelper.getString(jsonObject, "rarity");
-            float chance = 0;
 
-            switch (value) {
-                case "common" -> chance = TheExtractinator.CONFIG.extractinatorConfig.commonItemChance;
-                case "uncommon" -> chance = TheExtractinator.CONFIG.extractinatorConfig.uncommonItemChance;
-                case "rare" -> chance = TheExtractinator.CONFIG.extractinatorConfig.rareItemChance;
-                case "very_rare" -> chance = TheExtractinator.CONFIG.extractinatorConfig.veryRareItemChance;
-                case "extremely_rare" -> chance = TheExtractinator.CONFIG.extractinatorConfig.extremelyRareItemChance;
-                default -> TheExtractinator.LOGGER.error("The value \"" + value + "\" is not valid. Use \"common\", \"uncommon\", \"rare\", \"very_rare\", or \"extremely_rare.\"");
-            }
-            chance /= 100;
-            return new RarityChanceLootCondition(chance);
+            return new RarityChanceLootCondition(TEUtils.stringToPercent(value));
         }
     }
 }

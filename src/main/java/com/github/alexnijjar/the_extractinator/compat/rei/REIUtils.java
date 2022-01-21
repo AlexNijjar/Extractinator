@@ -1,7 +1,6 @@
 package com.github.alexnijjar.the_extractinator.compat.rei;
 
 import com.github.alexnijjar.the_extractinator.TheExtractinator;
-import com.github.alexnijjar.the_extractinator.util.Rarity;
 import me.shedaniel.rei.api.common.entry.EntryStack;
 import net.minecraft.text.Style;
 import net.minecraft.text.Text;
@@ -61,9 +60,7 @@ public class REIUtils {
         Integer min = (int) Math.ceil(range.getMinimum() * multiplier);
         Integer max = (int) Math.ceil(range.getMaximum() * multiplier);
 
-        if (min.equals(max))
-            return new TranslatableText("");
-        else
-            return new TranslatableText("the_extractinator.rei.extractinator.drop_range", min, max);
+        if (min.equals(max)) return new TranslatableText("");
+        else return new TranslatableText("the_extractinator.rei.extractinator.drop_range", min, max);
     }
 }

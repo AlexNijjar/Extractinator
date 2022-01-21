@@ -23,10 +23,9 @@ import java.util.List;
 public class TheExtractinator implements ModInitializer {
 
     public static final String MOD_ID = "the_extractinator";
-    public static TEConfig CONFIG;
     public static final Logger LOGGER = LogManager.getLogger(MOD_ID);
-
     public static final Identifier REI_DISPLAY_LOOT_PACKET_ID = new TEIdentifier("rei_display_loot");
+    public static TEConfig CONFIG;
 
     @Override
     public void onInitialize() {
@@ -47,11 +46,9 @@ public class TheExtractinator implements ModInitializer {
         TERecipes.register();
         TEStats.register();
 
-         /*
-         REI
-         Obtains all the loot tables from "gameplay/extractinator" and sends it to players entering the server.
-         The loot is then processed and displayed in REI.
-         */
+        // REI
+        // Obtains all the loot tables from "gameplay/extractinator" and sends it to players entering the server.
+        // The loot is then processed and displayed in REI.
         ServerPlayConnectionEvents.JOIN.register((handler, sender, minecraftServer) -> {
 
             LootManager manager = minecraftServer.getLootManager();
@@ -66,7 +63,7 @@ public class TheExtractinator implements ModInitializer {
                     b2.writeIdentifier(s.item);
                     b2.writeEnumConstant(s.rarity);
 
-                    b2.writeIntArray(new int[] {s.range.getMinimum(), s.range.getMaximum()});
+                    b2.writeIntArray(new int[]{s.range.getMinimum(), s.range.getMaximum()});
                 });
 
                 b.writeString(t.namespace);
@@ -75,7 +72,7 @@ public class TheExtractinator implements ModInitializer {
             sender.sendPacket(REI_DISPLAY_LOOT_PACKET_ID, buf);
 
             if (minecraftServer.isDedicated())
-            TheExtractinator.LOGGER.info("Sent REI Loot info to " + handler.player.getDisplayName().asString());
+                TheExtractinator.LOGGER.info("Sent REI Loot info to " + handler.player.getDisplayName().asString());
         });
 
         LOGGER.info("The Extractinator initialized!");

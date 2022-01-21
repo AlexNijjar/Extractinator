@@ -3,6 +3,7 @@
   "block.the_extractinator.silt": "Silt",
 
   "item.the_extractinator.silt.tooltip": "Can be placed in an extractinator to turn it into something more useful.",
+  "item.the_extractinator.extractinator.tooltip": "Found in underground cabins.",
 
   "stat.the_extractinator.blocks_extractinated": "Blocks Extractinated",
 
@@ -20,7 +21,7 @@
   "text.autoconfig.the_extractinator.option.extractinatorConfig.outputLootMultiplier":  "Output Loot Multiplier",
   "text.autoconfig.the_extractinator.option.extractinatorConfig.extractinatorRecipe":  "Extractinator Recipe",
   "text.autoconfig.the_extractinator.option.extractinatorConfig.supportedBlocks":  "Supported Blocks",
-  "text.autoconfig.the_extractinator.option.extractinatorConfig.supportedMods":  "Supported Mods",
+  "text.autoconfig.the_extractinator.option.extractinatorConfig.modsSupported":  "Supported Mods",
 
   "text.autoconfig.the_extractinator.option.SupportedBlocksConfig":  "Block Support",
   "text.autoconfig.the_extractinator.option.SupportedBlocksConfig.name":  "Block Name",
@@ -35,11 +36,12 @@
   "text.autoconfig.the_extractinator.option.AdditionalDropsConfig.max":  "Max",
   "text.autoconfig.the_extractinator.option.AdditionalDropsConfig.rarity":  "Rarity",
 
-  "text.autoconfig.the_extractinator.option.extractinatorConfig.supportedMods.minecraft_support":  "Minecraft",
-  "text.autoconfig.the_extractinator.option.extractinatorConfig.supportedMods.modern_industrialization_support":  "Modern Industrialization",
-  "text.autoconfig.the_extractinator.option.extractinatorConfig.supportedMods.techreborn_support":  "Tech Reborn",
-  "text.autoconfig.the_extractinator.option.extractinatorConfig.supportedMods.indrev_support":  "Industrial Revolution",
-  "text.autoconfig.the_extractinator.option.extractinatorConfig.supportedMods.ae2_support":  "Applied Energistics 2",
+  "text.autoconfig.the_extractinator.option.extractinatorConfig.supportedMods.minecraftSupport":  "Minecraft",
+  "text.autoconfig.the_extractinator.option.extractinatorConfig.supportedMods.modernIndustrializationSupport":  "Modern Industrialization",
+  "text.autoconfig.the_extractinator.option.extractinatorConfig.supportedMods.techrebornSupport":  "Tech Reborn",
+  "text.autoconfig.the_extractinator.option.extractinatorConfig.supportedMods.indrevSupport":  "Industrial Revolution",
+  "text.autoconfig.the_extractinator.option.extractinatorConfig.supportedMods.ae2Support":  "Applied Energistics 2",
+  "text.autoconfig.the_extractinator.option.extractinatorConfig.supportedMods.mythicmetalsSupport":  "Mythic Metals",
 
   "text.autoconfig.the_extractinator.option.worldConfig.generateSiltOre":  "Generate Silt Ore",
   "text.autoconfig.the_extractinator.option.worldConfig.siltVeinSize":  "Silt Vein Size",

@@ -3,8 +3,8 @@ package com.github.alexnijjar.the_extractinator.loot;
 import com.github.alexnijjar.the_extractinator.TheExtractinator;
 import com.github.alexnijjar.the_extractinator.compat.rei.LootSlot;
 import com.github.alexnijjar.the_extractinator.compat.rei.LootTable;
+import com.github.alexnijjar.the_extractinator.compat.rei.Tier;
 import com.github.alexnijjar.the_extractinator.util.TEUtils;
-import com.github.alexnijjar.the_extractinator.util.Tier;
 import com.google.gson.JsonElement;
 import net.minecraft.loot.LootManager;
 import net.minecraft.util.Identifier;
@@ -34,11 +34,9 @@ public class ExtractinatorLootTables {
                     // Converts the raw loot table json to a loot slot for REI to display.
                     List<LootSlot> loot = LootTableParser.parse(json);
 
-                    Tier tier = TEUtils.getTierFromPath(path);
+                    Tier tier = TEUtils.stringToTier(path);
 
-                    String modID = TEUtils.getModIDFromPath(path);
-
-                    tables.add(new LootTable(tier, loot, modID));
+                    tables.add(new LootTable(tier, loot, TEUtils.modIdFromPath(path)));
                 }
             }
         });
