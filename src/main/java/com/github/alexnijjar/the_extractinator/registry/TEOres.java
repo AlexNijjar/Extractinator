@@ -22,17 +22,17 @@ public class TEOres {
             .configure(new OreFeatureConfig(
                     OreConfiguredFeatures.BASE_STONE_OVERWORLD,
                     TEBlocks.SILT.getDefaultState(),
-                    TheExtractinator.CONFIG.worldConfig.siltVeinSize));
+                    TheExtractinator.CONFIG.worldConfig.siltVeinSize_v1));
 
     public static PlacedFeature ORE_SILT_FEATURE = ORE_SILT_CONFIGURED.withPlacement(
-            CountPlacementModifier.of(TheExtractinator.CONFIG.worldConfig.siltVeinsPerChunk), // number of veins per chunk
+            CountPlacementModifier.of(TheExtractinator.CONFIG.worldConfig.siltVeinsPerChunk_v1), // number of veins per chunk
             SquarePlacementModifier.of(), // spreading horizontally
-            HeightRangePlacementModifier.uniform(YOffset.getBottom(), YOffset.fixed(TheExtractinator.CONFIG.worldConfig.siltMaxSpawnHeight))); // height
+            HeightRangePlacementModifier.uniform(YOffset.getBottom(), YOffset.fixed(TheExtractinator.CONFIG.worldConfig.siltMaxSpawnHeight_v1))); // height
 
     public static void register() {
 
         WorldConfig config = TheExtractinator.CONFIG.worldConfig;
-        if (config.generateSiltOre) {
+        if (config.generateSiltOre_v1) {
             Identifier siltId = new TEIdentifier("ore_silt");
             Registry.register(BuiltinRegistries.CONFIGURED_FEATURE, siltId, ORE_SILT_CONFIGURED);
             Registry.register(BuiltinRegistries.PLACED_FEATURE, siltId, ORE_SILT_FEATURE);

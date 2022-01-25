@@ -13,7 +13,7 @@ public final class TERecipes {
 
     // Creates dynamic recipes for extractinators based on the config.
     public static void register() {
-        switch (TheExtractinator.CONFIG.extractinatorConfig.extractinatorRecipe) {
+        switch (TheExtractinator.CONFIG.extractinatorConfig.extractinatorRecipe_v1) {
             case MINECRAFT -> EXTRACTINATOR_RECIPE = DynamicRecipeUtil.createShapedRecipeJson(
                     Lists.newArrayList(
                             'H',

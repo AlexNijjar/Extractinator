@@ -21,18 +21,18 @@ public class DeepslateCabinGenerator {
                         new TEIdentifier("deepslate_cabin_base"),
                         new Identifier("empty"),
                         ImmutableList.of(
-                                new Pair<>(StructurePoolElement.ofSingle(TheExtractinator.MOD_ID + ":cabin/deepslate/cabin_base_1"), config.intactCabinWeight),
-                                new Pair<>(StructurePoolElement.ofSingle(TheExtractinator.MOD_ID + ":cabin/deepslate/cabin_upper_base_1"), config.intactCabinWeight),
-                                new Pair<>(StructurePoolElement.ofSingle(TheExtractinator.MOD_ID + ":cabin/deepslate/cabin_lower_base_1"), config.intactCabinWeight),
-                                new Pair<>(StructurePoolElement.ofSingle(TheExtractinator.MOD_ID + ":cabin/deepslate/cabin_base_2"), config.brokenCabinWeight),
-                                new Pair<>(StructurePoolElement.ofSingle(TheExtractinator.MOD_ID + ":cabin/deepslate/cabin_upper_base_2"), config.brokenCabinWeight),
-                                new Pair<>(StructurePoolElement.ofSingle(TheExtractinator.MOD_ID + ":cabin/deepslate/cabin_lower_base_2"), config.brokenCabinWeight),
-                                new Pair<>(StructurePoolElement.ofSingle(TheExtractinator.MOD_ID + ":cabin/deepslate/cabin_base_3"), config.brokenCabinWeight),
-                                new Pair<>(StructurePoolElement.ofSingle(TheExtractinator.MOD_ID + ":cabin/deepslate/cabin_upper_base_3"), config.brokenCabinWeight),
-                                new Pair<>(StructurePoolElement.ofSingle(TheExtractinator.MOD_ID + ":cabin/deepslate/cabin_lower_base_3"), config.brokenCabinWeight),
-                                new Pair<>(StructurePoolElement.ofSingle(TheExtractinator.MOD_ID + ":cabin/deepslate/cabin_base_4"), config.brokenCabinWeight),
-                                new Pair<>(StructurePoolElement.ofSingle(TheExtractinator.MOD_ID + ":cabin/deepslate/cabin_upper_base_4"), config.brokenCabinWeight),
-                                new Pair<>(StructurePoolElement.ofSingle(TheExtractinator.MOD_ID + ":cabin/deepslate/cabin_lower_base_4"), config.brokenCabinWeight)
+                                new Pair<>(StructurePoolElement.ofSingle(TheExtractinator.MOD_ID + ":cabin/deepslate/cabin_base_1"), config.intactCabinWeight_v1),
+                                new Pair<>(StructurePoolElement.ofSingle(TheExtractinator.MOD_ID + ":cabin/deepslate/cabin_upper_base_1"), config.intactCabinWeight_v1),
+                                new Pair<>(StructurePoolElement.ofSingle(TheExtractinator.MOD_ID + ":cabin/deepslate/cabin_lower_base_1"), config.intactCabinWeight_v1),
+                                new Pair<>(StructurePoolElement.ofSingle(TheExtractinator.MOD_ID + ":cabin/deepslate/cabin_base_2"), config.brokenCabinWeight_v1),
+                                new Pair<>(StructurePoolElement.ofSingle(TheExtractinator.MOD_ID + ":cabin/deepslate/cabin_upper_base_2"), config.brokenCabinWeight_v1),
+                                new Pair<>(StructurePoolElement.ofSingle(TheExtractinator.MOD_ID + ":cabin/deepslate/cabin_lower_base_2"), config.brokenCabinWeight_v1),
+                                new Pair<>(StructurePoolElement.ofSingle(TheExtractinator.MOD_ID + ":cabin/deepslate/cabin_base_3"), config.brokenCabinWeight_v1),
+                                new Pair<>(StructurePoolElement.ofSingle(TheExtractinator.MOD_ID + ":cabin/deepslate/cabin_upper_base_3"), config.brokenCabinWeight_v1),
+                                new Pair<>(StructurePoolElement.ofSingle(TheExtractinator.MOD_ID + ":cabin/deepslate/cabin_lower_base_3"), config.brokenCabinWeight_v1),
+                                new Pair<>(StructurePoolElement.ofSingle(TheExtractinator.MOD_ID + ":cabin/deepslate/cabin_base_4"), config.brokenCabinWeight_v1),
+                                new Pair<>(StructurePoolElement.ofSingle(TheExtractinator.MOD_ID + ":cabin/deepslate/cabin_upper_base_4"), config.brokenCabinWeight_v1),
+                                new Pair<>(StructurePoolElement.ofSingle(TheExtractinator.MOD_ID + ":cabin/deepslate/cabin_lower_base_4"), config.brokenCabinWeight_v1)
                         ),
                         StructurePool.Projection.RIGID
                 )

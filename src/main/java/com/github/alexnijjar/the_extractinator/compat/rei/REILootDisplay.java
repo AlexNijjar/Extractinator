@@ -20,7 +20,7 @@ public final class REILootDisplay {
 
         List<LootSlot> loot = new ArrayList<>();
 
-        List<SupportedBlocksConfig> supportedBlocks = TheExtractinator.CONFIG.extractinatorConfig.supportedBlocks;
+        List<SupportedBlocksConfig> supportedBlocks = TheExtractinator.CONFIG.extractinatorConfig.supportedBlocks_v1;
         SupportedBlocksConfig supportedBlock = null;
 
         List<AdditionalDropsConfig> additionalDrops = new ArrayList<>();

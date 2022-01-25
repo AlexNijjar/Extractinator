@@ -8,12 +8,4 @@ public final class TEIdentifier extends Identifier {
     public TEIdentifier(String path) {
         super(TheExtractinator.MOD_ID, path);
     }
-
-    public static Identifier getMiId(String path) {
-        return new Identifier("modern_industrialization", path);
-    }
-
-    public static Identifier getTrId(String path) {
-        return new Identifier("techreborn", path);
-    }
 }

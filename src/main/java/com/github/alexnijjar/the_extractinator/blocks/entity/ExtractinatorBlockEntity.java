@@ -2,7 +2,7 @@ package com.github.alexnijjar.the_extractinator.blocks.entity;
 
 import com.github.alexnijjar.the_extractinator.TheExtractinator;
 import com.github.alexnijjar.the_extractinator.registry.TEBlockEntities;
-import com.github.alexnijjar.the_extractinator.util.BlocksUtils;
+import com.github.alexnijjar.the_extractinator.util.BlockUtils;
 import com.github.alexnijjar.the_extractinator.util.LootUtils;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
@@ -37,19 +37,19 @@ public class ExtractinatorBlockEntity extends BlockEntity implements Extractinat
 
         if (aboveBlock.isAir()) {
             if (!blockEntity.needsCooldown()) {
-                if (BlocksUtils.inputSupported(input.getItem())) {
+                if (BlockUtils.inputSupported(input.getItem())) {
 
                     Block inputBlock = Block.getBlockFromItem(input.getItem());
-                    BlocksUtils.placeBlockSilently(world, pos.up(), inputBlock);
+                    BlockUtils.placeBlockSilently(world, pos.up(), inputBlock);
 
                     blockEntity.ITEMS.get(0).decrement(1);
 
-                    blockEntity.setCooldown(TheExtractinator.CONFIG.extractinatorConfig.inputCooldown);
+                    blockEntity.setCooldown(TheExtractinator.CONFIG.extractinatorConfig.inputCooldown_v1);
 
                     markDirty(world, pos, state);
                 }
             }
-        } else if (BlocksUtils.inputSupported(aboveBlock.getBlock().asItem())) {
+        } else if (BlockUtils.inputSupported(aboveBlock.getBlock().asItem())) {
             world.breakBlock(pos.up(), false);
             LootUtils.extractMaterials(aboveBlock, (ServerWorld) world, pos);
         }
@@ -86,7 +86,7 @@ public class ExtractinatorBlockEntity extends BlockEntity implements Extractinat
 
     @Override
     public boolean canInsert(int slot, ItemStack stack, @Nullable Direction dir) {
-        return BlocksUtils.inputSupported(stack.getItem());
+        return BlockUtils.inputSupported(stack.getItem());
     }
 
     @Override

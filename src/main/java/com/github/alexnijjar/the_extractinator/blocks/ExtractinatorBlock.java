@@ -3,7 +3,7 @@ package com.github.alexnijjar.the_extractinator.blocks;
 import com.github.alexnijjar.the_extractinator.blocks.entity.ExtractinatorBlockEntity;
 import com.github.alexnijjar.the_extractinator.blocks.voxel.ExtractinatorBlockVoxel;
 import com.github.alexnijjar.the_extractinator.registry.TEBlockEntities;
-import com.github.alexnijjar.the_extractinator.util.BlocksUtils;
+import com.github.alexnijjar.the_extractinator.util.BlockUtils;
 import net.minecraft.block.*;
 import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.block.entity.BlockEntityTicker;
@@ -72,7 +72,7 @@ public class ExtractinatorBlock extends BlockWithEntity implements Waterloggable
             Item mainHandItem = player.getMainHandStack().getItem();
 
             // Only place the block if it is one of the supported blocks from the config.
-            if (BlocksUtils.inputSupported(mainHandItem)) {
+            if (BlockUtils.inputSupported(mainHandItem)) {
 
                 BlockState aboveBlock = world.getBlockState(pos.up());
 
@@ -81,7 +81,7 @@ public class ExtractinatorBlock extends BlockWithEntity implements Waterloggable
                     player.getStackInHand(hand).decrement(1);
 
                     Block mainHandBlock = Block.getBlockFromItem(mainHandItem);
-                    BlocksUtils.placeBlockSilently(world, pos.up(), mainHandBlock);
+                    BlockUtils.placeBlockSilently(world, pos.up(), mainHandBlock);
                 }
             }
         }
@@ -96,9 +96,9 @@ public class ExtractinatorBlock extends BlockWithEntity implements Waterloggable
 
             Block block = ((FallingBlockEntity) entity).getBlockState().getBlock();
 
-            if (BlocksUtils.inputSupported(block.asItem())) {
+            if (BlockUtils.inputSupported(block.asItem())) {
                 ((FallingBlockEntity) entity).dropItem = false;
-                BlocksUtils.placeBlockSilently((World) world, entity.getBlockPos().up(), block);
+                BlockUtils.placeBlockSilently((World) world, entity.getBlockPos().up(), block);
             }
         }
     }

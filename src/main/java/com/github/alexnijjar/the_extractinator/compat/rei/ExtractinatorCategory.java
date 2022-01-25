@@ -21,7 +21,8 @@ import java.util.List;
 public class ExtractinatorCategory implements DisplayCategory<ExtractinatorDisplay> {
 
     final int slotSize = 18;
-    final int rowSize = 9;
+    final int rows = 6;
+    final int columns = 9;
 
     @Override
     public Renderer getIcon() {
@@ -55,7 +56,7 @@ public class ExtractinatorCategory implements DisplayCategory<ExtractinatorDispl
 
     @Override
     public List<Widget> setupDisplay(ExtractinatorDisplay display, Rectangle bounds) {
-        Point startPoint = new Point((bounds.getCenterX() - slotSize / 2) + 1.5, bounds.getCenterY() - slotSize * 4);
+        Point startPoint = new Point((bounds.getCenterX() - slotSize * 0.5) + 1.5, bounds.getCenterY() - slotSize * 4);
         List<Widget> widgets = new ArrayList<>();
 
         widgets.add(Widgets.createRecipeBase(bounds));
@@ -72,7 +73,7 @@ public class ExtractinatorCategory implements DisplayCategory<ExtractinatorDispl
                 .entries(EntryIngredients.of(TEBlocks.EXTRACTINATOR_BLOCK)).markInput());
 
         // Yield text.
-        int yield = TheExtractinator.CONFIG.extractinatorConfig.supportedBlocks.get(display.index).yield;
+        int yield = TheExtractinator.CONFIG.extractinatorConfig.supportedBlocks_v1.get(display.index).yield;
         TranslatableText yieldText = new TranslatableText("the_extractinator.rei.extractinator.yield_chance", yield);
         widgets.add(Widgets.createLabel(new Point(startPoint.x - 8, startPoint.y + slotSize + 5), yieldText)
                 .rightAligned()
@@ -82,17 +83,17 @@ public class ExtractinatorCategory implements DisplayCategory<ExtractinatorDispl
         List<EntryIngredient> outputEntries = display.getOutputEntries();
 
         // List of items.
-        for (int x = 0; x < rowSize; x++) {
-            for (int y = 0; y < 6; y++) {
+        for (int x = 0; x < columns; x++) {
+            for (int y = 0; y < rows; y++) {
 
-                int index = rowSize * y + x;
+                int index = columns * y + x;
 
                 if (outputEntries.size() > index)
-                    widgets.add(Widgets.createSlot(new Point(startPoint.x - slotSize * 3.5f - slotSize / 2 + slotSize * x, startPoint.y + slotSize * 2 + slotSize * y))
+                    widgets.add(Widgets.createSlot(new Point(startPoint.x - slotSize * 3.5f - slotSize * 0.5 + slotSize * x, startPoint.y + slotSize * 2 + slotSize * y))
                             .markOutput().entries(outputEntries.get(index)));
                 else
                     // Remaining slots
-                    widgets.add(Widgets.createSlot(new Point(startPoint.x - slotSize * 3.5f - slotSize / 2 + slotSize * x, startPoint.y + slotSize * 2 + slotSize * y)));
+                    widgets.add(Widgets.createSlot(new Point(startPoint.x - slotSize * 3.5f - slotSize * 0.5 + slotSize * x, startPoint.y + slotSize * 2 + slotSize * y)));
             }
         }
         return widgets;

@@ -11,7 +11,7 @@ import net.minecraft.util.registry.Registry;
 import net.minecraft.world.World;
 import net.minecraft.world.chunk.WorldChunk;
 
-public class BlocksUtils {
+public class BlockUtils {
 
     // This places a block above silently, preventing the block from playing a sound twice.
     public static void placeBlockSilently(World world, BlockPos pos, Block block) {
@@ -23,7 +23,7 @@ public class BlocksUtils {
     public static boolean inputSupported(Item item) {
 
         if (item != Items.AIR)
-            for (SupportedBlocksConfig supportedBlocks : TheExtractinator.CONFIG.extractinatorConfig.supportedBlocks) {
+            for (SupportedBlocksConfig supportedBlocks : TheExtractinator.CONFIG.extractinatorConfig.supportedBlocks_v1) {
 
                 Block supportedBlock = Registry.BLOCK.get(new Identifier(supportedBlocks.name));
 

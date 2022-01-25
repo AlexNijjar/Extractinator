@@ -18,20 +18,8 @@
               "add": false
             }
           ],
-          "name": "mythicmetals:raw_tin"
-        }
-      ],
-      "conditions": [
-        {
-          "condition": "the_extractinator:rarity_chance",
-          "rarity": "common"
-        }
-      ]
-    },
-    {
-      "rolls": 1,
-      "bonus_rolls": 0.0,
-      "entries": [
+          "name": "mythicmetals:raw_kyber"
+        },
         {
           "type": "minecraft:item",
           "functions": [
@@ -45,20 +33,8 @@
               "add": false
             }
           ],
-          "name": "mythicmetals:raw_manganese"
-        }
-      ],
-      "conditions": [
-        {
-          "condition": "the_extractinator:rarity_chance",
-          "rarity": "uncommon"
-        }
-      ]
-    },
-    {
-      "rolls": 1,
-      "bonus_rolls": 0.0,
-      "entries": [
+          "name": "mythicmetals:raw_adamantite"
+        },
         {
           "type": "minecraft:item",
           "functions": [
@@ -72,7 +48,7 @@
               "add": false
             }
           ],
-          "name": "mythicmetals:raw_silver"
+          "name": "mythicmetals:raw_mythril"
         },
         {
           "type": "minecraft:item",
@@ -81,69 +57,50 @@
               "function": "minecraft:set_count",
               "count": {
                 "type": "minecraft:uniform",
-                "min": 1.0,
-                "max": 3.0
+                "min": 2.0,
+                "max": 4.0
               },
               "add": false
             }
           ],
-          "name": "mythicmetals:raw_banglum"
-        },
-        {
-          "type": "minecraft:item",
-          "functions": [
-            {
-              "function": "minecraft:set_count",
-              "count": {
-                "type": "minecraft:uniform",
-                "min": 1.0,
-                "max": 3.0
-              },
-              "add": false
-            }
-          ],
-          "name": "mythicmetals:raw_platinum"
-        },
-        {
-          "type": "minecraft:item",
-          "functions": [
-            {
-              "function": "minecraft:set_count",
-              "count": {
-                "type": "minecraft:uniform",
-                "min": 1.0,
-                "max": 3.0
-              },
-              "add": false
-            }
-          ],
-          "name": "mythicmetals:raw_quadrillum"
-        },
-        {
-          "type": "minecraft:item",
-          "name": "mythicmetals:raw_carmot"
-        }
-      ],
-      "conditions": [
-        {
-          "condition": "the_extractinator:rarity_chance",
-          "rarity": "rare"
-        }
-      ]
-    },
-    {
-      "rolls": 1,
-      "bonus_rolls": 0.0,
-      "entries": [
-        {
-          "type": "minecraft:item",
-          "name": "mythicmetals:raw_runite"
+          "name": "mythicmetals:raw_orichalcum"
         }
       ],
       "conditions": [
         {
           "condition": "the_extractinator:rarity_chance",
           "rarity": "very_rare"
+        }
+      ]
+    },
+    {
+      "rolls": 1,
+      "bonus_rolls": 0.0,
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "functions": [
+            {
+              "function": "minecraft:set_count",
+              "count": {
+                "type": "minecraft:uniform",
+                "min": 3.0,
+                "max": 6.0
+              },
+              "add": false
+            }
+          ],
+          "name": "mythicmetals:starrite"
+        },
+        {
+          "type": "minecraft:item",
+          "name": "mythicmetals:unobtainium"
+        }
+      ],
+      "conditions": [
+        {
+          "condition": "the_extractinator:rarity_chance",
+          "rarity": "extremely_rare"
         }
       ]
     }

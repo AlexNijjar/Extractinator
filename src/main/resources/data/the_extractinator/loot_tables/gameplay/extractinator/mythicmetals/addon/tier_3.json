@@ -7,31 +7,8 @@
       "entries": [
         {
           "type": "minecraft:item",
-          "functions": [
-            {
-              "function": "minecraft:set_count",
-              "count": {
-                "type": "minecraft:uniform",
-                "min": 1.0,
-                "max": 2.0
-              },
-              "add": false
-            }
-          ],
-          "name": "mythicmetals:raw_tin"
-        }
-      ],
-      "conditions": [
-        {
-          "condition": "the_extractinator:rarity_chance",
-          "rarity": "common"
-        }
-      ]
-    },
-    {
-      "rolls": 1,
-      "bonus_rolls": 0.0,
-      "entries": [
+          "name": "mythicmetals:raw_kyber"
+        },
         {
           "type": "minecraft:item",
           "functions": [
@@ -39,35 +16,49 @@
               "function": "minecraft:set_count",
               "count": {
                 "type": "minecraft:uniform",
-                "min": 1.0,
-                "max": 2.0
+                "min": 3.0,
+                "max": 9.0
               },
               "add": false
             }
           ],
-          "name": "mythicmetals:raw_manganese"
-        }
-      ],
-      "conditions": [
-        {
-          "condition": "the_extractinator:rarity_chance",
-          "rarity": "uncommon"
-        }
-      ]
-    },
-    {
-      "rolls": 1,
-      "bonus_rolls": 0.0,
-      "entries": [
+          "name": "mythicmetals:adamantite_nugget"
+        },
         {
           "type": "minecraft:item",
-          "name": "mythicmetals:raw_silver"
+          "functions": [
+            {
+              "function": "minecraft:set_count",
+              "count": {
+                "type": "minecraft:uniform",
+                "min": 3.0,
+                "max": 9.0
+              },
+              "add": false
+            }
+          ],
+          "name": "mythicmetals:mythril_nugget"
+        },
+        {
+          "type": "minecraft:item",
+          "functions": [
+            {
+              "function": "minecraft:set_count",
+              "count": {
+                "type": "minecraft:uniform",
+                "min": 3.0,
+                "max": 9.0
+              },
+              "add": false
+            }
+          ],
+          "name": "mythicmetals:orichalcum_nugget"
         }
       ],
       "conditions": [
         {
           "condition": "the_extractinator:rarity_chance",
-          "rarity": "rare"
+          "rarity": "very_rare"
         }
       ]
     }

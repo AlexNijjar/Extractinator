@@ -18,7 +18,7 @@
               "add": false
             }
           ],
-          "name": "mythicmetals:raw_tin"
+          "name": "numismatic-overhaul:bronze_coin"
         }
       ],
       "conditions": [
@@ -34,34 +34,7 @@
       "entries": [
         {
           "type": "minecraft:item",
-          "functions": [
-            {
-              "function": "minecraft:set_count",
-              "count": {
-                "type": "minecraft:uniform",
-                "min": 1.0,
-                "max": 2.0
-              },
-              "add": false
-            }
-          ],
-          "name": "mythicmetals:raw_manganese"
-        }
-      ],
-      "conditions": [
-        {
-          "condition": "the_extractinator:rarity_chance",
-          "rarity": "uncommon"
-        }
-      ]
-    },
-    {
-      "rolls": 1,
-      "bonus_rolls": 0.0,
-      "entries": [
-        {
-          "type": "minecraft:item",
-          "name": "mythicmetals:raw_silver"
+          "name": "numismatic-overhaul:silver_coin"
         }
       ],
       "conditions": [
