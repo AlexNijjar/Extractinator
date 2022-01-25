@@ -162,8 +162,6 @@ public class LootUtils {
             }
         }
 
-        TheExtractinator.LOGGER.info(paths);
-
         return paths;
     }
 }
