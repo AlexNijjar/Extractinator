@@ -56,7 +56,7 @@ public class REIUtils {
 
     public static TranslatableText getRange(Range<Integer> range) {
 
-        float multiplier = TheExtractinator.CONFIG.extractinatorConfig.outputLootMultiplier;
+        float multiplier = TheExtractinator.CONFIG.extractinatorConfig.outputLootMultiplier_v1;
         Integer min = (int) Math.ceil(range.getMinimum() * multiplier);
         Integer max = (int) Math.ceil(range.getMaximum() * multiplier);
 

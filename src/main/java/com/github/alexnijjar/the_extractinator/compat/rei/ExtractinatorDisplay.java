@@ -43,7 +43,7 @@ public class ExtractinatorDisplay implements Display {
 
         REILootDisplay.getOutput(id, tables).forEach((slot) -> {
 
-            EntryStack<ItemStack> entry = EntryStacks.of(new ItemStack(TEUtils.getItem(slot.item), (int) Math.ceil(slot.range.getMaximum() * TheExtractinator.CONFIG.extractinatorConfig.outputLootMultiplier)))
+            EntryStack<ItemStack> entry = EntryStacks.of(new ItemStack(TEUtils.getItem(slot.item), (int) Math.ceil(slot.range.getMaximum() * TheExtractinator.CONFIG.extractinatorConfig.outputLootMultiplier_v1)))
                     .setting(EntryStack.Settings.TOOLTIP_APPEND_EXTRA, REIUtils.getSettings(slot.rarity, slot.range));
             EntryIngredient ingredient = EntryIngredient.of(entry);
 

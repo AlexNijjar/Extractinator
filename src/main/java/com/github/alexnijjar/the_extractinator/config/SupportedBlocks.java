@@ -140,7 +140,17 @@ public final class SupportedBlocks {
                             new AdditionalDropsConfig("minecraft:diamond", 3, 9, Rarity.RARE)
                     ),
                     List.of(
-                            "minecraft:diamond"
+                            "minecraft:diamond",
+                            "minecraft:emerald",
+                            "ae2:charged_certus_quartz_crystal",
+                            "modern_industrialization:raw_antimony",
+                            "modern_industrialization:raw_lead",
+                            "modern_industrialization:raw_silver",
+                            "modern_industrialization:lignite_coal",
+                            "techreborn:zinc_dust",
+                            "techreborn:sodalite_dust",
+                            "techreborn:peridot_gem",
+                            "techreborn:sapphire_gem"
                     )
             ),
 

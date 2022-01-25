@@ -26,19 +26,25 @@ public class CabinStructure extends StructureFeature<StructurePoolFeatureConfig>
         WorldConfig config = TheExtractinator.CONFIG.worldConfig;
         int min;
         int max;
-        if (type.equals("deepslate")) {
-            min = config.deepslateCabinMinHeight;
-            max = config.deepslateCabinMaxHeight;
-        } else {
-            min = config.cabinMinHeight;
-            max = config.cabinMaxHeight;
+
+        switch (type) {
+            case "deepslate" -> {
+                min = config.deepslateCabinMinHeight_v1;
+                max = config.deepslateCabinMaxHeight_v1;
+            }
+            case "ocean" -> {
+                min = config.oceanCabinMinHeight_v1;
+                max = config.oceanCabinMaxHeight_v1;
+            }
+            default -> {
+                min = config.cabinMinHeight_v1;
+                max = config.cabinMaxHeight_v1;
+            }
         }
 
         Random random = new Random();
         int randomY = random.nextInt(max - min) + min;
         BlockPos pos = context.chunkPos().getCenterAtY(randomY);
-
-        // TODO: prevent cabins from spawning on ocean floor.
 
         return StructurePoolBasedGenerator.generate(context, PoolStructurePiece::new, pos, false, false);
     }

@@ -54,15 +54,15 @@ public final class LootTableParser {
 
                 Range<Integer> range = Range.between(min, max);
 
-                if (rarityObject == config.commonItemChance) {
+                if (rarityObject == config.commonItemChance_v1) {
                     rarity = Rarity.COMMON;
-                } else if (rarityObject == config.uncommonItemChance) {
+                } else if (rarityObject == config.uncommonItemChance_v1) {
                     rarity = Rarity.UNCOMMON;
-                } else if (rarityObject == config.rareItemChance) {
+                } else if (rarityObject == config.rareItemChance_v1) {
                     rarity = Rarity.RARE;
-                } else if (rarityObject == config.veryRareItemChance) {
+                } else if (rarityObject == config.veryRareItemChance_v1) {
                     rarity = Rarity.VERY_RARE;
-                } else if (rarityObject == config.extremelyRareItemChance) {
+                } else if (rarityObject == config.extremelyRareItemChance_v1) {
                     rarity = Rarity.EXTREMELY_RARE;
                 }
 

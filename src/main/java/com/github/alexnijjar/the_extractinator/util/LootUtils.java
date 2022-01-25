@@ -25,17 +25,19 @@ import net.minecraft.util.registry.Registry;
 
 import java.util.*;
 
-public final class LootUtils {
+public class LootUtils {
 
     public static final Map<String, Integer> lootWeights = ImmutableMap.of(
-            TEUtils.modToString(SupportedMods.MODERN_INDUSTRIALIZATION), 3,
-            TEUtils.modToString(SupportedMods.TECHREBORN), 2,
-            TEUtils.modToString(SupportedMods.TECHREBORN) + "/addon", 2,
-            TEUtils.modToString(SupportedMods.MINECRAFT), 2,
-            TEUtils.modToString(SupportedMods.MINECRAFT) + "/addon", 4,
-            TEUtils.modToString(SupportedMods.INDREV), 1,
-            TEUtils.modToString(SupportedMods.AE2), 1,
-            TEUtils.modToString(SupportedMods.MYTHICMETALS), 1
+            TEUtils.modToModId(SupportedMods.MODERN_INDUSTRIALIZATION), 3,
+            TEUtils.modToModId(SupportedMods.TECHREBORN), 2,
+            TEUtils.modToModId(SupportedMods.TECHREBORN) + "/addon", 2,
+            TEUtils.modToModId(SupportedMods.MINECRAFT), 2,
+            TEUtils.modToModId(SupportedMods.MINECRAFT) + "/addon", 4,
+            TEUtils.modToModId(SupportedMods.INDREV), 1,
+            TEUtils.modToModId(SupportedMods.AE2), 1,
+            TEUtils.modToModId(SupportedMods.MYTHICMETALS), 1,
+            TEUtils.modToModId(SupportedMods.MYTHICMETALS) + "/addon", 1,
+            TEUtils.underscoreToHyphen(TEUtils.modToModId(SupportedMods.NUMISMATIC_OVERHAUL)), 4
     );
 
     // Obtains loot from a loot table for the extractinator to spit out.
@@ -43,7 +45,7 @@ public final class LootUtils {
 
         ExtractinatorConfig extractinatorConfig = TheExtractinator.CONFIG.extractinatorConfig;
 
-        for (SupportedBlocksConfig supportedBlocks : extractinatorConfig.supportedBlocks) {
+        for (SupportedBlocksConfig supportedBlocks : extractinatorConfig.supportedBlocks_v1) {
 
             if (supportedBlocks.tier == Tier.NONE) return;
 
@@ -135,7 +137,7 @@ public final class LootUtils {
                 for (ItemStack itemStack : generatedLoot) {
 
                     int size = itemStack.getCount();
-                    itemStack.setCount((int) Math.ceil(size * extractinatorConfig.outputLootMultiplier));
+                    itemStack.setCount((int) Math.ceil(size * extractinatorConfig.outputLootMultiplier_v1));
 
                     ItemEntity itemEntity = new ItemEntity(world, pos.getX() + 0.5f, pos.getY() + 0.5f, pos.getZ() + 0.5f, itemStack);
                     itemEntity.setVelocity(itemEntity.getVelocity().multiply(1.5f));
@@ -152,11 +154,15 @@ public final class LootUtils {
         Map<Identifier, Integer> paths = new HashMap<>();
 
         for (String mod : lootWeights.keySet()) {
-            boolean valid = TEUtils.validMod(mod);
-            if (valid) {
+            // Tier one does not exist for Mythic Metals addon.
+            if (mod.equals(TEUtils.modToModId(SupportedMods.MYTHICMETALS) + "/addon") && tier.equals(Tier.TIER_1)) continue;
+
+            if (TEUtils.validMod(mod)) {
                 paths.put(new TEIdentifier("gameplay/extractinator/" + mod + "/" + TEUtils.tierToString(tier)), lootWeights.get(mod));
             }
         }
+
+        TheExtractinator.LOGGER.info(paths);
 
         return paths;
     }

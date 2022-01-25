@@ -13,50 +13,49 @@ import java.util.List;
 public class ExtractinatorConfig implements ConfigData {
 
     @ConfigEntry.Gui.RequiresRestart
-    public float commonItemChance = 100;
+    public float commonItemChance_v1 = 100;
 
     @ConfigEntry.Gui.RequiresRestart
-    public float uncommonItemChance = 50;
+    public float uncommonItemChance_v1 = 50;
 
     @ConfigEntry.Gui.RequiresRestart
-    public float rareItemChance = 25;
+    public float rareItemChance_v1 = 25;
 
     @ConfigEntry.Gui.RequiresRestart
-    public float veryRareItemChance = 10;
+    public float veryRareItemChance_v1 = 10;
 
     @ConfigEntry.Gui.RequiresRestart
-    public float extremelyRareItemChance = 2;
+    public float extremelyRareItemChance_v1 = 2;
 
     @ConfigEntry.Gui.Tooltip(count = 5)
-    public int inputCooldown = 8;
+    public int inputCooldown_v1 = 8;
 
     @ConfigEntry.Gui.Tooltip(count = 2)
-    public float outputLootMultiplier = 1.0f;
+    public float outputLootMultiplier_v1 = 1.0f;
 
     @ConfigEntry.Gui.Tooltip(count = 5)
     @ConfigEntry.Gui.EnumHandler(option = ConfigEntry.Gui.EnumHandler.EnumDisplayOption.BUTTON)
     @ConfigEntry.Gui.RequiresRestart
-    public ExtractinatorRecipe extractinatorRecipe = ExtractinatorRecipe.NONE;
+    public ExtractinatorRecipe extractinatorRecipe_v1 = ExtractinatorRecipe.NONE;
 
     @ConfigEntry.Gui.Tooltip
 
-    public List<String> modsSupported = TEUtils.modsToList();
+    public List<String> supportedMods_v1 = TEUtils.modsToList();
 
     // This breaks the Jankson Serializer for some reason. Solution is to use Toml serializer.
     @ConfigEntry.Gui.Tooltip(count = 6)
-    @ConfigEntry.Gui.RequiresRestart
-    public List<SupportedBlocksConfig> supportedBlocks = SupportedBlocks.supportedBlocks;
+    public List<SupportedBlocksConfig> supportedBlocks_v1 = SupportedBlocks.supportedBlocks;
 
     @Override
     public void validatePostLoad() {
 
-        commonItemChance = MathHelper.clamp(commonItemChance, 0, 100);
-        uncommonItemChance = MathHelper.clamp(commonItemChance, 0, 100);
-        rareItemChance = MathHelper.clamp(commonItemChance, 0, 100);
-        veryRareItemChance = MathHelper.clamp(commonItemChance, 0, 100);
-        extremelyRareItemChance = MathHelper.clamp(commonItemChance, 0, 100);
-        if (inputCooldown < 1) {
-            inputCooldown = 1;
+        commonItemChance_v1 = MathHelper.clamp(commonItemChance_v1, 0, 100);
+        uncommonItemChance_v1 = MathHelper.clamp(commonItemChance_v1, 0, 100);
+        rareItemChance_v1 = MathHelper.clamp(commonItemChance_v1, 0, 100);
+        veryRareItemChance_v1 = MathHelper.clamp(commonItemChance_v1, 0, 100);
+        extremelyRareItemChance_v1 = MathHelper.clamp(commonItemChance_v1, 0, 100);
+        if (inputCooldown_v1 < 1) {
+            inputCooldown_v1 = 1;
         }
     }
 }

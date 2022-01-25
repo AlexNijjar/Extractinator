@@ -13,10 +13,9 @@
 # The Extractinator
 
 This mod adds a new machine, the Extractinator, which converts your throwaway blocks, such as gravel and cobblestone,
-into valuable resources. It's heavily inspired by Terraria's
-[silt extractinator](https://terraria.fandom.com/wiki/Extractinator), adding silt ore and underground cabins, where
-extractinators are located. It also has extensive support for other mods, specifically tech mods, allowing you to
-convert blocks into modded materials and resources necessary for those mods.
+into valuable resources. It's based on Terraria's
+[silt extractinator](https://terraria.fandom.com/wiki/Extractinator), incorporating silt ore and underground cabins
+whilst adding new features, such as support for additional blocks and extensive support for other mods.
 
 ## Features
 
@@ -37,6 +36,9 @@ convert blocks into modded materials and resources necessary for those mods.
 - [Tech Reborn:](https://www.curseforge.com/minecraft/mc-mods/techreborn) Support for Tech Reborn's ores and dusts.
 - [Industrial Revolution:](https://www.curseforge.com/minecraft/mc-mods/industrial-revolution) Support for Nikolite.
 - [Applied Energistics 2:](https://modrinth.com/mod/ae2) Support for Certus Quartz Crystals.
+- [Mythic Metals:](https://modrinth.com/mod/mythicmetals) Support for various ores.
+- [Numismatic Overhaul:](https://modrinth.com/mod/numismatic-overhaul) The extractinator occasionally drops bronze,
+  silver and gold coins (like Terraria).
 - [Blockus:](https://www.curseforge.com/minecraft/mc-mods/blockus) Marble, bluestone and limestone can be extractinated.
 - [Promenade:](https://modrinth.com/mod/promenade) Carbonite and blunite can be extractinated.
 

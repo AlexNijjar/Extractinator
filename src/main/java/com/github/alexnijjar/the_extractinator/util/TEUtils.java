@@ -34,11 +34,11 @@ public final class TEUtils {
         ExtractinatorConfig config = TheExtractinator.CONFIG.extractinatorConfig;
 
         switch (rarity) {
-            case COMMON -> percent = config.commonItemChance;
-            case UNCOMMON -> percent = config.uncommonItemChance;
-            case RARE -> percent = config.rareItemChance;
-            case VERY_RARE -> percent = config.veryRareItemChance;
-            case EXTREMELY_RARE -> percent = config.extremelyRareItemChance;
+            case COMMON -> percent = config.commonItemChance_v1;
+            case UNCOMMON -> percent = config.uncommonItemChance_v1;
+            case RARE -> percent = config.rareItemChance_v1;
+            case VERY_RARE -> percent = config.veryRareItemChance_v1;
+            case EXTREMELY_RARE -> percent = config.extremelyRareItemChance_v1;
         }
 
         return percent / 100;
@@ -72,7 +72,8 @@ public final class TEUtils {
 
         for (SupportedMods mod : SupportedMods.values()) {
             String modId = mod.name().toLowerCase();
-            String modIdAddon = mod.name().toLowerCase() + "/addon";
+            if (modId.equals(modToModId(SupportedMods.NUMISMATIC_OVERHAUL))) modId = underscoreToHyphen(modId);
+            String modIdAddon = modId + "/addon";
 
             if (path.contains(modIdAddon)) return modIdAddon;
             if (path.contains(modId)) return modId;
@@ -88,7 +89,7 @@ public final class TEUtils {
 
     public static boolean modEnabled(String string) {
 
-        List<String> supportedMods = TheExtractinator.CONFIG.extractinatorConfig.modsSupported;
+        List<String> supportedMods = TheExtractinator.CONFIG.extractinatorConfig.supportedMods_v1;
 
         for (SupportedMods mod : SupportedMods.values()) {
             String modId = mod.name().toLowerCase();
@@ -110,7 +111,7 @@ public final class TEUtils {
         return values;
     }
 
-    public static String modToString(SupportedMods mod) {
+    public static String modToModId(SupportedMods mod) {
         return mod.toString().toLowerCase();
     }
 
@@ -122,45 +123,44 @@ public final class TEUtils {
         return checkMod(mod.name().toLowerCase());
     }
 
+    // Numismatic Overhaul uses a dash, not an underscore in its mod id.
+    public static String underscoreToHyphen(String mod) {
+        return mod.replace("_", "-");
+    }
+
+    public static String hyphenToUnderscore(String mod) {
+        return mod.replace("-", "_");
+    }
+
     // Checks if the mod is loaded and enabled in the config.
     public static boolean checkMod(String mod) {
-        boolean loaded = modLoaded(stringToSupportedMods(mod));
-        boolean supported = modEnabled(mod);
+        boolean loaded = modLoaded(mod);
+        boolean supported = modEnabled(hyphenToUnderscore(mod));
 
         return loaded && supported;
     }
 
     // Checks if the mod's loot table should be included, based, on the current mods installed.
-    // For example, it prevents Mythic Metals from loading if a tech mod like Modern
-    // Industrialization is installed.
     public static boolean validMod(String mod) {
 
         String modId = mod.replace("/addon", "");
         boolean valid = checkMod(modId);
         boolean isAddon = mod.contains("/addon");
-
-        SupportedMods support = stringToSupportedMods(modId);
+        SupportedMods support = stringToSupportedMods(hyphenToUnderscore(modId));
 
         // Enable Tech Reborn drops if Modern Industrialization is not installed.
         if (!checkMod(SupportedMods.MODERN_INDUSTRIALIZATION)) {
-            if (support.equals(SupportedMods.TECHREBORN) && isAddon) return false;
-            if (support.equals(SupportedMods.TECHREBORN)) return valid;
-        } else {
-            if (support.equals(SupportedMods.TECHREBORN) && isAddon) return valid;
-            else if (support.equals(SupportedMods.TECHREBORN)) return false;
-        }
+            if (support.equals(SupportedMods.TECHREBORN) && isAddon)
+                return false;
+        } else if (support.equals(SupportedMods.TECHREBORN) && !isAddon)
+            return false;
 
         // Loot tables to use if a major tech mod is not installed.
         if (!majorTechModInstalled()) {
-            if (support.equals(SupportedMods.MINECRAFT) && isAddon) return false;
-            else if (support.equals(SupportedMods.MYTHICMETALS) || support.equals(SupportedMods.MINECRAFT))
-                return valid;
-        } else {
-            if (support.equals(SupportedMods.MINECRAFT) && isAddon) return valid;
-            else if (support.equals(SupportedMods.MINECRAFT) || support.equals(SupportedMods.MYTHICMETALS)) {
+            if (support.equals(SupportedMods.MINECRAFT) && isAddon)
                 return false;
-            }
-        }
+        } else if ((support.equals(SupportedMods.MINECRAFT) || support.equals(SupportedMods.MYTHICMETALS)) && !isAddon)
+            return false;
 
         return valid;
     }
