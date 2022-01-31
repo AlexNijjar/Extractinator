@@ -85,5 +85,18 @@ public class BasicCabinGenerator {
                         StructurePool.Projection.RIGID
                 )
         );
+
+        // Used in all cabins.
+        StructurePools.register(
+                new StructurePool(
+                        new TEIdentifier("cabin_main_loot"),
+                        new Identifier("empty"),
+                        ImmutableList.of(
+                                new Pair<>(StructurePoolElement.ofSingle(TheExtractinator.MOD_ID + ":cabin/main/main_loot_extractinator"), 1)
+                        ),
+                        StructurePool.Projection.RIGID
+                )
+        );
     }
 }
+// clone 14 -60 23 14 -58 23 ~ ~ ~
