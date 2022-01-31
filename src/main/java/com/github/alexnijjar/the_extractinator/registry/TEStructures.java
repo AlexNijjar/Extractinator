@@ -24,6 +24,9 @@ public final class TEStructures {
     public static StructureFeature<StructurePoolFeatureConfig> DEFAULT_CABIN = new CabinStructure(StructurePoolFeatureConfig.CODEC, "default");
     public static StructureFeature<StructurePoolFeatureConfig> DEEPSLATE_CABIN = new CabinStructure(StructurePoolFeatureConfig.CODEC, "deepslate");
     public static StructureFeature<StructurePoolFeatureConfig> OCEAN_CABIN = new CabinStructure(StructurePoolFeatureConfig.CODEC, "ocean");
+    public static StructureFeature<StructurePoolFeatureConfig> JUNGLE_CABIN = new CabinStructure(StructurePoolFeatureConfig.CODEC, "jungle");
+    public static StructureFeature<StructurePoolFeatureConfig> DESERT_CABIN = new CabinStructure(StructurePoolFeatureConfig.CODEC, "desert");
+    public static StructureFeature<StructurePoolFeatureConfig> ICE_CABIN = new CabinStructure(StructurePoolFeatureConfig.CODEC, "ice");
 
     public static void register() {
 
@@ -44,7 +47,8 @@ public final class TEStructures {
                             TheExtractinator.CONFIG.worldConfig.cabinSeparation_v1,
                             951481807))
                     .adjustsSurface()
-                    .register();FabricStructureBuilder.create(new TEIdentifier("ocean_underground_cabin"), OCEAN_CABIN)
+                    .register();
+            FabricStructureBuilder.create(new TEIdentifier("ocean_underground_cabin"), OCEAN_CABIN)
                     .step(GenerationStep.Feature.UNDERGROUND_STRUCTURES)
                     .defaultConfig(new StructureConfig(
                             TheExtractinator.CONFIG.worldConfig.cabinSpacing_v1 * 2,
@@ -52,19 +56,37 @@ public final class TEStructures {
                             951481808))
                     .adjustsSurface()
                     .register();
+            FabricStructureBuilder.create(new TEIdentifier("jungle_underground_cabin"), JUNGLE_CABIN)
+                    .step(GenerationStep.Feature.UNDERGROUND_STRUCTURES)
+                    .defaultConfig(new StructureConfig(
+                            TheExtractinator.CONFIG.worldConfig.cabinSpacing_v1,
+                            TheExtractinator.CONFIG.worldConfig.cabinSeparation_v1,
+                            951481809))
+                    .adjustsSurface()
+                    .register();
+            FabricStructureBuilder.create(new TEIdentifier("desert_underground_cabin"), DESERT_CABIN)
+                    .step(GenerationStep.Feature.UNDERGROUND_STRUCTURES)
+                    .defaultConfig(new StructureConfig(
+                            TheExtractinator.CONFIG.worldConfig.cabinSpacing_v1,
+                            TheExtractinator.CONFIG.worldConfig.cabinSeparation_v1,
+                            951481810))
+                    .adjustsSurface()
+                    .register();
+            FabricStructureBuilder.create(new TEIdentifier("ice_underground_cabin"), ICE_CABIN)
+                    .step(GenerationStep.Feature.UNDERGROUND_STRUCTURES)
+                    .defaultConfig(new StructureConfig(
+                            TheExtractinator.CONFIG.worldConfig.cabinSpacing_v1,
+                            TheExtractinator.CONFIG.worldConfig.cabinSeparation_v1,
+                            951481811))
+                    .adjustsSurface()
+                    .register();
 
             // Add structure spawning to biomes
             Predicate<BiomeSelectionContext> mainBiomes = BiomeSelectors.categories(
-                    Biome.Category.TAIGA,
                     Biome.Category.EXTREME_HILLS,
-                    Biome.Category.JUNGLE,
-                    Biome.Category.MESA,
                     Biome.Category.PLAINS,
-                    Biome.Category.SAVANNA,
-                    Biome.Category.ICY,
                     Biome.Category.BEACH,
                     Biome.Category.FOREST,
-                    Biome.Category.DESERT,
                     Biome.Category.SWAMP,
                     Biome.Category.MUSHROOM,
                     Biome.Category.UNDERGROUND,
@@ -91,7 +113,33 @@ public final class TEStructures {
                             Registry.CONFIGURED_STRUCTURE_FEATURE_KEY,
                             BuiltinRegistries.CONFIGURED_STRUCTURE_FEATURE.getId(ConfiguredStructures.OCEAN_CONFIGURED_CABIN))
             );
-            // TODO: Add jungle, ice and desert cabins.
+            BiomeModifications.addStructure(
+                    BiomeSelectors.categories(
+                            Biome.Category.JUNGLE
+                    ),
+                    RegistryKey.of(
+                            Registry.CONFIGURED_STRUCTURE_FEATURE_KEY,
+                            BuiltinRegistries.CONFIGURED_STRUCTURE_FEATURE.getId(ConfiguredStructures.JUNGLE_CONFIGURED_CABIN))
+            );
+            BiomeModifications.addStructure(
+                    BiomeSelectors.categories(
+                            Biome.Category.DESERT,
+                            Biome.Category.SAVANNA,
+                            Biome.Category.MESA
+                    ),
+                    RegistryKey.of(
+                            Registry.CONFIGURED_STRUCTURE_FEATURE_KEY,
+                            BuiltinRegistries.CONFIGURED_STRUCTURE_FEATURE.getId(ConfiguredStructures.DESERT_CONFIGURED_CABIN))
+            );
+            BiomeModifications.addStructure(
+                    BiomeSelectors.categories(
+                            Biome.Category.ICY,
+                            Biome.Category.TAIGA
+                    ),
+                    RegistryKey.of(
+                            Registry.CONFIGURED_STRUCTURE_FEATURE_KEY,
+                            BuiltinRegistries.CONFIGURED_STRUCTURE_FEATURE.getId(ConfiguredStructures.ICE_CONFIGURED_CABIN))
+            );
         }
     }
 }

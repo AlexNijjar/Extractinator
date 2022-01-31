@@ -1,7 +1,6 @@
 package com.github.alexnijjar.the_extractinator.loot;
 
 import com.github.alexnijjar.the_extractinator.TheExtractinator;
-import com.github.alexnijjar.the_extractinator.util.LootData;
 import com.github.alexnijjar.the_extractinator.util.SupportedMods;
 import com.github.alexnijjar.the_extractinator.util.TEIdentifier;
 import com.github.alexnijjar.the_extractinator.util.TEUtils;
@@ -40,10 +39,10 @@ public class LootTableModifier {
             "enhanced_metalworks_loot_mi", Arrays.asList(
                     new LootData(miId("tungsten_ingot"), Range.between(2, 4), Range.between(1, 2), 0.25f),
                     new LootData(miId("titanium_ingot"), Range.between(1, 2), Range.between(1, 2), 0.25f),
-                    new LootData(miId("platinum_ingot"), Range.between(1, 2), Range.between(1, 2), 0.25f),
-                    new LootData(miId("chromium_ingot"), Range.between(2, 4), Range.between(1, 2), 0.25f),
+                    new LootData(miId("platinum_ingot"), Range.between(1, 2), Range.between(1, 1), 0.25f),
+                    new LootData(miId("chromium_ingot"), Range.between(1, 3), Range.between(1, 2), 0.25f),
                     new LootData(miId("uranium_ingot"), Range.between(5, 10), Range.between(1, 2), 0.25f),
-                    new LootData(miId("iridium_ingot"), Range.between(1, 2), Range.between(1, 2), 0.2f)
+                    new LootData(miId("iridium_ingot"), Range.between(1, 2), Range.between(1, 1), 0.2f)
             ),
             "enhanced_metalworks_loot_tr", Arrays.asList(
                     new LootData(trId("tungsten_ingot"), Range.between(2, 4), Range.between(1, 2), 0.25f),
@@ -51,7 +50,7 @@ public class LootTableModifier {
                     new LootData(trId("platinum_ingot"), Range.between(1, 2), Range.between(1, 2), 0.25f),
                     new LootData(trId("chromium_ingot"), Range.between(2, 3), Range.between(1, 2), 0.25f),
                     new LootData(trId("advanced_alloy_ingot"), Range.between(6, 12), Range.between(1, 2), 0.25f),
-                    new LootData(trId("iridium_ingot"), Range.between(1, 2), Range.between(1, 2), 0.2f)
+                    new LootData(trId("iridium_ingot"), Range.between(1, 2), Range.between(1, 1), 0.2f)
             ),
             "kitchen_loot_crop", Arrays.asList(
                     new LootData(crId("potato_chips"), Range.between(1, 3), Range.between(1, 2), 0.2f),

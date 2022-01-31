@@ -1,4 +1,4 @@
-package com.github.alexnijjar.the_extractinator.util;
+package com.github.alexnijjar.the_extractinator.loot;
 
 import net.minecraft.util.Identifier;
 import org.apache.commons.lang3.Range;
