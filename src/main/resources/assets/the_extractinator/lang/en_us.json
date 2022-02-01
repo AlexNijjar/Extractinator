@@ -1,6 +1,7 @@
 {
   "block.the_extractinator.extractinator_block": "Extractinator",
   "block.the_extractinator.silt": "Silt",
+  "block.the_extractinator.slush": "Slush",
 
   "item.the_extractinator.silt.tooltip": "Can be placed in an extractinator to turn it into something more useful.",
   "item.the_extractinator.extractinator.tooltip": "Found in underground cabins.",
@@ -19,8 +20,8 @@
   "text.autoconfig.the_extractinator.option.extractinatorConfig.extremelyRareItemChance_v1":  "Extremely Rare Item Chance",
   "text.autoconfig.the_extractinator.option.extractinatorConfig.inputCooldown_v1":  "Input Cooldown",
   "text.autoconfig.the_extractinator.option.extractinatorConfig.outputLootMultiplier_v1":  "Output Loot Multiplier",
-  "text.autoconfig.the_extractinator.option.extractinatorConfig.extractinatorRecipe_v1":  "Extractinator Recipe",
-  "text.autoconfig.the_extractinator.option.extractinatorConfig.supportedBlocks_v1":  "Supported Blocks",
+  "text.autoconfig.the_extractinator.option.extractinatorConfig.extractinatorRecipe_v2":  "Extractinator Recipe",
+  "text.autoconfig.the_extractinator.option.extractinatorConfig.supportedBlocks_v2":  "Supported Blocks",
   "text.autoconfig.the_extractinator.option.extractinatorConfig.supportedMods_v1":  "Supported Mods",
 
   "text.autoconfig.the_extractinator.option.SupportedBlocksConfig":  "Block Support",
@@ -44,23 +45,16 @@
   "text.autoconfig.the_extractinator.option.extractinatorConfig.supportedMods.mythicmetalsSupport":  "Mythic Metals",
 
   "text.autoconfig.the_extractinator.option.worldConfig.generateSiltOre_v1":  "Generate Silt Ore",
-  "text.autoconfig.the_extractinator.option.worldConfig.siltVeinSize_v1":  "Silt Vein Size",
-  "text.autoconfig.the_extractinator.option.worldConfig.siltVeinsPerChunk_v1":  "Silt Veins Per Chunk",
+  "text.autoconfig.the_extractinator.option.worldConfig.siltVeinSize_v2":  "Silt Vein Size",
+  "text.autoconfig.the_extractinator.option.worldConfig.siltVeinsPerChunk_v2":  "Silt Veins Per Chunk",
+  "text.autoconfig.the_extractinator.option.worldConfig.siltMinSpawnHeight_v1":  "Silt Min Spawn Height",
   "text.autoconfig.the_extractinator.option.worldConfig.siltMaxSpawnHeight_v1":  "Silt Max Spawn Height",
 
-  "text.autoconfig.the_extractinator.option.worldConfig.generateCabins_v1":  "Generate Cabins",
-  "text.autoconfig.the_extractinator.option.worldConfig.cabinSpacing_v1":  "Cabin Spacing",
-  "text.autoconfig.the_extractinator.option.worldConfig.cabinSeparation_v1":  "Cabin Separation",
-  "text.autoconfig.the_extractinator.option.worldConfig.reduceCabinSpawning_v1":  "Reduce Cabin Spawning",
-  "text.autoconfig.the_extractinator.option.worldConfig.moddedLootInChests_v1":  "Spawn Modded Loot in Chests",
-  "text.autoconfig.the_extractinator.option.worldConfig.cabinMinHeight_v1":  "Cabin Min Height",
-  "text.autoconfig.the_extractinator.option.worldConfig.cabinMaxHeight_v1":  "Cabin Max Height",
-  "text.autoconfig.the_extractinator.option.worldConfig.deepslateCabinMinHeight_v1":  "Deepslate Cabin Min Height",
-  "text.autoconfig.the_extractinator.option.worldConfig.deepslateCabinMaxHeight_v1":  "Deepslate Cabin Max Height",
-  "text.autoconfig.the_extractinator.option.worldConfig.oceanCabinMinHeight_v1":  "Ocean Cabin Min Height",
-  "text.autoconfig.the_extractinator.option.worldConfig.oceanCabinMaxHeight_v1":  "Ocean Cabin Max Height",
-  "text.autoconfig.the_extractinator.option.worldConfig.intactCabinWeight_v1":  "Intact Cabin Weight",
-  "text.autoconfig.the_extractinator.option.worldConfig.brokenCabinWeight_v1":  "Broken Cabin Weight",
+  "text.autoconfig.the_extractinator.option.worldConfig.generateSlushOre_v1":  "Generate Slush Ore",
+  "text.autoconfig.the_extractinator.option.worldConfig.slushVeinSize_v1":  "Slush Vein Size",
+  "text.autoconfig.the_extractinator.option.worldConfig.slushVeinsPerChunk_v1":  "Slush Veins Per Chunk",
+  "text.autoconfig.the_extractinator.option.worldConfig.slushMinSpawnHeight_v1":  "Slush Min Spawn Height",
+  "text.autoconfig.the_extractinator.option.worldConfig.slushMaxSpawnHeight_v1":  "Slush Max Spawn Height",
 
   "text.autoconfig.the_extractinator.tier.none": "None",
   "text.autoconfig.the_extractinator.tier.tier_1": "Tier 1",
@@ -104,22 +98,6 @@
   "text.autoconfig.the_extractinator.option.extractinatorConfig.supportedBlocks_v1.@Tooltip[3]": "certain items from block loot tables. Look at the default blocks on this list",
   "text.autoconfig.the_extractinator.option.extractinatorConfig.supportedBlocks_v1.@Tooltip[4]": "for reference if you plan on adding any more blocks. I do not recommend",
   "text.autoconfig.the_extractinator.option.extractinatorConfig.supportedBlocks_v1.@Tooltip[5]": "modifying or adding things to this list if you are not a modpack developer.",
-
-  "text.autoconfig.the_extractinator.option.worldConfig.cabinSpacing_v1.@Tooltip[0]": "This value should never be equal to or lower than the cabin separation",
-  "text.autoconfig.the_extractinator.option.worldConfig.cabinSpacing_v1.@Tooltip[1]": "value.",
-  "text.autoconfig.the_extractinator.option.worldConfig.cabinSeparation_v1.@Tooltip[0]": "This value should never be equal to or greater than the cabin spacing",
-  "text.autoconfig.the_extractinator.option.worldConfig.cabinSeparation_v1.@Tooltip[1]": "value.",
-
-  "text.autoconfig.the_extractinator.option.worldConfig.intactCabinWeight_v1.@Tooltip[0]": "The chance of an intact cabin spawning over other cabin variants. There",
-  "text.autoconfig.the_extractinator.option.worldConfig.intactCabinWeight_v1.@Tooltip[1]": "are currently 2 intact cabin variations.",
-
-  "text.autoconfig.the_extractinator.option.worldConfig.brokenCabinWeight_v1.@Tooltip[0]": "The chance of a broken cabin spawning over other cabin variants. There",
-  "text.autoconfig.the_extractinator.option.worldConfig.brokenCabinWeight_v1.@Tooltip[1]": "are currently 6 intact cabin variations.",
-
-  "text.autoconfig.the_extractinator.option.worldConfig.moddedLootInChests_v1.@Tooltip[0]": "Should loot from other mods, such as tin ingots, be included in cabin",
-  "text.autoconfig.the_extractinator.option.worldConfig.moddedLootInChests_v1.@Tooltip[1]": "chests? (Does not affect cabins that have already been generated in your",
-  "text.autoconfig.the_extractinator.option.worldConfig.moddedLootInChests_v1.@Tooltip[2]": "world).",
-
 
   "the_extractinator.rei.extractinator.title": "Extractinator",
   "the_extractinator.rei.extractinator.info.title": "Location",

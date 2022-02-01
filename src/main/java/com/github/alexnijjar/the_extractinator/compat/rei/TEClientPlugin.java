@@ -5,6 +5,7 @@ import com.github.alexnijjar.the_extractinator.client.TheExtractinatorClient;
 import com.github.alexnijjar.the_extractinator.config.SupportedBlocksConfig;
 import com.github.alexnijjar.the_extractinator.registry.TEBlocks;
 import com.github.alexnijjar.the_extractinator.util.TEIdentifier;
+import com.github.alexnijjar.the_extractinator.util.TEUtils;
 import me.shedaniel.rei.api.client.plugins.REIClientPlugin;
 import me.shedaniel.rei.api.client.registry.category.CategoryRegistry;
 import me.shedaniel.rei.api.client.registry.display.DisplayRegistry;
@@ -35,7 +36,7 @@ public class TEClientPlugin implements REIClientPlugin {
     @Override
     public void registerDisplays(DisplayRegistry registry) {
 
-        List<SupportedBlocksConfig> block = TheExtractinator.CONFIG.extractinatorConfig.supportedBlocks_v1;
+        List<SupportedBlocksConfig> block = TheExtractinator.CONFIG.extractinatorConfig.supportedBlocks_v2;
 
         for (int i = 0; i < block.size(); i++) {
             Identifier id = new Identifier(block.get(i).name);
@@ -47,8 +48,10 @@ public class TEClientPlugin implements REIClientPlugin {
         }
 
         // Extractinator info.
-        DefaultInformationDisplay info = DefaultInformationDisplay.createFromEntry(EntryStacks.of(TEBlocks.EXTRACTINATOR_BLOCK), new TranslatableText("the_extractinator.rei.extractinator.info.title"));
-        info.lines(new TranslatableText("the_extractinator.rei.extractinator.info.body"));
-        registry.add(info);
+        if (TEUtils.modLoaded("subterrestrial")) {
+            DefaultInformationDisplay info = DefaultInformationDisplay.createFromEntry(EntryStacks.of(TEBlocks.EXTRACTINATOR_BLOCK), new TranslatableText("the_extractinator.rei.extractinator.info.title"));
+            info.lines(new TranslatableText("the_extractinator.rei.extractinator.info.body"));
+            registry.add(info);
+        }
     }
 }

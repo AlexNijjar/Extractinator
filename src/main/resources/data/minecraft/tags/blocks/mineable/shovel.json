@@ -1,6 +1,7 @@
 {
   "replace": false,
   "values": [
-    "the_extractinator:silt"
+    "the_extractinator:silt",
+    "the_extractinator:slush"
   ]
 }

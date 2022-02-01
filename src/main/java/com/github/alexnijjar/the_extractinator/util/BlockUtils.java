@@ -23,7 +23,7 @@ public class BlockUtils {
     public static boolean inputSupported(Item item) {
 
         if (item != Items.AIR)
-            for (SupportedBlocksConfig supportedBlocks : TheExtractinator.CONFIG.extractinatorConfig.supportedBlocks_v1) {
+            for (SupportedBlocksConfig supportedBlocks : TheExtractinator.CONFIG.extractinatorConfig.supportedBlocks_v2) {
 
                 Block supportedBlock = Registry.BLOCK.get(new Identifier(supportedBlocks.name));
 
