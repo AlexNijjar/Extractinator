@@ -1,8 +1,8 @@
 package com.github.alexnijjar.the_extractinator.registry;
 
 import com.github.alexnijjar.the_extractinator.util.TEIdentifier;
+import com.github.alexnijjar.the_extractinator.util.TEUtils;
 import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
-import net.fabricmc.loader.api.FabricLoader;
 import net.minecraft.client.item.TooltipContext;
 import net.minecraft.item.BlockItem;
 import net.minecraft.item.ItemGroup;
@@ -23,12 +23,19 @@ public final class TEItems {
         Registry.register(Registry.ITEM, new TEIdentifier("extractinator"), new BlockItem(TEBlocks.EXTRACTINATOR_BLOCK, new FabricItemSettings().group(ItemGroup.DECORATIONS)) {
             @Override
             public void appendTooltip(ItemStack stack, @Nullable World world, List<Text> tooltip, TooltipContext context) {
-                if (!FabricLoader.getInstance().isModLoaded("roughlyenoughitems"))
+                if (!TEUtils.modLoaded("roughlyenoughitems") && TEUtils.modLoaded("subterrestrial"))
                     tooltip.add((new TranslatableText("item.the_extractinator.extractinator.tooltip")));
             }
         });
 
         Registry.register(Registry.ITEM, new TEIdentifier("silt"), new BlockItem(TEBlocks.SILT, new FabricItemSettings().group(ItemGroup.BUILDING_BLOCKS)) {
+            @Override
+            public void appendTooltip(ItemStack stack, @Nullable World world, List<Text> tooltip, TooltipContext context) {
+                tooltip.add((new TranslatableText("item.the_extractinator.silt.tooltip")));
+            }
+        });
+
+        Registry.register(Registry.ITEM, new TEIdentifier("slush"), new BlockItem(TEBlocks.SLUSH, new FabricItemSettings().group(ItemGroup.BUILDING_BLOCKS)) {
             @Override
             public void appendTooltip(ItemStack stack, @Nullable World world, List<Text> tooltip, TooltipContext context) {
                 tooltip.add((new TranslatableText("item.the_extractinator.silt.tooltip")));

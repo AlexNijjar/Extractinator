@@ -45,7 +45,7 @@ public class LootUtils {
 
         ExtractinatorConfig extractinatorConfig = TheExtractinator.CONFIG.extractinatorConfig;
 
-        for (SupportedBlocksConfig supportedBlocks : extractinatorConfig.supportedBlocks_v1) {
+        for (SupportedBlocksConfig supportedBlocks : extractinatorConfig.supportedBlocks_v2) {
 
             if (supportedBlocks.tier == Tier.NONE) return;
 

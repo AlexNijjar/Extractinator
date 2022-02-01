@@ -1,6 +1,7 @@
 package com.github.alexnijjar.the_extractinator.config;
 
 import com.github.alexnijjar.the_extractinator.recipe.ExtractinatorRecipe;
+import com.github.alexnijjar.the_extractinator.util.SupportedMods;
 import com.github.alexnijjar.the_extractinator.util.TEUtils;
 import me.shedaniel.autoconfig.ConfigData;
 import me.shedaniel.autoconfig.annotation.Config;
@@ -36,15 +37,27 @@ public class ExtractinatorConfig implements ConfigData {
     @ConfigEntry.Gui.Tooltip(count = 5)
     @ConfigEntry.Gui.EnumHandler(option = ConfigEntry.Gui.EnumHandler.EnumDisplayOption.BUTTON)
     @ConfigEntry.Gui.RequiresRestart
-    public ExtractinatorRecipe extractinatorRecipe_v1 = ExtractinatorRecipe.NONE;
+    public ExtractinatorRecipe extractinatorRecipe_v2 = ExtractinatorRecipe.NONE;
 
     @ConfigEntry.Gui.Tooltip
-
     public List<String> supportedMods_v1 = TEUtils.modsToList();
 
     // This breaks the Jankson Serializer for some reason. Solution is to use Toml serializer.
     @ConfigEntry.Gui.Tooltip(count = 6)
-    public List<SupportedBlocksConfig> supportedBlocks_v1 = SupportedBlocks.supportedBlocks;
+    public List<SupportedBlocksConfig> supportedBlocks_v2 = SupportedBlocks.supportedBlocks;
+
+    // Sets the default recipe to something when Subterrestrial is not installed.
+    public ExtractinatorConfig() {
+        if (!TEUtils.modLoaded("subterrestrial")) {
+            if (TEUtils.modLoaded(SupportedMods.MODERN_INDUSTRIALIZATION)) {
+                extractinatorRecipe_v2 = ExtractinatorRecipe.MODERN_INDUSTRIALIZATION;
+            } else if (TEUtils.modLoaded(SupportedMods.TECHREBORN)) {
+                extractinatorRecipe_v2 = ExtractinatorRecipe.TECH_REBORN;
+            } else {
+                extractinatorRecipe_v2 = ExtractinatorRecipe.MINECRAFT;
+            }
+        }
+    }
 
     @Override
     public void validatePostLoad() {

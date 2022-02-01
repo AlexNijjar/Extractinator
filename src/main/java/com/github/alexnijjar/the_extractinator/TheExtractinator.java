@@ -3,9 +3,7 @@ package com.github.alexnijjar.the_extractinator;
 import com.github.alexnijjar.the_extractinator.compat.rei.LootTable;
 import com.github.alexnijjar.the_extractinator.config.TEConfig;
 import com.github.alexnijjar.the_extractinator.loot.ExtractinatorLootTables;
-import com.github.alexnijjar.the_extractinator.loot.LootTableModifier;
 import com.github.alexnijjar.the_extractinator.registry.*;
-import com.github.alexnijjar.the_extractinator.structure.ConfiguredStructures;
 import com.github.alexnijjar.the_extractinator.util.TEIdentifier;
 import me.shedaniel.autoconfig.AutoConfig;
 import me.shedaniel.autoconfig.serializer.Toml4jConfigSerializer;
@@ -39,10 +37,7 @@ public class TheExtractinator implements ModInitializer {
         TEBlockEntities.register();
         TEItems.register();
         TEOres.register();
-        ConfiguredStructures.register();
-        TEStructures.register();
         TELootTables.register();
-        LootTableModifier.modifyCabinLoot();
         TERecipes.register();
         TEStats.register();
 
