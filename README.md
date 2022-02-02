@@ -20,8 +20,7 @@ whilst adding new features, such as support for additional blocks and extensive 
 ## Features
 
 - Extractinator: Turns blocks into valuable items.
-- Silt: A new ore that spawns deep underground. Placing silt in an extractinator yields valuable resources.
-- Underground Cabins: These structures are the only way (by default) to find extractinators.
+- Silt and Slush: New blocks that spawn underground. Placing them in an extractinator yields valuable resources.
 
 <p align="center">
     <img src="https://i.imgur.com/vuv5zi9.gif" alt="Demo" width="600"/> 
@@ -29,6 +28,8 @@ whilst adding new features, such as support for additional blocks and extensive 
 
 ## Integrations
 
+- [Subterrestrial:](https://modrinth.com/mod/subterrestrial) The main chest in all cabins is replaced by an
+  extractinator. Though it's not required, I highly recommend that you install this too.
 - [Roughly Enough Items:](https://www.curseforge.com/minecraft/mc-mods/roughly-enough-items) Displays the output for
   each block that can be extractinated, including the rarity and quantity of items.
 - [Modern Industrialization:](https://modrinth.com/mod/modern-industrialization) Support for much of Modern

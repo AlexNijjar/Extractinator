@@ -14,7 +14,7 @@ public final class TEBlocks {
 
     public static final Block EXTRACTINATOR_BLOCK = new ExtractinatorBlock(FabricBlockSettings.copy(Blocks.IRON_BLOCK));
     public static final Block SILT = new FallingBlock(copy(Blocks.GRAVEL));
-    public static final Block SLUSH = new FallingBlock(copy(Blocks.SNOW_BLOCK));
+    public static final Block SLUSH = new FallingBlock(copy(Blocks.SNOW_BLOCK).hardness(1));
 
     public static void register() {
         Registry.register(Registry.BLOCK, new TEIdentifier("extractinator_block"), EXTRACTINATOR_BLOCK);
