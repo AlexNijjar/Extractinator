@@ -22,7 +22,7 @@
   "text.autoconfig.the_extractinator.option.extractinatorConfig.outputLootMultiplier_v1":  "Output Loot Multiplier",
   "text.autoconfig.the_extractinator.option.extractinatorConfig.extractinatorRecipe_v2":  "Extractinator Recipe",
   "text.autoconfig.the_extractinator.option.extractinatorConfig.supportedBlocks_v2":  "Supported Blocks",
-  "text.autoconfig.the_extractinator.option.extractinatorConfig.supportedMods_v1":  "Supported Mods",
+  "text.autoconfig.the_extractinator.option.extractinatorConfig.supportedMods_v2":  "Supported Mods",
 
   "text.autoconfig.the_extractinator.option.SupportedBlocksConfig":  "Block Support",
   "text.autoconfig.the_extractinator.option.SupportedBlocksConfig.name":  "Block Name",
@@ -84,20 +84,16 @@
   "text.autoconfig.the_extractinator.option.extractinatorConfig.inputCooldown_v1.@Tooltip[3]": "hopper). Set this to one if you want the extractinator to extract its input",
   "text.autoconfig.the_extractinator.option.extractinatorConfig.inputCooldown_v1.@Tooltip[4]": "instantly.",
 
-  "text.autoconfig.the_extractinator.option.extractinatorConfig.extractinatorRecipe_v1.@Tooltip[0]": "Defines what recipe to use when crafting the extractinator. By default, the",
-  "text.autoconfig.the_extractinator.option.extractinatorConfig.extractinatorRecipe_v1.@Tooltip[1]": "extractinator is uncraftable. You can change it; however, I have set this to",
-  "text.autoconfig.the_extractinator.option.extractinatorConfig.extractinatorRecipe_v1.@Tooltip[2]": "no recipe by default in order to encourage player exploration, i.e. ",
-  "text.autoconfig.the_extractinator.option.extractinatorConfig.extractinatorRecipe_v1.@Tooltip[3]": "searching for the extractinator in an underground cabin. If you don't care",
-  "text.autoconfig.the_extractinator.option.extractinatorConfig.extractinatorRecipe_v1.@Tooltip[4]": "about exploration, I'd recommend setting this to a modded recipe.",
+  "text.autoconfig.the_extractinator.option.extractinatorConfig.extractinatorRecipe_v2.@Tooltip": "Defines what recipe to use when crafting the extractinator.",
 
-  "text.autoconfig.the_extractinator.option.extractinatorConfig.supportedMods_v1.@Tooltip": "What mods should The Extractinator support?",
+  "text.autoconfig.the_extractinator.option.extractinatorConfig.supportedMods_v2.@Tooltip": "What mods should The Extractinator support?",
 
-  "text.autoconfig.the_extractinator.option.extractinatorConfig.supportedBlocks_v1.@Tooltip[0]": "A highly-configurable list of blocks that the extractinator will accept as an",
-  "text.autoconfig.the_extractinator.option.extractinatorConfig.supportedBlocks_v1.@Tooltip[1]": "input. You can add or remove blocks, including modded ones, set the loot",
-  "text.autoconfig.the_extractinator.option.extractinatorConfig.supportedBlocks_v1.@Tooltip[2]": "table, add custom items for each block with custom rarity and remove",
-  "text.autoconfig.the_extractinator.option.extractinatorConfig.supportedBlocks_v1.@Tooltip[3]": "certain items from block loot tables. Look at the default blocks on this list",
-  "text.autoconfig.the_extractinator.option.extractinatorConfig.supportedBlocks_v1.@Tooltip[4]": "for reference if you plan on adding any more blocks. I do not recommend",
-  "text.autoconfig.the_extractinator.option.extractinatorConfig.supportedBlocks_v1.@Tooltip[5]": "modifying or adding things to this list if you are not a modpack developer.",
+  "text.autoconfig.the_extractinator.option.extractinatorConfig.supportedBlocks_v2.@Tooltip[0]": "A highly-configurable list of blocks that the extractinator will accept as an",
+  "text.autoconfig.the_extractinator.option.extractinatorConfig.supportedBlocks_v2.@Tooltip[1]": "input. You can add or remove blocks, including modded ones, set the loot",
+  "text.autoconfig.the_extractinator.option.extractinatorConfig.supportedBlocks_v2.@Tooltip[2]": "table, add custom items for each block with custom rarity and remove",
+  "text.autoconfig.the_extractinator.option.extractinatorConfig.supportedBlocks_v2.@Tooltip[3]": "certain items from block loot tables. Look at the default blocks on this list",
+  "text.autoconfig.the_extractinator.option.extractinatorConfig.supportedBlocks_v2.@Tooltip[4]": "for reference if you plan on adding any more blocks. I do not recommend",
+  "text.autoconfig.the_extractinator.option.extractinatorConfig.supportedBlocks_v2.@Tooltip[5]": "modifying or adding things to this list if you are not a modpack developer.",
 
   "the_extractinator.rei.extractinator.title": "Extractinator",
   "the_extractinator.rei.extractinator.info.title": "Location",

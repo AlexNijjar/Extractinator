@@ -34,13 +34,13 @@ public class ExtractinatorConfig implements ConfigData {
     @ConfigEntry.Gui.Tooltip(count = 2)
     public float outputLootMultiplier_v1 = 1.0f;
 
-    @ConfigEntry.Gui.Tooltip(count = 5)
+    @ConfigEntry.Gui.Tooltip()
     @ConfigEntry.Gui.EnumHandler(option = ConfigEntry.Gui.EnumHandler.EnumDisplayOption.BUTTON)
     @ConfigEntry.Gui.RequiresRestart
     public ExtractinatorRecipe extractinatorRecipe_v2 = ExtractinatorRecipe.NONE;
 
     @ConfigEntry.Gui.Tooltip
-    public List<String> supportedMods_v1 = TEUtils.modsToList();
+    public List<String> supportedMods_v2 = TEUtils.getDefaultSupported();
 
     // This breaks the Jankson Serializer for some reason. Solution is to use Toml serializer.
     @ConfigEntry.Gui.Tooltip(count = 6)

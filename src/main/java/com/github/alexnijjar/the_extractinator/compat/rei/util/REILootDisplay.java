@@ -1,10 +1,9 @@
-package com.github.alexnijjar.the_extractinator.compat.rei;
+package com.github.alexnijjar.the_extractinator.compat.rei.util;
 
 import com.github.alexnijjar.the_extractinator.TheExtractinator;
 import com.github.alexnijjar.the_extractinator.config.AdditionalDropsConfig;
 import com.github.alexnijjar.the_extractinator.config.SupportedBlocksConfig;
 import com.github.alexnijjar.the_extractinator.util.TEUtils;
-import net.fabricmc.loader.api.FabricLoader;
 import net.minecraft.util.Identifier;
 import org.apache.commons.lang3.Range;
 
@@ -55,11 +54,13 @@ public final class REILootDisplay {
         }
 
         // Add additional loot.
-        if (additionalDrops != null) for (AdditionalDropsConfig drop : additionalDrops) {
-            Identifier dropId = new Identifier(drop.name);
-            if (FabricLoader.getInstance().isModLoaded(dropId.getNamespace())) if (TEUtils.modEnabled(dropId))
-                loot.add(new LootSlot(dropId, Range.between(drop.min, drop.max), drop.rarity));
-        }
+        if (additionalDrops != null)
+            for (AdditionalDropsConfig drop : additionalDrops) {
+                Identifier dropId = new Identifier(drop.name);
+                if (TEUtils.modLoaded(dropId.getNamespace()) && TEUtils.modEnabled(dropId)) {
+                    loot.add(new LootSlot(dropId, Range.between(drop.min, drop.max), drop.rarity));
+                }
+            }
 
         // Sort alphabetically.
         loot.sort(Comparator.comparing(o -> o.item.getPath()));

@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "id": "the_extractinator",
-  "version": "1.0.3",
+  "version": "1.0.4",
 
   "name": "The Extractinator",
   "description": "Convert blocks into resources.",

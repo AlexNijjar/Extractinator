@@ -1,8 +1,8 @@
 package com.github.alexnijjar.the_extractinator.loot;
 
 import com.github.alexnijjar.the_extractinator.TheExtractinator;
-import com.github.alexnijjar.the_extractinator.compat.rei.LootSlot;
-import com.github.alexnijjar.the_extractinator.compat.rei.Rarity;
+import com.github.alexnijjar.the_extractinator.compat.rei.util.LootSlot;
+import com.github.alexnijjar.the_extractinator.compat.rei.util.Rarity;
 import com.github.alexnijjar.the_extractinator.config.ExtractinatorConfig;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonElement;

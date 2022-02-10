@@ -1,6 +1,6 @@
 package com.github.alexnijjar.the_extractinator.config;
 
-import com.github.alexnijjar.the_extractinator.compat.rei.Tier;
+import com.github.alexnijjar.the_extractinator.compat.rei.util.Tier;
 import me.shedaniel.autoconfig.annotation.Config;
 import me.shedaniel.autoconfig.annotation.ConfigEntry;
 

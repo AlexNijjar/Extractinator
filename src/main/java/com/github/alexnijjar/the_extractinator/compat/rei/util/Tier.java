@@ -1,4 +1,4 @@
-package com.github.alexnijjar.the_extractinator.compat.rei;
+package com.github.alexnijjar.the_extractinator.compat.rei.util;
 
 import me.shedaniel.clothconfig2.gui.entries.SelectionListEntry;
 import net.minecraft.client.resource.language.I18n;

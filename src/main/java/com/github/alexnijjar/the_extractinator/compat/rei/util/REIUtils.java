@@ -1,4 +1,4 @@
-package com.github.alexnijjar.the_extractinator.compat.rei;
+package com.github.alexnijjar.the_extractinator.compat.rei.util;
 
 import com.github.alexnijjar.the_extractinator.TheExtractinator;
 import me.shedaniel.rei.api.common.entry.EntryStack;

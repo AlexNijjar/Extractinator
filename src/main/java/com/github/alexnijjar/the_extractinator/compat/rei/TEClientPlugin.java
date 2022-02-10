@@ -43,7 +43,7 @@ public class TEClientPlugin implements REIClientPlugin {
             String namespace = id.getNamespace();
 
             // Only add screen if the proper mod is installed.
-            if (namespace.equals("minecraft") || FabricLoader.getInstance().isModLoaded(namespace))
+            if (namespace.equals("minecraft") || FabricLoader.getInstance().isModLoaded(namespace) && TEUtils.modEnabled(namespace))
                 registry.add(new ExtractinatorDisplay(id, i, TheExtractinatorClient.lootTables));
         }
 
