@@ -1,8 +1,8 @@
 package com.github.alexnijjar.the_extractinator.util;
 
 import com.github.alexnijjar.the_extractinator.TheExtractinator;
-import com.github.alexnijjar.the_extractinator.compat.rei.Rarity;
-import com.github.alexnijjar.the_extractinator.compat.rei.Tier;
+import com.github.alexnijjar.the_extractinator.compat.rei.util.Rarity;
+import com.github.alexnijjar.the_extractinator.compat.rei.util.Tier;
 import com.github.alexnijjar.the_extractinator.config.ExtractinatorConfig;
 import net.fabricmc.loader.api.FabricLoader;
 import net.minecraft.item.Item;
@@ -10,6 +10,7 @@ import net.minecraft.util.Identifier;
 import net.minecraft.util.registry.Registry;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 public final class TEUtils {
@@ -89,24 +90,28 @@ public final class TEUtils {
 
     public static boolean modEnabled(String string) {
 
-        List<String> supportedMods = TheExtractinator.CONFIG.extractinatorConfig.supportedMods_v1;
+        List<String> supportedMods = TheExtractinator.CONFIG.extractinatorConfig.supportedMods_v2;
 
-        for (SupportedMods mod : SupportedMods.values()) {
-            String modId = mod.name().toLowerCase();
-            if (string.equals(modId)) for (String supported : supportedMods) {
-                if (supported.equals(modId)) return true;
-            }
+        for (String mod : supportedMods) {
+            if (string.equals(mod)) return true;
         }
 
         return false;
     }
 
-    public static List<String> modsToList() {
+    public static List<String> getDefaultSupported() {
         List<String> values = new ArrayList<>();
 
         for (SupportedMods mod : SupportedMods.values()) {
             values.add(mod.toString().toLowerCase());
         }
+
+        values.addAll(Arrays.asList(
+                "blockus",
+                "promenade",
+                "unearthed",
+                "the_extractinator"
+        ));
 
         return values;
     }

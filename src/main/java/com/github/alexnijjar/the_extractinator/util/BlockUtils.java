@@ -11,6 +11,8 @@ import net.minecraft.util.registry.Registry;
 import net.minecraft.world.World;
 import net.minecraft.world.chunk.WorldChunk;
 
+import java.util.List;
+
 public class BlockUtils {
 
     // This places a block above silently, preventing the block from playing a sound twice.
@@ -22,13 +24,23 @@ public class BlockUtils {
 
     public static boolean inputSupported(Item item) {
 
-        if (item != Items.AIR)
-            for (SupportedBlocksConfig supportedBlocks : TheExtractinator.CONFIG.extractinatorConfig.supportedBlocks_v2) {
+        if (item != Items.AIR) {
+            List<String> supportedMods = TheExtractinator.CONFIG.extractinatorConfig.supportedMods_v2;
+            for (SupportedBlocksConfig supported : TheExtractinator.CONFIG.extractinatorConfig.supportedBlocks_v2) {
+                boolean isSupported = false;
+                for (String mod : supportedMods) {
+                    if (mod.equals(Registry.ITEM.getId(item).getNamespace())) {
+                        isSupported = true;
+                        break;
+                    }
+                }
+                if (!isSupported) return false;
 
-                Block supportedBlock = Registry.BLOCK.get(new Identifier(supportedBlocks.name));
+                Block block = Registry.BLOCK.get(new Identifier(supported.name));
 
-                if (item.equals(supportedBlock.asItem())) return true;
+                if (item.equals(block.asItem())) return true;
             }
+        }
 
         return false;
     }

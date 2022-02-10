@@ -1,9 +1,9 @@
 package com.github.alexnijjar.the_extractinator.loot;
 
 import com.github.alexnijjar.the_extractinator.TheExtractinator;
-import com.github.alexnijjar.the_extractinator.compat.rei.LootSlot;
-import com.github.alexnijjar.the_extractinator.compat.rei.LootTable;
-import com.github.alexnijjar.the_extractinator.compat.rei.Tier;
+import com.github.alexnijjar.the_extractinator.compat.rei.util.LootSlot;
+import com.github.alexnijjar.the_extractinator.compat.rei.util.LootTable;
+import com.github.alexnijjar.the_extractinator.compat.rei.util.Tier;
 import com.github.alexnijjar.the_extractinator.util.TEUtils;
 import com.google.gson.JsonElement;
 import net.minecraft.loot.LootManager;

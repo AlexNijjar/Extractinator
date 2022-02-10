@@ -1,4 +1,4 @@
-package com.github.alexnijjar.the_extractinator.compat.rei;
+package com.github.alexnijjar.the_extractinator.compat.rei.util;
 
 import java.util.List;
 

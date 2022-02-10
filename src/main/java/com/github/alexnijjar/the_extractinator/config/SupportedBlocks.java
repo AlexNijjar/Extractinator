@@ -1,7 +1,7 @@
 package com.github.alexnijjar.the_extractinator.config;
 
-import com.github.alexnijjar.the_extractinator.compat.rei.Rarity;
-import com.github.alexnijjar.the_extractinator.compat.rei.Tier;
+import com.github.alexnijjar.the_extractinator.compat.rei.util.Rarity;
+import com.github.alexnijjar.the_extractinator.compat.rei.util.Tier;
 
 import java.util.Arrays;
 import java.util.List;

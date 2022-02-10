@@ -1,6 +1,7 @@
 package com.github.alexnijjar.the_extractinator;
 
-import com.github.alexnijjar.the_extractinator.compat.rei.LootTable;
+import com.github.alexnijjar.the_extractinator.compat.rei.util.LootTable;
+import com.github.alexnijjar.the_extractinator.config.SupportedBlocksConfig;
 import com.github.alexnijjar.the_extractinator.config.TEConfig;
 import com.github.alexnijjar.the_extractinator.loot.ExtractinatorLootTables;
 import com.github.alexnijjar.the_extractinator.registry.*;
@@ -67,7 +68,7 @@ public class TheExtractinator implements ModInitializer {
             sender.sendPacket(REI_DISPLAY_LOOT_PACKET_ID, buf);
 
             if (minecraftServer.isDedicated())
-                TheExtractinator.LOGGER.info("Sent REI Loot info to " + handler.player.getDisplayName().asString());
+                LOGGER.info("Sent REI Loot info to " + handler.player.getDisplayName().asString());
         });
 
         LOGGER.info("The Extractinator initialized!");

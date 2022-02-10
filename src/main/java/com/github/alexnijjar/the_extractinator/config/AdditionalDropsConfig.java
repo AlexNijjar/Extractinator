@@ -1,6 +1,6 @@
 package com.github.alexnijjar.the_extractinator.config;
 
-import com.github.alexnijjar.the_extractinator.compat.rei.Rarity;
+import com.github.alexnijjar.the_extractinator.compat.rei.util.Rarity;
 import me.shedaniel.autoconfig.annotation.Config;
 import me.shedaniel.autoconfig.annotation.ConfigEntry;
 

@@ -1,4 +1,4 @@
-package com.github.alexnijjar.the_extractinator.compat.rei;
+package com.github.alexnijjar.the_extractinator.compat.rei.util;
 
 import net.minecraft.util.Identifier;
 import org.apache.commons.lang3.Range;

@@ -1,6 +1,9 @@
 package com.github.alexnijjar.the_extractinator.compat.rei;
 
 import com.github.alexnijjar.the_extractinator.TheExtractinator;
+import com.github.alexnijjar.the_extractinator.compat.rei.util.LootTable;
+import com.github.alexnijjar.the_extractinator.compat.rei.util.REILootDisplay;
+import com.github.alexnijjar.the_extractinator.compat.rei.util.REIUtils;
 import com.github.alexnijjar.the_extractinator.util.TEUtils;
 import me.shedaniel.rei.api.common.category.CategoryIdentifier;
 import me.shedaniel.rei.api.common.display.Display;

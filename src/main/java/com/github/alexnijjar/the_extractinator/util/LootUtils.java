@@ -1,7 +1,7 @@
 package com.github.alexnijjar.the_extractinator.util;
 
 import com.github.alexnijjar.the_extractinator.TheExtractinator;
-import com.github.alexnijjar.the_extractinator.compat.rei.Tier;
+import com.github.alexnijjar.the_extractinator.compat.rei.util.Tier;
 import com.github.alexnijjar.the_extractinator.config.AdditionalDropsConfig;
 import com.github.alexnijjar.the_extractinator.config.ExtractinatorConfig;
 import com.github.alexnijjar.the_extractinator.config.SupportedBlocksConfig;
@@ -122,7 +122,7 @@ public class LootUtils {
                     for (AdditionalDropsConfig drop : additionalDrops) {
                         Identifier dropId = new Identifier(drop.name);
 
-                        if (TEUtils.modEnabled(dropId)) {
+                        if (TEUtils.modLoaded(dropId.getNamespace()) && TEUtils.modEnabled(dropId)) {
                             if (random.nextFloat() < TEUtils.rarityToPercent(drop.rarity)) {
                                 int range = random.nextInt(drop.min, drop.max + 1);
                                 generatedLoot.add(new ItemStack(Registry.ITEM.get(dropId), range));
