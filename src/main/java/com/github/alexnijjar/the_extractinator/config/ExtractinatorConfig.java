@@ -15,16 +15,12 @@ public class ExtractinatorConfig implements ConfigData {
 
     @ConfigEntry.Gui.RequiresRestart
     public float commonItemChance_v1 = 100;
-
     @ConfigEntry.Gui.RequiresRestart
     public float uncommonItemChance_v1 = 50;
-
     @ConfigEntry.Gui.RequiresRestart
     public float rareItemChance_v1 = 25;
-
     @ConfigEntry.Gui.RequiresRestart
     public float veryRareItemChance_v1 = 10;
-
     @ConfigEntry.Gui.RequiresRestart
     public float extremelyRareItemChance_v1 = 2;
 
@@ -44,7 +40,7 @@ public class ExtractinatorConfig implements ConfigData {
 
     // This breaks the Jankson Serializer for some reason. Solution is to use Toml serializer.
     @ConfigEntry.Gui.Tooltip(count = 6)
-    public List<SupportedBlocksConfig> supportedBlocks_v2 = SupportedBlocks.supportedBlocks;
+    public List<SupportedBlocksConfig> supportedBlocks_v3 = SupportedBlocks.supportedBlocks;
 
     // Sets the default recipe to something when Subterrestrial is not installed.
     public ExtractinatorConfig() {

@@ -89,7 +89,7 @@ public final class TEUtils {
     }
 
     public static boolean modEnabled(String string) {
-
+        if (string.equals(SupportedMods.NUMISMATIC_OVERHAUL.toString().toLowerCase())) string = underscoreToHyphen(string);
         List<String> supportedMods = TheExtractinator.CONFIG.extractinatorConfig.supportedMods_v2;
 
         for (String mod : supportedMods) {
@@ -103,7 +103,9 @@ public final class TEUtils {
         List<String> values = new ArrayList<>();
 
         for (SupportedMods mod : SupportedMods.values()) {
-            values.add(mod.toString().toLowerCase());
+            String name = mod.toString().toLowerCase();
+            if (mod.equals(SupportedMods.NUMISMATIC_OVERHAUL)) values.add(underscoreToHyphen(name));
+            else values.add(name);
         }
 
         values.addAll(Arrays.asList(

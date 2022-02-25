@@ -36,7 +36,7 @@ public class TEClientPlugin implements REIClientPlugin {
     @Override
     public void registerDisplays(DisplayRegistry registry) {
 
-        List<SupportedBlocksConfig> block = TheExtractinator.CONFIG.extractinatorConfig.supportedBlocks_v2;
+        List<SupportedBlocksConfig> block = TheExtractinator.CONFIG.extractinatorConfig.supportedBlocks_v3;
 
         for (int i = 0; i < block.size(); i++) {
             Identifier id = new Identifier(block.get(i).name);

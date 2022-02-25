@@ -37,11 +37,8 @@ public class TheExtractinatorClient implements ClientModInitializer {
             Tier tier = b.readEnumConstant(Tier.class);
 
             List<LootSlot> slots = b.readList(b2 -> {
-
                 Identifier item = b2.readIdentifier();
-
                 Rarity rarity = b2.readEnumConstant(Rarity.class);
-
                 int[] range = b2.readIntArray();
 
                 return new LootSlot(item, Range.between(range[0], range[1]), rarity);

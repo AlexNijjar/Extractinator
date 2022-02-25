@@ -26,7 +26,7 @@ public class BlockUtils {
 
         if (item != Items.AIR) {
             List<String> supportedMods = TheExtractinator.CONFIG.extractinatorConfig.supportedMods_v2;
-            for (SupportedBlocksConfig supported : TheExtractinator.CONFIG.extractinatorConfig.supportedBlocks_v2) {
+            for (SupportedBlocksConfig supported : TheExtractinator.CONFIG.extractinatorConfig.supportedBlocks_v3) {
                 boolean isSupported = false;
                 for (String mod : supportedMods) {
                     if (mod.equals(Registry.ITEM.getId(item).getNamespace())) {

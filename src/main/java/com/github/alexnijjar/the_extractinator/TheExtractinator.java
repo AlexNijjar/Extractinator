@@ -1,7 +1,6 @@
 package com.github.alexnijjar.the_extractinator;
 
 import com.github.alexnijjar.the_extractinator.compat.rei.util.LootTable;
-import com.github.alexnijjar.the_extractinator.config.SupportedBlocksConfig;
 import com.github.alexnijjar.the_extractinator.config.TEConfig;
 import com.github.alexnijjar.the_extractinator.loot.ExtractinatorLootTables;
 import com.github.alexnijjar.the_extractinator.registry.*;
@@ -29,7 +28,7 @@ public class TheExtractinator implements ModInitializer {
     @Override
     public void onInitialize() {
 
-        // Config.
+        // Register config.
         AutoConfig.register(TEConfig.class, Toml4jConfigSerializer::new);
         CONFIG = AutoConfig.getConfigHolder(TEConfig.class).getConfig();
 
