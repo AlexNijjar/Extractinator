@@ -13,8 +13,8 @@ import net.minecraft.entity.FallingBlockEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.fluid.FluidState;
 import net.minecraft.fluid.Fluids;
-import net.minecraft.item.Item;
 import net.minecraft.item.ItemPlacementContext;
+import net.minecraft.item.ItemStack;
 import net.minecraft.state.StateManager;
 import net.minecraft.state.property.BooleanProperty;
 import net.minecraft.state.property.DirectionProperty;
@@ -27,7 +27,6 @@ import net.minecraft.util.shape.VoxelShape;
 import net.minecraft.world.BlockView;
 import net.minecraft.world.World;
 import net.minecraft.world.WorldAccess;
-import org.jetbrains.annotations.Nullable;
 
 @SuppressWarnings("deprecation")
 public class ExtractinatorBlock extends BlockWithEntity implements Waterloggable, BlockEntityProvider {
@@ -45,7 +44,7 @@ public class ExtractinatorBlock extends BlockWithEntity implements Waterloggable
         return new ExtractinatorBlockEntity(pos, state);
     }
 
-    @Nullable
+    @Override
     public <T extends BlockEntity> BlockEntityTicker<T> getTicker(World world, BlockState state, BlockEntityType<T> type) {
         return world.isClient ? null : checkType(type, TEBlockEntities.EXTRACTINATOR_BLOCK_ENTITY, ExtractinatorBlockEntity::serverTick);
     }
@@ -64,24 +63,23 @@ public class ExtractinatorBlock extends BlockWithEntity implements Waterloggable
         }
     }
 
-    // Places a block above when the player clicks on the extractinator.
+    // Inserts a block into the extractinator inventory.
     @Override
     public ActionResult onUse(BlockState state, World world, BlockPos pos, PlayerEntity player, Hand hand, BlockHitResult hit) {
         if (!world.isClient) {
 
-            Item mainHandItem = player.getMainHandStack().getItem();
+            ItemStack mainHandItem = player.getMainHandStack();
 
-            // Only place the block if it is one of the supported blocks from the config.
-            if (BlockUtils.inputSupported(mainHandItem)) {
+            if (BlockUtils.inputSupported(mainHandItem.getItem())) {
 
-                BlockState aboveBlock = world.getBlockState(pos.up());
-
-                if (aboveBlock.isAir() || aboveBlock.getBlock().equals(Blocks.WATER)) {
-
-                    player.getStackInHand(hand).decrement(1);
-
-                    Block mainHandBlock = Block.getBlockFromItem(mainHandItem);
-                    BlockUtils.placeBlockSilently(world, pos.up(), mainHandBlock);
+                ExtractinatorBlockEntity entity = ((ExtractinatorBlockEntity) world.getBlockEntity(pos));
+                if (entity != null) {
+                    ItemStack current = entity.getStack(0);
+                    if ((current.getItem().equals(mainHandItem.getItem()) || current.isEmpty()) && current.getCount() < current.getMaxCount()) {
+                        entity.setStack(0, new ItemStack(mainHandItem.getItem(), current.getCount() + 1));
+                        entity.setCooldown(0);
+                        mainHandItem.decrement(1);
+                    }
                 }
             }
         }

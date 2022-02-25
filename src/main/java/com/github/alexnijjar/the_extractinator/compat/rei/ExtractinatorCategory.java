@@ -73,7 +73,7 @@ public class ExtractinatorCategory implements DisplayCategory<ExtractinatorDispl
                 .entries(EntryIngredients.of(TEBlocks.EXTRACTINATOR_BLOCK)).markInput());
 
         // Yield text.
-        int yield = TheExtractinator.CONFIG.extractinatorConfig.supportedBlocks_v2.get(display.index).yield;
+        int yield = TheExtractinator.CONFIG.extractinatorConfig.supportedBlocks_v3.get(display.index).yield;
         TranslatableText yieldText = new TranslatableText("the_extractinator.rei.extractinator.yield_chance", yield);
         widgets.add(Widgets.createLabel(new Point(startPoint.x - 8, startPoint.y + slotSize + 5), yieldText)
                 .rightAligned()

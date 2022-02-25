@@ -19,7 +19,7 @@ whilst adding new features, such as support for additional blocks and extensive 
 
 ## Features
 
-- Extractinator: Turns blocks into valuable items.
+- Extractinator: Turns blocks into resources. It can even be automated with hoppers or item pipes.
 - Silt and Slush: New blocks that spawn underground. Placing them in an extractinator yields valuable resources.
 
 <p align="center">
@@ -42,6 +42,7 @@ whilst adding new features, such as support for additional blocks and extensive 
   silver and gold coins (like Terraria).
 - [Blockus:](https://www.curseforge.com/minecraft/mc-mods/blockus) Marble, bluestone and limestone can be extractinated.
 - [Promenade:](https://modrinth.com/mod/promenade) Carbonite and blunite can be extractinated.
+- [Unearthed:](https://www.curseforge.com/minecraft/mc-mods/unearthed-both) Unearthed blocks can be extractinated.
 
 <p align="center">
     <img src="https://i.imgur.com/SW58j0D.png" alt="REI" width="500"/> 

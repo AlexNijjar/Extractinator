@@ -6,11 +6,7 @@ import net.minecraft.inventory.Inventory;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.collection.DefaultedList;
 
-/**
- * A simple {@code Inventory} implementation with only default methods + an item list getter.
- * <p>
- * Originally by Juuz
- */
+// From tutorial.
 public interface ExtractinatorInventory extends Inventory {
 
     static ExtractinatorInventory of(DefaultedList<ItemStack> items) {

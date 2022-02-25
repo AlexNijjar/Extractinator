@@ -218,6 +218,122 @@ public final class SupportedBlocks {
                             new AdditionalDropsConfig("techreborn:sodalite_dust", Rarity.RARE),
                             new AdditionalDropsConfig("modern_industrialization:sulfur_dust", 1, 3, Rarity.RARE)
                     )
+            ),
+            new SupportedBlocksConfig("unearthed:phyllite", Tier.TIER_1, 20),
+            new SupportedBlocksConfig("unearthed:cobbled_phyllite", Tier.TIER_1, 15),
+            new SupportedBlocksConfig("unearthed:slate", Tier.TIER_1, 20),
+            new SupportedBlocksConfig("unearthed:cobbled_slate", Tier.TIER_1, 15),
+            new SupportedBlocksConfig("unearthed:gabbro", Tier.TIER_1, 15),
+            new SupportedBlocksConfig("unearthed:rhyolite", Tier.TIER_1, 15),
+            new SupportedBlocksConfig("unearthed:conglomerate", Tier.TIER_1, 15),
+            new SupportedBlocksConfig("unearthed:dolerite", Tier.TIER_1, 15),
+            new SupportedBlocksConfig("unearthed:mudstone", Tier.TIER_1, 15),
+
+            new SupportedBlocksConfig("unearthed:dolerite", Tier.TIER_1, 15,
+                    List.of(
+                            new AdditionalDropsConfig("the_extractinator:silt", Rarity.RARE)
+                    )),
+            new SupportedBlocksConfig("unearthed:lignite", Tier.TIER_1, 15,
+                    List.of(
+                            new AdditionalDropsConfig("modern_industrialization:lignite_coal", Rarity.RARE)
+                    )),
+            new SupportedBlocksConfig("unearthed:quartzite", Tier.TIER_1, 15,
+                    List.of(
+                            new AdditionalDropsConfig("minecraft:quartz", Rarity.RARE)
+                    )),
+            new SupportedBlocksConfig("unearthed:white_granite", Tier.TIER_2, 25,
+                    Arrays.asList(
+                            new AdditionalDropsConfig("techreborn:granite_dust", 4, 8, Rarity.COMMON),
+                            new AdditionalDropsConfig("minecraft:quartz", Rarity.RARE),
+                            new AdditionalDropsConfig("modern_industrialization:uranium_dust", 3, 6, Rarity.RARE)
+                    ),
+                    List.of(
+                            "modern_industrialization:uranium_dust"
+                    )
+            ),
+            new SupportedBlocksConfig("unearthed:granodiorite", Tier.TIER_2, 25,
+                    Arrays.asList(
+                            new AdditionalDropsConfig("techreborn:diorite_dust", 2, 4, Rarity.COMMON),
+                            new AdditionalDropsConfig("techreborn:granite_dust", 2, 4, Rarity.COMMON),
+                            new AdditionalDropsConfig("minecraft:quartz", Rarity.RARE)
+                    )),
+            new SupportedBlocksConfig("unearthed:limestone", Tier.TIER_2, 20,
+                    Arrays.asList(
+                            new AdditionalDropsConfig("modern_industrialization:iron_dust", 1, 2, Rarity.UNCOMMON),
+                            new AdditionalDropsConfig("techreborn:calcite_dust", 1, 2, Rarity.UNCOMMON),
+                            new AdditionalDropsConfig("minecraft:quartz", Rarity.RARE),
+                            new AdditionalDropsConfig("techreborn:pyrite_dust", 2, 4, Rarity.RARE),
+                            new AdditionalDropsConfig("modern_industrialization:carbon_dust", Rarity.RARE)
+                    ),
+                    Arrays.asList(
+                            "minecraft:raw_iron",
+                            "techreborn:pyrite_dust"
+                    )
+            ),
+            new SupportedBlocksConfig("unearthed:beige_limestone", Tier.TIER_2, 20,
+                    Arrays.asList(
+                            new AdditionalDropsConfig("modern_industrialization:iron_dust", 1, 2, Rarity.UNCOMMON),
+                            new AdditionalDropsConfig("techreborn:calcite_dust", 1, 2, Rarity.UNCOMMON),
+                            new AdditionalDropsConfig("minecraft:quartz", Rarity.RARE),
+                            new AdditionalDropsConfig("techreborn:pyrite_dust", 2, 4, Rarity.RARE),
+                            new AdditionalDropsConfig("modern_industrialization:carbon_dust", Rarity.RARE)
+                    ),
+                    Arrays.asList(
+                            "minecraft:raw_iron",
+                            "techreborn:pyrite_dust"
+                    )
+            ),
+            new SupportedBlocksConfig("unearthed:grey_limestone", Tier.TIER_2, 20,
+                    Arrays.asList(
+                            new AdditionalDropsConfig("modern_industrialization:iron_dust", 1, 2, Rarity.UNCOMMON),
+                            new AdditionalDropsConfig("techreborn:calcite_dust", 1, 2, Rarity.UNCOMMON),
+                            new AdditionalDropsConfig("minecraft:quartz", Rarity.RARE),
+                            new AdditionalDropsConfig("techreborn:pyrite_dust", 2, 4, Rarity.RARE),
+                            new AdditionalDropsConfig("modern_industrialization:carbon_dust", Rarity.RARE)
+                    ),
+                    Arrays.asList(
+                            "minecraft:raw_iron",
+                            "techreborn:pyrite_dust"
+                    )
+            ),
+            new SupportedBlocksConfig("unearthed:cobbled_limestone", Tier.TIER_2, 15,
+                    Arrays.asList(
+                            new AdditionalDropsConfig("modern_industrialization:iron_dust", 1, 2, Rarity.UNCOMMON),
+                            new AdditionalDropsConfig("techreborn:calcite_dust", 1, 2, Rarity.UNCOMMON),
+                            new AdditionalDropsConfig("minecraft:quartz", Rarity.RARE),
+                            new AdditionalDropsConfig("techreborn:pyrite_dust", 2, 4, Rarity.RARE),
+                            new AdditionalDropsConfig("modern_industrialization:carbon_dust", Rarity.RARE)
+                    ),
+                    Arrays.asList(
+                            "minecraft:raw_iron",
+                            "techreborn:pyrite_dust"
+                    )
+            ),
+            new SupportedBlocksConfig("unearthed:cobbled_beige_limestone", Tier.TIER_2, 15,
+                    Arrays.asList(
+                            new AdditionalDropsConfig("modern_industrialization:iron_dust", 1, 2, Rarity.UNCOMMON),
+                            new AdditionalDropsConfig("techreborn:calcite_dust", 1, 2, Rarity.UNCOMMON),
+                            new AdditionalDropsConfig("minecraft:quartz", Rarity.RARE),
+                            new AdditionalDropsConfig("techreborn:pyrite_dust", 2, 4, Rarity.RARE),
+                            new AdditionalDropsConfig("modern_industrialization:carbon_dust", Rarity.RARE)
+                    ),
+                    Arrays.asList(
+                            "minecraft:raw_iron",
+                            "techreborn:pyrite_dust"
+                    )
+            ),
+            new SupportedBlocksConfig("unearthed:cobbled_grey_limestone", Tier.TIER_2, 15,
+                    Arrays.asList(
+                            new AdditionalDropsConfig("modern_industrialization:iron_dust", 1, 2, Rarity.UNCOMMON),
+                            new AdditionalDropsConfig("techreborn:calcite_dust", 1, 2, Rarity.UNCOMMON),
+                            new AdditionalDropsConfig("minecraft:quartz", Rarity.RARE),
+                            new AdditionalDropsConfig("techreborn:pyrite_dust", 2, 4, Rarity.RARE),
+                            new AdditionalDropsConfig("modern_industrialization:carbon_dust", Rarity.RARE)
+                    ),
+                    Arrays.asList(
+                            "minecraft:raw_iron",
+                            "techreborn:pyrite_dust"
+                    )
             )
     );
 }
