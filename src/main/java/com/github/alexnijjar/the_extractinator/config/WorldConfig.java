@@ -14,7 +14,7 @@ public class WorldConfig implements ConfigData {
 
     public boolean generateSlushOre_v1 = true;
     public int slushVeinSize_v1 = 13;
-    public int slushVeinsPerChunk_v1 = 12;
+    public int slushVeinsPerChunk_v1 = 10;
     public int slushMinSpawnHeight_v1 = 25;
     public int slushMaxSpawnHeight_v1 = 48;
 

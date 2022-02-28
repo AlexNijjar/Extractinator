@@ -13,9 +13,9 @@
 # The Extractinator
 
 This mod adds a new machine, the Extractinator, which converts your throwaway blocks, such as gravel and cobblestone,
-into valuable resources. It's based on Terraria's
-[silt extractinator](https://terraria.fandom.com/wiki/Extractinator), incorporating silt ore and underground cabins
-whilst adding new features, such as support for additional blocks and extensive support for other mods.
+into valuable resources. It's based on Terraria's [silt extractinator](https://terraria.fandom.com/wiki/Extractinator),
+incorporating silt and slush ore, along with some new features, such as full automation, support for additional blocks
+and extensive support for other mods.
 
 ## Features
 
