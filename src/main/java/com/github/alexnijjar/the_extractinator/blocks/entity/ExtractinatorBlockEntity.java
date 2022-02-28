@@ -8,8 +8,8 @@ import com.github.alexnijjar.the_extractinator.util.SupportedMods;
 import com.github.alexnijjar.the_extractinator.util.TEUtils;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
-import net.minecraft.block.Blocks;
 import net.minecraft.block.entity.BlockEntity;
+import net.minecraft.block.entity.Hopper;
 import net.minecraft.command.BlockDataObject;
 import net.minecraft.entity.ItemEntity;
 import net.minecraft.inventory.Inventories;
@@ -68,13 +68,13 @@ public class ExtractinatorBlockEntity extends BlockEntity implements Extractinat
                 blockEntity.setCooldown(TheExtractinator.CONFIG.extractinatorConfig.inputCooldown_v1);
                 markDirty(world, pos, state);
 
-               // Extracts the block above the extractinator if it is supported.
+                // Extracts the block above the extractinator if it is supported.
             } else if (BlockUtils.inputSupported(aboveBlock.getBlock().asItem())) {
                 world.breakBlock(pos.up(), false);
                 // Generate loot for that block.
                 List<ItemStack> items = (LootUtils.extractMaterials(aboveBlock, (ServerWorld) world, pos));
 
-                // Add the loot into the inventory,
+                // Add the loot into the inventory.
                 for (ItemStack item : items) {
                     for (int i = 1; i < blockEntity.ITEMS.size(); i++) {
                         ItemStack stack = blockEntity.ITEMS.get(i);
@@ -88,31 +88,36 @@ public class ExtractinatorBlockEntity extends BlockEntity implements Extractinat
         }
 
 
-        // Checks if a hopper is below the extractinator
-        boolean dropBlocks = !world.getBlockState(pos.down()).getBlock().equals(Blocks.HOPPER);
+        // Checks if a hopper is below the extractinator.
+        BlockEntity belowBlock = world.getBlockEntity(pos.down());
+        boolean dropBlocks = true;
 
-        if (dropBlocks) {
+        if (belowBlock != null) {
+            dropBlocks = !(belowBlock instanceof Hopper);
 
-            // If a hopper is not present, check if an MI item pipe with either OUT or IN/OUT is connected
-            if (TEUtils.checkMod(SupportedMods.MODERN_INDUSTRIALIZATION)) {
-                for (Direction direction : Direction.values()) {
-                    BlockPos surroundingPos = pos.offset(direction);
-                    BlockState surroundingState = world.getBlockState(surroundingPos);
-                    if (Registry.BLOCK.getId(surroundingState.getBlock()).equals(new Identifier(TEUtils.modToModId(SupportedMods.MODERN_INDUSTRIALIZATION), "pipe"))) {
+            if (dropBlocks) {
 
-                        BlockEntity surroundingEntity = world.getBlockEntity(surroundingPos);
-                        BlockDataObject data = new BlockDataObject(surroundingEntity, surroundingPos);
-                        NbtCompound nbt = data.getNbt().getCompound("pipe_data_0").getCompound(direction.getOpposite().asString().toLowerCase());
-                        // "connections:2b" is OUT, "connections:1b" is IN/OUT
-                        if (nbt.toString().contains("connections:2b") || nbt.toString().contains("connections:1b")) {
-                            dropBlocks = false;
-                            break;
+                // If a hopper is not present, check if an MI item pipe with either OUT or IN/OUT is connected.
+                if (TEUtils.checkMod(SupportedMods.MODERN_INDUSTRIALIZATION)) {
+                    for (Direction direction : Direction.values()) {
+                        BlockPos surroundingPos = pos.offset(direction);
+                        BlockState surroundingState = world.getBlockState(surroundingPos);
+                        if (Registry.BLOCK.getId(surroundingState.getBlock()).equals(new Identifier(TEUtils.modToModId(SupportedMods.MODERN_INDUSTRIALIZATION), "pipe"))) {
+
+                            BlockEntity surroundingEntity = world.getBlockEntity(surroundingPos);
+                            BlockDataObject data = new BlockDataObject(surroundingEntity, surroundingPos);
+                            NbtCompound nbt = data.getNbt().getCompound("pipe_data_0").getCompound(direction.getOpposite().asString().toLowerCase());
+                            // "connections:2b" is OUT, "connections:1b" is IN/OUT.
+                            if (nbt.toString().contains("connections:2b") || nbt.toString().contains("connections:1b")) {
+                                dropBlocks = false;
+                                break;
+                            }
                         }
                     }
                 }
-            }
 
-            // TODO: Add Industrial Revolution item pipe support.
+                // TODO: Add Industrial Revolution item pipe support.
+            }
         }
 
         // Drops the output items above the extractinator if no hopper or MI item pipe is present.

@@ -32,19 +32,19 @@ public class TheExtractinatorClient implements ClientModInitializer {
 
         // REI
         // Called when the player enters the server. It gets the loot from the server and displays it in REI.
-        ClientPlayNetworking.registerGlobalReceiver(TheExtractinator.REI_DISPLAY_LOOT_PACKET_ID, (client, handler, buf, responseSender) -> lootTables = buf.readList(b -> {
+        ClientPlayNetworking.registerGlobalReceiver(TheExtractinator.REI_DISPLAY_LOOT_PACKET_ID, (client, handler, buf, responseSender) -> lootTables = buf.readList(buf2 -> {
 
-            Tier tier = b.readEnumConstant(Tier.class);
+            Tier tier = buf2.readEnumConstant(Tier.class);
 
-            List<LootSlot> slots = b.readList(b2 -> {
-                Identifier item = b2.readIdentifier();
-                Rarity rarity = b2.readEnumConstant(Rarity.class);
-                int[] range = b2.readIntArray();
+            List<LootSlot> slots = buf2.readList(buf3 -> {
+                Identifier item = buf3.readIdentifier();
+                Rarity rarity = buf3.readEnumConstant(Rarity.class);
+                int[] range = buf3.readIntArray();
 
                 return new LootSlot(item, Range.between(range[0], range[1]), rarity);
             });
 
-            String namespace = b.readString();
+            String namespace = buf2.readString();
 
             return new LootTable(tier, slots, namespace);
         }));

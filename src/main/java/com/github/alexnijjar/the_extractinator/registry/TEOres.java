@@ -10,15 +10,18 @@ import net.minecraft.block.Block;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.registry.BuiltinRegistries;
 import net.minecraft.util.registry.Registry;
+import net.minecraft.util.registry.RegistryEntry;
 import net.minecraft.util.registry.RegistryKey;
 import net.minecraft.world.biome.Biome;
 import net.minecraft.world.gen.GenerationStep;
 import net.minecraft.world.gen.YOffset;
-import net.minecraft.world.gen.decorator.CountPlacementModifier;
-import net.minecraft.world.gen.decorator.HeightRangePlacementModifier;
-import net.minecraft.world.gen.decorator.SquarePlacementModifier;
 import net.minecraft.world.gen.feature.*;
+import net.minecraft.world.gen.placementmodifier.CountPlacementModifier;
+import net.minecraft.world.gen.placementmodifier.HeightRangePlacementModifier;
+import net.minecraft.world.gen.placementmodifier.PlacementModifier;
 
+import java.util.Arrays;
+import java.util.List;
 import java.util.function.Predicate;
 
 public class TEOres {
@@ -28,24 +31,25 @@ public class TEOres {
         WorldConfig config = TheExtractinator.CONFIG.worldConfig;
 
         if (config.generateSiltOre_v1) {
-            ConfiguredFeature<?, ?> configured = createOreConfiguredFeature(TEBlocks.SILT, config.siltVeinSize_v2);
+            Identifier id = new TEIdentifier("ore_slush");
+            ConfiguredFeature<?, ?> configured = createOreConfiguredFeature(id, TEBlocks.SILT, config.siltVeinSize_v2);
             PlacedFeature feature = createOreFeature(configured, config.siltVeinsPerChunk_v2, config.siltMinSpawnHeight_v1, config.siltMaxSpawnHeight_v1);
 
-            registerOre(new TEIdentifier("ore_silt"), configured, feature, BiomeSelectors.foundInOverworld());
+            registerOre(id, feature, BiomeSelectors.foundInOverworld());
         }
         if (config.generateSlushOre_v1) {
-            ConfiguredFeature<?, ?> configured = createOreConfiguredFeature(TEBlocks.SLUSH, config.slushVeinSize_v1);
+            Identifier id = new TEIdentifier("ore_silt");
+            ConfiguredFeature<?, ?> configured = createOreConfiguredFeature(id, TEBlocks.SLUSH, config.slushVeinSize_v1);
             PlacedFeature feature = createOreFeature(configured, config.slushVeinsPerChunk_v1, config.slushMinSpawnHeight_v1, config.slushMaxSpawnHeight_v1);
 
-            registerOre(new TEIdentifier("ore_slush"), configured, feature, BiomeSelectors.categories(Biome.Category.ICY));
+            registerOre(id, feature, BiomeSelectors.categories(Biome.Category.ICY));
         }
 
     }
 
     // 1.18.2 Preparation.
 
-    public static void registerOre(Identifier id, ConfiguredFeature<?, ?> config, PlacedFeature feature, Predicate<BiomeSelectionContext> biomes) {
-        Registry.register(BuiltinRegistries.CONFIGURED_FEATURE, id, config);
+    public static void registerOre(Identifier id, PlacedFeature feature, Predicate<BiomeSelectionContext> biomes) {
         Registry.register(BuiltinRegistries.PLACED_FEATURE, id, feature);
         BiomeModifications.addFeature(
                 biomes,
@@ -54,8 +58,8 @@ public class TEOres {
         );
     }
 
-    public static ConfiguredFeature<?, ?> createOreConfiguredFeature(Block block, int veinSize) {
-        return new ConfiguredFeature<>(
+    public static ConfiguredFeature<?, ?> createOreConfiguredFeature(Identifier id, Block block, int veinSize) {
+        ConfiguredFeature<?, ?> configured = new ConfiguredFeature<>(
                 Feature.ORE,
                 new OreFeatureConfig(
                         OreConfiguredFeatures.BASE_STONE_OVERWORLD,
@@ -63,13 +67,21 @@ public class TEOres {
                         veinSize
                 )
         );
+        Registry.register(BuiltinRegistries.CONFIGURED_FEATURE, id, configured);
+        return configured;
     }
 
-    public static PlacedFeature createOreFeature(ConfiguredFeature<?, ?> config, int veinsPerChunk, int min, int max) {
-        return config.withPlacement(
-                CountPlacementModifier.of(veinsPerChunk), // number of veins per chunk
-                SquarePlacementModifier.of(), // spreading horizontally
+    public static PlacedFeature createOreFeature(ConfiguredFeature<?, ?> configured, int veinsPerChunk, int min, int max) {
+
+        List<PlacementModifier> placementModifiers = Arrays.asList(
+                CountPlacementModifier.of(veinsPerChunk),
                 HeightRangePlacementModifier.uniform(YOffset.fixed(min), YOffset.fixed(max))
         );
+
+        return new PlacedFeature(TEOres.getEntry(BuiltinRegistries.CONFIGURED_FEATURE, configured), placementModifiers);
+    }
+
+    public static <T> RegistryEntry<T> getEntry(Registry<T> registry, T value) {
+        return registry.getEntry(registry.getKey(value).orElseThrow()).orElseThrow();
     }
 }

@@ -20,11 +20,6 @@ public final class SupportedBlocks {
 
             new SupportedBlocksConfig("minecraft:sand", Tier.TIER_2, 25,
                     Arrays.asList(
-                            new AdditionalDropsConfig("modern_industrialization:iron_dust", Rarity.COMMON),
-                            new AdditionalDropsConfig("modern_industrialization:copper_dust", 1, 3, Rarity.COMMON),
-                            new AdditionalDropsConfig("modern_industrialization:gold_dust", Rarity.COMMON),
-                            new AdditionalDropsConfig("modern_industrialization:coal_dust", 1, 2, Rarity.COMMON),
-                            new AdditionalDropsConfig("techreborn:lazurite_dust", Rarity.RARE),
                             new AdditionalDropsConfig("modern_industrialization:diamond_tiny_dust", 1, 3, Rarity.VERY_RARE),
                             new AdditionalDropsConfig("modern_industrialization:emerald_tiny_dust", 3, 9, Rarity.VERY_RARE),
                             new AdditionalDropsConfig("modern_industrialization:ruby_dust", 2, 4, Rarity.RARE),
@@ -34,11 +29,6 @@ public final class SupportedBlocks {
                             new AdditionalDropsConfig("modern_industrialization:silicon_dust", 2, 4, Rarity.RARE)
                     ),
                     Arrays.asList(
-                            "minecraft:raw_iron",
-                            "minecraft:raw_copper",
-                            "minecraft:raw_gold",
-                            "minecraft:coal",
-                            "minecraft:lapis_lazuli",
                             "modern_industrialization:raw_tin",
                             "modern_industrialization:lignite_coal",
                             "modern_industrialization:silicon_dust"

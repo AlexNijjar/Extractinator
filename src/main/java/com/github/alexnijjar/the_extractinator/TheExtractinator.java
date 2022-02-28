@@ -51,17 +51,17 @@ public class TheExtractinator implements ModInitializer {
 
             PacketByteBuf buf = PacketByteBufs.create();
 
-            buf.writeCollection(tables, (b, t) -> {
-                b.writeEnumConstant(t.tier);
+            buf.writeCollection(tables, (buf2, loot) -> {
+                buf2.writeEnumConstant(loot.tier);
 
-                b.writeCollection(t.slots, (b2, s) -> {
-                    b2.writeIdentifier(s.item);
-                    b2.writeEnumConstant(s.rarity);
+                buf2.writeCollection(loot.slots, (buf3, s) -> {
+                    buf3.writeIdentifier(s.item);
+                    buf3.writeEnumConstant(s.rarity);
 
-                    b2.writeIntArray(new int[]{s.range.getMinimum(), s.range.getMaximum()});
+                    buf3.writeIntArray(new int[]{s.range.getMinimum(), s.range.getMaximum()});
                 });
 
-                b.writeString(t.namespace);
+                buf2.writeString(loot.namespace);
             });
 
             sender.sendPacket(REI_DISPLAY_LOOT_PACKET_ID, buf);
