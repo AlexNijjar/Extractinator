@@ -19,7 +19,7 @@ and extensive support for other mods.
 - Silt and Slush: New blocks that spawn underground. Placing them in an extractinator yields valuable resources.
 
 <p align="center">
-    <img src="https://i.imgur.com/psWB0Xw.gif" alt="Demo" width="600"/> 
+    <img src="https://i.imgur.com/PTCjzyr.gif" alt="Demo" width="600"/> 
 </p>
 
 ## Integrations
