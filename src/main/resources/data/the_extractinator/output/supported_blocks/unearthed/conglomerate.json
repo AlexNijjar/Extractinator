@@ -1,0 +1,15 @@
+{
+  "name": "unearthed:conglomerate",
+  "tier": 1,
+  "yield": 15,
+  "additional_drops": [
+    {
+      "name": "techreborn:calcite_dust",
+      "rarity": "rare",
+      "conditional_mods": [
+        "techreborn"
+      ]
+    }
+  ],
+  "disabled_drops": []
+}

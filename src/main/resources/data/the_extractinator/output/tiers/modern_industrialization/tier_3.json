@@ -1,0 +1,110 @@
+{
+  "common_drops": [
+    {
+      "name": "modern_industrialization:raw_tin",
+      "min": 2,
+      "max": 4
+    },
+    {
+      "name": "modern_industrialization:lignite_coal",
+      "min": 2,
+      "max": 6
+    }
+  ],
+  "uncommon_drops": [
+    {
+      "name": "modern_industrialization:raw_lead",
+      "min": 1,
+      "max": 2
+    },
+    {
+      "name": "modern_industrialization:raw_antimony",
+      "min": 1,
+      "max": 2
+    },
+    {
+      "name": "modern_industrialization:bauxite_dust",
+      "min": 3,
+      "max": 9
+    }
+  ],
+  "rare_drops": [
+    {
+      "name": "modern_industrialization:raw_silver",
+      "min": 2,
+      "max": 4
+    },
+    {
+      "name": "modern_industrialization:raw_nickel",
+      "min": 2,
+      "max": 4
+    },
+    {
+      "name": "modern_industrialization:salt_dust",
+      "min": 1,
+      "max": 3
+    },
+    {
+      "name": "modern_industrialization:aluminum_dust"
+    },
+    {
+      "name": "modern_industrialization:silicon_dust",
+      "min": 2,
+      "max": 6
+    },
+    {
+      "name": "modern_industrialization:ruby_dust",
+      "min": 2,
+      "max": 4
+    }
+  ],
+  "very_rare_drops": [
+    {
+      "name": "modern_industrialization:raw_uranium",
+      "min": 1,
+      "max": 2
+    },
+    {
+      "name": "modern_industrialization:raw_tungsten",
+      "min": 1,
+      "max": 2
+    },
+    {
+      "name": "modern_industrialization:platinum_dust"
+    },
+    {
+      "name": "modern_industrialization:titanium_dust"
+    },
+    {
+      "name": "modern_industrialization:chromium_dust"
+    },
+    {
+      "name": "modern_industrialization:neodymium_dust"
+    }
+  ],
+  "extremely_rare_drops": [
+    {
+      "name": "modern_industrialization:mozanite_dust",
+      "min": 1,
+      "max": 3
+    },
+    {
+      "name": "modern_industrialization:yttrium_dust",
+      "min": 1,
+      "max": 3
+    },
+    {
+      "name": "modern_industrialization:cadmium_dust",
+      "min": 1,
+      "max": 3
+    },
+    {
+      "name": "modern_industrialization:beryllium_dust",
+      "min": 1,
+      "max": 3
+    },
+    {
+      "name": "modern_industrialization:iridium_dust"
+    }
+  ]
+}

@@ -1,0 +1,79 @@
+{
+  "common_drops": [
+    {
+      "name": "techreborn:raw_tin",
+      "min": 1,
+      "max": 2
+    },
+    {
+      "name": "techreborn:galena_dust",
+      "min": 1,
+      "max": 2
+    }
+  ],
+  "uncommon_drops": [
+    {
+      "name": "techreborn:raw_lead"
+    },
+    {
+      "name": "techreborn:bauxite_dust",
+      "min": 1,
+      "max": 3
+    }
+  ],
+  "rare_drops": [
+    {
+      "name": "techreborn:raw_silver"
+    },
+    {
+      "name": "techreborn:nickel_dust"
+    },
+    {
+      "name": "techreborn:aluminum_dust"
+    }
+  ],
+  "very_rare_drops": [
+    {
+      "name": "techreborn:tungsten_small_dust",
+      "min": 2,
+      "max": 4
+    },
+    {
+      "name": "techreborn:platinum_small_dust",
+      "min": 1,
+      "max": 2
+    },
+    {
+      "name": "techreborn:titanium_small_dust",
+      "min": 1,
+      "max": 2
+    },
+    {
+      "name": "techreborn:chrome_small_dust",
+      "min": 1,
+      "max": 2
+    }
+  ],
+  "extremely_rare_drops": [],
+  "mod_compat": {
+    "disable_with_mods": [
+      {
+        "conditional_mods": [
+          "modern_industrialization"
+        ],
+        "items": [
+          "techreborn:raw_tin",
+          "techreborn:raw_lead",
+          "techreborn:raw_silver",
+          "techreborn:nickel_dust",
+          "techreborn:aluminum_dust",
+          "techreborn:bauxite_dust",
+          "techreborn:tungsten_small_dust",
+          "techreborn:platinum_small_dust",
+          "techreborn:titanium_small_dust",
+          "techreborn:chrome_small_dust"
+        ]
+      }
+    ]
+  }
+}

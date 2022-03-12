@@ -1,19 +1,15 @@
-<p align="center">
-    <img src="https://i.imgur.com/XBXqiRF.gif" alt="Main"/> 
-</p>
-
-<br/><br/>
-
 <a href="https://modrinth.com/mod/fabric-api">
     <p align="center">
         <img src="https://i.imgur.com/Ol1Tcf8.png" alt="Fabric API" width="250"/> 
     </p>
 </a>
 
+---
+
 # The Extractinator
 
 This mod adds a new machine, the Extractinator, which converts your throwaway blocks, such as gravel and cobblestone,
-into valuable resources. It's based on Terraria's [silt extractinator](https://terraria.fandom.com/wiki/Extractinator),
+into valuable resources. It's based on Terraria's [Silt Extractinator](https://terraria.fandom.com/wiki/Extractinator),
 incorporating silt and slush ore, along with some new features, such as full automation, support for additional blocks
 and extensive support for other mods.
 
@@ -23,13 +19,13 @@ and extensive support for other mods.
 - Silt and Slush: New blocks that spawn underground. Placing them in an extractinator yields valuable resources.
 
 <p align="center">
-    <img src="https://i.imgur.com/vuv5zi9.gif" alt="Demo" width="600"/> 
+    <img src="https://i.imgur.com/psWB0Xw.gif" alt="Demo" width="600"/> 
 </p>
 
 ## Integrations
 
 - [Subterrestrial:](https://modrinth.com/mod/subterrestrial) The main chest in all cabins is replaced by an
-  extractinator. Though it's not required, I highly recommend that you install this too.
+  extractinator.
 - [Roughly Enough Items:](https://www.curseforge.com/minecraft/mc-mods/roughly-enough-items) Displays the output for
   each block that can be extractinated, including the rarity and quantity of items.
 - [Modern Industrialization:](https://modrinth.com/mod/modern-industrialization) Support for much of Modern
@@ -45,5 +41,5 @@ and extensive support for other mods.
 - [Unearthed:](https://www.curseforge.com/minecraft/mc-mods/unearthed-both) Unearthed blocks can be extractinated.
 
 <p align="center">
-    <img src="https://i.imgur.com/SW58j0D.png" alt="REI" width="500"/> 
+    <img src="https://i.imgur.com/RK1m4mv.png" alt="REI" width="500"/> 
 </p>

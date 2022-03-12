@@ -1,0 +1,58 @@
+{
+  "name": "minecraft:granite",
+  "tier": 2,
+  "yield": 20,
+  "additional_drops": [
+    {
+      "name": "modern_industrialization:silicon_dust",
+      "rarity": "very_rare",
+      "conditional_mods": [
+        "modern_industrialization"
+      ]
+    },
+    {
+      "name": "techreborn:granite_dust",
+      "min": 2,
+      "max": 4,
+      "rarity": "common",
+      "conditional_mods": [
+        "techreborn"
+      ]
+    },
+    {
+      "name": "techreborn:diorite_dust",
+      "min": 1,
+      "max": 2,
+      "rarity": "rare",
+      "conditional_mods": [
+        "techreborn"
+      ]
+    },
+    {
+      "name": "techreborn:quartz_dust",
+      "rarity": "rare",
+      "conditional_mods": [
+        "techreborn"
+      ]
+    },
+    {
+      "name": "minecraft:quartz",
+      "rarity": "rare",
+      "incompatible_mods": [
+        "techreborn"
+      ]
+    },
+    {
+      "name": "modern_industrialization:raw_uranium",
+      "min": 1,
+      "max": 2,
+      "rarity": "rare",
+      "conditional_mods": [
+        "modern_industrialization"
+      ]
+    }
+  ],
+  "disabled_drops": [
+    "modern_industrialization:uranium_dust"
+  ]
+}

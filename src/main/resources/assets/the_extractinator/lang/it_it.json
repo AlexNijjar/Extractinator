@@ -1,0 +1,10 @@
+{
+  "block.the_extractinator.extractinator_block": "Estrattificatore",
+  "block.the_extractinator.silt": "Blocco insabbiato",
+  "block.the_extractinator.slush": "Blocco di fanghiglia",
+  "block.the_extractinator.desert_fossil": "Fossile del deserto",
+
+  "item.the_extractinator.silt.tooltip": "Mettere mucchi di limo/fango/fossile nell'estrattore li trasforma in qualcosa di più utile",
+
+  "the_extractinator.rei.extractinator.title": "Estrattificatore"
+}

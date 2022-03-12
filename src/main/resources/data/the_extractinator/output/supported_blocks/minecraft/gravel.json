@@ -1,0 +1,74 @@
+{
+  "name": "minecraft:gravel",
+  "tier": 3,
+  "yield": 20,
+  "additional_drops": [
+    {
+      "name": "minecraft:flint",
+      "min": 3,
+      "max": 6,
+      "rarity": "common"
+    },
+    {
+      "name": "techreborn:clay_dust",
+      "min": 1,
+      "max": 2,
+      "rarity": "common",
+      "conditional_mods": [
+        "techreborn"
+      ]
+    },
+    {
+      "name": "minecraft:clay_ball",
+      "min": 1,
+      "max": 2,
+      "rarity": "common",
+      "incompatible_mods": [
+        "techreborn"
+      ]
+    },
+    {
+      "name": "modern_industrialization:silicon_dust",
+      "rarity": "very_rare",
+      "conditional_mods": [
+        "modern_industrialization"
+      ]
+    },
+    {
+      "name": "techreborn:andesite_dust",
+      "rarity": "common",
+      "conditional_mods": [
+        "techreborn"
+      ]
+    },
+    {
+      "name": "techreborn:diorite_dust",
+      "rarity": "common",
+      "conditional_mods": [
+        "techreborn"
+      ]
+    },
+    {
+      "name": "techreborn:granite_dust",
+      "rarity": "common",
+      "conditional_mods": [
+        "techreborn"
+      ]
+    },
+    {
+      "name": "techreborn:basalt_dust",
+      "rarity": "rare",
+      "conditional_mods": [
+        "techreborn"
+      ]
+    }
+  ],
+  "disabled_drops": [
+    "modern_industrialization:ruby_dust",
+    "techreborn:ruby_gem",
+    "ae2:fluix_dust",
+    "mythic_metals:raw_kyber",
+    "modern_industrialization:platinum_dust",
+    "techreborn:platinum_dust"
+  ]
+}

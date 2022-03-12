@@ -1,0 +1,56 @@
+{
+  "common_drops": [
+    {
+      "name": "minecraft:raw_iron"
+    },
+    {
+      "name": "minecraft:raw_copper",
+      "min": 1,
+      "max": 2
+    },
+    {
+      "name": "minecraft:raw_gold"
+    },
+    {
+      "name": "minecraft:coal"
+    }
+  ],
+  "uncommon_drops": [
+    {
+      "name": "minecraft:iron_nugget",
+      "min": 1,
+      "max": 3
+    },
+    {
+      "name": "minecraft:gold_nugget",
+      "min": 1,
+      "max": 3
+    }
+  ],
+  "rare_drops": [],
+  "very_rare_drops": [],
+  "extremely_rare_drops": [],
+  "mod_compat": {
+    "scale_with_mods": [
+      {
+        "conditional_mods": [
+          "modern_industrialization",
+          "techreborn"
+        ],
+        "factor": "1.25"
+      }
+    ],
+    "disable_with_mods": [
+      {
+        "conditional_mods": [
+          "modern_industrialization",
+          "techreborn",
+          "mythicmetals"
+        ],
+        "items": [
+          "minecraft:ender_pearl"
+        ]
+      }
+    ]
+  }
+}

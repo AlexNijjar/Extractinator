@@ -6,15 +6,16 @@ import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
 import net.minecraft.block.Block;
 import net.minecraft.block.Blocks;
 import net.minecraft.block.FallingBlock;
+import net.minecraft.sound.BlockSoundGroup;
 import net.minecraft.util.registry.Registry;
 
 import static net.minecraft.block.AbstractBlock.Settings.copy;
 
 public final class TEBlocks {
 
-    public static final Block EXTRACTINATOR_BLOCK = new ExtractinatorBlock(FabricBlockSettings.copy(Blocks.IRON_BLOCK));
-    public static final Block SILT = new FallingBlock(copy(Blocks.GRAVEL));
-    public static final Block SLUSH = new FallingBlock(copy(Blocks.SNOW_BLOCK).hardness(1));
+    public static final Block EXTRACTINATOR_BLOCK = new ExtractinatorBlock(FabricBlockSettings.copy(Blocks.IRON_BLOCK).sounds(BlockSoundGroup.NETHERITE));
+    public static final Block SILT = new FallingBlock(copy(Blocks.GRAVEL).hardness(1.8f));
+    public static final Block SLUSH = new FallingBlock(copy(Blocks.SNOW_BLOCK).hardness(1.8f));
 
     public static void register() {
         Registry.register(Registry.BLOCK, new TEIdentifier("extractinator_block"), EXTRACTINATOR_BLOCK);

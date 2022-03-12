@@ -1,0 +1,10 @@
+{
+  "block.the_extractinator.extractinator_block": "Ekstraktor",
+  "block.the_extractinator.silt": "Blok mułu",
+  "block.the_extractinator.slush": "Blok brei",
+  "block.the_extractinator.desert_fossil": "Pustynna skamielina",
+
+  "item.the_extractinator.silt.tooltip": "Umieszczenie stosów mułu / błota / skamieniałości w ekstraktorze zamienia je w coś bardziej przydatnego",
+
+  "the_extractinator.rei.extractinator.title": "Ekstraktor"
+}

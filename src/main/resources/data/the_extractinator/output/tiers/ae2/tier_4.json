@@ -1,0 +1,21 @@
+{
+  "common_drops": [
+    {
+      "name": "ae2:certus_quartz_crystal",
+      "min": 1,
+      "max": 2
+    }
+  ],
+  "uncommon_drops": [],
+  "rare_drops": [
+    {
+      "name": "ae2:charged_certus_quartz_crystal"
+    }
+  ],
+  "very_rare_drops": [
+    {
+      "name": "ae2:fluix_crystal"
+    }
+  ],
+  "extremely_rare_drops": []
+}

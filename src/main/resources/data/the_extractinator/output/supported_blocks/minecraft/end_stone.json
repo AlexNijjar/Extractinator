@@ -1,0 +1,98 @@
+{
+  "name": "minecraft:end_stone",
+  "tier": 2,
+  "yield": 20,
+  "additional_drops": [
+    {
+      "name": "techreborn:endstone_dust",
+      "min": 2,
+      "max": 4,
+      "rarity": "common",
+      "conditional_mods": [
+        "techreborn"
+      ]
+    },
+    {
+      "name": "mythicmetals:starrite",
+      "min": 2,
+      "max": 4,
+      "rarity": "very_rare",
+      "conditional_mods": [
+        "mythicmetals"
+      ]
+    },
+    {
+      "name": "modern_industrialization:tungsten_tiny_dust",
+      "min": 1,
+      "max": 2,
+      "rarity": "rare",
+      "conditional_mods": [
+        "modern_industrialization"
+      ]
+    },
+    {
+      "name": "techreborn:tungsten_small_dust",
+      "min": 1,
+      "max": 3,
+      "rarity": "rare",
+      "conditional_mods": [
+        "techreborn"
+      ],
+      "incompatible_mods": [
+        "modern_industrialization"
+      ]
+    },
+    {
+      "name": "modern_industrialization:platinum_tiny_dust",
+      "min": 1,
+      "max": 2,
+      "rarity": "very_rare",
+      "conditional_mods": [
+        "modern_industrialization"
+      ]
+    },
+    {
+      "name": "techreborn:platinum_small_dust",
+      "min": 1,
+      "max": 3,
+      "rarity": "very_rare",
+      "conditional_mods": [
+        "techreborn"
+      ],
+      "incompatible_mods": [
+        "modern_industrialization"
+      ]
+    },
+    {
+      "name": "modern_industrialization:iridium_tiny_dust",
+      "min": 1,
+      "max": 2,
+      "rarity": "extremely_rare",
+      "conditional_mods": [
+        "modern_industrialization"
+      ]
+    },
+    {
+      "name": "techreborn:iridium_small_dust",
+      "min": 1,
+      "max": 3,
+      "rarity": "extremely_rare",
+      "conditional_mods": [
+        "techreborn"
+      ],
+      "incompatible_mods": [
+        "modern_industrialization"
+      ]
+    },
+    {
+      "name": "techreborn:obsidian_dust",
+      "min": 1,
+      "max": 3,
+      "rarity": "rare",
+      "conditional_mods": [
+        "techreborn"
+      ]
+    }
+  ],
+  "disabled_drops": []
+}

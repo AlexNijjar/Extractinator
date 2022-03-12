@@ -1,0 +1,22 @@
+{
+  "name": "unearthed:rhyolite",
+  "tier": 1,
+  "yield": 15,
+  "additional_drops": [
+    {
+      "name": "techreborn:quartz_dust",
+      "rarity": "rare",
+      "conditional_mods": [
+        "techreborn"
+      ]
+    },
+    {
+      "name": "minecraft:quartz",
+      "rarity": "rare",
+      "incompatible_mods": [
+        "techreborn"
+      ]
+    }
+  ],
+  "disabled_drops": []
+}

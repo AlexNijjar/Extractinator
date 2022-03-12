@@ -1,17 +1,14 @@
 package com.github.alexnijjar.the_extractinator.util;
 
 import com.github.alexnijjar.the_extractinator.TheExtractinator;
-import com.github.alexnijjar.the_extractinator.config.SupportedBlocksConfig;
+import com.github.alexnijjar.the_extractinator.data.SupportedBlock;
 import net.minecraft.block.Block;
 import net.minecraft.item.Item;
 import net.minecraft.item.Items;
-import net.minecraft.util.Identifier;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.registry.Registry;
 import net.minecraft.world.World;
 import net.minecraft.world.chunk.WorldChunk;
-
-import java.util.List;
 
 public class BlockUtils {
 
@@ -22,21 +19,13 @@ public class BlockUtils {
         world.updateNeighbors(pos, block);
     }
 
+    // Checks if the input block is one of the supported blocks.
     public static boolean inputSupported(Item item) {
 
         if (item != Items.AIR) {
-            List<String> supportedMods = TheExtractinator.CONFIG.extractinatorConfig.supportedMods_v2;
-            for (SupportedBlocksConfig supported : TheExtractinator.CONFIG.extractinatorConfig.supportedBlocks_v3) {
-                boolean isSupported = false;
-                for (String mod : supportedMods) {
-                    if (mod.equals(Registry.ITEM.getId(item).getNamespace())) {
-                        isSupported = true;
-                        break;
-                    }
-                }
-                if (!isSupported) return false;
+            for (SupportedBlock supported : TheExtractinator.supportedBlocks) {
 
-                Block block = Registry.BLOCK.get(new Identifier(supported.name));
+                Block block = Registry.BLOCK.get(supported.id);
 
                 if (item.equals(block.asItem())) return true;
             }

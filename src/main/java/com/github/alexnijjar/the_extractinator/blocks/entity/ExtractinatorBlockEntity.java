@@ -2,10 +2,11 @@ package com.github.alexnijjar.the_extractinator.blocks.entity;
 
 import com.github.alexnijjar.the_extractinator.TheExtractinator;
 import com.github.alexnijjar.the_extractinator.registry.TEBlockEntities;
+import com.github.alexnijjar.the_extractinator.registry.TEStats;
 import com.github.alexnijjar.the_extractinator.util.BlockUtils;
 import com.github.alexnijjar.the_extractinator.util.LootUtils;
-import com.github.alexnijjar.the_extractinator.util.SupportedMods;
 import com.github.alexnijjar.the_extractinator.util.TEUtils;
+import net.fabricmc.fabric.api.networking.v1.PlayerLookup;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.entity.BlockEntity;
@@ -16,6 +17,7 @@ import net.minecraft.inventory.Inventories;
 import net.minecraft.inventory.SidedInventory;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NbtCompound;
+import net.minecraft.server.network.ServerPlayerEntity;
 import net.minecraft.server.world.ServerWorld;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.collection.DefaultedList;
@@ -65,14 +67,19 @@ public class ExtractinatorBlockEntity extends BlockEntity implements Extractinat
                 input.decrement(1);
                 BlockUtils.placeBlockSilently(world, pos.up(), inputBlock);
 
-                blockEntity.setCooldown(TheExtractinator.CONFIG.extractinatorConfig.inputCooldown_v1);
+                blockEntity.setCooldown(TheExtractinator.CONFIG.extractinatorConfig.inputCooldown);
                 markDirty(world, pos, state);
 
                 // Extracts the block above the extractinator if it is supported.
             } else if (BlockUtils.inputSupported(aboveBlock.getBlock().asItem())) {
                 world.breakBlock(pos.up(), false);
                 // Generate loot for that block.
-                List<ItemStack> items = (LootUtils.extractMaterials(aboveBlock, (ServerWorld) world, pos));
+                List<ItemStack> items = LootUtils.extractMaterials(aboveBlock, world.random);
+
+                // Update player stats.
+                for (ServerPlayerEntity player : PlayerLookup.around((ServerWorld) world, pos, 32)) {
+                    player.increaseStat(TEStats.BLOCKS_EXTRACTINATED, 1);
+                }
 
                 // Add the loot into the inventory.
                 for (ItemStack item : items) {
@@ -98,11 +105,11 @@ public class ExtractinatorBlockEntity extends BlockEntity implements Extractinat
             if (dropBlocks) {
 
                 // If a hopper is not present, check if an MI item pipe with either OUT or IN/OUT is connected.
-                if (TEUtils.checkMod(SupportedMods.MODERN_INDUSTRIALIZATION)) {
+                if (TEUtils.modLoaded("modern_industrialization")) {
                     for (Direction direction : Direction.values()) {
                         BlockPos surroundingPos = pos.offset(direction);
                         BlockState surroundingState = world.getBlockState(surroundingPos);
-                        if (Registry.BLOCK.getId(surroundingState.getBlock()).equals(new Identifier(TEUtils.modToModId(SupportedMods.MODERN_INDUSTRIALIZATION), "pipe"))) {
+                        if (Registry.BLOCK.getId(surroundingState.getBlock()).equals(new Identifier("modern_industrialization", "pipe"))) {
 
                             BlockEntity surroundingEntity = world.getBlockEntity(surroundingPos);
                             BlockDataObject data = new BlockDataObject(surroundingEntity, surroundingPos);
@@ -130,7 +137,7 @@ public class ExtractinatorBlockEntity extends BlockEntity implements Extractinat
                 if (itemStack.isEmpty()) break;
 
                 int size = itemStack.getCount();
-                itemStack.setCount((int) Math.ceil(size * TheExtractinator.CONFIG.extractinatorConfig.outputLootMultiplier_v1));
+                itemStack.setCount((int) Math.ceil(size * TheExtractinator.CONFIG.extractinatorConfig.outputLootMultiplier));
 
                 ItemEntity itemEntity = new ItemEntity(world, pos.getX() + 0.5f, pos.getY() + 0.5f, pos.getZ() + 0.5f, itemStack);
                 itemEntity.setVelocity(itemEntity.getVelocity().multiply(1.5f));

@@ -1,0 +1,84 @@
+{
+  "common_drops": [
+    {
+      "name": "modern_industrialization:raw_tin",
+      "min": 1,
+      "max": 2
+    },
+    {
+      "name": "modern_industrialization:lignite_coal",
+      "min": 1,
+      "max": 3
+    }
+  ],
+  "uncommon_drops": [
+    {
+      "name": "modern_industrialization:bauxite_dust",
+      "min": 1,
+      "max": 3
+    },
+    {
+      "name": "modern_industrialization:lead_dust",
+      "min": 1,
+      "max": 2
+    },
+    {
+      "name": "modern_industrialization:antimony_dust",
+      "min": 1,
+      "max": 2
+    }
+  ],
+  "rare_drops": [
+    {
+      "name": "modern_industrialization:salt_dust"
+    },
+    {
+      "name": "modern_industrialization:silicon_dust"
+    },
+    {
+      "name": "modern_industrialization:silver_dust",
+      "min": 1,
+      "max": 2
+    },
+    {
+      "name": "modern_industrialization:nickel_dust",
+      "min": 1,
+      "max": 2
+    }
+  ],
+  "very_rare_drops": [
+    {
+      "name": "modern_industrialization:uranium_dust"
+    },
+    {
+      "name": "modern_industrialization:tungsten_dust"
+    },
+    {
+      "name": "modern_industrialization:platinum_tiny_dust",
+      "min": 1,
+      "max": 3
+    },
+    {
+      "name": "modern_industrialization:titanium_tiny_dust",
+      "min": 1,
+      "max": 3
+    },
+    {
+      "name": "modern_industrialization:chromium_tiny_dust",
+      "min": 1,
+      "max": 3
+    }
+  ],
+  "extremely_rare_drops": [
+    {
+      "name": "modern_industrialization:mozanite_tiny_dust",
+      "min": 1,
+      "max": 3
+    },
+    {
+      "name": "modern_industrialization:iridium_tiny_dust",
+      "min": 1,
+      "max": 3
+    }
+  ]
+}

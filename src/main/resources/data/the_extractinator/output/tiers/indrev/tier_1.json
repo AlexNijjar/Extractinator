@@ -1,0 +1,13 @@
+{
+  "common_drops": [
+    {
+      "name": "indrev:nikolite_dust",
+      "min": 1,
+      "max": 2
+    }
+  ],
+  "uncommon_drops": [],
+  "rare_drops": [],
+  "very_rare_drops": [],
+  "extremely_rare_drops": []
+}

@@ -1,0 +1,26 @@
+{
+  "name": "minecraft:deepslate",
+  "tier": 2,
+  "yield": 15,
+  "additional_drops": [
+    {
+      "name": "techreborn:clay_dust",
+      "min": 1,
+      "max": 2,
+      "rarity": "common",
+      "conditional_mods": [
+        "techreborn"
+      ]
+    },
+    {
+      "name": "minecraft:clay_ball",
+      "min": 1,
+      "max": 2,
+      "rarity": "common",
+      "incompatible_mods": [
+        "techreborn"
+      ]
+    }
+  ],
+  "disabled_drops": []
+}

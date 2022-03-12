@@ -1,0 +1,29 @@
+{
+  "name": "unearthed:quartzite",
+  "tier": 1,
+  "yield": 15,
+  "additional_drops": [
+    {
+      "name": "modern_industrialization:silicon_dust",
+      "rarity": "rare",
+      "conditional_mods": [
+        "modern_industrialization"
+      ]
+    },
+    {
+      "name": "techreborn:quartz_dust",
+      "rarity": "uncommon",
+      "conditional_mods": [
+        "techreborn"
+      ]
+    },
+    {
+      "name": "minecraft:quartz",
+      "rarity": "uncommon",
+      "incompatible_mods": [
+        "techreborn"
+      ]
+    }
+  ],
+  "disabled_drops": []
+}

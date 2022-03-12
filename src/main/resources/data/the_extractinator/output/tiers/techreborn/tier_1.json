@@ -1,0 +1,38 @@
+{
+  "common_drops": [
+    {
+      "name": "techreborn:raw_tin"
+    },
+    {
+      "name": "techreborn:galena_dust"
+    }
+  ],
+  "uncommon_drops": [
+    {
+      "name": "techreborn:bauxite_dust"
+    }
+  ],
+  "rare_drops": [],
+  "very_rare_drops": [
+    {
+      "name": "techreborn:tungsten_small_dust",
+      "min": 1,
+      "max": 2
+    }
+  ],
+  "extremely_rare_drops": [],
+  "mod_compat": {
+    "disable_with_mods": [
+      {
+        "conditional_mods": [
+          "modern_industrialization"
+        ],
+        "items": [
+          "techreborn:raw_tin",
+          "techreborn:bauxite_dust",
+          "techreborn:tungsten_small_dust"
+        ]
+      }
+    ]
+  }
+}

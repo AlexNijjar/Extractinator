@@ -78,7 +78,7 @@ public class TEOres {
                 HeightRangePlacementModifier.uniform(YOffset.fixed(min), YOffset.fixed(max))
         );
 
-        return new PlacedFeature(TEOres.getEntry(BuiltinRegistries.CONFIGURED_FEATURE, configured), placementModifiers);
+        return new PlacedFeature(getEntry(BuiltinRegistries.CONFIGURED_FEATURE, configured), placementModifiers);
     }
 
     public static <T> RegistryEntry<T> getEntry(Registry<T> registry, T value) {
