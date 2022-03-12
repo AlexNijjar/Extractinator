@@ -12,7 +12,7 @@ public class ExtractinatorBlockVoxel {
     // Made with the Mod Utils Blockbench plugin.
     public static final VoxelShape NORTH = Stream.of(
             Block.createCuboidShape(0, 0, 0, 16, 1, 16),
-            Block.createCuboidShape(1, 1, 1, 6, 7, 13),
+            Block.createCuboidShape(1, 1, 1, 6, 7, 16),
             Block.createCuboidShape(1, 7, 2, 7, 11, 14),
             Block.createCuboidShape(6, 1, 0, 16, 2, 16),
             Block.createCuboidShape(6, 6, 0, 16, 7, 1),
@@ -38,22 +38,14 @@ public class ExtractinatorBlockVoxel {
             Block.createCuboidShape(3.8, 11, 5, 4, 12.2, 7),
             Block.createCuboidShape(4, 12, 5, 7, 12.2, 6),
             Block.createCuboidShape(3, 11, 7, 4, 12.2, 9),
-            Block.createCuboidShape(1, 2.25, 13, 6.8, 2.75, 13.5),
-            Block.createCuboidShape(6.14, 2.25, 11, 6.64, 2.75, 13),
-            Block.createCuboidShape(1, 4.25, 13, 6.8, 5.75, 14.5),
-            Block.createCuboidShape(1, 1, 15, 6, 2, 16),
-            Block.createCuboidShape(0, 6, 13, 6, 7, 16),
-            Block.createCuboidShape(1.5, 2, 15, 2.5, 6, 16),
-            Block.createCuboidShape(3.5, 2, 15, 4.5, 6, 16),
-            Block.createCuboidShape(2, 7, 14, 6, 9, 15),
-            Block.createCuboidShape(5.5, 2, 15, 6.5, 6, 16),
+            Block.createCuboidShape(8, 6, 5, 13, 15, 11),
             Block.createCuboidShape(7, 2, 1, 15, 6, 15),
-            Block.createCuboidShape(8, 6, 5, 13, 15, 11)
+            Block.createCuboidShape(2, 7, 14, 6, 9, 15)
     ).reduce((v1, v2) -> VoxelShapes.combineAndSimplify(v1, v2, BooleanBiFunction.OR)).get();
 
     public static final VoxelShape EAST = Stream.of(
             Block.createCuboidShape(0, 0, 0, 16, 1, 16),
-            Block.createCuboidShape(3, 1, 1, 15, 7, 6),
+            Block.createCuboidShape(0, 1, 1, 15, 7, 6),
             Block.createCuboidShape(2, 7, 1, 14, 11, 7),
             Block.createCuboidShape(0, 1, 6, 16, 2, 16),
             Block.createCuboidShape(15, 6, 6, 16, 7, 16),
@@ -79,22 +71,14 @@ public class ExtractinatorBlockVoxel {
             Block.createCuboidShape(9, 11, 3.8, 11, 12.2, 4),
             Block.createCuboidShape(10, 12, 4, 11, 12.2, 7),
             Block.createCuboidShape(7, 11, 3, 9, 12.2, 4),
-            Block.createCuboidShape(2.5, 2.25, 1, 3, 2.75, 6.8),
-            Block.createCuboidShape(3, 2.25, 6.14, 5, 2.75, 6.64),
-            Block.createCuboidShape(1.5, 4.25, 1, 3, 5.75, 6.8),
-            Block.createCuboidShape(0, 1, 1, 1, 2, 6),
-            Block.createCuboidShape(0, 6, 0, 3, 7, 6),
-            Block.createCuboidShape(0, 2, 1.5, 1, 6, 2.5),
-            Block.createCuboidShape(0, 2, 3.5, 1, 6, 4.5),
-            Block.createCuboidShape(1, 7, 2, 2, 9, 6),
-            Block.createCuboidShape(0, 2, 5.5, 1, 6, 6.5),
+            Block.createCuboidShape(5, 6, 8, 11, 15, 13),
             Block.createCuboidShape(1, 2, 7, 15, 6, 15),
-            Block.createCuboidShape(5, 6, 8, 11, 15, 13)
+            Block.createCuboidShape(1, 7, 2, 2, 9, 6)
     ).reduce((v1, v2) -> VoxelShapes.combineAndSimplify(v1, v2, BooleanBiFunction.OR)).get();
 
     public static final VoxelShape SOUTH = Stream.of(
             Block.createCuboidShape(0, 0, 0, 16, 1, 16),
-            Block.createCuboidShape(10, 1, 3, 15, 7, 15),
+            Block.createCuboidShape(10, 1, 0, 15, 7, 15),
             Block.createCuboidShape(9, 7, 2, 15, 11, 14),
             Block.createCuboidShape(0, 1, 0, 10, 2, 16),
             Block.createCuboidShape(0, 6, 15, 10, 7, 16),
@@ -120,22 +104,14 @@ public class ExtractinatorBlockVoxel {
             Block.createCuboidShape(12, 11, 9, 12.2, 12.2, 11),
             Block.createCuboidShape(9, 12, 10, 12, 12.2, 11),
             Block.createCuboidShape(12, 11, 7, 13, 12.2, 9),
-            Block.createCuboidShape(9.2, 2.25, 2.5, 15, 2.75, 3),
-            Block.createCuboidShape(9.36, 2.25, 3, 9.86, 2.75, 5),
-            Block.createCuboidShape(9.2, 4.25, 1.5, 15, 5.75, 3),
-            Block.createCuboidShape(10, 1, 0, 15, 2, 1),
-            Block.createCuboidShape(10, 6, 0, 16, 7, 3),
-            Block.createCuboidShape(13.5, 2, 0, 14.5, 6, 1),
-            Block.createCuboidShape(11.5, 2, 0, 12.5, 6, 1),
-            Block.createCuboidShape(10, 7, 1, 14, 9, 2),
-            Block.createCuboidShape(9.5, 2, 0, 10.5, 6, 1),
+            Block.createCuboidShape(3, 6, 5, 8, 15, 11),
             Block.createCuboidShape(1, 2, 1, 9, 6, 15),
-            Block.createCuboidShape(3, 6, 5, 8, 15, 11)
+            Block.createCuboidShape(10, 7, 1, 14, 9, 2)
     ).reduce((v1, v2) -> VoxelShapes.combineAndSimplify(v1, v2, BooleanBiFunction.OR)).get();
 
     public static final VoxelShape WEST = Stream.of(
             Block.createCuboidShape(0, 0, 0, 16, 1, 16),
-            Block.createCuboidShape(1, 1, 10, 13, 7, 15),
+            Block.createCuboidShape(1, 1, 10, 16, 7, 15),
             Block.createCuboidShape(2, 7, 9, 14, 11, 15),
             Block.createCuboidShape(0, 1, 0, 16, 2, 10),
             Block.createCuboidShape(0, 6, 0, 1, 7, 10),
@@ -161,16 +137,8 @@ public class ExtractinatorBlockVoxel {
             Block.createCuboidShape(5, 11, 12, 7, 12.2, 12.2),
             Block.createCuboidShape(5, 12, 9, 6, 12.2, 12),
             Block.createCuboidShape(7, 11, 12, 9, 12.2, 13),
-            Block.createCuboidShape(13, 2.25, 9.2, 13.5, 2.75, 15),
-            Block.createCuboidShape(11, 2.25, 9.36, 13, 2.75, 9.86),
-            Block.createCuboidShape(13, 4.25, 9.2, 14.5, 5.75, 15),
-            Block.createCuboidShape(15, 1, 10, 16, 2, 15),
-            Block.createCuboidShape(13, 6, 10, 16, 7, 16),
-            Block.createCuboidShape(15, 2, 13.5, 16, 6, 14.5),
-            Block.createCuboidShape(15, 2, 11.5, 16, 6, 12.5),
-            Block.createCuboidShape(14, 7, 10, 15, 9, 14),
-            Block.createCuboidShape(15, 2, 9.5, 16, 6, 10.5),
+            Block.createCuboidShape(5, 6, 3, 11, 15, 8),
             Block.createCuboidShape(1, 2, 1, 15, 6, 9),
-            Block.createCuboidShape(5, 6, 3, 11, 15, 8)
+            Block.createCuboidShape(14, 7, 10, 15, 9, 14)
     ).reduce((v1, v2) -> VoxelShapes.combineAndSimplify(v1, v2, BooleanBiFunction.OR)).get();
 }

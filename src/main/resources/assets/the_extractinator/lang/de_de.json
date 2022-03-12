@@ -1,0 +1,10 @@
+{
+  "block.the_extractinator.extractinator_block": "Extraktinator",
+  "block.the_extractinator.silt": "Schlickblock",
+  "block.the_extractinator.slush": "Schlackeblock",
+  "block.the_extractinator.desert_fossil": "Wüstenfossil",
+
+  "item.the_extractinator.silt.tooltip": "Wenn du Schlick-/Schlacke-/Fossilhaufen in den Extraktinator gibst, werden sie in etwas Nützlicheres verwandelt",
+
+  "the_extractinator.rei.extractinator.title": "Extraktinator"
+}

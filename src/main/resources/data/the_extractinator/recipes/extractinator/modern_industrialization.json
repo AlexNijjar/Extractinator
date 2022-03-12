@@ -1,0 +1,38 @@
+{
+  "mod_id": "modern_industrialization",
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "IPI",
+    "SBC",
+    "MEG"
+  ],
+  "key": {
+    "I": {
+      "item": "modern_industrialization:invar_rotary_blade"
+    },
+    "P": {
+      "item": "modern_industrialization:piston"
+    },
+    "S": {
+      "item": "modern_industrialization:steel_gear"
+    },
+    "B": {
+      "item": "modern_industrialization:basic_machine_hull"
+    },
+    "C": {
+      "item": "modern_industrialization:conveyor"
+    },
+    "M": {
+      "item": "modern_industrialization:motor"
+    },
+    "E": {
+      "item": "modern_industrialization:electronic_circuit"
+    },
+    "G": {
+      "item": "minecraft:glass_pane"
+    }
+  },
+  "result": {
+    "item": "the_extractinator:extractinator"
+  }
+}

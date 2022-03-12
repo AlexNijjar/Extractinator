@@ -1,0 +1,10 @@
+{
+  "block.the_extractinator.extractinator_block": "Expriminator",
+  "block.the_extractinator.silt": "Bloque de limo",
+  "block.the_extractinator.slush": "Bloque de aguanieve",
+  "block.the_extractinator.desert_fossil": "Fósil del desierto",
+
+  "item.the_extractinator.silt.tooltip": "Convierte el limo, el aguanieve o los fósiles en algo más útil Para usarlo: pon limo, aguanieve o fósiles en el expriminator",
+
+  "the_extractinator.rei.extractinator.title": "Expriminator"
+}

@@ -1,0 +1,67 @@
+{
+  "common_drops": [
+    {
+      "name": "mythicmetals:raw_tin",
+      "min": 1,
+      "max": 2
+    }
+  ],
+  "uncommon_drops": [
+    {
+      "name": "mythicmetals:raw_manganese",
+      "min": 1,
+      "max": 2
+    }
+  ],
+  "rare_drops": [
+    {
+      "name": "mythicmetals:raw_silver",
+      "min": 1,
+      "max": 2
+    }
+  ],
+  "very_rare_drops": [
+    {
+      "name": "mythicmetals:kyber_nugget",
+      "min": 1,
+      "max": 3
+    },
+    {
+      "name": "mythicmetals:runite_nugget",
+      "min": 1,
+      "max": 3
+    },
+    {
+      "name": "mythicmetals:adamantite_nugget",
+      "min": 1,
+      "max": 3
+    },
+    {
+      "name": "mythicmetals:mythril_nugget",
+      "min": 1,
+      "max": 3
+    },
+    {
+      "name": "mythicmetals:orichalcum_nugget",
+      "min": 1,
+      "max": 3
+    }
+  ],
+  "extremely_rare_drops": [],
+  "mod_compat": {
+    "disable_with_mods": [
+      {
+        "conditional_mods": [
+          "modern_industrialization",
+          "techreborn"
+        ],
+        "items": [
+          "mythicmetals:raw_tin",
+          "mythicmetals:raw_manganese",
+          "mythicmetals:raw_silver",
+          "mythicmetals:runite_nugget"
+        ]
+      }
+    ]
+  }
+}

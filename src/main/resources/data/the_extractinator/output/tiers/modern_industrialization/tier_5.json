@@ -1,0 +1,122 @@
+{
+  "common_drops": [
+    {
+      "name": "modern_industrialization:raw_tin",
+      "min": 8,
+      "max": 16
+    },
+    {
+      "name": "modern_industrialization:lignite_coal",
+      "min": 6,
+      "max": 18
+    }
+  ],
+  "uncommon_drops": [
+    {
+      "name": "modern_industrialization:raw_lead",
+      "min": 6,
+      "max": 12
+    },
+    {
+      "name": "modern_industrialization:raw_antimony",
+      "min": 4,
+      "max": 8
+    },
+    {
+      "name": "modern_industrialization:bauxite_dust",
+      "min": 15,
+      "max": 45
+    }
+  ],
+  "rare_drops": [
+    {
+      "name": "modern_industrialization:raw_silver",
+      "min": 8,
+      "max": 16
+    },
+    {
+      "name": "modern_industrialization:raw_nickel",
+      "min": 8,
+      "max": 16
+    },
+    {
+      "name": "modern_industrialization:salt_dust",
+      "min": 3,
+      "max": 9
+    },
+    {
+      "name": "modern_industrialization:aluminum_dust",
+      "min": 3,
+      "max": 9
+    },
+    {
+      "name": "modern_industrialization:silicon_dust",
+      "min": 5,
+      "max": 15
+    },
+    {
+      "name": "modern_industrialization:ruby_dust",
+      "min": 11,
+      "max": 2
+    }
+  ],
+  "very_rare_drops": [
+    {
+      "name": "modern_industrialization:raw_uranium",
+      "min": 12,
+      "max": 24
+    },
+    {
+      "name": "modern_industrialization:raw_tungsten",
+      "min": 5,
+      "max": 15
+    },
+    {
+      "name": "modern_industrialization:raw_platinum",
+      "min": 3,
+      "max": 9
+    },
+    {
+      "name": "modern_industrialization:raw_titanium",
+      "min": 3,
+      "max": 9
+    },
+    {
+      "name": "modern_industrialization:chromium_dust",
+      "min": 6,
+      "max": 12
+    },
+    {
+      "name": "modern_industrialization:neodymium_dust",
+      "min": 14,
+      "max": 42
+    }
+  ],
+  "extremely_rare_drops": [
+    {
+      "name": "modern_industrialization:raw_iridium",
+      "min": 2,
+      "max": 6
+    },
+    {
+      "name": "modern_industrialization:mozanite_dust",
+      "min": 12,
+      "max": 36
+    },
+    {
+      "name": "modern_industrialization:yttrium_dust",
+      "min": 12,
+      "max": 36
+    },
+    {
+      "name": "modern_industrialization:cadmium_dust",
+      "min": 12,
+      "max": 36
+    },
+    {
+      "name": "modern_industrialization:beryllium_dust",
+      "min": 12,
+      "max": 36
+    }
+  ]
+}

@@ -1,0 +1,33 @@
+{
+  "name": "minecraft:andesite",
+  "tier": 2,
+  "yield": 20,
+  "additional_drops": [
+    {
+      "name": "modern_industrialization:silicon_dust",
+      "rarity": "very_rare",
+      "conditional_mods": [
+        "modern_industrialization"
+      ]
+    },
+    {
+      "name": "techreborn:andesite_dust",
+      "min": 2,
+      "max": 4,
+      "rarity": "common",
+      "conditional_mods": [
+        "techreborn"
+      ]
+    },
+    {
+      "name": "techreborn:diorite_dust",
+      "min": 2,
+      "max": 4,
+      "rarity": "rare",
+      "conditional_mods": [
+        "techreborn"
+      ]
+    }
+  ],
+  "disabled_drops": []
+}

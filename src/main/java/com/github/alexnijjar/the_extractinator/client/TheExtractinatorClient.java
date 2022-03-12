@@ -1,52 +1,46 @@
 package com.github.alexnijjar.the_extractinator.client;
 
-import com.github.alexnijjar.the_extractinator.TheExtractinator;
 import com.github.alexnijjar.the_extractinator.client.renderer.ExtractinatorBlockEntityRenderer;
-import com.github.alexnijjar.the_extractinator.compat.rei.util.LootSlot;
-import com.github.alexnijjar.the_extractinator.compat.rei.util.LootTable;
-import com.github.alexnijjar.the_extractinator.compat.rei.util.Rarity;
-import com.github.alexnijjar.the_extractinator.compat.rei.util.Tier;
+import com.github.alexnijjar.the_extractinator.client.renderer.ExtractinatorItemRenderer;
+import com.github.alexnijjar.the_extractinator.data.LootTable;
+import com.github.alexnijjar.the_extractinator.data.SupportedBlock;
+import com.github.alexnijjar.the_extractinator.networking.TES2CPackets;
 import com.github.alexnijjar.the_extractinator.registry.TEBlockEntities;
+import com.github.alexnijjar.the_extractinator.registry.TEItems;
+import com.github.alexnijjar.the_extractinator.util.TEIdentifier;
 import net.fabricmc.api.ClientModInitializer;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
 import net.fabricmc.fabric.api.client.model.ModelLoadingRegistry;
-import net.fabricmc.fabric.api.client.networking.v1.ClientPlayNetworking;
 import net.fabricmc.fabric.api.client.rendering.v1.BlockEntityRendererRegistry;
+import net.fabricmc.fabric.api.client.rendering.v1.BuiltinItemRendererRegistry;
 import net.minecraft.util.Identifier;
-import org.apache.commons.lang3.Range;
 
+import java.util.ArrayList;
 import java.util.List;
 
-@Environment(EnvType.CLIENT)
 public class TheExtractinatorClient implements ClientModInitializer {
 
-    public static List<LootTable> lootTables;
+    public static final Identifier GRINDER_PATH = new TEIdentifier("block/extractinator_grinder");
+    public static final Identifier EXTRACTINATOR_BLOCK_PATH = new TEIdentifier("block/extractinator_block");
+
+    // Only for REI, the server handles the real loot.
+    public static List<SupportedBlock> supportedBlocks = new ArrayList<>();
+    public static List<LootTable> lootTables = new ArrayList<>();
 
     @Override
+    @Environment(EnvType.CLIENT)
     public void onInitializeClient() {
         BlockEntityRendererRegistry.register(TEBlockEntities.EXTRACTINATOR_BLOCK_ENTITY, ctx -> new ExtractinatorBlockEntityRenderer());
 
-        Identifier path = new Identifier(TheExtractinator.MOD_ID, "block/extractinator_grinder");
-        ModelLoadingRegistry.INSTANCE.registerModelProvider((manager, out) -> out.accept(path));
+        // Register baked models.
+        ModelLoadingRegistry.INSTANCE.registerModelProvider((manager, out) -> out.accept(GRINDER_PATH));
+        ModelLoadingRegistry.INSTANCE.registerModelProvider((manager, out) -> out.accept(EXTRACTINATOR_BLOCK_PATH));
 
-        // REI
-        // Called when the player enters the server. It gets the loot from the server and displays it in REI.
-        ClientPlayNetworking.registerGlobalReceiver(TheExtractinator.REI_DISPLAY_LOOT_PACKET_ID, (client, handler, buf, responseSender) -> lootTables = buf.readList(buf2 -> {
+        // Register item renderer.
+        BuiltinItemRendererRegistry.INSTANCE.register(TEItems.extractinatorItem, new ExtractinatorItemRenderer());
 
-            Tier tier = buf2.readEnumConstant(Tier.class);
-
-            List<LootSlot> slots = buf2.readList(buf3 -> {
-                Identifier item = buf3.readIdentifier();
-                Rarity rarity = buf3.readEnumConstant(Rarity.class);
-                int[] range = buf3.readIntArray();
-
-                return new LootSlot(item, Range.between(range[0], range[1]), rarity);
-            });
-
-            String namespace = buf2.readString();
-
-            return new LootTable(tier, slots, namespace);
-        }));
+        // Networking.
+        TES2CPackets.Register();
     }
 }

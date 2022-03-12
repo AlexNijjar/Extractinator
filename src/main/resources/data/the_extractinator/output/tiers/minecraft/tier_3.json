@@ -1,0 +1,87 @@
+{
+  "common_drops": [
+    {
+      "name": "minecraft:raw_iron",
+      "min": 2,
+      "max": 4
+    },
+    {
+      "name": "minecraft:raw_copper",
+      "min": 4,
+      "max": 8
+    },
+    {
+      "name": "minecraft:raw_gold",
+      "min": 2,
+      "max": 4
+    },
+    {
+      "name": "minecraft:coal",
+      "min": 2,
+      "max": 4
+    }
+  ],
+  "uncommon_drops": [
+    {
+      "name": "minecraft:iron_nugget",
+      "min": 3,
+      "max": 9
+    },
+    {
+      "name": "minecraft:gold_nugget",
+      "min": 3,
+      "max": 9
+    },
+    {
+      "name": "minecraft:redstone",
+      "min": 2,
+      "max": 4
+    }
+  ],
+  "rare_drops": [
+    {
+      "name": "minecraft:amethyst_shard"
+    },
+    {
+      "name": "minecraft:lapis_lazuli",
+      "min": 2,
+      "max": 4
+    },
+    {
+      "name": "minecraft:gunpowder",
+      "min": 1,
+      "max": 2
+    }
+  ],
+  "very_rare_drops": [
+    {
+      "name": "minecraft:emerald",
+      "min": 1,
+      "max": 3
+    }
+  ],
+  "extremely_rare_drops": [],
+  "mod_compat": {
+    "scale_with_mods": [
+      {
+        "conditional_mods": [
+          "modern_industrialization",
+          "techreborn"
+        ],
+        "factor": "1.25"
+      }
+    ],
+    "disable_with_mods": [
+      {
+        "conditional_mods": [
+          "modern_industrialization",
+          "techreborn",
+          "mythicmetals"
+        ],
+        "items": [
+          "minecraft:ender_pearl"
+        ]
+      }
+    ]
+  }
+}

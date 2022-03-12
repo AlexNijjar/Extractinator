@@ -1,0 +1,10 @@
+{
+  "block.the_extractinator.extractinator_block": "提炼机",
+  "block.the_extractinator.silt": "泥沙块",
+  "block.the_extractinator.slush": "雪泥块",
+  "block.the_extractinator.desert_fossil": "沙漠化石",
+
+  "item.the_extractinator.silt.tooltip": "将泥沙/雪泥/化石堆放到提炼机中可将其变成更有用的东西",
+
+  "the_extractinator.rei.extractinator.title": "提炼机"
+}

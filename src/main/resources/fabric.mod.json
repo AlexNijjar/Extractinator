@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "id": "the_extractinator",
-  "version": "1.0.6",
+  "version": "1.0.7",
 
   "name": "The Extractinator",
   "description": "Convert blocks into resources.",
@@ -28,7 +28,7 @@
       "com.github.alexnijjar.the_extractinator.config.ModMenuConfig"
     ],
     "rei_plugins": [
-      "com.github.alexnijjar.the_extractinator.compat.rei.TEClientPlugin"
+      "com.github.alexnijjar.the_extractinator.compat.rei.TheExtractinatorClientPlugin"
     ]
   },
   "mixins": [

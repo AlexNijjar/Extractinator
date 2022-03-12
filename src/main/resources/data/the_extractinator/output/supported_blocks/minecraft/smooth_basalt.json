@@ -1,0 +1,63 @@
+{
+  "name": "minecraft:smooth_basalt",
+  "tier": 3,
+  "yield": 25,
+  "additional_drops": [
+    {
+      "name": "techreborn:basalt_dust",
+      "rarity": "common",
+      "min": 2,
+      "max": 4,
+      "conditional_mods": [
+        "techreborn"
+      ]
+    },
+    {
+      "name": "techreborn:netherrack_dust",
+      "min": 2,
+      "max": 4,
+      "rarity": "uncommon",
+      "conditional_mods": [
+        "techreborn"
+      ]
+    },
+    {
+      "name": "techreborn:amethyst_dust",
+      "rarity": "rare",
+      "conditional_mods": [
+        "techreborn"
+      ]
+    },
+    {
+      "name": "minecraft:amethyst_shard",
+      "rarity": "rare",
+      "incompatible_mods": [
+        "techreborn"
+      ]
+    },
+    {
+      "name": "techreborn:quartz_dust",
+      "rarity": "rare",
+      "conditional_mods": [
+        "techreborn"
+      ]
+    },
+    {
+      "name": "minecraft:quartz",
+      "rarity": "rare",
+      "incompatible_mods": [
+        "techreborn"
+      ]
+    },
+    {
+      "name": "techreborn:olivine_dust",
+      "rarity": "rare",
+      "min": 1,
+      "max": 3,
+      "conditional_mods": [
+        "techreborn"
+      ]
+    }
+  ],
+  "disabled_drops": []
+}
