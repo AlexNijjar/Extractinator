@@ -1,0 +1,32 @@
+{
+  "name": "minecraft:diamond_block",
+  "tier": 5,
+  "yield": 98,
+  "additional_drops": [
+    {
+      "name": "minecraft:nether_star",
+      "rarity": "common"
+    },
+    {
+      "name": "minecraft:netherite_ingot",
+      "min": 2,
+      "max": 4,
+      "rarity": "rare",
+      "incompatible_mods": [
+        "techreborn"
+      ]
+    },
+    {
+      "name": "techreborn:tin_dust",
+      "min": 1,
+      "max": 2,
+      "rarity": "very_rare",
+      "conditional_mods": [
+        "techreborn"
+      ]
+    }
+  ],
+  "disabled_drops": [
+    "minecraft:emerald"
+  ]
+}

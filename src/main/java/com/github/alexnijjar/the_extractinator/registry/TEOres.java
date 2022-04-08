@@ -44,10 +44,7 @@ public class TEOres {
 
             registerOre(id, feature, BiomeSelectors.categories(Biome.Category.ICY));
         }
-
     }
-
-    // 1.18.2 Preparation.
 
     public static void registerOre(Identifier id, PlacedFeature feature, Predicate<BiomeSelectionContext> biomes) {
         Registry.register(BuiltinRegistries.PLACED_FEATURE, id, feature);

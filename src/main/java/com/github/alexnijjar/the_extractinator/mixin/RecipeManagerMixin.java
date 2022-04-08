@@ -19,7 +19,7 @@ import java.util.Map;
 @Mixin(RecipeManager.class)
 public class RecipeManagerMixin {
 
-    // Blocks all non-supported recipes from the config.
+    // Blocks all non-supported recipes in the config.
     @Inject(method = "apply", at = @At("HEAD"))
     public void apply(Map<Identifier, JsonElement> map, ResourceManager resourceManager, Profiler profiler, CallbackInfo info) {
 
@@ -36,7 +36,8 @@ public class RecipeManagerMixin {
                         if (!path.contains("minecraft")) itemsToRemove.add(id);
                     }
                     case MODERN_INDUSTRIALIZATION -> {
-                        if (!path.contains("modern_industrialization") || !TEUtils.modLoaded("modern_industrialization")) itemsToRemove.add(id);
+                        if (!path.contains("modern_industrialization") || !TEUtils.modLoaded("modern_industrialization"))
+                            itemsToRemove.add(id);
                     }
                     case TECH_REBORN -> {
                         if (!path.contains("techreborn") || !TEUtils.modLoaded("techreborn")) itemsToRemove.add(id);

@@ -3,57 +3,45 @@
   "block.the_extractinator.silt": "Gray Dirt",
   "block.the_extractinator.slush": "Wet Snow",
   "block.the_extractinator.desert_fossil": "Dragon Sand",
-
   "item.the_extractinator.silt.tooltip": "Drop it in a Plunderin' Machine for treasure!",
   "item.the_extractinator.extractinator.tooltip": "Found in hell",
-
   "stat.the_extractinator.blocks_extractinated": "Treasure Collected",
-
-
   "text.autoconfig.the_extractinator.title": "The Plunderin' Machine Helm",
   "text.autoconfig.the_extractinator.category.Extractinator": "Plunderin' Machine",
   "text.autoconfig.the_extractinator.category.World": "Seven Seas",
-
-  "text.autoconfig.the_extractinator.option.extractinatorConfig.commonItemChance":  "Garbage Chance",
-  "text.autoconfig.the_extractinator.option.extractinatorConfig.uncommonItemChance":  "Cheap Chance",
-  "text.autoconfig.the_extractinator.option.extractinatorConfig.rareItemChance":  "Shiny Chance",
-  "text.autoconfig.the_extractinator.option.extractinatorConfig.veryRareItemChance":  "Treasure Chance",
-  "text.autoconfig.the_extractinator.option.extractinatorConfig.extremelyRareItemChance":  "Blackbeard's Chest Chance",
-  "text.autoconfig.the_extractinator.option.extractinatorConfig.inputCooldown":  "Devil's wait",
-  "text.autoconfig.the_extractinator.option.extractinatorConfig.outputLootMultiplier":  "Treasure Increaser",
-  "text.autoconfig.the_extractinator.option.extractinatorConfig.extractinatorRecipe":  "Plunderin' Machine craftin'",
-
-  "text.autoconfig.the_extractinator.option.worldConfig.generateSiltOre_v1":  "Generate Gray Dirt",
-  "text.autoconfig.the_extractinator.option.worldConfig.siltVeinSize_v2":  "Gray Dirt Vein Size",
-  "text.autoconfig.the_extractinator.option.worldConfig.siltVeinsPerChunk_v2":  "Gray Dirt Veins Per Chunk",
-  "text.autoconfig.the_extractinator.option.worldConfig.siltMinSpawnHeight_v1":  "Gray Dirt Min Spawn Height",
-  "text.autoconfig.the_extractinator.option.worldConfig.siltMaxSpawnHeight_v1":  "Gray Dirt Max Spawn Height",
-
-  "text.autoconfig.the_extractinator.option.worldConfig.generateSlushOre_v1":  "Generate Wet Snow",
-  "text.autoconfig.the_extractinator.option.worldConfig.slushVeinSize_v1":  "Wet Snow Vein Size",
-  "text.autoconfig.the_extractinator.option.worldConfig.slushVeinsPerChunk_v1":  "Wet Snow Veins Per Chunk",
-  "text.autoconfig.the_extractinator.option.worldConfig.slushMinSpawnHeight_v1":  "Wet Snow Min Spawn Height",
-  "text.autoconfig.the_extractinator.option.worldConfig.slushMaxSpawnHeight_v1":  "Wet Snow Max Spawn Height",
-
+  "text.autoconfig.the_extractinator.option.extractinatorConfig.commonItemChance": "Garbage Chance",
+  "text.autoconfig.the_extractinator.option.extractinatorConfig.uncommonItemChance": "Cheap Chance",
+  "text.autoconfig.the_extractinator.option.extractinatorConfig.rareItemChance": "Shiny Chance",
+  "text.autoconfig.the_extractinator.option.extractinatorConfig.veryRareItemChance": "Treasure Chance",
+  "text.autoconfig.the_extractinator.option.extractinatorConfig.extremelyRareItemChance": "Blackbeard's Chest Chance",
+  "text.autoconfig.the_extractinator.option.extractinatorConfig.inputCooldown": "Devil's wait",
+  "text.autoconfig.the_extractinator.option.extractinatorConfig.outputLootMultiplier": "Treasure Increaser",
+  "text.autoconfig.the_extractinator.option.extractinatorConfig.extractinatorRecipe": "Plunderin' Machine craftin'",
+  "text.autoconfig.the_extractinator.option.worldConfig.generateSiltOre_v1": "Generate Gray Dirt",
+  "text.autoconfig.the_extractinator.option.worldConfig.siltVeinSize_v2": "Gray Dirt Vein Size",
+  "text.autoconfig.the_extractinator.option.worldConfig.siltVeinsPerChunk_v2": "Gray Dirt Veins Per Chunk",
+  "text.autoconfig.the_extractinator.option.worldConfig.siltMinSpawnHeight_v1": "Gray Dirt Min Spawn Height",
+  "text.autoconfig.the_extractinator.option.worldConfig.siltMaxSpawnHeight_v1": "Gray Dirt Max Spawn Height",
+  "text.autoconfig.the_extractinator.option.worldConfig.generateSlushOre_v1": "Generate Wet Snow",
+  "text.autoconfig.the_extractinator.option.worldConfig.slushVeinSize_v1": "Wet Snow Vein Size",
+  "text.autoconfig.the_extractinator.option.worldConfig.slushVeinsPerChunk_v1": "Wet Snow Veins Per Chunk",
+  "text.autoconfig.the_extractinator.option.worldConfig.slushMinSpawnHeight_v1": "Wet Snow Min Spawn Height",
+  "text.autoconfig.the_extractinator.option.worldConfig.slushMaxSpawnHeight_v1": "Wet Snow Max Spawn Height",
   "text.autoconfig.the_extractinator.tier.none": "Empty Chest",
   "text.autoconfig.the_extractinator.tier.tier_1": "Fuel Loot",
   "text.autoconfig.the_extractinator.tier.tier_2": "Iron Loot",
   "text.autoconfig.the_extractinator.tier.tier_3": "Gold Loot",
   "text.autoconfig.the_extractinator.tier.tier_4": "Gem Loot",
   "text.autoconfig.the_extractinator.tier.tier_5": "Blackbeard's Alloy Loot",
-
   "text.autoconfig.the_extractinator.rarity.common": "Garbage",
   "text.autoconfig.the_extractinator.rarity.uncommon": "Cheap",
   "text.autoconfig.the_extractinator.rarity.rare": "Shiny",
   "text.autoconfig.the_extractinator.rarity.very_rare": "Treasure",
   "text.autoconfig.the_extractinator.rarity.extremely_rare": "Blackbeard's Chest",
-
   "text.autoconfig.the_extractinator.option.extractinatorConfig.extractinatorRecipe.@Tooltip[0]": "How to craft the Plunderin' Machine.",
   "text.autoconfig.the_extractinator.option.extractinatorConfig.extractinatorRecipe.@Tooltip[1]": "Requires a server restart (exit and rejoin your world).",
-
   "the_extractinator.rei.extractinator.title": "Plunderin' Machine",
   "the_extractinator.rei.extractinator.info.title": "X spot",
   "the_extractinator.rei.extractinator.info.body": "Plunderin' Machines r' found in the depths of hell.",
-
   "the_extractinator.rei.extractinator.drop_range": "Throws: %s-%d"
 }

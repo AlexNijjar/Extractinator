@@ -1,6 +1,5 @@
 package com.github.alexnijjar.the_extractinator.compat.rei;
 
-import com.github.alexnijjar.the_extractinator.TheExtractinator;
 import com.github.alexnijjar.the_extractinator.client.TheExtractinatorClient;
 import com.github.alexnijjar.the_extractinator.data.SupportedBlock;
 import com.github.alexnijjar.the_extractinator.registry.TEBlocks;

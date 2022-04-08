@@ -32,8 +32,8 @@ import java.util.List;
 public class ExtractinatorBlockEntity extends BlockEntity implements ExtractinatorInventory, SidedInventory {
 
     // slot one is for block input, e.g. silt and 24 additional slots are available for the output items.
-    private final int INVENTORY_SIZE = 24;
-    private final DefaultedList<ItemStack> ITEMS = DefaultedList.ofSize(1 + INVENTORY_SIZE, ItemStack.EMPTY);
+    private static final int INVENTORY_SIZE = 24;
+    private final DefaultedList<ItemStack> inventory = DefaultedList.ofSize(1 + INVENTORY_SIZE, ItemStack.EMPTY);
     private int transferCooldown;
 
     public ExtractinatorBlockEntity(BlockPos pos, BlockState state) {
@@ -46,13 +46,13 @@ public class ExtractinatorBlockEntity extends BlockEntity implements Extractinat
         --blockEntity.transferCooldown;
 
         BlockState aboveBlock = world.getBlockState(pos.up());
-        ItemStack input = blockEntity.ITEMS.get(0);
+        ItemStack input = blockEntity.inventory.get(0);
 
         boolean slotAvailable = false;
 
         // Checks if there are available slots for storing extractinated items.
-        for (int i = 1; i < blockEntity.ITEMS.size(); i++) {
-            if (blockEntity.ITEMS.get(i).isEmpty()) {
+        for (int i = 1; i < blockEntity.inventory.size(); i++) {
+            if (blockEntity.inventory.get(i).isEmpty()) {
                 slotAvailable = true;
                 break;
             }
@@ -83,8 +83,8 @@ public class ExtractinatorBlockEntity extends BlockEntity implements Extractinat
 
                 // Add the loot into the inventory.
                 for (ItemStack item : items) {
-                    for (int i = 1; i < blockEntity.ITEMS.size(); i++) {
-                        ItemStack stack = blockEntity.ITEMS.get(i);
+                    for (int i = 1; i < blockEntity.inventory.size(); i++) {
+                        ItemStack stack = blockEntity.inventory.get(i);
                         if (stack.isEmpty() || (stack.getItem().equals(item.getItem()) && stack.getCount() < stack.getMaxCount())) {
                             blockEntity.setStack(i, new ItemStack(item.getItem(), item.getCount() + stack.getCount()));
                             break;
@@ -132,9 +132,11 @@ public class ExtractinatorBlockEntity extends BlockEntity implements Extractinat
 
             List<Integer> slotsToClear = new ArrayList<>();
 
-            for (int i = 1; i < blockEntity.ITEMS.size() - 1; i++) {
-                ItemStack itemStack = blockEntity.ITEMS.get(i);
-                if (itemStack.isEmpty()) break;
+            for (int i = 1; i < blockEntity.inventory.size() - 1; i++) {
+                ItemStack itemStack = blockEntity.inventory.get(i);
+                if (itemStack.isEmpty()) {
+                    break;
+                }
 
                 int size = itemStack.getCount();
                 itemStack.setCount((int) Math.ceil(size * TheExtractinator.CONFIG.extractinatorConfig.outputLootMultiplier));
@@ -147,8 +149,9 @@ public class ExtractinatorBlockEntity extends BlockEntity implements Extractinat
             }
 
             // Clear all output slots after they've been dispensed.
-            for (int slot : slotsToClear)
-                blockEntity.ITEMS.set(slot, ItemStack.EMPTY);
+            for (int slot : slotsToClear) {
+                blockEntity.inventory.set(slot, ItemStack.EMPTY);
+            }
         }
 
     }
@@ -165,13 +168,13 @@ public class ExtractinatorBlockEntity extends BlockEntity implements Extractinat
     @Override
     public void readNbt(NbtCompound nbt) {
         super.readNbt(nbt);
-        Inventories.readNbt(nbt, ITEMS);
+        Inventories.readNbt(nbt, inventory);
     }
 
     @Override
     public void writeNbt(NbtCompound nbt) {
-        Inventories.writeNbt(nbt, ITEMS);
         super.writeNbt(nbt);
+        Inventories.writeNbt(nbt, inventory);
     }
 
     @Override
@@ -195,6 +198,6 @@ public class ExtractinatorBlockEntity extends BlockEntity implements Extractinat
 
     @Override
     public DefaultedList<ItemStack> getItems() {
-        return ITEMS;
+        return inventory;
     }
 }

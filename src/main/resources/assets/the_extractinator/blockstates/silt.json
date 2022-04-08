@@ -1,5 +1,7 @@
 {
   "variants": {
-    "": { "model": "the_extractinator:block/silt" }
+    "": {
+      "model": "the_extractinator:block/silt"
+    }
   }
 }

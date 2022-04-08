@@ -13,9 +13,9 @@ import static net.minecraft.block.AbstractBlock.Settings.copy;
 
 public final class TEBlocks {
 
-    public static final Block EXTRACTINATOR_BLOCK = new ExtractinatorBlock(FabricBlockSettings.copy(Blocks.IRON_BLOCK).sounds(BlockSoundGroup.NETHERITE));
-    public static final Block SILT = new FallingBlock(copy(Blocks.GRAVEL).hardness(1.8f));
-    public static final Block SLUSH = new FallingBlock(copy(Blocks.SNOW_BLOCK).hardness(1.8f));
+    public static final Block EXTRACTINATOR_BLOCK = new ExtractinatorBlock(FabricBlockSettings.copy(Blocks.IRON_BLOCK).sounds(BlockSoundGroup.NETHERITE).requiresTool());
+    public static final Block SILT = new FallingBlock(copy(Blocks.GRAVEL).hardness(1.8f).requiresTool());
+    public static final Block SLUSH = new FallingBlock(copy(Blocks.SNOW_BLOCK).hardness(1.8f).requiresTool());
 
     public static void register() {
         Registry.register(Registry.BLOCK, new TEIdentifier("extractinator_block"), EXTRACTINATOR_BLOCK);
