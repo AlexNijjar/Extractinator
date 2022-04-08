@@ -1,8 +1,7 @@
 {
   "schemaVersion": 1,
   "id": "the_extractinator",
-  "version": "1.0.7",
-
+  "version": "${version}",
   "name": "The Extractinator",
   "description": "Convert blocks into resources.",
   "authors": [
@@ -12,10 +11,8 @@
     "homepage": "https://modrinth.com/mod/the-extractinator",
     "sources": "https://github.com/AlexNijjar/The-Extractinator"
   },
-
   "license": "MIT",
   "icon": "assets/the_extractinator/icon.png",
-
   "environment": "*",
   "entrypoints": {
     "main": [
@@ -34,7 +31,6 @@
   "mixins": [
     "the_extractinator.mixins.json"
   ],
-
   "depends": {
     "fabricloader": ">=0.11.3",
     "fabric": "*",

@@ -43,3 +43,9 @@ and extensive support for other mods.
 <p align="center">
     <img src="https://i.imgur.com/RK1m4mv.png" alt="REI" width="500"/> 
 </p>
+
+## Configure
+
+You can add, modify and delete the extractinator drops through a datapack. This is especially useful if you are a
+modpack maker wanting to add custom drops from mods that the extractinator does not support. An example can be found
+[here](https://github.com/AlexNijjar/The-Extractinator/tree/1.18/test/datapack).

@@ -38,7 +38,8 @@
       "conditional_mods": [
         "techreborn"
       ]
-    },{
+    },
+    {
       "name": "techreborn:cinnabar_dust",
       "rarity": "rare",
       "conditional_mods": [
@@ -59,7 +60,6 @@
         "techreborn"
       ]
     }
-
   ],
   "disabled_drops": []
 }

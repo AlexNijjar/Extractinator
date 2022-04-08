@@ -1,5 +1,7 @@
 {
   "variants": {
-    "": { "model": "the_extractinator:block/slush" }
+    "": {
+      "model": "the_extractinator:block/slush"
+    }
   }
 }

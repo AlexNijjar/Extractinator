@@ -13,15 +13,27 @@ public class TEC2SPackets {
 
     public static void register() {
         ServerPlayConnectionEvents.JOIN.register((handler, sender, minecraftServer) -> {
-            sender.sendPacket(LOOT_TABLE_PACKET_ID, createLootTableBuf());
-            sender.sendPacket(SUPPORTED_BLOCKS_PACKET_ID, createSupportedBlocksBuf());
+
+            try {
+                sender.sendPacket(LOOT_TABLE_PACKET_ID, createLootTableBuf());
+            } catch (Exception e) {
+                TheExtractinator.LOGGER.error("Failed to send The Extractinator REI loot table packet to client: " + e);
+                e.printStackTrace();
+            }
+
+            try {
+                sender.sendPacket(SUPPORTED_BLOCKS_PACKET_ID, createSupportedBlocksBuf());
+            } catch (Exception e) {
+                TheExtractinator.LOGGER.error("Failed to send The Extractinator REI supported blocks packet to client: " + e);
+                e.printStackTrace();
+            }
 
             if (minecraftServer.isDedicated())
                 TheExtractinator.LOGGER.info("Sent REI Loot info to " + handler.player.getDisplayName().asString());
         });
     }
 
-    public static PacketByteBuf createLootTableBuf() {
+    public static PacketByteBuf createLootTableBuf() throws RuntimeException {
         PacketByteBuf buf = PacketByteBufs.create();
 
         buf.writeCollection(TheExtractinator.lootTables, (buf2, loot) -> {
@@ -37,7 +49,7 @@ public class TEC2SPackets {
         return buf;
     }
 
-    public static PacketByteBuf createSupportedBlocksBuf() {
+    public static PacketByteBuf createSupportedBlocksBuf() throws RuntimeException {
         PacketByteBuf buf = PacketByteBufs.create();
 
         buf.writeCollection(TheExtractinator.supportedBlocks, (buf2, block) -> {
