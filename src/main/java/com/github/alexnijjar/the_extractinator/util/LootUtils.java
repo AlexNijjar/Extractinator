@@ -38,8 +38,9 @@ public class LootUtils {
         }
 
         for (LootTable entry : TheExtractinator.lootTables) {
-            if (TEUtils.modLoaded(entry.namespace) && supportedBlock.tier.equals(entry.tier))
+            if (ModUtils.modLoaded(entry.namespace) && supportedBlock.tier.equals(entry.tier)) {
                 lootTableSlots.addAll(entry.slots);
+            }
         }
 
         if (lootTableSlots.isEmpty()) {
@@ -49,7 +50,9 @@ public class LootUtils {
 
         // Random chance that the extractinator will not drop anything.
         float yield = supportedBlock.yield / 100;
-        if (random.nextFloat() > yield) return output;
+        if (random.nextFloat() > yield) {
+            return output;
+        }
 
         List<LootSlot> commonSlots = new ArrayList<>();
         List<LootSlot> uncommonSlots = new ArrayList<>();
@@ -59,36 +62,47 @@ public class LootUtils {
 
         for (LootSlot slot : lootTableSlots) {
             switch (slot.rarity) {
-                case COMMON -> commonSlots.add(slot);
-                case UNCOMMON -> uncommonSlots.add(slot);
-                case RARE -> rareSlots.add(slot);
-                case VERY_RARE -> veryRareSlots.add(slot);
-                case EXTREMELY_RARE -> extremelyRareSlots.add(slot);
+            case COMMON -> commonSlots.add(slot);
+            case UNCOMMON -> uncommonSlots.add(slot);
+            case RARE -> rareSlots.add(slot);
+            case VERY_RARE -> veryRareSlots.add(slot);
+            case EXTREMELY_RARE -> extremelyRareSlots.add(slot);
             }
         }
 
         // Remove disabled drops.
-        for (Identifier drop : supportedBlock.disabledDrops)
+        for (Identifier drop : supportedBlock.disabledDrops) {
             output.removeIf(stack -> Registry.ITEM.getId(stack.getItem()).equals(drop));
+        }
 
         // Add additional drops. Note: disabled drops does not affect this.
         for (LootSlot drop : supportedBlock.additionalDrops) {
             switch (drop.rarity) {
-                case COMMON -> {
-                    if (!commonSlots.contains(drop)) commonSlots.add(drop);
+            case COMMON -> {
+                if (!commonSlots.contains(drop)) {
+                    commonSlots.add(drop);
                 }
-                case UNCOMMON -> {
-                    if (!uncommonSlots.contains(drop)) uncommonSlots.add(drop);
+            }
+            case UNCOMMON -> {
+                if (!uncommonSlots.contains(drop)) {
+                    uncommonSlots.add(drop);
                 }
-                case RARE -> {
-                    if (!rareSlots.contains(drop)) rareSlots.add(drop);
+            }
+            case RARE -> {
+                if (!rareSlots.contains(drop)) {
+                    rareSlots.add(drop);
                 }
-                case VERY_RARE -> {
-                    if (!veryRareSlots.contains(drop)) veryRareSlots.add(drop);
+            }
+            case VERY_RARE -> {
+                if (!veryRareSlots.contains(drop)) {
+                    veryRareSlots.add(drop);
                 }
-                case EXTREMELY_RARE -> {
-                    if (!extremelyRareSlots.contains(drop)) extremelyRareSlots.add(drop);
+            }
+            case EXTREMELY_RARE -> {
+                if (!extremelyRareSlots.contains(drop)) {
+                    extremelyRareSlots.add(drop);
                 }
+            }
             }
         }
 

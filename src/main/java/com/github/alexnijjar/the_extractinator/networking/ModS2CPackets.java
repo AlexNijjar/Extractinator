@@ -1,5 +1,7 @@
 package com.github.alexnijjar.the_extractinator.networking;
 
+import java.util.List;
+
 import com.github.alexnijjar.the_extractinator.TheExtractinator;
 import com.github.alexnijjar.the_extractinator.client.TheExtractinatorClient;
 import com.github.alexnijjar.the_extractinator.compat.rei.util.Rarity;
@@ -7,21 +9,21 @@ import com.github.alexnijjar.the_extractinator.compat.rei.util.Tier;
 import com.github.alexnijjar.the_extractinator.data.LootSlot;
 import com.github.alexnijjar.the_extractinator.data.LootTable;
 import com.github.alexnijjar.the_extractinator.data.SupportedBlock;
+
+import org.apache.commons.lang3.Range;
+
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
 import net.fabricmc.fabric.api.client.networking.v1.ClientPlayNetworking;
 import net.minecraft.network.PacketByteBuf;
 import net.minecraft.util.Identifier;
-import org.apache.commons.lang3.Range;
-
-import java.util.List;
 
 @Environment(EnvType.CLIENT)
-public class TES2CPackets {
+public class ModS2CPackets {
 
     public static void Register() {
 
-        ClientPlayNetworking.registerGlobalReceiver(TEC2SPackets.LOOT_TABLE_PACKET_ID, (client, handler, buf, responseSender) -> {
+        ClientPlayNetworking.registerGlobalReceiver(ModC2SPackets.LOOT_TABLE_PACKET_ID, (client, handler, buf, responseSender) -> {
             try {
                 TheExtractinatorClient.lootTables = buf.readList(buf2 -> {
                     String namespace = buf2.readString();
@@ -40,7 +42,7 @@ public class TES2CPackets {
             }
         });
 
-        ClientPlayNetworking.registerGlobalReceiver(TEC2SPackets.SUPPORTED_BLOCKS_PACKET_ID, (client, handler, buf, responseSender) -> {
+        ClientPlayNetworking.registerGlobalReceiver(ModC2SPackets.SUPPORTED_BLOCKS_PACKET_ID, (client, handler, buf, responseSender) -> {
             try {
                 TheExtractinatorClient.supportedBlocks = buf.readList(buf2 -> {
                     Identifier id = buf2.readIdentifier();

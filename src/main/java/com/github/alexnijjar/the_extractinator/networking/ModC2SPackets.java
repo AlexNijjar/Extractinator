@@ -1,15 +1,15 @@
 package com.github.alexnijjar.the_extractinator.networking;
 
 import com.github.alexnijjar.the_extractinator.TheExtractinator;
-import com.github.alexnijjar.the_extractinator.util.TEIdentifier;
+import com.github.alexnijjar.the_extractinator.util.ModIdentifier;
 import net.fabricmc.fabric.api.networking.v1.PacketByteBufs;
 import net.fabricmc.fabric.api.networking.v1.ServerPlayConnectionEvents;
 import net.minecraft.network.PacketByteBuf;
 import net.minecraft.util.Identifier;
 
-public class TEC2SPackets {
-    public static final Identifier LOOT_TABLE_PACKET_ID = new TEIdentifier("loot_table_packet");
-    public static final Identifier SUPPORTED_BLOCKS_PACKET_ID = new TEIdentifier("supported_blocks_packet");
+public class ModC2SPackets {
+    public static final Identifier LOOT_TABLE_PACKET_ID = new ModIdentifier("loot_table_packet");
+    public static final Identifier SUPPORTED_BLOCKS_PACKET_ID = new ModIdentifier("supported_blocks_packet");
 
     public static void register() {
         ServerPlayConnectionEvents.JOIN.register((handler, sender, minecraftServer) -> {
@@ -28,8 +28,9 @@ public class TEC2SPackets {
                 e.printStackTrace();
             }
 
-            if (minecraftServer.isDedicated())
+            if (minecraftServer.isDedicated()) {
                 TheExtractinator.LOGGER.info("Sent REI Loot info to " + handler.player.getDisplayName().asString());
+            }
         });
     }
 
@@ -42,7 +43,7 @@ public class TEC2SPackets {
             buf2.writeCollection(loot.slots, (buf3, slot) -> {
                 buf3.writeIdentifier(slot.id);
                 buf3.writeEnumConstant(slot.rarity);
-                buf3.writeIntArray(new int[]{slot.range.getMinimum(), slot.range.getMaximum()});
+                buf3.writeIntArray(new int[] { slot.range.getMinimum(), slot.range.getMaximum() });
             });
         });
 
@@ -59,7 +60,7 @@ public class TEC2SPackets {
             buf2.writeCollection(block.additionalDrops, (buf3, slot) -> {
                 buf3.writeIdentifier(slot.id);
                 buf3.writeEnumConstant(slot.rarity);
-                buf3.writeIntArray(new int[]{slot.range.getMinimum(), slot.range.getMaximum()});
+                buf3.writeIntArray(new int[] { slot.range.getMinimum(), slot.range.getMaximum() });
             });
             buf2.writeCollection(block.disabledDrops, PacketByteBuf::writeIdentifier);
         });

@@ -1,9 +1,10 @@
 package com.github.alexnijjar.the_extractinator.data;
 
-import com.github.alexnijjar.the_extractinator.compat.rei.util.Tier;
-import net.minecraft.util.Identifier;
-
 import java.util.List;
+
+import com.github.alexnijjar.the_extractinator.compat.rei.util.Tier;
+
+import net.minecraft.util.Identifier;
 
 public class SupportedBlock {
 

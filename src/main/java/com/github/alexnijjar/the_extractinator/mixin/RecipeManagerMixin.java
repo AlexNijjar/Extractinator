@@ -1,20 +1,22 @@
 package com.github.alexnijjar.the_extractinator.mixin;
 
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Map;
+
 import com.github.alexnijjar.the_extractinator.TheExtractinator;
-import com.github.alexnijjar.the_extractinator.util.TEUtils;
+import com.github.alexnijjar.the_extractinator.util.ModUtils;
 import com.google.gson.JsonElement;
-import net.minecraft.recipe.RecipeManager;
-import net.minecraft.resource.ResourceManager;
-import net.minecraft.util.Identifier;
-import net.minecraft.util.profiler.Profiler;
+
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Map;
+import net.minecraft.recipe.RecipeManager;
+import net.minecraft.resource.ResourceManager;
+import net.minecraft.util.Identifier;
+import net.minecraft.util.profiler.Profiler;
 
 @Mixin(RecipeManager.class)
 public class RecipeManagerMixin {
@@ -29,19 +31,24 @@ public class RecipeManagerMixin {
             if (id.toString().contains(TheExtractinator.MOD_ID + ":extractinator/")) {
                 String path = id.getPath();
                 switch (TheExtractinator.CONFIG.extractinatorConfig.extractinatorRecipe) {
-                    case NONE -> {
+                case NONE -> {
+                    itemsToRemove.add(id);
+                }
+                case MINECRAFT -> {
+                    if (!path.contains("minecraft")) {
                         itemsToRemove.add(id);
                     }
-                    case MINECRAFT -> {
-                        if (!path.contains("minecraft")) itemsToRemove.add(id);
+                }
+                case MODERN_INDUSTRIALIZATION -> {
+                    if (!path.contains("modern_industrialization") || !ModUtils.modLoaded("modern_industrialization")) {
+                        itemsToRemove.add(id);
                     }
-                    case MODERN_INDUSTRIALIZATION -> {
-                        if (!path.contains("modern_industrialization") || !TEUtils.modLoaded("modern_industrialization"))
-                            itemsToRemove.add(id);
+                }
+                case TECH_REBORN -> {
+                    if (!path.contains("techreborn") || !ModUtils.modLoaded("techreborn")) {
+                        itemsToRemove.add(id);
                     }
-                    case TECH_REBORN -> {
-                        if (!path.contains("techreborn") || !TEUtils.modLoaded("techreborn")) itemsToRemove.add(id);
-                    }
+                }
                 }
             }
         });

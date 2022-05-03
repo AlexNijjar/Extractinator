@@ -1,6 +1,6 @@
 package com.github.alexnijjar.the_extractinator.compat.rei;
 
-import com.github.alexnijjar.the_extractinator.registry.TEBlocks;
+import com.github.alexnijjar.the_extractinator.registry.ModBlocks;
 import me.shedaniel.math.Point;
 import me.shedaniel.math.Rectangle;
 import me.shedaniel.rei.api.client.gui.Renderer;
@@ -25,7 +25,7 @@ public class ExtractinatorCategory implements DisplayCategory<ExtractinatorDispl
 
     @Override
     public Renderer getIcon() {
-        return EntryStacks.of(TEBlocks.EXTRACTINATOR_BLOCK.asItem());
+        return EntryStacks.of(ModBlocks.EXTRACTINATOR_BLOCK.asItem());
     }
 
     @Override
@@ -61,23 +61,18 @@ public class ExtractinatorCategory implements DisplayCategory<ExtractinatorDispl
         widgets.add(Widgets.createRecipeBase(bounds));
 
         // Input block item.
-        widgets.add(Widgets.createSlot(new Point(startPoint.x - SLOT_SIZE * 1.5, startPoint.y))
-                .entries(display.getInputEntries().get(0)).markInput());
+        widgets.add(Widgets.createSlot(new Point(startPoint.x - SLOT_SIZE * 1.5, startPoint.y)).entries(display.getInputEntries().get(0)).markInput());
 
         // Arrow.
         widgets.add(Widgets.createArrow(new Point(startPoint.x - 4, startPoint.y)));
 
         // Extractinator item.
-        widgets.add(Widgets.createSlot(new Point(startPoint.x + SLOT_SIZE * 1.5, startPoint.y))
-                .entries(EntryIngredients.of(TEBlocks.EXTRACTINATOR_BLOCK)).markInput());
+        widgets.add(Widgets.createSlot(new Point(startPoint.x + SLOT_SIZE * 1.5, startPoint.y)).entries(EntryIngredients.of(ModBlocks.EXTRACTINATOR_BLOCK)).markInput());
 
         // Yield text.
         float yield = display.block.yield;
         TranslatableText yieldText = new TranslatableText("the_extractinator.rei.extractinator.yield_chance", yield);
-        widgets.add(Widgets.createLabel(new Point(startPoint.x - 8, startPoint.y + SLOT_SIZE + 5), yieldText)
-                .rightAligned()
-                .noShadow()
-                .color(0xFF404040, 0xFFBBBBBB));
+        widgets.add(Widgets.createLabel(new Point(startPoint.x - 8, startPoint.y + SLOT_SIZE + 5), yieldText).rightAligned().noShadow().color(0xFF404040, 0xFFBBBBBB));
 
         List<EntryIngredient> outputEntries = display.getOutputEntries();
 
@@ -87,12 +82,12 @@ public class ExtractinatorCategory implements DisplayCategory<ExtractinatorDispl
 
                 int index = COLUMNS * y + x;
 
-                if (outputEntries.size() > index)
-                    widgets.add(Widgets.createSlot(new Point(startPoint.x - SLOT_SIZE * 3.5f - SLOT_SIZE * 0.5 + SLOT_SIZE * x, startPoint.y + SLOT_SIZE * 2 + SLOT_SIZE * y))
-                            .markOutput().entries(outputEntries.get(index)));
-                else
+                if (outputEntries.size() > index) {
+                    widgets.add(Widgets.createSlot(new Point(startPoint.x - SLOT_SIZE * 3.5f - SLOT_SIZE * 0.5 + SLOT_SIZE * x, startPoint.y + SLOT_SIZE * 2 + SLOT_SIZE * y)).markOutput().entries(outputEntries.get(index)));
+                } else {
                     // Remaining slots
                     widgets.add(Widgets.createSlot(new Point(startPoint.x - SLOT_SIZE * 3.5f - SLOT_SIZE * 0.5 + SLOT_SIZE * x, startPoint.y + SLOT_SIZE * 2 + SLOT_SIZE * y)));
+                }
             }
         }
         return widgets;

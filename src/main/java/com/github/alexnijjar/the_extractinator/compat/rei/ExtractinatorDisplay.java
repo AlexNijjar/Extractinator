@@ -1,11 +1,15 @@
 package com.github.alexnijjar.the_extractinator.compat.rei;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import com.github.alexnijjar.the_extractinator.TheExtractinator;
 import com.github.alexnijjar.the_extractinator.compat.rei.util.REILootDisplay;
 import com.github.alexnijjar.the_extractinator.compat.rei.util.REIUtils;
 import com.github.alexnijjar.the_extractinator.data.LootSlot;
 import com.github.alexnijjar.the_extractinator.data.SupportedBlock;
-import com.github.alexnijjar.the_extractinator.util.TEUtils;
+import com.github.alexnijjar.the_extractinator.util.ModUtils;
+
 import me.shedaniel.rei.api.common.category.CategoryIdentifier;
 import me.shedaniel.rei.api.common.display.Display;
 import me.shedaniel.rei.api.common.entry.EntryIngredient;
@@ -14,9 +18,6 @@ import me.shedaniel.rei.api.common.util.EntryIngredients;
 import me.shedaniel.rei.api.common.util.EntryStacks;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.registry.Registry;
-
-import java.util.ArrayList;
-import java.util.List;
 
 public class ExtractinatorDisplay implements Display {
 
@@ -52,7 +53,7 @@ public class ExtractinatorDisplay implements Display {
 
         for (LootSlot slot : slots) {
             ItemStack stack = new ItemStack(Registry.ITEM.get(slot.id), (int) Math.ceil(slot.range.getMaximum() * TheExtractinator.CONFIG.extractinatorConfig.outputLootMultiplier));
-            EntryStack<ItemStack> entry = EntryStacks.of(stack).setting(EntryStack.Settings.TOOLTIP_APPEND_EXTRA, REIUtils.getSettings(slot, TEUtils.rarityToPercent(slot.rarity) / rarities[slot.rarity.ordinal()] * block.yield));
+            EntryStack<ItemStack> entry = EntryStacks.of(stack).setting(EntryStack.Settings.TOOLTIP_APPEND_EXTRA, REIUtils.getSettings(slot, ModUtils.rarityToPercent(slot.rarity) / rarities[slot.rarity.ordinal()] * block.yield));
             EntryIngredient ingredient = EntryIngredient.of(entry);
 
             items.add(ingredient);

@@ -1,12 +1,17 @@
 package com.github.alexnijjar.the_extractinator.data;
 
+import java.io.InputStreamReader;
+import java.util.ArrayList;
+import java.util.List;
+
 import com.github.alexnijjar.the_extractinator.TheExtractinator;
 import com.github.alexnijjar.the_extractinator.compat.rei.util.Tier;
-import com.github.alexnijjar.the_extractinator.util.TEIdentifier;
-import com.github.alexnijjar.the_extractinator.util.TEUtils;
+import com.github.alexnijjar.the_extractinator.util.ModIdentifier;
+import com.github.alexnijjar.the_extractinator.util.ModUtils;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.JsonObject;
+
 import net.fabricmc.fabric.api.resource.ResourceManagerHelper;
 import net.fabricmc.fabric.api.resource.SimpleSynchronousResourceReloadListener;
 import net.minecraft.resource.Resource;
@@ -14,10 +19,6 @@ import net.minecraft.resource.ResourceManager;
 import net.minecraft.resource.ResourceType;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.JsonHelper;
-
-import java.io.InputStreamReader;
-import java.util.ArrayList;
-import java.util.List;
 
 public class ResourceData {
 
@@ -29,7 +30,7 @@ public class ResourceData {
 
             @Override
             public Identifier getFabricId() {
-                return new TEIdentifier("output");
+                return new ModIdentifier("output");
             }
 
             @Override
@@ -47,7 +48,6 @@ public class ResourceData {
 
                             if (jsonObject != null) {
                                 supportedBlocks.add(SupportedBlocksParser.parse(jsonObject));
-
                             }
                         }
                     } catch (Exception e) {
@@ -67,11 +67,10 @@ public class ResourceData {
                                 List<LootSlot> loot = LootTableParser.parse(jsonObject);
                                 String path = id.getPath();
 
-                                Tier tier = TEUtils.stringToTier(path);
+                                Tier tier = ModUtils.stringToTier(path);
 
                                 String mod = path.split("/")[2].split("/")[0];
                                 lootTables.add(new LootTable(mod, tier, loot));
-
                             }
                         }
                     } catch (Exception e) {

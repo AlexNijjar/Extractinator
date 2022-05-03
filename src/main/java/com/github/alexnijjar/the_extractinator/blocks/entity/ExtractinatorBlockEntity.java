@@ -1,11 +1,15 @@
 package com.github.alexnijjar.the_extractinator.blocks.entity;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import com.github.alexnijjar.the_extractinator.TheExtractinator;
-import com.github.alexnijjar.the_extractinator.registry.TEBlockEntities;
-import com.github.alexnijjar.the_extractinator.registry.TEStats;
+import com.github.alexnijjar.the_extractinator.registry.ModBlockEntities;
+import com.github.alexnijjar.the_extractinator.registry.ModStats;
 import com.github.alexnijjar.the_extractinator.util.BlockUtils;
 import com.github.alexnijjar.the_extractinator.util.LootUtils;
-import com.github.alexnijjar.the_extractinator.util.TEUtils;
+import com.github.alexnijjar.the_extractinator.util.ModUtils;
+
 import net.fabricmc.fabric.api.networking.v1.PlayerLookup;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
@@ -19,6 +23,8 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NbtCompound;
 import net.minecraft.server.network.ServerPlayerEntity;
 import net.minecraft.server.world.ServerWorld;
+import net.minecraft.sound.SoundCategory;
+import net.minecraft.sound.SoundEvents;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.collection.DefaultedList;
 import net.minecraft.util.math.BlockPos;
@@ -26,22 +32,27 @@ import net.minecraft.util.math.Direction;
 import net.minecraft.util.registry.Registry;
 import net.minecraft.world.World;
 
-import java.util.ArrayList;
-import java.util.List;
-
 public class ExtractinatorBlockEntity extends BlockEntity implements ExtractinatorInventory, SidedInventory {
 
     // slot one is for block input, e.g. silt and 24 additional slots are available for the output items.
     private static final int INVENTORY_SIZE = 24;
     private final DefaultedList<ItemStack> inventory = DefaultedList.ofSize(1 + INVENTORY_SIZE, ItemStack.EMPTY);
     private int transferCooldown;
+    private int remainingUsages;
 
     public ExtractinatorBlockEntity(BlockPos pos, BlockState state) {
-        super(TEBlockEntities.EXTRACTINATOR_BLOCK_ENTITY, pos, state);
+        super(ModBlockEntities.EXTRACTINATOR_BLOCK_ENTITY, pos, state);
+        int maximumUsages = TheExtractinator.CONFIG.extractinatorConfig.maximumUsages;
+        remainingUsages = maximumUsages == 0 ? -1 : maximumUsages;
     }
 
-
     public static void serverTick(World world, BlockPos pos, BlockState state, ExtractinatorBlockEntity blockEntity) {
+
+        // Destroy the Extractinator if it has run out of usages.
+        if (blockEntity.remainingUsages == 0 && TheExtractinator.CONFIG.extractinatorConfig.maximumUsages != 0) {
+            world.breakBlock(pos, false);
+            world.playSound(null, pos, SoundEvents.BLOCK_ANVIL_DESTROY, SoundCategory.BLOCKS, 1, 1);
+        }
 
         --blockEntity.transferCooldown;
 
@@ -73,12 +84,15 @@ public class ExtractinatorBlockEntity extends BlockEntity implements Extractinat
                 // Extracts the block above the extractinator if it is supported.
             } else if (BlockUtils.inputSupported(aboveBlock.getBlock().asItem())) {
                 world.breakBlock(pos.up(), false);
+                if (blockEntity.remainingUsages > 0) {
+                    blockEntity.remainingUsages--;
+                } 
                 // Generate loot for that block.
                 List<ItemStack> items = LootUtils.extractMaterials(aboveBlock, world.random);
 
                 // Update player stats.
                 for (ServerPlayerEntity player : PlayerLookup.around((ServerWorld) world, pos, 32)) {
-                    player.increaseStat(TEStats.BLOCKS_EXTRACTINATED, 1);
+                    player.increaseStat(ModStats.BLOCKS_EXTRACTINATED, 1);
                 }
 
                 // Add the loot into the inventory.
@@ -94,18 +108,16 @@ public class ExtractinatorBlockEntity extends BlockEntity implements Extractinat
             }
         }
 
-
         // Checks if a hopper is below the extractinator.
         BlockEntity belowBlock = world.getBlockEntity(pos.down());
         boolean dropBlocks = true;
 
-        if (belowBlock != null) {
             dropBlocks = !(belowBlock instanceof Hopper);
 
             if (dropBlocks) {
 
                 // If a hopper is not present, check if an MI item pipe with either OUT or IN/OUT is connected.
-                if (TEUtils.modLoaded("modern_industrialization")) {
+                if (ModUtils.modLoaded("modern_industrialization")) {
                     for (Direction direction : Direction.values()) {
                         BlockPos surroundingPos = pos.offset(direction);
                         BlockState surroundingState = world.getBlockState(surroundingPos);
@@ -124,7 +136,6 @@ public class ExtractinatorBlockEntity extends BlockEntity implements Extractinat
                 }
 
                 // TODO: Add Industrial Revolution item pipe support.
-            }
         }
 
         // Drops the output items above the extractinator if no hopper or MI item pipe is present.
@@ -156,7 +167,6 @@ public class ExtractinatorBlockEntity extends BlockEntity implements Extractinat
 
     }
 
-
     public void setCooldown(int cooldown) {
         this.transferCooldown = cooldown;
     }
@@ -168,12 +178,20 @@ public class ExtractinatorBlockEntity extends BlockEntity implements Extractinat
     @Override
     public void readNbt(NbtCompound nbt) {
         super.readNbt(nbt);
+        if (nbt.contains("transferCooldown")) {
+            this.transferCooldown = nbt.getInt("transferCooldown");
+        }
+        if (nbt.contains("remainingUsages")) {
+            this.remainingUsages = nbt.getInt("remainingUsages");
+        }
         Inventories.readNbt(nbt, inventory);
     }
 
     @Override
     public void writeNbt(NbtCompound nbt) {
         super.writeNbt(nbt);
+        nbt.putInt("transferCooldown", transferCooldown);
+        nbt.putInt("remainingUsages", remainingUsages);
         Inventories.writeNbt(nbt, inventory);
     }
 
@@ -198,6 +216,6 @@ public class ExtractinatorBlockEntity extends BlockEntity implements Extractinat
 
     @Override
     public DefaultedList<ItemStack> getItems() {
-        return inventory;
+        return this.inventory;
     }
 }

@@ -1,6 +1,7 @@
 package com.github.alexnijjar.the_extractinator.client.renderer;
 
 import com.github.alexnijjar.the_extractinator.client.TheExtractinatorClient;
+
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
 import net.fabricmc.fabric.api.client.model.BakedModelManagerHelper;
@@ -20,13 +21,15 @@ public class ExtractinatorItemRenderer implements BuiltinItemRendererRegistry.Dy
     @Override
     public void render(ItemStack stack, ModelTransformation.Mode mode, MatrixStack matrices, VertexConsumerProvider vertexConsumers, int light, int overlay) {
 
-        MinecraftClient minecraftClient = MinecraftClient.getInstance();
-        BakedModelManager manager = minecraftClient.getBakedModelManager();
+        MinecraftClient client = MinecraftClient.getInstance();
+        BakedModelManager manager = client.getBakedModelManager();
         BakedModel grinderModel = BakedModelManagerHelper.getModel(manager, TheExtractinatorClient.GRINDER_PATH);
         BakedModel extractinatorBlockModel = BakedModelManagerHelper.getModel(manager, TheExtractinatorClient.EXTRACTINATOR_BLOCK_PATH);
 
-        ClientWorld world = MinecraftClient.getInstance().world;
-        if (world == null) return;
+        ClientWorld world = client.world;
+        if (world == null) {
+            return;
+        }
 
         // 156 quads
         ExtractinatorRenderer.render(grinderModel, world, true, matrices, vertexConsumers, light, overlay, 0);

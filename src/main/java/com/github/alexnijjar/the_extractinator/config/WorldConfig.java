@@ -20,7 +20,11 @@ public class WorldConfig implements ConfigData {
 
     public void validatePostLoad() {
 
-        if (siltVeinSize_v2 < 0) siltVeinSize_v2 = 0;
-        if (siltVeinsPerChunk_v2 < 0) siltVeinsPerChunk_v2 = 0;
+        if (siltVeinSize_v2 < 0) {
+            siltVeinSize_v2 = 0;
+        }
+        if (siltVeinsPerChunk_v2 < 0) {
+            siltVeinsPerChunk_v2 = 0;
+        }
     }
 }

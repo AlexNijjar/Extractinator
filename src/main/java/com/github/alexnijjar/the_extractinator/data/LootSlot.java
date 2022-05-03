@@ -1,8 +1,10 @@
 package com.github.alexnijjar.the_extractinator.data;
 
 import com.github.alexnijjar.the_extractinator.compat.rei.util.Rarity;
-import net.minecraft.util.Identifier;
+
 import org.apache.commons.lang3.Range;
+
+import net.minecraft.util.Identifier;
 
 public final class LootSlot {
 

@@ -29,7 +29,9 @@ public class ExtractinatorBlockEntityRenderer implements BlockEntityRenderer<Ext
         BakedModel grinderModel = BakedModelManagerHelper.getModel(manager, TheExtractinatorClient.GRINDER_PATH);
 
         World world = entity.getWorld();
-        if (world == null) return;
+        if (world == null) {
+            return;
+        }
 
         Direction direction = entity.getCachedState().get(ExtractinatorBlock.FACING);
 

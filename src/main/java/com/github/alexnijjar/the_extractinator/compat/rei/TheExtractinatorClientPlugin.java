@@ -2,9 +2,10 @@ package com.github.alexnijjar.the_extractinator.compat.rei;
 
 import com.github.alexnijjar.the_extractinator.client.TheExtractinatorClient;
 import com.github.alexnijjar.the_extractinator.data.SupportedBlock;
-import com.github.alexnijjar.the_extractinator.registry.TEBlocks;
-import com.github.alexnijjar.the_extractinator.util.TEIdentifier;
-import com.github.alexnijjar.the_extractinator.util.TEUtils;
+import com.github.alexnijjar.the_extractinator.registry.ModBlocks;
+import com.github.alexnijjar.the_extractinator.util.ModIdentifier;
+import com.github.alexnijjar.the_extractinator.util.ModUtils;
+
 import me.shedaniel.rei.api.client.plugins.REIClientPlugin;
 import me.shedaniel.rei.api.client.registry.category.CategoryRegistry;
 import me.shedaniel.rei.api.client.registry.display.DisplayRegistry;
@@ -18,13 +19,13 @@ import net.minecraft.text.TranslatableText;
 @Environment(EnvType.CLIENT)
 public class TheExtractinatorClientPlugin implements REIClientPlugin {
 
-    static final CategoryIdentifier<ExtractinatorDisplay> CATEGORY = CategoryIdentifier.of(new TEIdentifier("extractinator"));
+    static final CategoryIdentifier<ExtractinatorDisplay> CATEGORY = CategoryIdentifier.of(new ModIdentifier("extractinator"));
 
     @Override
     public void registerCategories(CategoryRegistry registry) {
 
         registry.add(new ExtractinatorCategory());
-        registry.addWorkstations(CATEGORY, EntryStacks.of(TEBlocks.EXTRACTINATOR_BLOCK));
+        registry.addWorkstations(CATEGORY, EntryStacks.of(ModBlocks.EXTRACTINATOR_BLOCK));
         registry.removePlusButton(CATEGORY);
     }
 
@@ -33,13 +34,14 @@ public class TheExtractinatorClientPlugin implements REIClientPlugin {
 
         for (SupportedBlock block : TheExtractinatorClient.supportedBlocks) {
             String namespace = block.id.getNamespace();
-            if (TEUtils.modLoaded(namespace))
+            if (ModUtils.modLoaded(namespace)) {
                 registry.add(new ExtractinatorDisplay(block));
+            }
         }
 
         // Extractinator info.
-        if (TEUtils.modLoaded("subterrestrial")) {
-            DefaultInformationDisplay info = DefaultInformationDisplay.createFromEntry(EntryStacks.of(TEBlocks.EXTRACTINATOR_BLOCK), new TranslatableText("the_extractinator.rei.extractinator.info.title"));
+        if (ModUtils.modLoaded("subterrestrial")) {
+            DefaultInformationDisplay info = DefaultInformationDisplay.createFromEntry(EntryStacks.of(ModBlocks.EXTRACTINATOR_BLOCK), new TranslatableText("the_extractinator.rei.extractinator.info.title"));
             info.lines(new TranslatableText("the_extractinator.rei.extractinator.info.body"));
             registry.add(info);
         }
