@@ -1,5 +1,7 @@
 package com.github.alexnijjar.the_extractinator.client.renderer;
 
+import java.util.List;
+
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
 import net.minecraft.client.render.RenderLayer;
@@ -12,8 +14,6 @@ import net.minecraft.screen.PlayerScreenHandler;
 import net.minecraft.util.math.Direction;
 import net.minecraft.util.math.Vec3f;
 import net.minecraft.world.World;
-
-import java.util.List;
 
 @Environment(EnvType.CLIENT)
 public class ExtractinatorRenderer {
@@ -52,10 +52,11 @@ public class ExtractinatorRenderer {
 
         // Adjust the grinder so that it fits in the designated space.
         switch (direction) {
-            case EAST -> matrices.translate(0, 0, -1);
-            case SOUTH -> matrices.translate(-1, 0, -1);
-            case WEST -> matrices.translate(-1, 0, 0);
-
+        case EAST -> matrices.translate(0, 0, -1);
+        case SOUTH -> matrices.translate(-1, 0, -1);
+        case WEST -> matrices.translate(-1, 0, 0);
+        default -> {
+        }
         }
 
         render(model, world, true, matrices, vertexConsumers, light, overlay, tickDelta);

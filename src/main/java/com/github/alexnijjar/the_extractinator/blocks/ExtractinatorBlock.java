@@ -2,7 +2,7 @@ package com.github.alexnijjar.the_extractinator.blocks;
 
 import com.github.alexnijjar.the_extractinator.blocks.entity.ExtractinatorBlockEntity;
 import com.github.alexnijjar.the_extractinator.blocks.voxel.ExtractinatorBlockVoxel;
-import com.github.alexnijjar.the_extractinator.registry.TEBlockEntities;
+import com.github.alexnijjar.the_extractinator.registry.ModBlockEntities;
 import com.github.alexnijjar.the_extractinator.util.BlockUtils;
 import net.minecraft.block.*;
 import net.minecraft.block.entity.BlockEntity;
@@ -29,7 +29,7 @@ import net.minecraft.world.World;
 import net.minecraft.world.WorldAccess;
 
 @SuppressWarnings("deprecation")
-public class ExtractinatorBlock extends BlockWithEntity implements Waterloggable, BlockEntityProvider {
+public class ExtractinatorBlock extends BlockWithEntity implements Waterloggable {
 
     public static final DirectionProperty FACING = HorizontalFacingBlock.FACING;
     public static final BooleanProperty WATERLOGGED = Properties.WATERLOGGED;
@@ -46,7 +46,7 @@ public class ExtractinatorBlock extends BlockWithEntity implements Waterloggable
 
     @Override
     public <T extends BlockEntity> BlockEntityTicker<T> getTicker(World world, BlockState state, BlockEntityType<T> type) {
-        return world.isClient ? null : checkType(type, TEBlockEntities.EXTRACTINATOR_BLOCK_ENTITY, ExtractinatorBlockEntity::serverTick);
+        return world.isClient ? null : checkType(type, ModBlockEntities.EXTRACTINATOR_BLOCK_ENTITY, ExtractinatorBlockEntity::serverTick);
     }
 
     // Drop inventory when extractinator is destroyed.
@@ -67,7 +67,6 @@ public class ExtractinatorBlock extends BlockWithEntity implements Waterloggable
     @Override
     public ActionResult onUse(BlockState state, World world, BlockPos pos, PlayerEntity player, Hand hand, BlockHitResult hit) {
         if (!world.isClient) {
-
             ItemStack mainHandItem = player.getMainHandStack();
 
             if (BlockUtils.inputSupported(mainHandItem.getItem())) {
@@ -91,7 +90,6 @@ public class ExtractinatorBlock extends BlockWithEntity implements Waterloggable
     @Override
     public void onEntityLand(BlockView world, Entity entity) {
         if (entity instanceof FallingBlockEntity) {
-
             Block block = ((FallingBlockEntity) entity).getBlockState().getBlock();
 
             if (BlockUtils.inputSupported(block.asItem())) {
@@ -104,11 +102,11 @@ public class ExtractinatorBlock extends BlockWithEntity implements Waterloggable
     @Override
     public VoxelShape getOutlineShape(BlockState state, BlockView world, BlockPos pos, ShapeContext context) {
         return switch (state.get(FACING)) {
-            case NORTH -> ExtractinatorBlockVoxel.NORTH;
-            case EAST -> ExtractinatorBlockVoxel.EAST;
-            case SOUTH -> ExtractinatorBlockVoxel.SOUTH;
-            case WEST -> ExtractinatorBlockVoxel.WEST;
-            default -> null;
+        case NORTH -> ExtractinatorBlockVoxel.NORTH;
+        case EAST -> ExtractinatorBlockVoxel.EAST;
+        case SOUTH -> ExtractinatorBlockVoxel.SOUTH;
+        case WEST -> ExtractinatorBlockVoxel.WEST;
+        default -> null;
         };
     }
 

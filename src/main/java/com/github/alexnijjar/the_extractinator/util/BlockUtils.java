@@ -2,6 +2,7 @@ package com.github.alexnijjar.the_extractinator.util;
 
 import com.github.alexnijjar.the_extractinator.TheExtractinator;
 import com.github.alexnijjar.the_extractinator.data.SupportedBlock;
+
 import net.minecraft.block.Block;
 import net.minecraft.item.Item;
 import net.minecraft.item.Items;
@@ -27,7 +28,9 @@ public class BlockUtils {
 
                 Block block = Registry.BLOCK.get(supported.id);
 
-                if (item.equals(block.asItem())) return true;
+                if (item.equals(block.asItem())) {
+                    return true;
+                }
             }
         }
 

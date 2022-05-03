@@ -1,6 +1,7 @@
 package com.github.alexnijjar.the_extractinator.config;
 
-import com.github.alexnijjar.the_extractinator.util.TEUtils;
+import com.github.alexnijjar.the_extractinator.util.ModUtils;
+
 import me.shedaniel.autoconfig.ConfigData;
 import me.shedaniel.autoconfig.annotation.Config;
 import me.shedaniel.autoconfig.annotation.ConfigEntry;
@@ -30,15 +31,18 @@ public class ExtractinatorConfig implements ConfigData {
     public boolean enableReiPercent = false;
 
     @ConfigEntry.Gui.Tooltip(count = 2)
+    public int maximumUsages = 0;
+
+    @ConfigEntry.Gui.Tooltip(count = 2)
     @ConfigEntry.Gui.EnumHandler(option = ConfigEntry.Gui.EnumHandler.EnumDisplayOption.BUTTON)
     public ExtractinatorRecipe extractinatorRecipe = ExtractinatorRecipe.NONE;
 
     // Sets the default recipe to something when Subterrestrial is not installed.
     public ExtractinatorConfig() {
-        if (!TEUtils.modLoaded("subterrestrial")) {
-            if (TEUtils.modLoaded("modern_industrialization")) {
+        if (!ModUtils.modLoaded("subterrestrial")) {
+            if (ModUtils.modLoaded("modern_industrialization")) {
                 extractinatorRecipe = ExtractinatorRecipe.MODERN_INDUSTRIALIZATION;
-            } else if (TEUtils.modLoaded("techreborn")) {
+            } else if (ModUtils.modLoaded("techreborn")) {
                 extractinatorRecipe = ExtractinatorRecipe.TECH_REBORN;
             } else {
                 extractinatorRecipe = ExtractinatorRecipe.MINECRAFT;
@@ -54,7 +58,8 @@ public class ExtractinatorConfig implements ConfigData {
         rareItemChance = MathHelper.clamp(commonItemChance, 0, 100);
         veryRareItemChance = MathHelper.clamp(commonItemChance, 0, 100);
         extremelyRareItemChance = MathHelper.clamp(commonItemChance, 0, 100);
-        if (inputCooldown < 1)
+        if (inputCooldown < 1) {
             inputCooldown = 1;
+        }
     }
 }

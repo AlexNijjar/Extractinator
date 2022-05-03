@@ -1,7 +1,7 @@
 package com.github.alexnijjar.the_extractinator.data;
 
 import com.github.alexnijjar.the_extractinator.compat.rei.util.Rarity;
-import com.github.alexnijjar.the_extractinator.util.TEUtils;
+import com.github.alexnijjar.the_extractinator.util.ModUtils;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
@@ -32,7 +32,7 @@ public final class LootTableParser {
                 for (JsonElement scale : scaleWithMods) {
                     JsonArray conditionalMods = scale.getAsJsonObject().get("conditional_mods").getAsJsonArray();
                     for (JsonElement mod : conditionalMods) {
-                        if (TEUtils.modLoaded(mod.getAsString())) {
+                        if (ModUtils.modLoaded(mod.getAsString())) {
                             float factor = scale.getAsJsonObject().get("factor").getAsFloat();
                             for (LootSlot lootSlot : loot) {
                                 int min = lootSlot.range.getMinimum();
@@ -50,7 +50,7 @@ public final class LootTableParser {
                 for (JsonElement scale : scaleWithMods) {
                     JsonArray conditionalMods = scale.getAsJsonObject().get("conditional_mods").getAsJsonArray();
                     for (JsonElement mod : conditionalMods) {
-                        if (TEUtils.modLoaded(mod.getAsString())) {
+                        if (ModUtils.modLoaded(mod.getAsString())) {
                             JsonArray items = scale.getAsJsonObject().get("items").getAsJsonArray();
                             for (JsonElement val : items) {
                                 String item = val.getAsString();
@@ -76,8 +76,12 @@ public final class LootTableParser {
             int min = 1;
             int max = 1;
 
-            if (jsonObject.has("min")) min = jsonObject.get("min").getAsInt();
-            if (jsonObject.has("max")) max = jsonObject.get("max").getAsInt();
+            if (jsonObject.has("min")) {
+                min = jsonObject.get("min").getAsInt();
+            }
+            if (jsonObject.has("max")) {
+                max = jsonObject.get("max").getAsInt();
+            }
 
             Range<Integer> range = Range.between(min, max);
 

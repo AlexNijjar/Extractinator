@@ -6,17 +6,18 @@ import com.github.alexnijjar.the_extractinator.compat.rei.util.Tier;
 import com.github.alexnijjar.the_extractinator.config.ExtractinatorConfig;
 import net.fabricmc.loader.api.FabricLoader;
 
-public final class TEUtils {
+public final class ModUtils {
 
     public static boolean modLoaded(String string) {
         return FabricLoader.getInstance().isModLoaded(string);
     }
 
     public static Tier stringToTier(String string) {
-
         for (Tier tier : Tier.values()) {
             String tierId = tier.name().toLowerCase();
-            if (string.contains(tierId)) return tier;
+            if (string.contains(tierId)) {
+                return tier;
+            }
         }
 
         TheExtractinator.LOGGER.error("Invalid tier: " + string);
@@ -25,9 +26,9 @@ public final class TEUtils {
 
     public static Tier intToTier(int value) {
 
-        if (value <= Tier.values().length)
+        if (value <= Tier.values().length) {
             return Tier.values()[value];
-        else {
+        } else {
             TheExtractinator.LOGGER.error("Invalid tier: " + value);
             return Tier.NONE;
         }
@@ -38,11 +39,11 @@ public final class TEUtils {
         ExtractinatorConfig config = TheExtractinator.CONFIG.extractinatorConfig;
 
         switch (rarity) {
-            case COMMON -> percent = config.commonItemChance;
-            case UNCOMMON -> percent = config.uncommonItemChance;
-            case RARE -> percent = config.rareItemChance;
-            case VERY_RARE -> percent = config.veryRareItemChance;
-            case EXTREMELY_RARE -> percent = config.extremelyRareItemChance;
+        case COMMON -> percent = config.commonItemChance;
+        case UNCOMMON -> percent = config.uncommonItemChance;
+        case RARE -> percent = config.rareItemChance;
+        case VERY_RARE -> percent = config.veryRareItemChance;
+        case EXTREMELY_RARE -> percent = config.extremelyRareItemChance;
         }
 
         return percent / 100;

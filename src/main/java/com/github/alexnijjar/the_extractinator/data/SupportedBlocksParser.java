@@ -1,7 +1,7 @@
 package com.github.alexnijjar.the_extractinator.data;
 
 import com.github.alexnijjar.the_extractinator.compat.rei.util.Rarity;
-import com.github.alexnijjar.the_extractinator.util.TEUtils;
+import com.github.alexnijjar.the_extractinator.util.ModUtils;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
@@ -18,27 +18,29 @@ public class SupportedBlocksParser {
         SupportedBlock supportedBlock = new SupportedBlock();
 
         supportedBlock.id = new Identifier(json.get("name").getAsString());
-        supportedBlock.tier = TEUtils.intToTier(json.get("tier").getAsInt());
+        supportedBlock.tier = ModUtils.intToTier(json.get("tier").getAsInt());
         supportedBlock.yield = json.get("yield").getAsFloat();
         List<LootSlot> slots = new ArrayList<>();
         List<Identifier> disabledDrops = new ArrayList<>();
 
-
-        additionalElements:
-        for (JsonElement element : json.get("additional_drops").getAsJsonArray()) {
+        additionalElements: for (JsonElement element : json.get("additional_drops").getAsJsonArray()) {
             JsonObject elementObject = element.getAsJsonObject();
 
             if (elementObject.has("conditional_mods")) {
                 JsonArray mods = elementObject.getAsJsonArray("conditional_mods");
-                for (JsonElement mod : mods)
-                    if (!TEUtils.modLoaded(mod.getAsString()))
+                for (JsonElement mod : mods) {
+                    if (!ModUtils.modLoaded(mod.getAsString())) {
                         continue additionalElements;
+                    }
+                }
             }
             if (elementObject.has("incompatible_mods")) {
                 JsonArray mods = elementObject.getAsJsonArray("incompatible_mods");
-                for (JsonElement mod : mods)
-                    if (TEUtils.modLoaded(mod.getAsString()))
+                for (JsonElement mod : mods) {
+                    if (ModUtils.modLoaded(mod.getAsString())) {
                         continue additionalElements;
+                    }
+                }
             }
 
             LootSlot slot = new LootSlot();
@@ -47,16 +49,17 @@ public class SupportedBlocksParser {
             int min = 1;
             int max = 1;
 
-            if (elementObject.has("min"))
+            if (elementObject.has("min")) {
                 min = elementObject.get("min").getAsInt();
-            if (elementObject.has("max"))
+            }
+            if (elementObject.has("max")) {
                 max = elementObject.get("max").getAsInt();
+            }
 
             slot.range = Range.between(min, max);
             slot.rarity = Rarity.valueOf(elementObject.get("rarity").getAsString().toUpperCase());
             slots.add(slot);
         }
-
 
         for (JsonElement element : json.get("disabled_drops").getAsJsonArray()) {
             disabledDrops.add(new Identifier(element.getAsString()));
