@@ -5,9 +5,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.github.alexnijjar.the_extractinator.TheExtractinator;
-import com.github.alexnijjar.the_extractinator.compat.rei.util.Tier;
 import com.github.alexnijjar.the_extractinator.util.ModIdentifier;
 import com.github.alexnijjar.the_extractinator.util.ModUtils;
+import com.github.alexnijjar.the_extractinator.util.Tier;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.JsonObject;
@@ -40,7 +40,7 @@ public class ResourceData {
                 List<LootTable> lootTables = new ArrayList<>();
 
                 // Get the Supported Mods data.
-                for (Identifier id : manager.findResources("output/supported_blocks", path -> path.endsWith(".json"))) {
+                for (Identifier id : manager.findResources("output/supported_blocks", path -> path.getPath().endsWith(".json")).keySet()) {
                     try {
                         for (Resource resource : manager.getAllResources(id)) {
                             InputStreamReader reader = new InputStreamReader(resource.getInputStream());
@@ -57,7 +57,7 @@ public class ResourceData {
                 }
 
                 // Get the Tier data.
-                for (Identifier id : manager.findResources("output/tiers", path -> path.endsWith(".json"))) {
+                for (Identifier id : manager.findResources("output/tiers", path ->  path.getPath().endsWith(".json")).keySet()) {
                     try {
                         for (Resource resource : manager.getAllResources(id)) {
                             InputStreamReader reader = new InputStreamReader(resource.getInputStream());

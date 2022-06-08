@@ -78,11 +78,12 @@ public class ExtractinatorBlock extends BlockWithEntity implements Waterloggable
                         entity.setStack(0, new ItemStack(mainHandItem.getItem(), current.getCount() + 1));
                         entity.setCooldown(0);
                         mainHandItem.decrement(1);
+                        return ActionResult.SUCCESS;
                     }
                 }
             }
         }
-        return ActionResult.SUCCESS;
+        return ActionResult.CONSUME;
     }
 
     // Places a block above when a falling block, such as gravel, lands on the extractinator. This is required,

@@ -29,7 +29,7 @@ public class ModC2SPackets {
             }
 
             if (minecraftServer.isDedicated()) {
-                TheExtractinator.LOGGER.info("Sent REI Loot info to " + handler.player.getDisplayName().asString());
+                TheExtractinator.LOGGER.info("Sent REI Loot info to " + handler.player.getDisplayName().getString());
             }
         });
     }

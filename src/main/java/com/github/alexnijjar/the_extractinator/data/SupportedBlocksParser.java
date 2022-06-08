@@ -1,7 +1,7 @@
 package com.github.alexnijjar.the_extractinator.data;
 
-import com.github.alexnijjar.the_extractinator.compat.rei.util.Rarity;
 import com.github.alexnijjar.the_extractinator.util.ModUtils;
+import com.github.alexnijjar.the_extractinator.util.Rarity;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
