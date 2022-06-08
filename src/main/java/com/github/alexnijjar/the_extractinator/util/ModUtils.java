@@ -1,8 +1,6 @@
 package com.github.alexnijjar.the_extractinator.util;
 
 import com.github.alexnijjar.the_extractinator.TheExtractinator;
-import com.github.alexnijjar.the_extractinator.compat.rei.util.Rarity;
-import com.github.alexnijjar.the_extractinator.compat.rei.util.Tier;
 import com.github.alexnijjar.the_extractinator.config.ExtractinatorConfig;
 import net.fabricmc.loader.api.FabricLoader;
 

@@ -3,11 +3,11 @@ package com.github.alexnijjar.the_extractinator.client;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.github.alexnijjar.the_extractinator.client.networking.ModS2CPackets;
 import com.github.alexnijjar.the_extractinator.client.renderer.ExtractinatorBlockEntityRenderer;
 import com.github.alexnijjar.the_extractinator.client.renderer.ExtractinatorItemRenderer;
 import com.github.alexnijjar.the_extractinator.data.LootTable;
 import com.github.alexnijjar.the_extractinator.data.SupportedBlock;
-import com.github.alexnijjar.the_extractinator.networking.ModS2CPackets;
 import com.github.alexnijjar.the_extractinator.registry.ModBlockEntities;
 import com.github.alexnijjar.the_extractinator.registry.ModItems;
 import com.github.alexnijjar.the_extractinator.util.ModIdentifier;

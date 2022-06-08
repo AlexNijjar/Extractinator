@@ -1,14 +1,15 @@
-package com.github.alexnijjar.the_extractinator.networking;
+package com.github.alexnijjar.the_extractinator.client.networking;
 
 import java.util.List;
 
 import com.github.alexnijjar.the_extractinator.TheExtractinator;
 import com.github.alexnijjar.the_extractinator.client.TheExtractinatorClient;
-import com.github.alexnijjar.the_extractinator.compat.rei.util.Rarity;
-import com.github.alexnijjar.the_extractinator.compat.rei.util.Tier;
 import com.github.alexnijjar.the_extractinator.data.LootSlot;
 import com.github.alexnijjar.the_extractinator.data.LootTable;
 import com.github.alexnijjar.the_extractinator.data.SupportedBlock;
+import com.github.alexnijjar.the_extractinator.networking.ModC2SPackets;
+import com.github.alexnijjar.the_extractinator.util.Rarity;
+import com.github.alexnijjar.the_extractinator.util.Tier;
 
 import org.apache.commons.lang3.Range;
 

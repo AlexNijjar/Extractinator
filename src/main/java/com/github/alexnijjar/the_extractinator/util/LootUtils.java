@@ -1,28 +1,29 @@
 package com.github.alexnijjar.the_extractinator.util;
 
+import java.util.LinkedList;
+import java.util.List;
+
 import com.github.alexnijjar.the_extractinator.TheExtractinator;
 import com.github.alexnijjar.the_extractinator.config.ExtractinatorConfig;
 import com.github.alexnijjar.the_extractinator.data.LootSlot;
 import com.github.alexnijjar.the_extractinator.data.LootTable;
 import com.github.alexnijjar.the_extractinator.data.SupportedBlock;
+
 import net.minecraft.block.BlockState;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.Identifier;
+import net.minecraft.util.math.random.Random;
 import net.minecraft.util.registry.Registry;
-
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Random;
 
 public class LootUtils {
 
     // Obtains loot from a loot table for the extractinator to spit out.
     public static List<ItemStack> extractMaterials(BlockState block, Random random) {
 
-        List<ItemStack> output = new ArrayList<>();
+        List<ItemStack> output = new LinkedList<>();
         SupportedBlock supportedBlock = null;
-        List<LootSlot> lootTableSlots = new ArrayList<>();
+        List<LootSlot> lootTableSlots = new LinkedList<>();
         Identifier blockId = Registry.BLOCK.getId(block.getBlock());
 
         for (SupportedBlock entry : TheExtractinator.supportedBlocks) {
@@ -54,11 +55,11 @@ public class LootUtils {
             return output;
         }
 
-        List<LootSlot> commonSlots = new ArrayList<>();
-        List<LootSlot> uncommonSlots = new ArrayList<>();
-        List<LootSlot> rareSlots = new ArrayList<>();
-        List<LootSlot> veryRareSlots = new ArrayList<>();
-        List<LootSlot> extremelyRareSlots = new ArrayList<>();
+        List<LootSlot> commonSlots = new LinkedList<>();
+        List<LootSlot> uncommonSlots = new LinkedList<>();
+        List<LootSlot> rareSlots = new LinkedList<>();
+        List<LootSlot> veryRareSlots = new LinkedList<>();
+        List<LootSlot> extremelyRareSlots = new LinkedList<>();
 
         for (LootSlot slot : lootTableSlots) {
             switch (slot.rarity) {
@@ -118,10 +119,10 @@ public class LootUtils {
     }
 
     private static List<ItemStack> addRandomLoot(float chance, List<LootSlot> slots, Random random) {
-        List<ItemStack> drops = new ArrayList<>();
+        List<ItemStack> drops = new LinkedList<>();
 
         if (slots.size() > 0) {
-            if (random.nextFloat(100) < chance) {
+            if (random.nextFloat() * 100.0f < chance) {
                 LootSlot slot = slots.get(random.nextInt(slots.size()));
                 Item item = Registry.ITEM.get(slot.id);
                 int min = slot.range.getMinimum();

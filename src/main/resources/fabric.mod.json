@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "id": "the_extractinator",
-  "version": "1.0.8",
+  "version": "1.0.9",
   "name": "The Extractinator",
   "description": "Convert blocks into resources.",
   "authors": [
@@ -25,7 +25,7 @@
       "com.github.alexnijjar.the_extractinator.config.ModMenuConfig"
     ],
     "rei_plugins": [
-      "com.github.alexnijjar.the_extractinator.compat.rei.TheExtractinatorClientPlugin"
+      "com.github.alexnijjar.the_extractinator.client.rei.TheExtractinatorClientPlugin"
     ]
   },
   "mixins": [
@@ -34,7 +34,8 @@
   "depends": {
     "fabricloader": ">=0.11.3",
     "fabric": "*",
-    "minecraft": "1.18.x",
+    "minecraft": "1.19.x",
+    "cloth-config": ">=7.0.0",
     "java": ">=17"
   },
   "suggests": {

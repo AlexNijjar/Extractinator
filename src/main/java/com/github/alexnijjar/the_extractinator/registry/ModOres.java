@@ -1,8 +1,13 @@
 package com.github.alexnijjar.the_extractinator.registry;
 
+import java.util.Arrays;
+import java.util.List;
+import java.util.function.Predicate;
+
 import com.github.alexnijjar.the_extractinator.TheExtractinator;
 import com.github.alexnijjar.the_extractinator.config.WorldConfig;
 import com.github.alexnijjar.the_extractinator.util.ModIdentifier;
+
 import net.fabricmc.fabric.api.biome.v1.BiomeModifications;
 import net.fabricmc.fabric.api.biome.v1.BiomeSelectionContext;
 import net.fabricmc.fabric.api.biome.v1.BiomeSelectors;
@@ -12,18 +17,18 @@ import net.minecraft.util.registry.BuiltinRegistries;
 import net.minecraft.util.registry.Registry;
 import net.minecraft.util.registry.RegistryEntry;
 import net.minecraft.util.registry.RegistryKey;
-import net.minecraft.world.biome.Biome;
+import net.minecraft.world.biome.BiomeKeys;
 import net.minecraft.world.gen.GenerationStep;
 import net.minecraft.world.gen.YOffset;
-import net.minecraft.world.gen.feature.*;
+import net.minecraft.world.gen.feature.ConfiguredFeature;
+import net.minecraft.world.gen.feature.Feature;
+import net.minecraft.world.gen.feature.OreConfiguredFeatures;
+import net.minecraft.world.gen.feature.OreFeatureConfig;
+import net.minecraft.world.gen.feature.PlacedFeature;
 import net.minecraft.world.gen.placementmodifier.CountPlacementModifier;
 import net.minecraft.world.gen.placementmodifier.HeightRangePlacementModifier;
 import net.minecraft.world.gen.placementmodifier.PlacementModifier;
 import net.minecraft.world.gen.placementmodifier.SquarePlacementModifier;
-
-import java.util.Arrays;
-import java.util.List;
-import java.util.function.Predicate;
 
 public class ModOres {
 
@@ -43,7 +48,8 @@ public class ModOres {
             ConfiguredFeature<?, ?> configured = createOreConfiguredFeature(id, ModBlocks.SLUSH, config.slushVeinSize_v1);
             PlacedFeature feature = createOreFeature(configured, config.slushVeinsPerChunk_v1, config.slushMinSpawnHeight_v1, config.slushMaxSpawnHeight_v1);
 
-            registerOre(id, feature, BiomeSelectors.categories(Biome.Category.ICY));
+            // TODO Add all cold biomes
+            registerOre(id, feature, BiomeSelectors.includeByKey(BiomeKeys.SNOWY_PLAINS));
         }
     }
 

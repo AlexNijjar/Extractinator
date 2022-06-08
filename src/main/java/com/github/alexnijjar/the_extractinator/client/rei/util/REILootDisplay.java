@@ -1,4 +1,4 @@
-package com.github.alexnijjar.the_extractinator.compat.rei.util;
+package com.github.alexnijjar.the_extractinator.client.rei.util;
 
 import java.util.ArrayList;
 import java.util.Comparator;
@@ -11,8 +11,11 @@ import com.github.alexnijjar.the_extractinator.data.LootTable;
 import com.github.alexnijjar.the_extractinator.data.SupportedBlock;
 import com.github.alexnijjar.the_extractinator.util.ModUtils;
 
+import net.fabricmc.api.EnvType;
+import net.fabricmc.api.Environment;
 import net.minecraft.util.Identifier;
 
+@Environment(EnvType.CLIENT)
 public final class REILootDisplay {
 
     public static List<LootSlot> getOutput(SupportedBlock supportedBlock) {

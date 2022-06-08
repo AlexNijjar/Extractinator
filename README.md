@@ -48,4 +48,4 @@ and extensive support for other mods.
 
 You can add, modify and delete the extractinator drops through a datapack. This is especially useful if you are a
 modpack maker wanting to add custom drops from mods that the extractinator does not support. An example can be found
-[here](https://github.com/AlexNijjar/The-Extractinator/tree/1.18/test/datapack).
+[here](https://github.com/AlexNijjar/The-Extractinator/tree/1.19/test/datapack).

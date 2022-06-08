@@ -1,8 +1,8 @@
 package com.github.alexnijjar.the_extractinator.data;
 
-import com.github.alexnijjar.the_extractinator.compat.rei.util.Rarity;
-
 import org.apache.commons.lang3.Range;
+
+import com.github.alexnijjar.the_extractinator.util.Rarity;
 
 import net.minecraft.util.Identifier;
 
