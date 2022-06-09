@@ -25,7 +25,6 @@ public class BlockUtils {
 
         if (item != Items.AIR) {
             for (SupportedBlock supported : TheExtractinator.supportedBlocks) {
-
                 Block block = Registry.BLOCK.get(supported.id);
 
                 if (item.equals(block.asItem())) {

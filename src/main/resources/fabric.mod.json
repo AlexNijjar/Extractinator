@@ -24,7 +24,7 @@
     "modmenu": [
       "com.github.alexnijjar.the_extractinator.config.ModMenuConfig"
     ],
-    "rei_plugins": [
+    "rei_client": [
       "com.github.alexnijjar.the_extractinator.client.rei.TheExtractinatorClientPlugin"
     ]
   },

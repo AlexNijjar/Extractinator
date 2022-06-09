@@ -15,4 +15,19 @@ public final class LootTable {
         this.tier = tier;
         this.slots = slots;
     }
+
+    @Override
+    public boolean equals(Object o) {
+        if (o == this) {
+            return true;
+        }
+ 
+        if (!(o instanceof LootTable)) {
+            return false;
+        }
+         
+        LootTable table = (LootTable) o;
+
+        return this.namespace.equals(table.namespace) && this.tier.equals(table.tier);
+    }
 }

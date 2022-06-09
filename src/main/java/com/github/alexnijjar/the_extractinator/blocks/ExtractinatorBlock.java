@@ -4,7 +4,14 @@ import com.github.alexnijjar.the_extractinator.blocks.entity.ExtractinatorBlockE
 import com.github.alexnijjar.the_extractinator.blocks.voxel.ExtractinatorBlockVoxel;
 import com.github.alexnijjar.the_extractinator.registry.ModBlockEntities;
 import com.github.alexnijjar.the_extractinator.util.BlockUtils;
-import net.minecraft.block.*;
+
+import net.minecraft.block.Block;
+import net.minecraft.block.BlockRenderType;
+import net.minecraft.block.BlockState;
+import net.minecraft.block.BlockWithEntity;
+import net.minecraft.block.HorizontalFacingBlock;
+import net.minecraft.block.ShapeContext;
+import net.minecraft.block.Waterloggable;
 import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.block.entity.BlockEntityTicker;
 import net.minecraft.block.entity.BlockEntityType;
@@ -19,7 +26,11 @@ import net.minecraft.state.StateManager;
 import net.minecraft.state.property.BooleanProperty;
 import net.minecraft.state.property.DirectionProperty;
 import net.minecraft.state.property.Properties;
-import net.minecraft.util.*;
+import net.minecraft.util.ActionResult;
+import net.minecraft.util.BlockMirror;
+import net.minecraft.util.BlockRotation;
+import net.minecraft.util.Hand;
+import net.minecraft.util.ItemScatterer;
 import net.minecraft.util.hit.BlockHitResult;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Direction;
@@ -87,7 +98,7 @@ public class ExtractinatorBlock extends BlockWithEntity implements Waterloggable
     }
 
     // Places a block above when a falling block, such as gravel, lands on the extractinator. This is required,
-    // or else the gravel would behave like it was falling on a torch.
+    // or else the gravel would behave like it was falling on a torch and just drop itself as an item.
     @Override
     public void onEntityLand(BlockView world, Entity entity) {
         if (entity instanceof FallingBlockEntity) {

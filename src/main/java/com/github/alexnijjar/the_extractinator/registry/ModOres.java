@@ -11,13 +11,13 @@ import com.github.alexnijjar.the_extractinator.util.ModIdentifier;
 import net.fabricmc.fabric.api.biome.v1.BiomeModifications;
 import net.fabricmc.fabric.api.biome.v1.BiomeSelectionContext;
 import net.fabricmc.fabric.api.biome.v1.BiomeSelectors;
+import net.fabricmc.fabric.api.tag.convention.v1.ConventionalBiomeTags;
 import net.minecraft.block.Block;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.registry.BuiltinRegistries;
 import net.minecraft.util.registry.Registry;
 import net.minecraft.util.registry.RegistryEntry;
 import net.minecraft.util.registry.RegistryKey;
-import net.minecraft.world.biome.BiomeKeys;
 import net.minecraft.world.gen.GenerationStep;
 import net.minecraft.world.gen.YOffset;
 import net.minecraft.world.gen.feature.ConfiguredFeature;
@@ -47,9 +47,7 @@ public class ModOres {
             Identifier id = new ModIdentifier("ore_silt");
             ConfiguredFeature<?, ?> configured = createOreConfiguredFeature(id, ModBlocks.SLUSH, config.slushVeinSize_v1);
             PlacedFeature feature = createOreFeature(configured, config.slushVeinsPerChunk_v1, config.slushMinSpawnHeight_v1, config.slushMaxSpawnHeight_v1);
-
-            // TODO Add all cold biomes
-            registerOre(id, feature, BiomeSelectors.includeByKey(BiomeKeys.SNOWY_PLAINS));
+            registerOre(id, feature, BiomeSelectors.tag(ConventionalBiomeTags.SNOWY).or(BiomeSelectors.tag(ConventionalBiomeTags.ICY)));
         }
     }
 

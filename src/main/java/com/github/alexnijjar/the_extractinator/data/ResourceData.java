@@ -1,7 +1,7 @@
 package com.github.alexnijjar.the_extractinator.data;
 
 import java.io.InputStreamReader;
-import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.List;
 
 import com.github.alexnijjar.the_extractinator.TheExtractinator;
@@ -36,8 +36,8 @@ public class ResourceData {
             @Override
             public void reload(ResourceManager manager) {
 
-                List<SupportedBlock> supportedBlocks = new ArrayList<>();
-                List<LootTable> lootTables = new ArrayList<>();
+                List<SupportedBlock> supportedBlocks = new LinkedList<>();
+                List<LootTable> lootTables = new LinkedList<>();
 
                 // Get the Supported Mods data.
                 for (Identifier id : manager.findResources("output/supported_blocks", path -> path.getPath().endsWith(".json")).keySet()) {
@@ -47,7 +47,13 @@ public class ResourceData {
                             JsonObject jsonObject = JsonHelper.deserialize(GSON, reader, JsonObject.class);
 
                             if (jsonObject != null) {
-                                supportedBlocks.add(SupportedBlocksParser.parse(jsonObject));
+                                SupportedBlock block = SupportedBlocksParser.parse(jsonObject);
+
+                                if (supportedBlocks.contains(block)) {
+                                    supportedBlocks.set(supportedBlocks.indexOf(block), block);
+                                } else {
+                                    supportedBlocks.add(block);
+                                }
                             }
                         }
                     } catch (Exception e) {
@@ -57,7 +63,7 @@ public class ResourceData {
                 }
 
                 // Get the Tier data.
-                for (Identifier id : manager.findResources("output/tiers", path ->  path.getPath().endsWith(".json")).keySet()) {
+                for (Identifier id : manager.findResources("output/tiers", path -> path.getPath().endsWith(".json")).keySet()) {
                     try {
                         for (Resource resource : manager.getAllResources(id)) {
                             InputStreamReader reader = new InputStreamReader(resource.getInputStream());
@@ -70,7 +76,14 @@ public class ResourceData {
                                 Tier tier = ModUtils.stringToTier(path);
 
                                 String mod = path.split("/")[2].split("/")[0];
-                                lootTables.add(new LootTable(mod, tier, loot));
+
+                                LootTable table = new LootTable(mod, tier, loot);
+
+                                if (lootTables.contains(table)) {
+                                    lootTables.set(lootTables.indexOf(table), table);
+                                } else {
+                                    lootTables.add(table);
+                                }
                             }
                         }
                     } catch (Exception e) {
@@ -78,6 +91,7 @@ public class ResourceData {
                         e.printStackTrace();
                     }
                 }
+
                 TheExtractinator.supportedBlocks = supportedBlocks;
                 TheExtractinator.lootTables = lootTables;
             }

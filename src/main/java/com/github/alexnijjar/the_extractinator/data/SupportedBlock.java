@@ -25,4 +25,19 @@ public class SupportedBlock {
         this.additionalDrops = additionalDrops;
         this.disabledDrops = disabledDrops;
     }
+
+    @Override
+    public boolean equals(Object o) {
+        if (o == this) {
+            return true;
+        }
+
+        if (!(o instanceof SupportedBlock)) {
+            return false;
+        }
+
+        SupportedBlock block = (SupportedBlock) o;
+
+        return this.id.equals(block.id);
+    }
 }
