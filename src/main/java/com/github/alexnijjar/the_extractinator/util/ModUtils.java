@@ -44,6 +44,6 @@ public final class ModUtils {
         case EXTREMELY_RARE -> percent = config.extremelyRareItemChance;
         }
 
-        return percent / 100;
+        return percent / 100.0f;
     }
 }

@@ -26,12 +26,7 @@ public class LootUtils {
         List<LootSlot> lootTableSlots = new LinkedList<>();
         Identifier blockId = Registry.BLOCK.getId(block.getBlock());
 
-        for (SupportedBlock entry : TheExtractinator.supportedBlocks) {
-            if (entry.id.equals(blockId)) {
-                supportedBlock = entry;
-                break;
-            }
-        }
+        supportedBlock = TheExtractinator.supportedBlocks.stream().filter(b -> b.id.equals(blockId)).findFirst().orElse(null);
 
         if (supportedBlock == null) {
             TheExtractinator.LOGGER.error("Error generating extractinator loot block!");
@@ -50,7 +45,7 @@ public class LootUtils {
         }
 
         // Random chance that the extractinator will not drop anything.
-        float yield = supportedBlock.yield / 100;
+        float yield = supportedBlock.yield / 100.0f;
         if (random.nextFloat() > yield) {
             return output;
         }
