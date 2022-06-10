@@ -2,7 +2,7 @@
   "parent": "builtin/entity",
   "gui_light": "front",
   "textures": {
-    "particle": "the_extractinator:block/extractinator"
+    "particle": "the_extractinator:blocks/extractinator"
   },
   "display": {
     "thirdperson_righthand": {
