@@ -5,7 +5,7 @@
 		80
 	],
 	"textures": {
-		"0": "the_extractinator:block/extractinator"
+		"0": "the_extractinator:blocks/extractinator"
 	},
 	"elements": [
 		{

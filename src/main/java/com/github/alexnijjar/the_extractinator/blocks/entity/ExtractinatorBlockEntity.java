@@ -61,7 +61,7 @@ public class ExtractinatorBlockEntity extends BlockEntity implements Extractinat
         }
 
         // Drops the output items above the extractinator if no hopper or pipe is present.
-        if (!extractinator.hasHopper() || !extractinator.hasPipe()) {
+        if (!extractinator.hasHopper() && !extractinator.hasPipe()) {
             extractinator.dropBlocks();
         }
     }

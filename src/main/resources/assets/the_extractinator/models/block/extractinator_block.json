@@ -5,8 +5,8 @@
 		80
 	],
 	"textures": {
-		"0": "the_extractinator:block/extractinator",
-		"particle": "the_extractinator:block/extractinator"
+		"0": "the_extractinator:blocks/extractinator",
+		"particle": "the_extractinator:blocks/extractinator"
 	},
 	"elements": [
 		{
