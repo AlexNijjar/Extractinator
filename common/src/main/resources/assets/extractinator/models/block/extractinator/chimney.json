@@ -1,0 +1,31 @@
+{
+	"credit": "Made with Blockbench",
+	"texture_size": [128, 128],
+	"textures": {
+		"0": "extractinator:block/extractinator",
+		"particle": "extractinator:block/extractinator"
+	},
+	"elements": [
+		{
+			"from": [-2, -3, -2],
+			"to": [2, 3, 2],
+			"rotation": {"angle": 0, "axis": "z", "origin": [-5.5, 7.5, -4]},
+			"faces": {
+				"north": {"uv": [2.5, 7.25, 3, 8], "texture": "#0"},
+				"east": {"uv": [2, 7.25, 2.5, 8], "texture": "#0"},
+				"south": {"uv": [3.5, 7.25, 4, 8], "texture": "#0"},
+				"west": {"uv": [3, 7.25, 3.5, 8], "texture": "#0"},
+				"up": {"uv": [3, 7.25, 2.5, 6.75], "texture": "#0"},
+				"down": {"uv": [3.5, 6.75, 3, 7.25], "texture": "#0"}
+			}
+		}
+	],
+	"groups": [
+		{
+			"name": "chimney",
+			"origin": [-4, 10, 6],
+			"color": 0,
+			"children": [0]
+		}
+	]
+}

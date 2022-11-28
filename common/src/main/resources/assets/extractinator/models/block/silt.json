@@ -1,0 +1,10 @@
+{
+  "parent": "block/cube_all",
+  "textures": {
+<<<<<<< Updated upstream:src/main/resources/assets/the_extractinator/models/block/silt.json
+    "all": "the_extractinator:block/silt"
+=======
+    "all": "extractinator:block/silt"
+>>>>>>> Stashed changes:common/src/main/resources/assets/extractinator/models/block/silt.json
+  }
+}

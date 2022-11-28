@@ -1,0 +1,39 @@
+{
+  "values": [
+    "minecraft:diamond",
+    "minecraft:emerald",
+    "minecraft:amethyst_shard",
+    {
+      "required": false,
+      "id": "#extractinator_platform:raw_materials/platinum"
+    },
+    {
+      "required": false,
+      "id": "#extractinator_platform:raw_materials/titanium"
+    },
+    {
+      "required": false,
+      "id": "#extractinator_platform:raw_materials/uranium"
+    },
+    {
+      "required": false,
+      "id": "#extractinator_platform:raw_materials/osmium"
+    },
+    {
+      "required": false,
+      "id": "#extractinator_platform:raw_materials/tungsten"
+    },
+    {
+      "required": false,
+      "id": "#extractinator_platform:raw_materials/iridium"
+    },
+    {
+      "required": false,
+      "id": "modern_industrialization:mozanite_dust"
+    },
+    {
+      "required": false,
+      "id": "numismatic-overhaul:silver_coin"
+    }
+  ]
+}

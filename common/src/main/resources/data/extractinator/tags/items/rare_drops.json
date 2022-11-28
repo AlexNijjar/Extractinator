@@ -1,0 +1,26 @@
+{
+  "values": [
+    "minecraft:redstone",
+    "minecraft:lapis_lazuli",
+    {
+      "required": false,
+      "id": "#extractinator_platform:raw_materials/lead"
+    },
+    {
+      "required": false,
+      "id": "#extractinator_platform:raw_materials/silver"
+    },
+    {
+      "required": false,
+      "id": "#extractinator_platform:raw_materials/nickel"
+    },
+    {
+      "required": false,
+      "id": "#extractinator_platform:raw_materials/antimony"
+    },
+    {
+      "required": false,
+      "id": "numismatic-overhaul:bronze_coin"
+    }
+  ]
+}
