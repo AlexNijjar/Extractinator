@@ -1,10 +1,6 @@
 {
   "parent": "block/cube_all",
   "textures": {
-<<<<<<< Updated upstream:src/main/resources/assets/the_extractinator/models/block/slush.json
-    "all": "the_extractinator:block/slush"
-=======
     "all": "extractinator:block/slush"
->>>>>>> Stashed changes:common/src/main/resources/assets/extractinator/models/block/slush.json
   }
 }

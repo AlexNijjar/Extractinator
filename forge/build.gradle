@@ -25,7 +25,7 @@ dependencies {
     common(project(path: ":common", configuration: "namedElements")) { transitive false }
     shadowCommon(project(path: ":common", configuration: "transformProductionForge")) { transitive = false }
 
-    modApi "com.teamresourceful.resourcefullib:resourcefullib-forge-$resourcefullib_version"
+    include (modApi "com.teamresourceful.resourcefullib:resourcefullib-forge-$resourcefullib_version")
 
     modCompileOnly "me.shedaniel:RoughlyEnoughItems-forge:$project.rei_version"
     modCompileOnly "mezz.jei:jei-$rootProject.minecraft_version-forge-api:$rootProject.jei_version"

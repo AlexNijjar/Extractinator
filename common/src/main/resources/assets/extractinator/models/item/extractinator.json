@@ -2,11 +2,7 @@
   "parent": "builtin/entity",
   "gui_light": "front",
   "textures": {
-<<<<<<< Updated upstream:src/main/resources/assets/the_extractinator/models/item/extractinator.json
-    "particle": "the_extractinator:block/extractinator"
-=======
     "particle": "extractinator:block/extractinator"
->>>>>>> Stashed changes:common/src/main/resources/assets/extractinator/models/item/extractinator.json
   },
   "display": {
     "thirdperson_righthand": {

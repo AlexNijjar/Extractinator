@@ -21,7 +21,7 @@ dependencies {
     common(project(path: ":common", configuration: "namedElements")) { transitive = false }
     shadowCommon(project(path: ":common", configuration: "transformProductionFabric")) { transitive = false }
 
-    modApi "com.teamresourceful.resourcefullib:resourcefullib-fabric-$rootProject.resourcefullib_version"
+    include (modApi "com.teamresourceful.resourcefullib:resourcefullib-fabric-$rootProject.resourcefullib_version")
     modApi "com.terraformersmc:modmenu:$rootProject.modmenu_version"
 
 //    modCompileOnly "mezz.jei:jei-$rootProject.minecraft_version-fabric-api:$rootProject.project.jei_version"
