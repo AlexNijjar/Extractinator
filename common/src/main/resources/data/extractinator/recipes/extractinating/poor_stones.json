@@ -1,7 +1,7 @@
 {
   "type": "extractinator:extractinating",
   "input": {
-    "tag": "extractinator:worse_stones"
+    "tag": "extractinator:poor_stones"
   },
   "common_drops": "#extractinator:common_drops",
   "rare_drops": "#extractinator:rare_drops",

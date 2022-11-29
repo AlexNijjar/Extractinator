@@ -22,6 +22,12 @@
     ],
     "client": [
       "dev.alexnijjar.extractinator.fabric.ExtractinatorClientFabric"
+    ],
+    "rei_client": [
+      "dev.alexnijjar.extractinator.compat.rei.ExtractinatorReiPlugin"
+    ],
+    "jei_mod_plugin": [
+      "dev.alexnijjar.extractinator.compat.jei.ExtractinatorJeiPlugin"
     ]
   },
   "depends": {

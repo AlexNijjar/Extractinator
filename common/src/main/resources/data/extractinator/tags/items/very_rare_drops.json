@@ -29,6 +29,10 @@
     },
     {
       "required": false,
+      "id": "#extractinator_platform:dusts/chrome"
+    },
+    {
+      "required": false,
       "id": "modern_industrialization:mozanite_dust"
     },
     {

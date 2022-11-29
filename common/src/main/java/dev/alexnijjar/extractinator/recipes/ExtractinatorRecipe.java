@@ -7,21 +7,22 @@ import com.teamresourceful.resourcefullib.common.codecs.tags.HolderSetCodec;
 import com.teamresourceful.resourcefullib.common.recipe.CodecRecipe;
 import dev.alexnijjar.extractinator.registry.ModRecipeSerializers;
 import dev.alexnijjar.extractinator.registry.ModRecipeTypes;
+import net.minecraft.core.Holder;
 import net.minecraft.core.HolderSet;
 import net.minecraft.core.Registry;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.Container;
 import net.minecraft.world.item.Item;
+import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.crafting.Ingredient;
-import net.minecraft.world.item.crafting.RecipeManager;
 import net.minecraft.world.item.crafting.RecipeSerializer;
 import net.minecraft.world.item.crafting.RecipeType;
 import net.minecraft.world.level.Level;
 import org.jetbrains.annotations.NotNull;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.function.Predicate;
-import java.util.stream.Stream;
 
 public record ExtractinatorRecipe(ResourceLocation id, Ingredient input, HolderSet<Item> commonDrops,
                                   HolderSet<Item> rareDrops, HolderSet<Item> veryRareDrops, double dropChance,
@@ -63,6 +64,14 @@ public record ExtractinatorRecipe(ResourceLocation id, Ingredient input, HolderS
     @Override
     public RecipeType<?> getType() {
         return ModRecipeTypes.EXTRACTINATOR_RECIPE.get();
+    }
+
+    public List<Ingredient> getOutputs() {
+        List<Ingredient> outputs = new ArrayList<>();
+        outputs.addAll(this.commonDrops.stream().map(Holder::value).map(i -> new ItemStack(i, maxDropCount())).map(Ingredient::of).toList());
+        outputs.addAll(this.rareDrops.stream().map(Holder::value).map(i -> new ItemStack(i, maxDropCount())).map(Ingredient::of).toList());
+        outputs.addAll(this.veryRareDrops.stream().map(Holder::value).map(i -> new ItemStack(i, maxDropCount())).map(Ingredient::of).toList());
+        return outputs;
     }
 
     public static ExtractinatorRecipe findFirst(Level level, Predicate<ExtractinatorRecipe> filter) {

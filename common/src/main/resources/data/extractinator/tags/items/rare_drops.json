@@ -2,6 +2,7 @@
   "values": [
     "minecraft:redstone",
     "minecraft:lapis_lazuli",
+    "minecraft:quartz",
     {
       "required": false,
       "id": "#extractinator_platform:raw_materials/lead"
