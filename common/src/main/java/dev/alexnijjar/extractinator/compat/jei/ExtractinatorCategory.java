@@ -4,6 +4,7 @@ import com.mojang.blaze3d.vertex.PoseStack;
 import dev.alexnijjar.extractinator.Extractinator;
 import dev.alexnijjar.extractinator.recipes.ExtractinatorRecipe;
 import dev.alexnijjar.extractinator.registry.ModItems;
+import mezz.jei.api.constants.VanillaTypes;
 import mezz.jei.api.gui.builder.IRecipeLayoutBuilder;
 import mezz.jei.api.gui.drawable.IDrawable;
 import mezz.jei.api.gui.ingredient.IRecipeSlotsView;
@@ -30,7 +31,7 @@ public class ExtractinatorCategory extends BaseCategory<ExtractinatorRecipe> {
                 RECIPE,
                 new TranslatableComponent(ModItems.EXTRACTINATOR.get().getDescriptionId()),
                 guiHelper.createBlankDrawable(144, 126),
-                guiHelper.createDrawableItemStack(ModItems.EXTRACTINATOR.get().getDefaultInstance())
+                guiHelper.createDrawableIngredient(VanillaTypes.ITEM_STACK, ModItems.EXTRACTINATOR.get().getDefaultInstance())
         );
         slot = guiHelper.getSlotDrawable();
     }

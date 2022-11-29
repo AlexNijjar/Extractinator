@@ -14,7 +14,7 @@ public interface ExtractinatorContainer extends WorldlyContainer {
 
     NonNullList<ItemStack> getInventory();
 
-    Level getLevel();
+    Level getBlockLevel();
 
     @Override
     default int[] getSlotsForFace(Direction side) {
@@ -26,7 +26,7 @@ public interface ExtractinatorContainer extends WorldlyContainer {
     }
 
     default void addItemToInput(ItemStack stack) {
-        if (ModUtils.isValidInput(getLevel(), stack)) {
+        if (ModUtils.isValidInput(getBlockLevel(), stack)) {
             ItemStack input = getItem(0);
             if (input.isEmpty() || ItemStack.isSameIgnoreDurability(stack, input)) {
                 getInventory().set(0, new ItemStack(stack.getItem(), input.getCount() + 1));
@@ -82,7 +82,7 @@ public interface ExtractinatorContainer extends WorldlyContainer {
 
     @Override
     default boolean canPlaceItemThroughFace(int index, ItemStack itemStack, @Nullable Direction direction) {
-        return index == 0 && ModUtils.isValidInput(getLevel(), itemStack);
+        return index == 0 && ModUtils.isValidInput(getBlockLevel(), itemStack);
     }
 
     @Override

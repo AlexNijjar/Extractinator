@@ -30,7 +30,7 @@ public class ExtractinatorRenderer implements BlockEntityRenderer<ExtractinatorB
 
     @Override
     public void render(ExtractinatorBlockEntity extractinator, float partialTick, PoseStack poseStack, MultiBufferSource bufferSource, int packedLight, int packedOverlay) {
-        long time = extractinator.getLevel() == null ? 0 : extractinator.getLevel().getGameTime();
+        long time = extractinator.getBlockLevel() == null ? 0 : extractinator.getBlockLevel().getGameTime();
         Direction dir = extractinator.getBlockState().getValue(ExtractinatorBlock.FACING);
         poseStack.pushPose();
         poseStack.translate(0.5, 1.0, 0.5);

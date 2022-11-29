@@ -10,6 +10,7 @@ import net.minecraft.sounds.SoundSource;
 import net.minecraft.world.ContainerHelper;
 import net.minecraft.world.entity.item.ItemEntity;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.entity.BlockEntity;
@@ -26,8 +27,8 @@ public class ExtractinatorBlockEntity extends BlockEntity implements Extractinat
     }
 
     public void tick() {
-        if (!this.getLevel().isClientSide()) {
-            if (getLevel().getGameTime() % 8 == 0) {
+        if (!this.getBlockLevel().isClientSide()) {
+            if (getBlockLevel().getGameTime() % 8 == 0) {
                 extractinate();
             }
         }
@@ -49,7 +50,7 @@ public class ExtractinatorBlockEntity extends BlockEntity implements Extractinat
                 level.setBlock(this.getBlockPos().above(), toPlace.defaultBlockState(), Block.UPDATE_NONE);
             } else {
                 level.playSound(null, this.getBlockPos(), SoundEvents.GRAVEL_BREAK, SoundSource.BLOCKS, 1.0f, 1.0f);
-                List<ItemStack> outputs = ModUtils.extractItem(this.getLevel(), input);
+                List<ItemStack> outputs = ModUtils.extractItem(this.getBlockLevel(), input);
                 if (!outputs.isEmpty()) {
                     outputs.forEach(this::addItem);
                 }
@@ -62,9 +63,9 @@ public class ExtractinatorBlockEntity extends BlockEntity implements Extractinat
         BlockState above = level.getBlockState(this.getBlockPos().above());
         if (above.isAir()) return;
         ItemStack stack = above.getBlock().asItem().getDefaultInstance();
-        if (ModUtils.isValidInput(getLevel(), stack)) {
-            this.getLevel().destroyBlock(this.getBlockPos().above(), false);
-            List<ItemStack> outputs = ModUtils.extractItem(this.getLevel(), stack);
+        if (ModUtils.isValidInput(getBlockLevel(), stack)) {
+            this.getBlockLevel().destroyBlock(this.getBlockPos().above(), false);
+            List<ItemStack> outputs = ModUtils.extractItem(this.getBlockLevel(), stack);
             if (!outputs.isEmpty()) {
                 outputs.forEach(this::addItem);
             }
@@ -75,7 +76,7 @@ public class ExtractinatorBlockEntity extends BlockEntity implements Extractinat
         for (int i = 1; i < getInventory().size(); i++) {
             ItemStack stack = this.getItem(i);
             if (stack.isEmpty()) continue;
-            if (!getLevel().getBlockState(getBlockPos().above()).isAir()) continue;
+            if (!getBlockLevel().getBlockState(getBlockPos().above()).isAir()) continue;
             BlockPos pos = this.getBlockPos();
             ItemEntity itemEntity = new ItemEntity(level, pos.getX() + 0.5f, pos.getY() + 2.0f, pos.getZ() + 0.5f, stack.copy());
             itemEntity.setDeltaMovement(itemEntity.getDeltaMovement().scale(1.5f));
@@ -98,5 +99,10 @@ public class ExtractinatorBlockEntity extends BlockEntity implements Extractinat
     @Override
     public NonNullList<ItemStack> getInventory() {
         return this.inventory;
+    }
+
+    @Override
+    public Level getBlockLevel() {
+        return this.getLevel();
     }
 }
