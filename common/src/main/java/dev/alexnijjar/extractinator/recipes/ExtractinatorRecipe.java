@@ -20,24 +20,17 @@ import net.minecraft.world.item.crafting.RecipeType;
 import net.minecraft.world.level.Level;
 import org.jetbrains.annotations.NotNull;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.function.Predicate;
 
-public record ExtractinatorRecipe(ResourceLocation id, Ingredient input, HolderSet<Item> commonDrops,
-                                  HolderSet<Item> rareDrops, HolderSet<Item> veryRareDrops, double dropChance,
-                                  int minDropCount, int maxDropCount) implements CodecRecipe<Container> {
+public record ExtractinatorRecipe(ResourceLocation id, Ingredient input,
+                                  List<Drop> outputs) implements CodecRecipe<Container> {
 
     public static Codec<ExtractinatorRecipe> codec(ResourceLocation id) {
         return RecordCodecBuilder.create(instance -> instance.group(
                 RecordCodecBuilder.point(id),
                 IngredientCodec.CODEC.fieldOf("input").forGetter(ExtractinatorRecipe::input),
-                HolderSetCodec.of(Registry.ITEM).fieldOf("common_drops").forGetter(ExtractinatorRecipe::commonDrops),
-                HolderSetCodec.of(Registry.ITEM).fieldOf("rare_drops").forGetter(ExtractinatorRecipe::rareDrops),
-                HolderSetCodec.of(Registry.ITEM).fieldOf("very_rare_drops").forGetter(ExtractinatorRecipe::veryRareDrops),
-                Codec.DOUBLE.fieldOf("drop_chance").forGetter(ExtractinatorRecipe::dropChance),
-                Codec.INT.fieldOf("min_drop_count").forGetter(ExtractinatorRecipe::minDropCount),
-                Codec.INT.fieldOf("max_drop_count").forGetter(ExtractinatorRecipe::maxDropCount)
+                Drop.CODEC.listOf().fieldOf("drops").forGetter(ExtractinatorRecipe::outputs)
         ).apply(instance, ExtractinatorRecipe::new));
     }
 
@@ -67,11 +60,7 @@ public record ExtractinatorRecipe(ResourceLocation id, Ingredient input, HolderS
     }
 
     public List<Ingredient> getOutputs() {
-        List<Ingredient> outputs = new ArrayList<>();
-        outputs.addAll(this.commonDrops.stream().map(Holder::value).map(i -> new ItemStack(i, maxDropCount())).map(Ingredient::of).toList());
-        outputs.addAll(this.rareDrops.stream().map(Holder::value).map(i -> new ItemStack(i, maxDropCount())).map(Ingredient::of).toList());
-        outputs.addAll(this.veryRareDrops.stream().map(Holder::value).map(i -> new ItemStack(i, maxDropCount())).map(Ingredient::of).toList());
-        return outputs;
+        return this.outputs().stream().map(d -> d.drops.stream().map(Holder::value).map(i -> new ItemStack(i, d.maxDropCount())).map(Ingredient::of).toList()).flatMap(List::stream).toList();
     }
 
     public static ExtractinatorRecipe findFirst(Level level, Predicate<ExtractinatorRecipe> filter) {
@@ -80,5 +69,14 @@ public record ExtractinatorRecipe(ResourceLocation id, Ingredient input, HolderS
 
     public static List<ExtractinatorRecipe> getRecipes(Level level) {
         return level.getRecipeManager().getAllRecipesFor(ModRecipeTypes.EXTRACTINATOR_RECIPE.get());
+    }
+
+    public record Drop(HolderSet<Item> drops, double dropChance, int minDropCount, int maxDropCount) {
+        public static final Codec<Drop> CODEC = RecordCodecBuilder.create(instance -> instance.group(
+                HolderSetCodec.of(Registry.ITEM).fieldOf("drop").forGetter(Drop::drops),
+                Codec.DOUBLE.fieldOf("drop_chance").orElse(1.0).forGetter(Drop::dropChance),
+                Codec.INT.fieldOf("min_drop_count").orElse(1).forGetter(Drop::minDropCount),
+                Codec.INT.fieldOf("max_drop_count").orElse(1).forGetter(Drop::maxDropCount)
+        ).apply(instance, Drop::new));
     }
 }

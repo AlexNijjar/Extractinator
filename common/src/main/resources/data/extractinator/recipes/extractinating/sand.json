@@ -3,10 +3,22 @@
   "input": {
     "tag": "minecraft:sand"
   },
-  "common_drops": "#extractinator:common_drops",
-  "rare_drops": "#extractinator:rare_sand_drops",
-  "very_rare_drops": "#extractinator:very_rare_drops",
-  "drop_chance": 0.1,
-  "min_drop_count": 1,
-  "max_drop_count": 2
+  "drops": [
+    {
+      "drop": "#extractinator:common_gravel_drops",
+      "drop_chance": 0.15,
+      "min_drop_count": 1,
+      "max_drop_count": 4
+    },
+    {
+      "drop": "#extractinator:rare_sand_drops",
+      "drop_chance": 0.04,
+      "min_drop_count": 1,
+      "max_drop_count": 3
+    },
+    {
+      "drop": "#extractinator:very_rare_drops",
+      "drop_chance": 0.002
+    }
+  ]
 }

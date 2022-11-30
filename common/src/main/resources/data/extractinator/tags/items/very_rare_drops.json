@@ -38,6 +38,18 @@
     {
       "required": false,
       "id": "numismatic-overhaul:silver_coin"
+    },
+    {
+      "required": false,
+      "id": "mythicmetals:raw_mythril"
+    },
+    {
+      "required": false,
+      "id": "mythicmetals:raw_orichalcum"
+    },
+    {
+      "required": false,
+      "id": "mythicmetals:raw_adamantite"
     }
   ]
 }

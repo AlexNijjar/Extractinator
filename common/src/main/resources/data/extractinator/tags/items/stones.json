@@ -1,15 +1,9 @@
 {
   "values": [
-    "minecraft:stone",
-    "minecraft:granite",
-    "minecraft:diorite",
-    "minecraft:andesite",
-    "minecraft:tuff",
-    "minecraft:deepslate",
+    "#extractinator_platform:stone",
     "minecraft:calcite",
-    "minecraft:smooth_basalt",
-    "minecraft:dripstone_block",
     "minecraft:basalt",
-    "minecraft:blackstone"
+    "minecraft:polished_basalt",
+    "minecraft:smooth_basalt"
   ]
 }

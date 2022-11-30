@@ -13,20 +13,17 @@ public class ModUtils {
         ExtractinatorRecipe recipe = ExtractinatorRecipe.findFirst(level, f -> f.input().test(stack));
         if (recipe != null) {
             Random random = level.getRandom();
-            if (recipe.dropChance() >= random.nextDouble()) {
-                List<ItemStack> drops = new ArrayList<>();
-                int dropCount = random.nextInt(recipe.maxDropCount() - recipe.minDropCount() + 1) + recipe.minDropCount();
-                double randomPercent = random.nextDouble();
-                recipe.commonDrops().getRandomElement(random).ifPresent(d -> drops.add(new ItemStack(d.value(), dropCount)));
-                if (randomPercent <= 0.10) {
-                    recipe.rareDrops().getRandomElement(random).ifPresent(d -> drops.add(new ItemStack(d.value(), dropCount)));
-                }
-                if (randomPercent <= 0.01) {
-                    recipe.veryRareDrops().getRandomElement(random).ifPresent(d -> drops.add(new ItemStack(d.value(), dropCount)));
-                }
 
-                return drops;
+            List<ItemStack> drops = new ArrayList<>();
+            for (ExtractinatorRecipe.Drop drop : recipe.outputs()) {
+                int dropCount = random.nextInt(drop.maxDropCount() - drop.minDropCount() + 1) + drop.minDropCount();
+                double randomPercent = random.nextDouble();
+                if (randomPercent <= drop.dropChance()) {
+                    drop.drops().getRandomElement(random).ifPresent(d -> drops.add(new ItemStack(d.value(), dropCount)));
+                }
             }
+
+            return drops;
         }
         return List.of();
     }

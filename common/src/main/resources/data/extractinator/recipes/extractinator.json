@@ -2,28 +2,28 @@
   "mod_id": "minecraft",
   "type": "minecraft:crafting_shaped",
   "pattern": [
-    " H ",
-    "IPC",
-    "IRG"
+    "H  ",
+    "PRA",
+    "C#A"
   ],
   "key": {
     "H": {
       "item": "minecraft:hopper"
     },
-    "I": {
-      "item": "minecraft:iron_block"
-    },
     "P": {
       "item": "minecraft:piston"
     },
     "C": {
-      "item": "minecraft:chain"
+      "item": "minecraft:cauldron"
+    },
+    "#": {
+      "item": "minecraft:copper_block"
     },
     "R": {
       "item": "minecraft:redstone_block"
     },
-    "G": {
-      "item": "minecraft:glass_pane"
+    "A": {
+      "item": "minecraft:chain"
     }
   },
   "result": {

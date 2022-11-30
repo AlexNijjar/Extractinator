@@ -10,8 +10,6 @@ import me.shedaniel.rei.api.client.gui.widgets.Widgets;
 import me.shedaniel.rei.api.client.registry.display.DisplayCategory;
 import me.shedaniel.rei.api.common.category.CategoryIdentifier;
 import me.shedaniel.rei.api.common.util.EntryStacks;
-import net.minecraft.client.Minecraft;
-import net.minecraft.client.gui.Font;
 import net.minecraft.network.chat.Component;
 import net.minecraft.network.chat.TranslatableComponent;
 
@@ -41,7 +39,7 @@ public class ExtractinatorCategory implements DisplayCategory<ExtractinatorDispl
 
     @Override
     public int getDisplayHeight() {
-        return 126 + 9;
+        return 144 + 15;
     }
 
     @Override
@@ -50,16 +48,13 @@ public class ExtractinatorCategory implements DisplayCategory<ExtractinatorDispl
         widgets.add(Widgets.createRecipeBase(bounds));
         widgets.add(Widgets.createSlot(new Point(bounds.getMinX() + 69, bounds.getMinY() + 5)).entries(display.getInputEntries().get(0)).markInput());
 
-        Component dropChanceText = new TranslatableComponent("text.extractinator.drop_chance", display.recipe().dropChance() * 100);
-        widgets.add(Widgets.createLabel(new Point(bounds.getMinX() + 76, bounds.getMinY() + 24), dropChanceText));
-
         for (int i = 0; i < 8; i++) {
-            for (int j = 0; j < 5; j++) {
+            for (int j = 0; j < 7; j++) {
                 int index = 8 * j + i;
                 if (display.getOutputEntries().size() > index) {
-                    widgets.add(Widgets.createSlot(new Point(bounds.getMinX() + 5 + (i * 18 + 1), bounds.getMinY() + (j * 18 + 37))).entries(display.getOutputEntries().get(index)).markOutput());
+                    widgets.add(Widgets.createSlot(new Point(bounds.getMinX() + 5 + (i * 18 + 1), bounds.getMinY() + (j * 18 + 26))).entries(display.getOutputEntries().get(index)).markOutput());
                 } else {
-                    widgets.add(Widgets.createSlot(new Point(bounds.getMinX() + 5 + (i * 18 + 1), bounds.getMinY() + (j * 18 + 37))));
+                    widgets.add(Widgets.createSlot(new Point(bounds.getMinX() + 5 + (i * 18 + 1), bounds.getMinY() + (j * 18 + 26))));
                 }
             }
         }
