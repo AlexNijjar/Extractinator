@@ -1,0 +1,18 @@
+{
+  "block.extractinator.extractinator": "Extractinator",
+  "block.extractinator.silt": "Silt",
+  "block.extractinator.slush": "Slush",
+  "text.extractinator.drop_chance": "Drop Chance: %s%%",
+  "text.resourcefulconfig.extractinator.option.extractTicks": "Extract Ticks",
+  "text.resourcefulconfig.extractinator.option.lootMultiplier": "Loot Multiplier",
+  "text.resourcefulconfig.extractinator.option.extractinatorDurability": "Extractinator Durability",
+  "text.resourcefulconfig.extractinator.option.siltVeinSize": "Silt Vein Size",
+  "text.resourcefulconfig.extractinator.option.siltVeinsPerChunk": "Silt Veins Per Chunk",
+  "text.resourcefulconfig.extractinator.option.siltMinHeight": "Silt Min Height",
+  "text.resourcefulconfig.extractinator.option.siltMaxHeight": "Silt Max Height",
+  "text.resourcefulconfig.extractinator.option.slushVeinSize": "Slush Vein Size",
+  "text.resourcefulconfig.extractinator.option.slushVeinsPerChunk": "Slush Veins Per Chunk",
+  "text.resourcefulconfig.extractinator.option.slushMinHeight": "Slush Min Height",
+  "text.resourcefulconfig.extractinator.option.slushMaxHeight": "Slush Max Height",
+  "emi.category.extractinator.extractinator": "Extractinator"
+}

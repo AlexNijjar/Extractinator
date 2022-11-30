@@ -1,0 +1,55 @@
+{
+  "values": [
+    "minecraft:diamond",
+    "minecraft:emerald",
+    "minecraft:amethyst_shard",
+    {
+      "required": false,
+      "id": "#extractinator_platform:raw_materials/platinum"
+    },
+    {
+      "required": false,
+      "id": "#extractinator_platform:raw_materials/titanium"
+    },
+    {
+      "required": false,
+      "id": "#extractinator_platform:raw_materials/uranium"
+    },
+    {
+      "required": false,
+      "id": "#extractinator_platform:raw_materials/osmium"
+    },
+    {
+      "required": false,
+      "id": "#extractinator_platform:raw_materials/tungsten"
+    },
+    {
+      "required": false,
+      "id": "#extractinator_platform:raw_materials/iridium"
+    },
+    {
+      "required": false,
+      "id": "#extractinator_platform:dusts/chrome"
+    },
+    {
+      "required": false,
+      "id": "modern_industrialization:mozanite_dust"
+    },
+    {
+      "required": false,
+      "id": "numismatic-overhaul:silver_coin"
+    },
+    {
+      "required": false,
+      "id": "mythicmetals:raw_mythril"
+    },
+    {
+      "required": false,
+      "id": "mythicmetals:raw_orichalcum"
+    },
+    {
+      "required": false,
+      "id": "mythicmetals:raw_adamantite"
+    }
+  ]
+}

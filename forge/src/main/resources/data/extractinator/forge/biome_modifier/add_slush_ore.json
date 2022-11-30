@@ -1,0 +1,6 @@
+{
+  "type": "forge:add_features",
+  "biomes": "#forge:is_snowy",
+  "features": "extractinator:slush_ore",
+  "step": "underground_ores"
+}

@@ -1,0 +1,45 @@
+{
+  "schemaVersion": 1,
+  "id": "extractinator",
+  "version": "${version}",
+  "name": "Extractinator",
+  "description": "Convert blocks into resources.",
+  "authors": [
+    "AlexNijjar",
+    "Kekie6"
+  ],
+  "contact": {
+    "website": "https://www.curseforge.com/minecraft/mc-mods/extractinator",
+    "repo": "https://github.com/AlexNijjar/Extractinator",
+    "issues": "https://github.com/AlexNijjar/Extractinator/issues"
+  },
+  "license": "MIT",
+  "icon": "icon.png",
+  "environment": "*",
+  "entrypoints": {
+    "main": [
+      "dev.alexnijjar.extractinator.fabric.ExtractinatorFabric"
+    ],
+    "client": [
+      "dev.alexnijjar.extractinator.fabric.ExtractinatorClientFabric"
+    ],
+    "modmenu": [
+      "dev.alexnijjar.extractinator.config.fabric.ModMenuConfig"
+    ],
+    "rei_client": [
+      "dev.alexnijjar.extractinator.compat.rei.ExtractinatorReiPlugin"
+    ],
+    "jei_mod_plugin": [
+      "dev.alexnijjar.extractinator.compat.jei.ExtractinatorJeiPlugin"
+    ],
+    "emi": [
+      "dev.alexnijjar.extractinator.compat.emi.ExtractinatorEmiPlugin"
+    ]
+  },
+  "depends": {
+    "fabric": "*",
+    "minecraft": ">=1.19",
+    "resourcefullib": ">=1.1.17",
+    "resourcefulconfig": ">=1.0.8"
+  }
+}

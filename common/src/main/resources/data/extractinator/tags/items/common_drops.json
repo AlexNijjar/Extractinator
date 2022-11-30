@@ -1,0 +1,20 @@
+{
+  "values": [
+    "minecraft:raw_iron",
+    "minecraft:raw_copper",
+    "minecraft:raw_gold",
+    "minecraft:coal",
+    {
+      "required": false,
+      "id": "#extractinator_platform:raw_materials/tin"
+    },
+    {
+      "required": false,
+      "id": "indrev:nikolite_dust"
+    },
+    {
+      "required": false,
+      "id": "ae2:certus_quartz_dust"
+    }
+  ]
+}

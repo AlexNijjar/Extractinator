@@ -1,0 +1,51 @@
+{
+  "values": [
+    "minecraft:redstone",
+    "minecraft:lapis_lazuli",
+    "minecraft:quartz",
+    {
+      "required": false,
+      "id": "#extractinator_platform:raw_materials/lead"
+    },
+    {
+      "required": false,
+      "id": "#extractinator_platform:raw_materials/silver"
+    },
+    {
+      "required": false,
+      "id": "#extractinator_platform:raw_materials/nickel"
+    },
+    {
+      "required": false,
+      "id": "#extractinator_platform:raw_materials/antimony"
+    },
+    {
+      "required": false,
+      "id": "#extractinator_platform:dusts/bauxite"
+    },
+    {
+      "required": false,
+      "id": "#extractinator_platform:dusts/zinc"
+    },
+    {
+      "required": false,
+      "id": "#extractinator_platform:gems/ruby"
+    },
+    {
+      "required": false,
+      "id": "#extractinator_platform:gems/sapphire"
+    },
+    {
+      "required": false,
+      "id": "create:raw_zinc"
+    },
+    {
+      "required": false,
+      "id": "techreborn:galena_dust"
+    },
+    {
+      "required": false,
+      "id": "numismatic-overhaul:bronze_coin"
+    }
+  ]
+}
