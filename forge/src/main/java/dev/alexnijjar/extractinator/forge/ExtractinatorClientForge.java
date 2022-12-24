@@ -1,6 +1,7 @@
 package dev.alexnijjar.extractinator.forge;
 
 import dev.alexnijjar.extractinator.client.ExtractinatorClient;
+import dev.alexnijjar.extractinator.config.forge.ForgeMenuConfig;
 import net.minecraft.client.renderer.BlockEntityWithoutLevelRenderer;
 import net.minecraft.client.renderer.ItemBlockRenderTypes;
 import net.minecraft.client.renderer.RenderType;
@@ -28,6 +29,7 @@ public class ExtractinatorClientForge {
         IEventBus bus = FMLJavaModLoadingContext.get().getModEventBus();
         bus.addListener(ExtractinatorClientForge::modelLoading);
         bus.addListener(ExtractinatorClientForge::onRegisterRenderers);
+        ForgeMenuConfig.register();
     }
 
     public static void onRegisterRenderers(EntityRenderersEvent.RegisterRenderers event) {

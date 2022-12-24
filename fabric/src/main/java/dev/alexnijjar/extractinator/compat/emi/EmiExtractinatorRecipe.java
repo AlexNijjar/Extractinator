@@ -12,13 +12,11 @@ import java.util.List;
 
 public class EmiExtractinatorRecipe implements EmiRecipe {
     private final ResourceLocation id;
-    ExtractinatorRecipe recipe;
     private final EmiIngredient input;
     private final List<EmiIngredient> outputs;
 
     public EmiExtractinatorRecipe(ExtractinatorRecipe recipe) {
         this.id = recipe.getId();
-        this.recipe = recipe;
         this.input = EmiIngredient.of(recipe.input());
         this.outputs = recipe.getOutputs().stream().map(i -> EmiIngredient.of(i, i.getItems()[0].getCount())).toList();
     }
@@ -50,7 +48,7 @@ public class EmiExtractinatorRecipe implements EmiRecipe {
 
     @Override
     public int getDisplayHeight() {
-        return 144 + 3;
+        return 147;
     }
 
     @Override
