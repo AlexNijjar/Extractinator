@@ -7,7 +7,7 @@ import net.minecraft.world.item.crafting.RecipeType;
 public class ExtractinatorRecipeSerializer extends CodecRecipeSerializer<ExtractinatorRecipe> {
 
     public ExtractinatorRecipeSerializer() {
-        super(null, ExtractinatorRecipe::codec);
+        super(null, ExtractinatorRecipe::codec, ExtractinatorRecipe::networkCodec);
     }
 
     @Override
