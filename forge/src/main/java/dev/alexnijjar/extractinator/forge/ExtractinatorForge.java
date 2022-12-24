@@ -19,7 +19,7 @@ public class ExtractinatorForge {
         DistExecutor.unsafeRunWhenOn(Dist.CLIENT, () -> ExtractinatorClientForge::init);
         bus.addListener(ExtractinatorForge::onClientSetup);
         RegistryHelpersImpl.REGISTRIES.values().forEach(deferredRegister -> deferredRegister.register(bus));
-        ForgeMenuConfig.register();
+        DistExecutor.unsafeRunWhenOn(Dist.CLIENT, () -> ForgeMenuConfig::register);
     }
 
     public static void onClientSetup(FMLClientSetupEvent event) {
