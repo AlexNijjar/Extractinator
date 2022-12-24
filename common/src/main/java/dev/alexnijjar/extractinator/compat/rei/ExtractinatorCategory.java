@@ -47,7 +47,7 @@ public class ExtractinatorCategory implements DisplayCategory<ExtractinatorDispl
         widgets.add(Widgets.createRecipeBase(bounds));
         widgets.add(Widgets.createSlot(new Point(bounds.getMinX() + 69, bounds.getMinY() + 5)).entries(display.getInputEntries().get(0)).markInput());
 
-zz        for (int i = 0; i < 8; i++) {
+        for (int i = 0; i < 8; i++) {
             for (int j = 0; j < 7; j++) {
                 int index = 8 * j + i;
                 if (display.getOutputEntries().size() > index) {
