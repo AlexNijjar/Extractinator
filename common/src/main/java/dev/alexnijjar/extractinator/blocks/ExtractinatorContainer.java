@@ -1,6 +1,7 @@
 package dev.alexnijjar.extractinator.blocks;
 
 import dev.alexnijjar.extractinator.util.ModUtils;
+import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.core.Direction;
 import net.minecraft.core.NonNullList;
 import net.minecraft.world.ContainerHelper;
@@ -10,6 +11,7 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
 import org.jetbrains.annotations.Nullable;
 
+@MethodsReturnNonnullByDefault
 public interface ExtractinatorContainer extends WorldlyContainer {
 
     NonNullList<ItemStack> getInventory();
@@ -28,7 +30,7 @@ public interface ExtractinatorContainer extends WorldlyContainer {
     default void addItemToInput(ItemStack stack) {
         if (ModUtils.isValidInput(getBlockLevel(), stack)) {
             ItemStack input = getItem(0);
-            if (input.isEmpty() || ItemStack.isSameIgnoreDurability(stack, input)) {
+            if (input.isEmpty() || ItemStack.isSame(stack, input)) {
                 getInventory().set(0, new ItemStack(stack.getItem(), input.getCount() + 1));
                 stack.shrink(1);
             }

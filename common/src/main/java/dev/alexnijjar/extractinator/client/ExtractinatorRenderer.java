@@ -1,7 +1,7 @@
 package dev.alexnijjar.extractinator.client;
 
 import com.mojang.blaze3d.vertex.PoseStack;
-import com.mojang.math.Vector3f;
+import com.mojang.math.Axis;
 import dev.alexnijjar.extractinator.Extractinator;
 import dev.alexnijjar.extractinator.blocks.ExtractinatorBlock;
 import dev.alexnijjar.extractinator.blocks.ExtractinatorBlockEntity;
@@ -34,18 +34,18 @@ public class ExtractinatorRenderer implements BlockEntityRenderer<ExtractinatorB
         Direction dir = extractinator.getBlockState().getValue(ExtractinatorBlock.FACING);
         poseStack.pushPose();
         poseStack.translate(0.5, 1.0, 0.5);
-        poseStack.mulPose(Vector3f.YN.rotationDegrees(dir.toYRot()));
-        poseStack.mulPose(Vector3f.YN.rotationDegrees(180));
+        poseStack.mulPose(Axis.YN.rotationDegrees(dir.toYRot()));
+        poseStack.mulPose(Axis.YN.rotationDegrees(180));
         poseStack.translate(-0.5, -1.0, -0.5);
         poseStack.pushPose();
-        renderPump(time, partialTick, poseStack, bufferSource, packedLight, packedOverlay);
+        renderPump(time, poseStack, bufferSource, packedLight, packedOverlay);
         renderCogwheel(time, partialTick, poseStack, bufferSource, packedLight, packedOverlay);
-        renderChimney(time, partialTick, poseStack, bufferSource, packedLight, packedOverlay);
+        renderChimney(time, poseStack, bufferSource, packedLight, packedOverlay);
         poseStack.popPose();
         poseStack.popPose();
     }
 
-    protected static void renderPump(long time, float partialTick, PoseStack poseStack, MultiBufferSource buffer, int packedLight, int packedOverlay) {
+    protected static void renderPump(long time, PoseStack poseStack, MultiBufferSource buffer, int packedLight, int packedOverlay) {
         long animationTime = time % 80;
         long frameTime = time % 20;
         float translation = (int) (animationTime / 20f) * 0.0625f;
@@ -62,11 +62,11 @@ public class ExtractinatorRenderer implements BlockEntityRenderer<ExtractinatorB
         poseStack.pushPose();
         poseStack.translate(0, -translation, 0);
         ExtractinatorClient.renderBlock(PUMP, poseStack, buffer, packedLight, packedOverlay);
-        renderTorqueWheel(time, partialTick, poseStack, buffer, packedLight, packedOverlay);
+        renderTorqueWheel(time, poseStack, buffer, packedLight, packedOverlay);
         poseStack.popPose();
     }
 
-    protected static void renderTorqueWheel(long time, float partialTick, PoseStack poseStack, MultiBufferSource buffer, int packedLight, int packedOverlay) {
+    protected static void renderTorqueWheel(long time, PoseStack poseStack, MultiBufferSource buffer, int packedLight, int packedOverlay) {
         long animationTime = time % 80;
         long frameTime = time % 20;
         float offset = ((int) (animationTime / 20.0f) - 1) * 90;
@@ -85,7 +85,7 @@ public class ExtractinatorRenderer implements BlockEntityRenderer<ExtractinatorB
         float angle = Math.min(offset + frameRot, offset + 100);
         poseStack.pushPose();
         poseStack.translate(10.5 / 16, 0, 5.5 / 16);
-        poseStack.mulPose(Vector3f.YP.rotationDegrees(angle));
+        poseStack.mulPose(Axis.YP.rotationDegrees(angle));
         ExtractinatorClient.renderBlock(TORQUE_WHEEL, poseStack, buffer, packedLight, packedOverlay);
         poseStack.popPose();
     }
@@ -93,12 +93,12 @@ public class ExtractinatorRenderer implements BlockEntityRenderer<ExtractinatorB
     protected static void renderCogwheel(long time, float partialTick, PoseStack poseStack, MultiBufferSource buffer, int packedLight, int packedOverlay) {
         poseStack.pushPose();
         poseStack.translate(5.5 / 16, 0, 10.5 / 16);
-        poseStack.mulPose(Vector3f.YP.rotationDegrees((float) ((time + partialTick) * -5.0)));
+        poseStack.mulPose(Axis.YP.rotationDegrees((float) ((time + partialTick) * -5.0)));
         ExtractinatorClient.renderBlock(COGWHEEL, poseStack, buffer, packedLight, packedOverlay);
         poseStack.popPose();
     }
 
-    protected static void renderChimney(long time, float partialTick, PoseStack poseStack, MultiBufferSource buffer, int packedLight, int packedOverlay) {
+    protected static void renderChimney(long time, PoseStack poseStack, MultiBufferSource buffer, int packedLight, int packedOverlay) {
         long animationTime = time % 80;
         float scale = 1;
         if (animationTime > 74) {
@@ -123,9 +123,9 @@ public class ExtractinatorRenderer implements BlockEntityRenderer<ExtractinatorB
             ExtractinatorClient.renderBlock(BASE, poseStack, buffer, packedLight, packedOverlay);
             Minecraft minecraft = Minecraft.getInstance();
             long time = minecraft.level == null ? 0 : minecraft.level.getGameTime();
-            renderPump(time, minecraft.getDeltaFrameTime(), poseStack, buffer, packedLight, packedOverlay);
+            renderPump(time, poseStack, buffer, packedLight, packedOverlay);
             renderCogwheel(time, minecraft.getDeltaFrameTime(), poseStack, buffer, packedLight, packedOverlay);
-            renderChimney(time, minecraft.getDeltaFrameTime(), poseStack, buffer, packedLight, packedOverlay);
+            renderChimney(time, poseStack, buffer, packedLight, packedOverlay);
         }
     }
 }

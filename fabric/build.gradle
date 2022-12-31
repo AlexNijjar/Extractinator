@@ -25,12 +25,11 @@ dependencies {
     modApi "com.teamresourceful.resourcefulconfig:resourcefulconfig-fabric-$rootProject.resourcefulconfig_version"
     modApi "com.terraformersmc:modmenu:$rootProject.modmenu_version"
 
-//    modCompileOnly "mezz.jei:jei-$rootProject.minecraft_version-fabric-api:$rootProject.project.jei_version"
-//    modLocalRuntime ("mezz.jei:jei-$rootProject.minecraft_version-fabric:$rootProject.project.jei_version") { transitive = false }
-    modApi "dev.architectury:architectury-fabric:${rootProject.architectury_version}" // Only for REI DONT USE THE API
-    modRuntimeOnly "me.shedaniel:RoughlyEnoughItems-fabric:$rootProject.rei_version"
-    modCompileOnly "me.shedaniel:RoughlyEnoughItems-api-fabric:$rootProject.rei_version"
-    modCompileOnly "me.shedaniel:RoughlyEnoughItems-default-plugin-fabric:$rootProject.rei_version"
+//    modApi "dev.architectury:architectury-fabric:${rootProject.architectury_version}" // Only for REI DONT USE THE API
+//    modRuntimeOnly "me.shedaniel:RoughlyEnoughItems-fabric:$rootProject.rei_version"
+//    modCompileOnly "me.shedaniel:RoughlyEnoughItems-api-fabric:$rootProject.rei_version"
+//    modCompileOnly "me.shedaniel:RoughlyEnoughItems-default-plugin-fabric:$rootProject.rei_version"
+
     modImplementation "dev.emi:emi:$rootProject.emi_version"
 
 }

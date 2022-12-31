@@ -1,6 +1,6 @@
 {
   "type": "forge:add_features",
   "biomes": "#minecraft:is_overworld",
-  "features": "extractinator:silt_ore",
+  "features": "extractinator:silt",
   "step": "underground_ores"
 }

@@ -11,11 +11,11 @@ public class Extractinator {
     public static void init() {
         CONFIGURATOR.registerConfig(ExtractinatorConfig.class);
 
-        ModBlocks.init();
-        ModBlockEntities.init();
-        ModItems.init();
-        ModRecipeTypes.init();
-        ModRecipeSerializers.init();
-        ModOres.init();
+        ModBlocks.BLOCKS.init();
+        ModBlockEntities.BLOCK_ENTITY_TYPES.init();
+        ModItems.ITEMS.init();
+        ModRecipeTypes.RECIPE_TYPES.init();
+        ModRecipeSerializers.RECIPE_SERIALIZERS.init();
+        ModFeatures.FEATURES.init();
     }
 }

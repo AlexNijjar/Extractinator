@@ -10,7 +10,7 @@ import dev.alexnijjar.extractinator.registry.ModRecipeSerializers;
 import dev.alexnijjar.extractinator.registry.ModRecipeTypes;
 import net.minecraft.core.Holder;
 import net.minecraft.core.HolderSet;
-import net.minecraft.core.Registry;
+import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.Container;
 import net.minecraft.world.item.Item;
@@ -29,7 +29,6 @@ import java.util.stream.Collectors;
 public record ExtractinatorRecipe(ResourceLocation id, Ingredient input,
                                   List<Drop> outputs) implements CodecRecipe<Container> {
 
-    // This is snatched from resourcefullib 1.19.3 as gravy is too lazy to backport it
     public static final Codec<Ingredient> NETWORK_CODEC = ItemStackCodec.CODEC.listOf().xmap(ExtractinatorRecipe::decodeIngredient, ExtractinatorRecipe::encodeIngredientToNetwork);
 
     public static Codec<ExtractinatorRecipe> codec(ResourceLocation id) {
@@ -87,7 +86,7 @@ public record ExtractinatorRecipe(ResourceLocation id, Ingredient input,
 
     public record Drop(HolderSet<Item> drops, double dropChance, int minDropCount, int maxDropCount) {
         public static final Codec<Drop> CODEC = RecordCodecBuilder.create(instance -> instance.group(
-                HolderSetCodec.of(Registry.ITEM).fieldOf("drop").forGetter(Drop::drops),
+                HolderSetCodec.of(BuiltInRegistries.ITEM).fieldOf("drop").forGetter(Drop::drops),
                 Codec.DOUBLE.fieldOf("drop_chance").orElse(1.0).forGetter(Drop::dropChance),
                 Codec.INT.fieldOf("min_drop_count").orElse(1).forGetter(Drop::minDropCount),
                 Codec.INT.fieldOf("max_drop_count").orElse(1).forGetter(Drop::maxDropCount)

@@ -30,10 +30,6 @@ dependencies {
 
 //    modCompileOnly "mezz.jei:jei-$rootProject.minecraft_version-forge-api:$rootProject.jei_version"
 //    modLocalRuntime ("mezz.jei:jei-$rootProject.minecraft_version-forge:$rootProject.jei_version") { transitive = false }
-    modApi "dev.architectury:architectury-forge:${rootProject.architectury_version}" // Only for REI DONT USE THE API
-    modRuntimeOnly "me.shedaniel:RoughlyEnoughItems-forge:$rootProject.rei_version"
-    modCompileOnly "me.shedaniel:RoughlyEnoughItems-api-forge:$rootProject.rei_version"
-    modCompileOnly "me.shedaniel:RoughlyEnoughItems-default-plugin-forge:$rootProject.rei_version"
 }
 
 processResources {
