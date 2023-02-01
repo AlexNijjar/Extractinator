@@ -1,7 +1,7 @@
 package dev.alexnijjar.extractinator.blocks;
 
 import dev.alexnijjar.extractinator.config.ExtractinatorConfig;
-import dev.alexnijjar.extractinator.registry.ModBlockEntities;
+import dev.alexnijjar.extractinator.registry.ModBlockEntityTypes;
 import dev.alexnijjar.extractinator.util.ModUtils;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.NonNullList;
@@ -24,7 +24,7 @@ public class ExtractinatorBlockEntity extends BlockEntity implements Extractinat
     protected int remainingUsages;
 
     public ExtractinatorBlockEntity(BlockPos blockPos, BlockState blockState) {
-        super(ModBlockEntities.EXTRACTINATOR.get(), blockPos, blockState);
+        super(ModBlockEntityTypes.EXTRACTINATOR.get(), blockPos, blockState);
         inventory = NonNullList.withSize(33, ItemStack.EMPTY);
     }
 

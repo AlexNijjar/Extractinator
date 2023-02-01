@@ -29,7 +29,7 @@ side = "BOTH"
 [[dependencies.extractinator]]
 modId = "resourcefullib"
 mandatory = true
-versionRange = "[1.1.17,)"
+versionRange = "[1.2.0,)"
 ordering = "NONE"
 side = "BOTH"
 

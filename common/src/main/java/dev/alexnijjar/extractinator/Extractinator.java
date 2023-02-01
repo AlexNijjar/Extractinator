@@ -12,7 +12,7 @@ public class Extractinator {
         CONFIGURATOR.registerConfig(ExtractinatorConfig.class);
 
         ModBlocks.BLOCKS.init();
-        ModBlockEntities.BLOCK_ENTITY_TYPES.init();
+        ModBlockEntityTypes.BLOCK_ENTITY_TYPES.init();
         ModItems.ITEMS.init();
         ModRecipeTypes.RECIPE_TYPES.init();
         ModRecipeSerializers.RECIPE_SERIALIZERS.init();

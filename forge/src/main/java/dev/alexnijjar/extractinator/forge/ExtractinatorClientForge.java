@@ -1,5 +1,6 @@
 package dev.alexnijjar.extractinator.forge;
 
+import com.teamresourceful.resourcefullib.common.registry.RegistryEntry;
 import dev.alexnijjar.extractinator.client.ExtractinatorClient;
 import dev.alexnijjar.extractinator.config.forge.ForgeMenuConfig;
 import net.minecraft.client.renderer.BlockEntityWithoutLevelRenderer;
@@ -19,7 +20,6 @@ import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.function.Supplier;
 
 public class ExtractinatorClientForge {
     private static final Map<Item, BlockEntityWithoutLevelRenderer> ITEM_RENDERERS = new HashMap<>();
@@ -35,7 +35,7 @@ public class ExtractinatorClientForge {
     public static void onRegisterRenderers(EntityRenderersEvent.RegisterRenderers event) {
         ExtractinatorClient.registerBlockRenderers(new ExtractinatorClient.BlockRendererRegistry() {
             @Override
-            public <T extends BlockEntity> void register(Supplier<? extends BlockEntityType<? extends T>> type, BlockEntityRendererProvider<T> factory) {
+            public <T extends BlockEntity> void register(RegistryEntry<? extends BlockEntityType<? extends T>> type, BlockEntityRendererProvider<T> factory) {
                 event.registerBlockEntityRenderer(type.get(), factory);
             }
         });

@@ -2,7 +2,8 @@ package dev.alexnijjar.extractinator.client;
 
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.blaze3d.vertex.VertexConsumer;
-import dev.alexnijjar.extractinator.registry.ModBlockEntities;
+import com.teamresourceful.resourcefullib.common.registry.RegistryEntry;
+import dev.alexnijjar.extractinator.registry.ModBlockEntityTypes;
 import dev.alexnijjar.extractinator.registry.ModBlocks;
 import dev.alexnijjar.extractinator.registry.ModItems;
 import net.minecraft.client.Minecraft;
@@ -23,7 +24,6 @@ import net.minecraft.world.level.block.entity.BlockEntityType;
 import java.util.List;
 import java.util.function.BiConsumer;
 import java.util.function.Consumer;
-import java.util.function.Supplier;
 
 public class ExtractinatorClient {
     public static void initializeClient() {
@@ -34,7 +34,7 @@ public class ExtractinatorClient {
     }
 
     public static void registerBlockRenderers(BlockRendererRegistry registry) {
-        registry.register(ModBlockEntities.EXTRACTINATOR, ExtractinatorRenderer::new);
+        registry.register(ModBlockEntityTypes.EXTRACTINATOR, ExtractinatorRenderer::new);
     }
 
     public static void onRegisterModels(Consumer<ResourceLocation> register) {
@@ -50,7 +50,7 @@ public class ExtractinatorClient {
     }
 
     public static abstract class BlockRendererRegistry {
-        public abstract <T extends BlockEntity> void register(Supplier<? extends BlockEntityType<? extends T>> type, BlockEntityRendererProvider<T> factory);
+        public abstract <T extends BlockEntity> void register(RegistryEntry<? extends BlockEntityType<? extends T>> type, BlockEntityRendererProvider<T> factory);
     }
 
     public static void renderBlock(ResourceLocation model, PoseStack poseStack, MultiBufferSource buffer, int packedLight, int packedOverlay) {

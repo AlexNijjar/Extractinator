@@ -1,5 +1,6 @@
 package dev.alexnijjar.extractinator.fabric;
 
+import com.teamresourceful.resourcefullib.common.registry.RegistryEntry;
 import dev.alexnijjar.extractinator.client.ExtractinatorClient;
 import net.fabricmc.api.ClientModInitializer;
 import net.fabricmc.fabric.api.blockrenderlayer.v1.BlockRenderLayerMap;
@@ -15,7 +16,6 @@ import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.entity.BlockEntityType;
 
 import java.util.List;
-import java.util.function.Supplier;
 
 public class ExtractinatorClientFabric implements ClientModInitializer {
     @Override
@@ -25,7 +25,7 @@ public class ExtractinatorClientFabric implements ClientModInitializer {
         ExtractinatorClient.onRegisterBlockRenderTypes(ExtractinatorClientFabric::registerBlockRenderTypes);
         ExtractinatorClient.registerBlockRenderers(new ExtractinatorClient.BlockRendererRegistry() {
             @Override
-            public <T extends BlockEntity> void register(Supplier<? extends BlockEntityType<? extends T>> type, BlockEntityRendererProvider<T> factory) {
+            public <T extends BlockEntity> void register(RegistryEntry<? extends BlockEntityType<? extends T>> type, BlockEntityRendererProvider<T> factory) {
                 BlockEntityRendererRegistry.register(type.get(), factory);
             }
         });
