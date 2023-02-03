@@ -1,0 +1,13 @@
+{
+  "block.extractinator.extractinator": "鉱石抽出機",
+  "block.extractinator.silt": "泥土",
+  "block.extractinator.slush": "軟氷",
+  "emi.category.extractinator.extractinator": "Extractinator",
+  "text.extractinator.drop_chance": "ドロップ率 : %s%%",
+  "text.resourcefulconfig.extractinator.option.extractTicks": "抽出ティック",
+  "text.resourcefulconfig.extractinator.option.extractTicks.tooltip": "鉱石抽出機が1つのブロックから抽出する時間",
+  "text.resourcefulconfig.extractinator.option.extractinatorDurability": "抽出機の耐久値",
+  "text.resourcefulconfig.extractinator.option.extractinatorDurability.tooltip": "鉱石抽出機が壊れるまでの使用量",
+  "text.resourcefulconfig.extractinator.option.lootMultiplier": "ドロップ倍率",
+  "text.resourcefulconfig.extractinator.option.lootMultiplier.tooltip": "ドロップする量をこの値で倍増させる"
+}
