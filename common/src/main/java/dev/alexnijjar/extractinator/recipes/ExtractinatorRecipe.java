@@ -21,6 +21,7 @@ import net.minecraft.world.item.crafting.RecipeType;
 import net.minecraft.world.level.Level;
 import org.jetbrains.annotations.NotNull;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.function.Predicate;
@@ -79,6 +80,10 @@ public record ExtractinatorRecipe(ResourceLocation id, Ingredient input,
     public static ExtractinatorRecipe findFirst(Level level, Predicate<ExtractinatorRecipe> filter) {
         return getRecipes(level).stream().filter(filter).findFirst().orElse(null);
     }
+
+	public static List<ExtractinatorRecipe> findMatching(Level level, Predicate<ExtractinatorRecipe> filter) {
+		return getRecipes(level).stream().filter(filter).collect(Collectors.toList());
+	}
 
     public static List<ExtractinatorRecipe> getRecipes(Level level) {
         return level.getRecipeManager().getAllRecipesFor(ModRecipeTypes.EXTRACTINATOR_RECIPE.get());
