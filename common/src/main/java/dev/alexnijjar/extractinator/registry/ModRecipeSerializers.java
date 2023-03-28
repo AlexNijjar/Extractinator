@@ -12,5 +12,5 @@ import net.minecraft.world.item.crafting.RecipeSerializer;
 public class ModRecipeSerializers {
     public static final ResourcefulRegistry<RecipeSerializer<?>> RECIPE_SERIALIZERS = ResourcefulRegistries.create(BuiltInRegistries.RECIPE_SERIALIZER, Extractinator.MOD_ID);
 
-    public static final RegistryEntry<RecipeSerializer<ExtractinatorRecipe>> EXTRACTINATOR_SERIALIZER = RECIPE_SERIALIZERS.register("extractinating", () -> new CodecRecipeSerializer<>(ModRecipeTypes.EXTRACTINATOR_RECIPE.get(), ExtractinatorRecipe::codec, ExtractinatorRecipe::networkCodec));
+    public static final RegistryEntry<RecipeSerializer<ExtractinatorRecipe>> EXTRACTINATOR_SERIALIZER = RECIPE_SERIALIZERS.register("extractinating", () -> new CodecRecipeSerializer<>(ModRecipeTypes.EXTRACTINATOR_RECIPE.get(), ExtractinatorRecipe::codec, ExtractinatorRecipe::networkingCodec));
 }

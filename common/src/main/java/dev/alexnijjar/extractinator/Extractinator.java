@@ -3,7 +3,6 @@ package dev.alexnijjar.extractinator;
 import com.teamresourceful.resourcefulconfig.common.config.Configurator;
 import dev.alexnijjar.extractinator.config.ExtractinatorConfig;
 import dev.alexnijjar.extractinator.registry.*;
-import dev.alexnijjar.extractinator.util.ModUtils;
 
 public class Extractinator {
     public static final String MOD_ID = "extractinator";
@@ -18,6 +17,5 @@ public class Extractinator {
         ModRecipeTypes.RECIPE_TYPES.init();
         ModRecipeSerializers.RECIPE_SERIALIZERS.init();
         ModFeatures.FEATURES.init();
-	    ModUtils.clearCache();
     }
 }

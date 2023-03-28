@@ -1,6 +1,5 @@
 package dev.alexnijjar.extractinator.blocks;
 
-import dev.alexnijjar.extractinator.util.ModUtils;
 import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.core.Direction;
 import net.minecraft.core.NonNullList;
@@ -8,7 +7,6 @@ import net.minecraft.world.ContainerHelper;
 import net.minecraft.world.WorldlyContainer;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.level.Level;
 import org.jetbrains.annotations.Nullable;
 
 @MethodsReturnNonnullByDefault
@@ -16,7 +14,7 @@ public interface ExtractinatorContainer extends WorldlyContainer {
 
     NonNullList<ItemStack> getInventory();
 
-    Level getBlockLevel();
+    boolean isValidInput(ItemStack stack);
 
     @Override
     default int[] getSlotsForFace(Direction side) {
@@ -28,7 +26,7 @@ public interface ExtractinatorContainer extends WorldlyContainer {
     }
 
     default void addItemToInput(ItemStack stack) {
-        if (ModUtils.isValidInput(getBlockLevel(), stack)) {
+        if (isValidInput(stack)) {
             ItemStack input = getItem(0);
             if (input.isEmpty() || ItemStack.isSame(stack, input)) {
                 getInventory().set(0, new ItemStack(stack.getItem(), input.getCount() + 1));
@@ -84,7 +82,7 @@ public interface ExtractinatorContainer extends WorldlyContainer {
 
     @Override
     default boolean canPlaceItemThroughFace(int index, ItemStack itemStack, @Nullable Direction direction) {
-        return index == 0 && ModUtils.isValidInput(getBlockLevel(), itemStack);
+        return index == 0 && isValidInput(itemStack);
     }
 
     @Override

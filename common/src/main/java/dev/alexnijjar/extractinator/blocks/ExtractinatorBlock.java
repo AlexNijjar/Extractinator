@@ -60,8 +60,8 @@ public class ExtractinatorBlock extends BaseEntityBlock implements SimpleWaterlo
     @Override
     public <T extends BlockEntity> BlockEntityTicker<T> getTicker(Level level, BlockState state, BlockEntityType<T> type) {
         return (entityWorld, pos, entityState, blockEntity) -> {
-            if (blockEntity instanceof ExtractinatorBlockEntity entity) {
-                entity.tick();
+            if (blockEntity instanceof ExtractinatorBlockEntity entity && !level.isClientSide) {
+                entity.serverTick();
             }
         };
     }

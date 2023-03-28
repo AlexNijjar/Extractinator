@@ -18,7 +18,7 @@ public class ExtractinatorEmiPlugin implements EmiPlugin {
         registry.addCategory(CATEGORY);
         registry.addWorkstation(CATEGORY, EmiStack.of(ModItems.EXTRACTINATOR.get()));
 
-        for (ExtractinatorRecipe recipe :  registry.getRecipeManager().getAllRecipesFor(ModRecipeTypes.EXTRACTINATOR_RECIPE.get())) {
+        for (ExtractinatorRecipe recipe : registry.getRecipeManager().getAllRecipesFor(ModRecipeTypes.EXTRACTINATOR_RECIPE.get())) {
             registry.addRecipe(new EmiExtractinatorRecipe(recipe));
         }
     }

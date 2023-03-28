@@ -4,8 +4,25 @@ import com.teamresourceful.resourcefulconfig.common.annotations.Comment;
 import com.teamresourceful.resourcefulconfig.common.annotations.Config;
 import com.teamresourceful.resourcefulconfig.common.annotations.ConfigEntry;
 import com.teamresourceful.resourcefulconfig.common.config.EntryType;
+import com.teamresourceful.resourcefulconfig.web.annotations.Gradient;
+import com.teamresourceful.resourcefulconfig.web.annotations.Link;
+import com.teamresourceful.resourcefulconfig.web.annotations.WebInfo;
+import dev.alexnijjar.extractinator.Extractinator;
 
-@Config("extractinator")
+@Config(Extractinator.MOD_ID)
+@WebInfo(
+        title = "Extractinator",
+        description = "Convert blocks into resources.",
+
+        icon = "cog",
+        gradient = @Gradient(value = "45deg", first = "#c2e59c", second = "#64b3f4"),
+
+        links = {
+                @Link(value = "https://github.com/Alexnijjar/Extractinator", icon = "github", title = "GitHub"),
+                @Link(value = "https://www.curseforge.com/minecraft/mc-mods/extractinator", icon = "curseforge", title = "CurseForge"),
+                @Link(value = "https://modrinth.com/mod/extractinator", icon = "modrinth", title = "Modrinth"),
+        }
+)
 public final class ExtractinatorConfig {
 
     @ConfigEntry(

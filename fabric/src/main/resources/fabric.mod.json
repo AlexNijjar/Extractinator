@@ -5,13 +5,15 @@
   "name": "Extractinator",
   "description": "Convert blocks into resources.",
   "authors": [
-    "AlexNijjar",
+    "Alex Nijjar",
     "Kekie6"
   ],
+  "contributors": [
+  ],
   "contact": {
-    "website": "https://www.curseforge.com/minecraft/mc-mods/extractinator",
-    "repo": "https://github.com/AlexNijjar/Extractinator",
-    "issues": "https://github.com/AlexNijjar/Extractinator/issues"
+    "website": "https://modrinth.com/mod/extractinator",
+    "repo": "https://github.com/Alexnijjar/${github_name}",
+    "issues": "https://github.com/Alexnijjar/${github_name}/issues"
   },
   "license": "MIT",
   "icon": "icon.png",

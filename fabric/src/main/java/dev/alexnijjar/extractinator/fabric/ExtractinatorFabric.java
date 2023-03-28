@@ -1,16 +1,13 @@
 package dev.alexnijjar.extractinator.fabric;
 
 import dev.alexnijjar.extractinator.Extractinator;
-import dev.alexnijjar.extractinator.registry.ModItems;
 import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.biome.v1.BiomeModifications;
 import net.fabricmc.fabric.api.biome.v1.BiomeSelectors;
-import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
 import net.fabricmc.fabric.api.tag.convention.v1.ConventionalBiomeTags;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
-import net.minecraft.world.item.CreativeModeTabs;
 import net.minecraft.world.level.levelgen.GenerationStep;
 
 public class ExtractinatorFabric implements ModInitializer {
@@ -18,8 +15,6 @@ public class ExtractinatorFabric implements ModInitializer {
     public void onInitialize() {
         Extractinator.init();
         addBiomeModifications();
-        ModItems.onRegisterFunctionalCreativeTabs(i -> ItemGroupEvents.modifyEntriesEvent(CreativeModeTabs.FUNCTIONAL_BLOCKS).register(entries -> entries.accept(i.get())));
-        ModItems.onRegisterNaturalCreativeTabs(i -> ItemGroupEvents.modifyEntriesEvent(CreativeModeTabs.NATURAL_BLOCKS).register(entries -> entries.accept(i.get())));
     }
 
     public static void addBiomeModifications() {
