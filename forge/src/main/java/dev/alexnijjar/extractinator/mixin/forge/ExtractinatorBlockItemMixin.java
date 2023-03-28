@@ -1,6 +1,6 @@
 package dev.alexnijjar.extractinator.mixin.forge;
 
-import dev.alexnijjar.extractinator.blocks.ExtractinatorBlockItem;
+import dev.alexnijjar.extractinator.common.block.ExtractinatorBlockItem;
 import dev.alexnijjar.extractinator.forge.ExtractinatorClientForge;
 import net.minecraft.client.renderer.BlockEntityWithoutLevelRenderer;
 import net.minecraft.world.item.Item;

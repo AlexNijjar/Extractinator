@@ -1,7 +1,7 @@
 package dev.alexnijjar.extractinator.forge;
 
 import dev.alexnijjar.extractinator.client.ExtractinatorClient;
-import dev.alexnijjar.extractinator.config.forge.ForgeMenuConfig;
+import dev.alexnijjar.extractinator.common.config.forge.ForgeMenuConfig;
 import net.minecraft.client.renderer.BlockEntityWithoutLevelRenderer;
 import net.minecraft.client.renderer.blockentity.BlockEntityRenderers;
 import net.minecraft.world.item.Item;

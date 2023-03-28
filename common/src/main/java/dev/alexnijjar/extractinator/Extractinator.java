@@ -1,8 +1,8 @@
 package dev.alexnijjar.extractinator;
 
 import com.teamresourceful.resourcefulconfig.common.config.Configurator;
-import dev.alexnijjar.extractinator.config.ExtractinatorConfig;
-import dev.alexnijjar.extractinator.registry.*;
+import dev.alexnijjar.extractinator.common.config.ExtractinatorConfig;
+import dev.alexnijjar.extractinator.common.registry.*;
 
 public class Extractinator {
     public static final String MOD_ID = "extractinator";

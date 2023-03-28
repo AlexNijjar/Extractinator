@@ -1,9 +1,9 @@
 package dev.alexnijjar.extractinator.client;
 
 import com.teamresourceful.resourcefullib.common.registry.RegistryEntry;
-import dev.alexnijjar.extractinator.registry.ModBlockEntityTypes;
-import dev.alexnijjar.extractinator.registry.ModBlocks;
-import dev.alexnijjar.extractinator.registry.ModItems;
+import dev.alexnijjar.extractinator.common.registry.ModBlockEntityTypes;
+import dev.alexnijjar.extractinator.common.registry.ModBlocks;
+import dev.alexnijjar.extractinator.common.registry.ModItems;
 import net.minecraft.client.renderer.BlockEntityWithoutLevelRenderer;
 import net.minecraft.client.renderer.RenderType;
 import net.minecraft.client.renderer.blockentity.BlockEntityRendererProvider;

@@ -26,16 +26,16 @@
       "dev.alexnijjar.extractinator.fabric.ExtractinatorClientFabric"
     ],
     "modmenu": [
-      "dev.alexnijjar.extractinator.config.fabric.ModMenuConfig"
+      "dev.alexnijjar.extractinator.common.config.fabric.ModMenuConfig"
     ],
     "rei_client": [
-      "dev.alexnijjar.extractinator.compat.rei.ExtractinatorReiPlugin"
+      "dev.alexnijjar.extractinator.common.compat.rei.ExtractinatorReiPlugin"
     ],
     "jei_mod_plugin": [
-      "dev.alexnijjar.extractinator.compat.jei.ExtractinatorJeiPlugin"
+      "dev.alexnijjar.extractinator.common.compat.jei.ExtractinatorJeiPlugin"
     ],
     "emi": [
-      "dev.alexnijjar.extractinator.compat.emi.ExtractinatorEmiPlugin"
+      "dev.alexnijjar.extractinator.common.compat.emi.ExtractinatorEmiPlugin"
     ]
   },
   "depends": {
