@@ -25,7 +25,7 @@ allprojects {
                 includeGroup "curse.maven"
             }
         }
-        maven { url = "https://maven.resourcefulbees.com/repository/maven-public/"}
+        maven { url = "https://maven.resourcefulbees.com/repository/maven-public/" }
     }
 
     tasks.withType(JavaCompile).tap {
@@ -118,6 +118,46 @@ subprojects {
                         optionalDependency "jei"
                         optionalDependency "roughly-enough-items"
                     }
+                }
+            }
+        }
+    }
+
+    publishing {
+        publications {
+            mavenJava(MavenPublication) {
+                artifact remapJar
+                artifact(sourcesJar) {
+                    builtBy remapSourcesJar
+                }
+
+                artifactId = "$rootProject.mod_id-$modLoader-$rootProject.minecraft_version"
+
+                pom {
+                    name = github_name
+                    description = ''
+                    url = "https://github.com/AlexNijjar/$github_name"
+
+                    scm {
+                        connection = "git:https://github.com/AlexNijjar/${github_name}.git"
+                        developerConnection = "git:https://github.com/AlexNijjar/${github_name}.git"
+                        url = "https://github.com/AlexNijjar/$github_name"
+                    }
+
+                    licenses {
+                        license {
+                            name = 'MIT'
+                        }
+                    }
+                }
+            }
+        }
+        repositories {
+            maven {
+                url = "https://maven.resourcefulbees.com/repository/alexnijjar/"
+                credentials {
+                    username env.MAVEN_USER
+                    password env.MAVEN_PASS
                 }
             }
         }
