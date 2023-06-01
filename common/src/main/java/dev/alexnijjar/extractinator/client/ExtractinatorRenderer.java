@@ -1,7 +1,7 @@
 package dev.alexnijjar.extractinator.client;
 
 import com.mojang.blaze3d.vertex.PoseStack;
-import com.mojang.math.Axis;
+import com.mojang.math.Vector3f;
 import com.teamresourceful.resourcefullib.client.CloseablePoseStack;
 import dev.alexnijjar.extractinator.Extractinator;
 import dev.alexnijjar.extractinator.common.block.ExtractinatorBlock;
@@ -13,12 +13,12 @@ import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.BlockEntityWithoutLevelRenderer;
 import net.minecraft.client.renderer.MultiBufferSource;
 import net.minecraft.client.renderer.Sheets;
+import net.minecraft.client.renderer.block.model.ItemTransforms;
 import net.minecraft.client.renderer.blockentity.BlockEntityRenderer;
 import net.minecraft.client.renderer.blockentity.BlockEntityRendererProvider;
 import net.minecraft.client.resources.model.BakedModel;
 import net.minecraft.core.Direction;
 import net.minecraft.resources.ResourceLocation;
-import net.minecraft.world.item.ItemDisplayContext;
 import net.minecraft.world.item.ItemStack;
 
 @Environment(EnvType.CLIENT)
@@ -38,8 +38,8 @@ public class ExtractinatorRenderer implements BlockEntityRenderer<ExtractinatorB
         Direction dir = extractinator.getBlockState().getValue(ExtractinatorBlock.FACING);
         try (var ignored = new CloseablePoseStack(poseStack)) {
             poseStack.translate(0.5, 1.0, 0.5);
-            poseStack.mulPose(Axis.YN.rotationDegrees(dir.toYRot()));
-            poseStack.mulPose(Axis.YN.rotationDegrees(180));
+            poseStack.mulPose(Vector3f.YN.rotationDegrees(dir.toYRot()));
+            poseStack.mulPose(Vector3f.YN.rotationDegrees(180));
             poseStack.translate(-0.5, -1.0, -0.5);
             try (var ignored1 = new CloseablePoseStack(poseStack)) {
                 renderPump(time, poseStack, bufferSource, packedLight, packedOverlay);
@@ -89,7 +89,7 @@ public class ExtractinatorRenderer implements BlockEntityRenderer<ExtractinatorB
         float angle = Math.min(offset + frameRot, offset + 100);
         try (var ignored = new CloseablePoseStack(poseStack)) {
             poseStack.translate(10.5 / 16, 0, 5.5 / 16);
-            poseStack.mulPose(Axis.YP.rotationDegrees(angle));
+            poseStack.mulPose(Vector3f.YP.rotationDegrees(angle));
             renderBlock(TORQUE_WHEEL, poseStack, buffer, packedLight, packedOverlay);
         }
     }
@@ -97,7 +97,7 @@ public class ExtractinatorRenderer implements BlockEntityRenderer<ExtractinatorB
     protected static void renderCogwheel(long time, float partialTick, PoseStack poseStack, MultiBufferSource buffer, int packedLight, int packedOverlay) {
         try (var ignored = new CloseablePoseStack(poseStack)) {
             poseStack.translate(5.5 / 16, 0, 10.5 / 16);
-            poseStack.mulPose(Axis.YP.rotationDegrees((float) ((time + partialTick) * -5.0)));
+            poseStack.mulPose(Vector3f.YP.rotationDegrees((float) ((time + partialTick) * -5.0)));
             renderBlock(COGWHEEL, poseStack, buffer, packedLight, packedOverlay);
         }
     }
@@ -123,7 +123,7 @@ public class ExtractinatorRenderer implements BlockEntityRenderer<ExtractinatorB
         }
 
         @Override
-        public void renderByItem(ItemStack stack, ItemDisplayContext itemDisplayContext, PoseStack poseStack, MultiBufferSource buffer, int packedLight, int packedOverlay) {
+        public void renderByItem(ItemStack stack, ItemTransforms.TransformType transformType, PoseStack poseStack, MultiBufferSource buffer, int packedLight, int packedOverlay) {
             renderBlock(BASE, poseStack, buffer, packedLight, packedOverlay);
             Minecraft minecraft = Minecraft.getInstance();
             long time = minecraft.level == null ? 0 : minecraft.level.getGameTime();

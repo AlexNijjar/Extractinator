@@ -13,7 +13,7 @@ public class Extractinator {
 
         ModBlocks.BLOCKS.init();
         ModBlockEntityTypes.BLOCK_ENTITY_TYPES.init();
-        ModItems.ITEMS.init();
+        ModItems.init();
         ModRecipeTypes.RECIPE_TYPES.init();
         ModRecipeSerializers.RECIPE_SERIALIZERS.init();
         ModFeatures.FEATURES.init();
