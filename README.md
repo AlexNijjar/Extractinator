@@ -38,7 +38,7 @@ Common
 
 ```groovy
 dependencies {
-    modImplementation "dev.alexnijjar:extractinator-common-$rootProject.minecraft_version:$rootProject.extractinator_version"
+    modImplementation "dev.alexnijjar.extractinator:extractinator-common-$rootProject.minecraft_version:$rootProject.extractinator_version"
 }
 ```
 
@@ -46,7 +46,7 @@ Fabric
 
 ```groovy
 dependencies {
-    modImplementation "dev.alexnijjar:extractinator-fabric-$rootProject.minecraft_version:$rootProject.extractinator_version"
+    modImplementation "dev.alexnijjar.extractinator:extractinator-fabric-$rootProject.minecraft_version:$rootProject.extractinator_version"
 }
 ```
 
@@ -54,7 +54,7 @@ Forge
 
 ```groovy
 dependencies {
-    modImplementation "dev.alexnijjar:extractinator-forge-$rootProject.minecraft_version:$rootProject.extractinator_version"
+    modImplementation "dev.alexnijjar.extractinator:extractinator-forge-$rootProject.minecraft_version:$rootProject.extractinator_version"
 }
 ```
 

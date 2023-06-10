@@ -28,7 +28,7 @@ public interface ExtractinatorContainer extends WorldlyContainer {
     default void addItemToInput(ItemStack stack) {
         if (isValidInput(stack)) {
             ItemStack input = getItem(0);
-            if (input.isEmpty() || ItemStack.isSame(stack, input)) {
+            if (input.isEmpty() || ItemStack.isSameItem(stack, input)) {
                 getInventory().set(0, new ItemStack(stack.getItem(), input.getCount() + 1));
                 stack.shrink(1);
             }

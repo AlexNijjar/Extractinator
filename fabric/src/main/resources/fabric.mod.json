@@ -5,10 +5,10 @@
   "name": "Extractinator",
   "description": "Convert blocks into resources.",
   "authors": [
-    "Alex Nijjar",
-    "Kekie6"
+    "Alex Nijjar"
   ],
   "contributors": [
+    "Kekie6"
   ],
   "contact": {
     "website": "https://modrinth.com/mod/extractinator",
@@ -33,15 +33,12 @@
     ],
     "jei_mod_plugin": [
       "dev.alexnijjar.extractinator.common.compat.jei.ExtractinatorJeiPlugin"
-    ],
-    "emi": [
-      "dev.alexnijjar.extractinator.common.compat.emi.ExtractinatorEmiPlugin"
     ]
   },
   "depends": {
     "fabric": "*",
-    "minecraft": ">=1.19",
-    "resourcefullib": ">=1.2.0",
-    "resourcefulconfig": ">=1.0.8"
+    "minecraft": ">=1.20",
+    "resourcefullib": ">=${resourcefullib_version}",
+    "resourcefulconfig": ">=2.0.0"
   }
 }

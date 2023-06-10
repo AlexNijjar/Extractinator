@@ -56,7 +56,7 @@ public class ExtractinatorBlockEntity extends BlockEntity implements Extractinat
             if (above.isAir() || Blocks.WATER.equals(above.getBlock())) {
                 level.setBlock(this.getBlockPos().above(), toPlace.defaultBlockState(), Block.UPDATE_NONE);
             } else {
-                level.playSound(null, this.getBlockPos(), SoundEvents.GRAVEL_BREAK, SoundSource.BLOCKS, 1.0f, 1.0f);
+                level.playSound(null, this.getBlockPos(), toPlace.getSoundType(above).getBreakSound(), SoundSource.BLOCKS, 1.0f, 1.0f);
                 List<ItemStack> outputs = ModUtils.extractItem(this.recipe, level);
                 if (!outputs.isEmpty()) {
                     outputs.forEach(this::addItem);
@@ -70,7 +70,7 @@ public class ExtractinatorBlockEntity extends BlockEntity implements Extractinat
         BlockState above = level.getBlockState(this.getBlockPos().above());
         if (above.isAir()) return;
         ItemStack stack = above.getBlock().asItem().getDefaultInstance();
-        if (ModUtils.isValidInput(this.recipe, stack)) {
+        if (isValidInput(stack)) {
             level.destroyBlock(this.getBlockPos().above(), false);
             List<ItemStack> outputs = ModUtils.extractItem(this.recipe, level);
             damage();
@@ -126,10 +126,10 @@ public class ExtractinatorBlockEntity extends BlockEntity implements Extractinat
     @Override
     public boolean isValidInput(ItemStack stack) {
         if (stack.isEmpty()) return false;
-        if (!this.prevInput.sameItem(stack)) {
-            recipe = level.getRecipeManager().getAllRecipesFor(ModRecipeTypes.EXTRACTINATOR_RECIPE.get()).stream().filter(r -> r.matches(stack)).findFirst().orElse(null);
+        if (!ItemStack.isSameItem(this.prevInput, stack)) {
+            this.recipe = level.getRecipeManager().getAllRecipesFor(ModRecipeTypes.EXTRACTINATOR_RECIPE.get()).stream().filter(r -> r.matches(stack)).findFirst().orElse(null);
         }
         this.prevInput = stack;
-        return ModUtils.isValidInput(recipe, stack);
+        return ModUtils.isValidInput(this.recipe, stack);
     }
 }

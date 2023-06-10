@@ -56,6 +56,9 @@ subprojects {
             officialMojangMappings()
 //            parchment("org.parchmentmc.data:parchment-$rootProject.minecraft_version:$rootProject.parchment_version@zip")
         }
+
+        modApi "com.teamresourceful.resourcefullib:resourcefullib-$name-$minecraft_version:$resourcefullib_version"
+        modApi "com.teamresourceful.resourcefulconfig:resourcefulconfig-$name-$minecraft_version:$resourcefulconfig_version"
     }
 
     var env = System.getenv()
