@@ -1,0 +1,14 @@
+{
+  "itemGroup.extractinator.main": "矿石提取机",
+  "block.extractinator.extractinator": "矿石提取机",
+  "block.extractinator.silt": "淤泥",
+  "block.extractinator.slush": "雪泥",
+  "emi.category.extractinator.extractinator": "矿石提取机",
+  "text.extractinator.drop_chance": "掉落概率：%s%%",
+  "text.resourcefulconfig.extractinator.option.extractTicks": "提取时间（刻）",
+  "text.resourcefulconfig.extractinator.option.extractTicks.tooltip": "矿石提取机提取一个方块花费的时间",
+  "text.resourcefulconfig.extractinator.option.extractinatorDurability": "矿石提取机耐久",
+  "text.resourcefulconfig.extractinator.option.extractinatorDurability.tooltip": "在矿石提取机损坏前的使用次数",
+  "text.resourcefulconfig.extractinator.option.lootMultiplier": "掉落倍数",
+  "text.resourcefulconfig.extractinator.option.lootMultiplier.tooltip": "依据此处的值的大小改变掉落物的数量"
+}
