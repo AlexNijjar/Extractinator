@@ -20,19 +20,19 @@
   "environment": "*",
   "entrypoints": {
     "main": [
-      "dev.alexnijjar.extractinator.fabric.ExtractinatorFabric"
+      "tech.alexnijjar.extractinator.fabric.ExtractinatorFabric"
     ],
     "client": [
-      "dev.alexnijjar.extractinator.fabric.ExtractinatorClientFabric"
+      "tech.alexnijjar.extractinator.fabric.ExtractinatorClientFabric"
     ],
     "modmenu": [
-      "dev.alexnijjar.extractinator.common.config.fabric.ModMenuConfig"
+      "tech.alexnijjar.extractinator.common.config.fabric.ModMenuConfig"
     ],
     "rei_client": [
-      "dev.alexnijjar.extractinator.common.compat.rei.ExtractinatorReiPlugin"
+      "tech.alexnijjar.extractinator.common.compat.rei.ExtractinatorReiPlugin"
     ],
     "jei_mod_plugin": [
-      "dev.alexnijjar.extractinator.common.compat.jei.ExtractinatorJeiPlugin"
+      "tech.alexnijjar.extractinator.common.compat.jei.ExtractinatorJeiPlugin"
     ]
   },
   "depends": {
