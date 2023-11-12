@@ -7,8 +7,6 @@ import dev.alexnijjar.extractinator.Extractinator;
 import dev.alexnijjar.extractinator.common.block.ExtractinatorBlock;
 import dev.alexnijjar.extractinator.common.block.ExtractinatorBlockEntity;
 import dev.alexnijjar.extractinator.common.registry.ModBlocks;
-import net.fabricmc.api.EnvType;
-import net.fabricmc.api.Environment;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.BlockEntityWithoutLevelRenderer;
 import net.minecraft.client.renderer.MultiBufferSource;
@@ -21,7 +19,6 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.ItemDisplayContext;
 import net.minecraft.world.item.ItemStack;
 
-@Environment(EnvType.CLIENT)
 public class ExtractinatorRenderer implements BlockEntityRenderer<ExtractinatorBlockEntity> {
     public static final ResourceLocation BASE = new ResourceLocation(Extractinator.MOD_ID, "block/extractinator/base");
     public static final ResourceLocation PUMP = new ResourceLocation(Extractinator.MOD_ID, "block/extractinator/pump");
@@ -136,13 +133,13 @@ public class ExtractinatorRenderer implements BlockEntityRenderer<ExtractinatorB
     protected static void renderBlock(ResourceLocation model, PoseStack poseStack, MultiBufferSource buffer, int packedLight, int packedOverlay) {
         BakedModel blockModel = ClientPlatformUtils.getModel(Minecraft.getInstance().getModelManager(), model);
         Minecraft.getInstance().getBlockRenderer().getModelRenderer().renderModel(
-                poseStack.last(),
-                buffer.getBuffer(Sheets.cutoutBlockSheet()),
-                ModBlocks.EXTRACTINATOR.get().defaultBlockState(),
-                blockModel,
-                1f,
-                1f,
-                1f,
-                packedLight, packedOverlay);
+            poseStack.last(),
+            buffer.getBuffer(Sheets.cutoutBlockSheet()),
+            ModBlocks.EXTRACTINATOR.get().defaultBlockState(),
+            blockModel,
+            1f,
+            1f,
+            1f,
+            packedLight, packedOverlay);
     }
 }

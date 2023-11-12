@@ -1,8 +1,6 @@
 package dev.alexnijjar.extractinator.client;
 
 import dev.architectury.injectables.annotations.ExpectPlatform;
-import net.fabricmc.api.EnvType;
-import net.fabricmc.api.Environment;
 import net.minecraft.client.renderer.RenderType;
 import net.minecraft.client.resources.model.BakedModel;
 import net.minecraft.client.resources.model.ModelManager;
@@ -12,7 +10,6 @@ import org.apache.commons.lang3.NotImplementedException;
 
 import java.util.function.Supplier;
 
-@Environment(EnvType.CLIENT)
 public class ClientPlatformUtils {
     @ExpectPlatform
     public static void registerBlockRenderType(RenderType type, Supplier<Block> block) {

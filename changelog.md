@@ -1,0 +1,1 @@
+- Fix REI compat not registered on Forge

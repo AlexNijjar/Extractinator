@@ -1,13 +1,13 @@
 modLoader = "javafml"
-loaderVersion = "[46,)"
+loaderVersion = "[47,)"
 license = "MIT"
-issueTrackerURL = "https://github.com/AlexNijjar/${github_name}/issues"
+issueTrackerURL = "https://github.com/alexnijjar/extractinator/issues"
 
 [[mods]]
 modId = "extractinator"
 version = "${version}"
 displayName = "Extractinator"
-displayURL = "https://www.curseforge.com/minecraft/mc-mods/extractinator"
+displayURL = "https://modrinth.com/mod/extractinator"
 logoFile = "icon.png"
 authors = "Alex Nijjar"
 credits = "Kekie6"
@@ -16,27 +16,27 @@ description = "Convert blocks into resources."
 [[dependencies.extractinator]]
 modId = "forge"
 mandatory = true
-versionRange = "[46,)"
+versionRange = "[47,)"
 ordering = "NONE"
 side = "BOTH"
 
 [[dependencies.extractinator]]
 modId = "minecraft"
 mandatory = true
-versionRange = "[1.20,)"
+versionRange = "[1.20.1,)"
 ordering = "NONE"
 side = "BOTH"
 
 [[dependencies.extractinator]]
 modId = "resourcefullib"
 mandatory = true
-versionRange = "[${resourcefullib_version},)"
+versionRange = "[2.1.16,)"
 ordering = "NONE"
 side = "BOTH"
 
 [[dependencies.extractinator]]
 modId = "resourcefulconfig"
 mandatory = true
-versionRange = "[${resourcefulconfig_version},)"
+versionRange = "[2.1.0,)"
 ordering = "NONE"
 side = "BOTH"
