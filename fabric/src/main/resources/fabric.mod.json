@@ -5,43 +5,40 @@
   "name": "Extractinator",
   "description": "Convert blocks into resources.",
   "authors": [
-    "Alex Nijjar",
-    "Kekie6"
+    "Alex Nijjar"
   ],
   "contributors": [
+    "Kekie6"
   ],
   "contact": {
     "website": "https://modrinth.com/mod/extractinator",
-    "repo": "https://github.com/Alexnijjar/${github_name}",
-    "issues": "https://github.com/Alexnijjar/${github_name}/issues"
+    "repo": "https://github.com/alexnijjar/extractinator",
+    "issues": "https://github.com/alexnijjar/extractinator/issues"
   },
   "license": "MIT",
   "icon": "icon.png",
   "environment": "*",
   "entrypoints": {
     "main": [
-      "dev.alexnijjar.extractinator.fabric.ExtractinatorFabric"
+      "tech.alexnijjar.extractinator.fabric.ExtractinatorFabric"
     ],
     "client": [
-      "dev.alexnijjar.extractinator.fabric.ExtractinatorClientFabric"
+      "tech.alexnijjar.extractinator.fabric.ExtractinatorClientFabric"
     ],
     "modmenu": [
-      "dev.alexnijjar.extractinator.common.config.fabric.ModMenuConfig"
+      "tech.alexnijjar.extractinator.common.config.fabric.ModMenuConfig"
     ],
     "rei_client": [
-      "dev.alexnijjar.extractinator.common.compat.rei.ExtractinatorReiPlugin"
+      "tech.alexnijjar.extractinator.common.compat.rei.ExtractinatorReiPlugin"
     ],
     "jei_mod_plugin": [
-      "dev.alexnijjar.extractinator.common.compat.jei.ExtractinatorJeiPlugin"
-    ],
-    "emi": [
-      "dev.alexnijjar.extractinator.common.compat.emi.ExtractinatorEmiPlugin"
+      "tech.alexnijjar.extractinator.common.compat.jei.ExtractinatorJeiPlugin"
     ]
   },
   "depends": {
     "fabric": "*",
-    "minecraft": ">=1.19",
-    "resourcefullib": ">=1.2.0",
-    "resourcefulconfig": ">=1.0.8"
+    "minecraft": ">=1.19.4",
+    "resourcefullib": ">=1.3.6",
+    "resourcefulconfig": ">=1.2.0"
   }
 }

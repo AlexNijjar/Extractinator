@@ -1,0 +1,4 @@
+- Fix REI compat not registered on Forge
+- Add silent config (#40)
+- Allow extractinator to process non-blocks (#41)
+- [Fabric] Add option to disable silt and slush ore (#38)

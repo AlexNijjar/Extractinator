@@ -1,3 +1,0 @@
-- Update to 1.19.4
-- added ja_jp translations
-- fixed some recipe-related issues and made the extractinator more efficient
