@@ -18,7 +18,7 @@ import tech.alexnijjar.extractinator.Extractinator;
     gradient = @Gradient(value = "45deg", first = "#c2e59c", second = "#64b3f4"),
 
     links = {
-        @Link(value = "https://github.com/Alexnijjar/Extractinator", icon = "github", title = "GitHub"),
+        @Link(value = "https://github.com/alexnijjar/Extractinator", icon = "github", title = "GitHub"),
         @Link(value = "https://www.curseforge.com/minecraft/mc-mods/extractinator", icon = "curseforge", title = "CurseForge"),
         @Link(value = "https://modrinth.com/mod/extractinator", icon = "modrinth", title = "Modrinth"),
     }
@@ -56,4 +56,12 @@ public final class ExtractinatorConfig {
     )
     @Comment(value = "If the extractinator should be silent", translation = "text.resourcefulconfig.extractinator.option.silent.tooltip")
     public static boolean silent = false;
+
+    @ConfigEntry(
+        id = "worldgen",
+        type = EntryType.BOOLEAN,
+        translation = "text.resourcefulconfig.extractinator.option.worldgen"
+    )
+    @Comment(value = "[Fabric Only] Generates Silt and Slush ores", translation = "text.resourcefulconfig.extractinator.option.worldgen.tooltip")
+    public static boolean worldgen = true;
 }

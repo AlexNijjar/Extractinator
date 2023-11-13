@@ -9,6 +9,7 @@ import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.levelgen.GenerationStep;
 import tech.alexnijjar.extractinator.Extractinator;
+import tech.alexnijjar.extractinator.common.config.ExtractinatorConfig;
 
 public class ExtractinatorFabric implements ModInitializer {
     @Override
@@ -18,11 +19,13 @@ public class ExtractinatorFabric implements ModInitializer {
     }
 
     public static void addBiomeModifications() {
-        BiomeModifications.addFeature(BiomeSelectors.foundInOverworld(), GenerationStep.Decoration.UNDERGROUND_ORES,
-            ResourceKey.create(Registries.PLACED_FEATURE,
-                new ResourceLocation(Extractinator.MOD_ID, "silt")));
-        BiomeModifications.addFeature(BiomeSelectors.tag(ConventionalBiomeTags.ICY), GenerationStep.Decoration.UNDERGROUND_ORES,
-            ResourceKey.create(Registries.PLACED_FEATURE,
-                new ResourceLocation(Extractinator.MOD_ID, "slush")));
+        if (ExtractinatorConfig.worldgen) {
+            BiomeModifications.addFeature(BiomeSelectors.foundInOverworld(), GenerationStep.Decoration.UNDERGROUND_ORES,
+                ResourceKey.create(Registries.PLACED_FEATURE,
+                    new ResourceLocation(Extractinator.MOD_ID, "silt")));
+            BiomeModifications.addFeature(BiomeSelectors.tag(ConventionalBiomeTags.ICY), GenerationStep.Decoration.UNDERGROUND_ORES,
+                ResourceKey.create(Registries.PLACED_FEATURE,
+                    new ResourceLocation(Extractinator.MOD_ID, "slush")));
+        }
     }
 }
