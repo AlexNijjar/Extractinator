@@ -10,5 +10,7 @@
   "text.resourcefulconfig.extractinator.option.extractinatorDurability": "Extractinator Durability",
   "text.resourcefulconfig.extractinator.option.extractinatorDurability.tooltip": "Amount of uses before the extractinator breaks",
   "text.resourcefulconfig.extractinator.option.lootMultiplier": "Loot Multiplier",
-  "text.resourcefulconfig.extractinator.option.lootMultiplier.tooltip": "Multiplies the amount of loot dropped by this value"
+  "text.resourcefulconfig.extractinator.option.lootMultiplier.tooltip": "Multiplies the amount of loot dropped by this value",
+  "text.resourcefulconfig.extractinator.option.silent": "Silent",
+  "text.resourcefulconfig.extractinator.option.silent.tooltip": "If the extractinator should be silent"
 }

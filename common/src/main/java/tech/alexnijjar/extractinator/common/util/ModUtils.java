@@ -12,20 +12,19 @@ import java.util.List;
 public class ModUtils {
 
     public static List<ItemStack> extractItem(ExtractinatorRecipe recipe, Level level) {
-        if (recipe != null) {
-            RandomSource random = level.getRandom();
-            List<ItemStack> drops = new ArrayList<>();
-            for (ExtractinatorRecipe.Drop drop : recipe.outputs()) {
-                int dropCount = (int) ((random.nextInt(drop.maxDropCount() - drop.minDropCount() + 1) + drop.minDropCount()) * ExtractinatorConfig.lootMultiplier);
-                double randomPercent = random.nextDouble();
-                if (randomPercent <= drop.dropChance()) {
-                    drop.drops().getRandomElement(random).ifPresent(d -> drops.add(new ItemStack(d.value(), dropCount)));
-                }
-            }
+        if (recipe == null) return List.of();
 
-            return drops;
+        RandomSource random = level.getRandom();
+        List<ItemStack> drops = new ArrayList<>();
+        for (ExtractinatorRecipe.Drop drop : recipe.outputs()) {
+            int dropCount = (int) ((random.nextInt(drop.maxDropCount() - drop.minDropCount() + 1) + drop.minDropCount()) * ExtractinatorConfig.lootMultiplier);
+            double randomPercent = random.nextDouble();
+            if (randomPercent <= drop.dropChance()) {
+                drop.drops().getRandomElement(random).ifPresent(d -> drops.add(new ItemStack(d.value(), dropCount)));
+            }
         }
-        return List.of();
+
+        return drops;
     }
 
     public static boolean isValidInput(ExtractinatorRecipe recipe, ItemStack stack) {

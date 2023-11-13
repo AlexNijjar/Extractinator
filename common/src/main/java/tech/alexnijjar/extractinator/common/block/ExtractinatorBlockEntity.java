@@ -56,7 +56,9 @@ public class ExtractinatorBlockEntity extends BlockEntity implements Extractinat
             if (above.isAir() || Blocks.WATER.equals(above.getBlock())) {
                 level.setBlock(this.getBlockPos().above(), toPlace.defaultBlockState(), Block.UPDATE_NONE);
             } else {
-                level.playSound(null, this.getBlockPos(), toPlace.getSoundType(above).getBreakSound(), SoundSource.BLOCKS, 1.0f, 1.0f);
+                if (!ExtractinatorConfig.silent) {
+                    level.playSound(null, this.getBlockPos(), toPlace.getSoundType(above).getBreakSound(), SoundSource.BLOCKS, 1.0f, 1.0f);
+                }
                 List<ItemStack> outputs = ModUtils.extractItem(this.recipe, level);
                 if (!outputs.isEmpty()) {
                     outputs.forEach(this::addItem);
@@ -71,7 +73,11 @@ public class ExtractinatorBlockEntity extends BlockEntity implements Extractinat
         if (above.isAir()) return;
         ItemStack stack = above.getBlock().asItem().getDefaultInstance();
         if (isValidInput(stack)) {
-            level.destroyBlock(this.getBlockPos().above(), false);
+            if (ExtractinatorConfig.silent) {
+                level.removeBlock(this.getBlockPos().above(), false);
+            } else {
+                level.destroyBlock(this.getBlockPos().above(), false);
+            }
             List<ItemStack> outputs = ModUtils.extractItem(this.recipe, level);
             damage();
             if (!outputs.isEmpty()) {

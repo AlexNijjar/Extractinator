@@ -30,7 +30,6 @@ import net.minecraft.world.phys.Vec3;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.Shapes;
 import net.minecraft.world.phys.shapes.VoxelShape;
-import org.jetbrains.annotations.Nullable;
 import tech.alexnijjar.extractinator.common.registry.ModItems;
 
 import java.util.List;
@@ -123,7 +122,6 @@ public class ExtractinatorBlock extends BaseEntityBlock implements SimpleWaterlo
         return this.defaultBlockState().setValue(FACING, ctx.getHorizontalDirection().getOpposite()).setValue(WATERLOGGED, fluidState.getType().equals(Fluids.WATER));
     }
 
-    @Nullable
     @Override
     public BlockEntity newBlockEntity(BlockPos pos, BlockState state) {
         return new ExtractinatorBlockEntity(pos, state);

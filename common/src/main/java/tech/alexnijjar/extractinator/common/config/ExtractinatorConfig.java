@@ -48,4 +48,12 @@ public final class ExtractinatorConfig {
     )
     @Comment(value = "Amount of uses before the extractinator breaks", translation = "text.resourcefulconfig.extractinator.option.extractinatorDurability.tooltip")
     public static int extractinatorDurability = -1;
+
+    @ConfigEntry(
+        id = "silent",
+        type = EntryType.BOOLEAN,
+        translation = "text.resourcefulconfig.extractinator.option.silent"
+    )
+    @Comment(value = "If the extractinator should be silent", translation = "text.resourcefulconfig.extractinator.option.silent.tooltip")
+    public static boolean silent = false;
 }
