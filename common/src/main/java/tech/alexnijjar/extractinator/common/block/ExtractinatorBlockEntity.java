@@ -7,6 +7,7 @@ import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.world.ContainerHelper;
 import net.minecraft.world.entity.item.ItemEntity;
+import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
@@ -44,6 +45,7 @@ public class ExtractinatorBlockEntity extends BlockEntity implements Extractinat
             dispenseItems();
             placeBlockAbove();
             extractBlockAbove();
+            extractItems();
             setChanged();
         }
     }
@@ -52,43 +54,51 @@ public class ExtractinatorBlockEntity extends BlockEntity implements Extractinat
         BlockState above = level.getBlockState(this.getBlockPos().above());
         ItemStack input = inventory.get(0);
         Block toPlace = Block.byItem(input.getItem());
-        if (!(toPlace == Blocks.AIR)) {
-            if (above.isAir() || Blocks.WATER.equals(above.getBlock())) {
-                level.setBlock(this.getBlockPos().above(), toPlace.defaultBlockState(), Block.UPDATE_NONE);
-            } else {
-                if (!ExtractinatorConfig.silent) {
-                    level.playSound(null, this.getBlockPos(), toPlace.getSoundType(above).getBreakSound(), SoundSource.BLOCKS, 1.0f, 1.0f);
-                }
-                List<ItemStack> outputs = ModUtils.extractItem(this.recipe, level);
-                if (!outputs.isEmpty()) {
-                    outputs.forEach(this::addItem);
-                }
+        if (toPlace == Blocks.AIR) return;
+
+        if (above.isAir() || Blocks.WATER.equals(above.getBlock())) {
+            level.setBlock(this.getBlockPos().above(), toPlace.defaultBlockState(), Block.UPDATE_NONE);
+        } else {
+            if (!ExtractinatorConfig.silent) {
+                level.playSound(null, this.getBlockPos(), toPlace.getSoundType(above).getBreakSound(), SoundSource.BLOCKS, 1.0f, 1.0f);
             }
-            getItem(0).shrink(1);
+            List<ItemStack> outputs = ModUtils.extractItem(this.recipe, level);
+            if (!outputs.isEmpty()) {
+                outputs.forEach(this::addItem);
+            }
         }
+        getItem(0).shrink(1);
     }
 
     protected void extractBlockAbove() {
         BlockState above = level.getBlockState(this.getBlockPos().above());
         if (above.isAir()) return;
-        ItemStack stack = above.getBlock().asItem().getDefaultInstance();
-        if (isValidInput(stack)) {
-            if (ExtractinatorConfig.silent) {
-                level.removeBlock(this.getBlockPos().above(), false);
-            } else {
-                level.destroyBlock(this.getBlockPos().above(), false);
-            }
-            List<ItemStack> outputs = ModUtils.extractItem(this.recipe, level);
-            damage();
-            if (!outputs.isEmpty()) {
-                outputs.forEach(this::addItem);
-            }
+        extractStack(above.getBlock().asItem().getDefaultInstance());
+    }
+
+    protected void extractItems() {
+        var stack = getItem(0);
+        if (stack.getItem() instanceof BlockItem) return;
+        if (extractStack(stack)) stack.shrink(1);
+    }
+
+    protected boolean extractStack(ItemStack stack) {
+        if (!isValidInput(stack)) return false;
+
+        if (ExtractinatorConfig.silent) {
+            level.removeBlock(this.getBlockPos().above(), false);
+        } else {
+            level.destroyBlock(this.getBlockPos().above(), false);
         }
+        List<ItemStack> outputs = ModUtils.extractItem(this.recipe, level);
+        damage();
+        if (!outputs.isEmpty()) outputs.forEach(this::addItem);
+        return true;
     }
 
     protected void dispenseItems() {
         for (int i = 1; i < getInventory().size(); i++) {
-            ItemStack stack = this.getItem(i);
+            ItemStack stack = getItem(i);
             if (stack.isEmpty()) continue;
             if (!level.getBlockState(getBlockPos().above()).isAir()) continue;
             BlockPos pos = this.getBlockPos();
